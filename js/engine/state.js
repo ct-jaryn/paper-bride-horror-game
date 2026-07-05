@@ -22,10 +22,11 @@ const DEFAULT_STATE = {
     currentScene: 'prologue',
     history: [],
     choiceLog: [],
-    reviveCheckpoints: []
+    reviveCheckpoints: [],
+    npcState: {}
 };
 
-const ALLOWED_UPDATE_KEYS = ['sanity', 'yin', 'time', 'inventory', 'flags', 'currentScene', 'history', 'choiceLog', 'lastSaveAt', 'reviveCheckpoints'];
+const ALLOWED_UPDATE_KEYS = ['sanity', 'yin', 'time', 'inventory', 'flags', 'currentScene', 'history', 'choiceLog', 'lastSaveAt', 'reviveCheckpoints', 'npcState'];
 
 function cloneState() {
     return JSON.parse(JSON.stringify(DEFAULT_STATE));
@@ -167,7 +168,7 @@ export function loadStoryState(storyId, storyData, globalFlags) {
     }
 
     const clean = {};
-    const allowed = ['sanity', 'yin', 'time', 'inventory', 'flags', 'currentScene', 'history', 'choiceLog', 'lastSaveAt'];
+    const allowed = ['sanity', 'yin', 'time', 'inventory', 'flags', 'currentScene', 'history', 'choiceLog', 'lastSaveAt', 'npcState'];
     allowed.forEach(key => {
         if (key in data) clean[key] = clone(data[key]);
     });
@@ -177,6 +178,7 @@ export function loadStoryState(storyId, storyData, globalFlags) {
     if (typeof clean.time !== 'number') clean.time = 1140;
     if (!Array.isArray(clean.inventory)) clean.inventory = [];
     if (typeof clean.flags !== 'object' || clean.flags === null) clean.flags = {};
+    if (typeof clean.npcState !== 'object' || clean.npcState === null) clean.npcState = {};
     if (typeof clean.currentScene !== 'string' || !storyData[clean.currentScene]) {
         clean.currentScene = 'prologue';
     }

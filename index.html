@@ -243,6 +243,31 @@
             </div>
         </div>
 
+        <!-- NPC 对话浮层 -->
+        <div id="npc-dialogue-overlay" class="record-overlay hidden">
+            <div class="paper-texture"></div>
+            <div class="npc-dialogue-panel">
+                <div class="npc-dialogue-header">
+                    <div class="npc-portrait" aria-hidden="true">
+                        <span id="npc-portrait-text">?</span>
+                    </div>
+                    <div class="npc-info">
+                        <h2 id="npc-name" class="npc-name"></h2>
+                        <p id="npc-title" class="npc-title"></p>
+                    </div>
+                    <div class="npc-affinity-wrap">
+                        <span class="npc-affinity-label">关系</span>
+                        <span id="npc-affinity" class="npc-affinity">萍水相逢</span>
+                    </div>
+                    <button id="npc-dialogue-close" class="record-close" aria-label="关闭">×</button>
+                </div>
+                <div class="npc-dialogue-body">
+                    <p id="npc-dialogue-text" class="npc-dialogue-text"></p>
+                </div>
+                <div id="npc-dialogue-choices" class="npc-dialogue-choices"></div>
+            </div>
+        </div>
+
         <!-- 选择记录浮层 -->
         <div id="record-overlay" class="record-overlay hidden">
             <div class="paper-texture"></div>

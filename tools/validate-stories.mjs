@@ -112,7 +112,7 @@ export function validateStory(storyId, StoryData, Endings, report = createConsol
                     report.error(storyId, `场景 ${sceneId} 的选择 ${idx} 指向不存在的结局: ${choice.ending}`);
                 }
 
-                if (!choice.next && !choice.ending && !scene.ending && !choice.custom) {
+                if (!choice.next && !choice.ending && !scene.ending && !choice.custom && !choice.npc) {
                     report.warning(storyId, `场景 ${sceneId} 的选择 ${idx} 既没有 next 也没有 ending（可能是死胡同）`);
                 }
 

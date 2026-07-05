@@ -380,3 +380,7 @@ export function renderAchievements() {
         ui.achievementCount.textContent = `${Huimen.AchievementEngine.getUnlockedCount()} / ${allAchievements.length}`;
     }
 }
+
+// 导出公共 API 到 Huimen
+Huimen.renderScene = renderScene;
+

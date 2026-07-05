@@ -16475,4 +16475,281 @@ StoryData.to_old_house.choices.push({
     hidden: true,
     effects: { yin: 1 }
 });
-export default { StoryData, Endings };
+
+// ------------------------------------------------------------
+// 可对话 NPC 选项注入
+// ------------------------------------------------------------
+
+StoryData.huimen_exp_village_street.choices.push({
+    text: '街角站着个提白灯笼的老人',
+    npc: 'lao_zhang',
+    npcNode: 'start',
+    effects: { yin: 1 },
+    custom: true
+});
+
+StoryData.huimen_exp_paper_shop.choices.push({
+    text: '柜台后还躲着一个年轻学徒',
+    npc: 'xiao_fu',
+    npcNode: 'start',
+    effects: { yin: 1 },
+    custom: true
+});
+
+StoryData.huimen_exp_temple_gate.choices.push({
+    text: '庙门后坐着一个敲木鱼的枯瘦老人',
+    npc: 'lao_zhou',
+    npcNode: 'start',
+    effects: { yin: 1 },
+    custom: true
+});
+
+StoryData.huimen_exp_well_night.choices.push({
+    text: '井沿上蹲着一个浣洗衣裳的女子虚影',
+    npc: 'a_huan',
+    npcNode: 'start',
+    effects: { yin: 1 },
+    custom: true
+});
+
+// ------------------------------------------------------------
+// NPC 数据
+// ------------------------------------------------------------
+
+export const NPCs = {
+    lao_zhang: {
+        name: '老张',
+        title: '守夜人',
+        dialogue: {
+            start: {
+                text: `老张提着一盏白灯笼，站在街角的阴影里。他的脸被灯笼照得半明半暗，像一张正在燃烧的纸。
+
+"后生，你是周家回来的吧？我守这村子三十年，活人见少，死人见多。今晚月亮停在东山不落，是秀兰在等人。"`,
+                choices: [
+                    { text: '这村子为什么变成这样？', next: 'ask_village' },
+                    { text: '秀兰在等谁？', next: 'ask_xiulan' },
+                    { text: '把半支安神香递给他', next: 'give_lantern', condition: { hasItem: '半支安神香' }, effects: { npcAffinity: 15, removeItem: '半支安神香', addItem: '守夜人的灯笼', setFlag: 'huimen_exp_lao_zhang_blessed' } },
+                    { text: '离开', exit: true }
+                ]
+            },
+            ask_village: {
+                text: `"这村子有两副脸皮。白天是周家村，青砖灰瓦、炊烟袅袅；晚上是秀兰的村子，纸钱当雪、白灯笼当眼。"
+
+老张压低灯笼，火光里的纸灰纷纷扬扬。
+
+"她哭，村子就阴；她笑，村子就亮。你每走一步，都在她的心口上踩。"`,
+                choices: [
+                    { text: '怎么才能让她不哭？', next: 'ask_peace' },
+                    { text: '回去再问他别的', next: 'start' }
+                ]
+            },
+            ask_xiulan: {
+                text: `"秀兰啊……" 老张的声音忽然轻了，像怕惊动什么。
+
+"我守夜时常见她坐在井沿上梳头。她不害人，她就是想让周家的人看见她。可周家的人代代都装瞎，把她当脏水泼。"
+
+他抬头看了你一眼："你是周家后人，也是第一个愿意停下来听我说话的人。"`,
+                choices: [
+                    { text: '她在等什么？', next: 'ask_peace' },
+                    { text: '回去', next: 'start' }
+                ]
+            },
+            ask_peace: {
+                text: `"有人陪她坐一夜，有人替她正名，有人给她烧一套像样的嫁妆。秀兰要的不是仪式，是被人当个人看。"
+
+老张把灯笼举高，照亮你脚下的路："你得自己选一条路走到底，半途而废的人，都变成了纸人。"
+
+他顿了顿，又低声说："记住，她最恨的不是周家害了她，是周家忘了她。"`,
+                choices: [
+                    { text: '我明白了', next: 'start', effects: { npcAffinity: 5, setFlag: 'huimen_exp_lao_zhang_peace_hint' } },
+                    { text: '离开', exit: true }
+                ]
+            },
+            give_lantern: {
+                text: `你把那半支安神香递过去。老张愣了一下，眼眶里泛起水光——不是泪，是灯油烧化的热气。
+
+"多少年……没人给我上过香了。" 他把白灯笼递给你，"拿着，这灯芯是我的指骨磨的，阴物不敢近。但记住，灯烧完了，我也就该散了。"
+
+灯笼入手冰凉，火光却暖。`,
+                choices: [
+                    { text: '小心收好灯笼', next: 'start', effects: { npcAffinity: 5 } },
+                    { text: '离开', exit: true }
+                ]
+            }
+        }
+    },
+    xiao_fu: {
+        name: '小福',
+        title: '扎纸匠徒弟',
+        dialogue: {
+            start: {
+                text: `柜台后面不只坐着那个盲眼老人，还蹲着一个瘦小的年轻人。他手里攥着一把浆糊刷，刷毛上的浆糊已经发黑了。
+
+"别、别看我师父。" 年轻人把身子缩得更小，"他扎了一辈子纸人，眼睛扎瞎了，心也扎空了。我……我只想学个手艺活下去，没想到周家连活人的命都要扎进去。"`,
+                choices: [
+                    { text: '你师父为什么扎我的脸？', next: 'ask_master' },
+                    { text: '纸人替身是什么意思？', next: 'ask_substitute' },
+                    { text: '你能帮我什么？', next: 'ask_help' },
+                    { text: '离开', exit: true }
+                ]
+            },
+            ask_master: {
+                text: `"师父不是坏人。三十年前，他爱的人被周家沉了塘，从那以后他就只会扎纸人。他说每扎一个，就替阿绣受一次罪。"
+
+小福偷偷瞄了老人一眼。
+
+"可周家发现了他的本事，逼他给每个男丁扎替身。你祖父的、你父亲的、你的……都在这铺子里。你看见那个下巴有痣的纸人了吗？那就是你。"`,
+                choices: [
+                    { text: '怎么才能毁掉替身？', next: 'ask_substitute' },
+                    { text: '回去', next: 'start' }
+                ]
+            },
+            ask_substitute: {
+                text: `"替身替你们挡灾、替你们成亲、替你们下井。秀兰等的不是周家男人，是和她一样被活埋在纸里的魂。"
+
+小福从柜台下摸出一张黄纸，纸上画着繁复的符纹。
+
+"如果你能找到自己的替身纸人，烧了它，秀兰就骗不了你。可师父……师父不会让你们烧的。那些纸人，是他的命。"
+
+他忽然压低声音："除非，你能带来阿绣的消息。"`,
+                choices: [
+                    { text: '阿绣是谁？', next: 'ask_axiu' },
+                    { text: '回去', next: 'start' }
+                ]
+            },
+            ask_axiu: {
+                text: `"阿绣是周家的'不祥女'之一，和秀兰一样。她的坟在河边，碑上没刻名字。"
+
+小福的声音更低了："师父等了她三十年。你要是能让她来见师父一面，师父什么都会答应你。"
+
+他从怀里掏出一块用黄纸包着的碎骨："把这个放在阿绣坟前，她就知道师父还在等她。"`,
+                choices: [
+                    { text: '我记下了', next: 'start', effects: { npcAffinity: 10, addItem: '小福包的纸骨', setFlag: 'huimen_exp_xiao_fu_axiu_hint' } },
+                    { text: '离开', exit: true }
+                ]
+            },
+            ask_help: {
+                text: `小福咬着嘴唇，从柜台角落摸出一把小小的浆糊刷。
+
+"这个给你。师父说，浆糊是纸人的血，能粘住魂，也能糊住谎。你要是遇见会说话的脸、会眨眼的纸人，就用这刷子蘸水点它的眉心。"
+
+他把刷子塞到你手里，指尖冰凉。`,
+                choices: [
+                    { text: '收下浆糊刷', next: 'start', effects: { npcAffinity: 10, addItem: '小福的浆糊刷', setFlag: 'huimen_exp_xiao_fu_helped' } },
+                    { text: '离开', exit: true }
+                ]
+            }
+        }
+    },
+    lao_zhou: {
+        name: '老周',
+        title: '守庙人',
+        dialogue: {
+            start: {
+                text: `庙门只剩半扇，门后坐着一个枯瘦的老人。他手里敲着一柄小木鱼，木鱼声在空荡荡的庙里回响，像是从井底传上来的。
+
+"周家后生？" 老人没有抬头，"我姓周，可我不认周家。我守着这庙四十年，守着秀兰的一缕魂，也守着周家不敢见光的罪。"`,
+                choices: [
+                    { text: '庙里为什么有口竖棺？', next: 'ask_coffin' },
+                    { text: '秀兰的魂被分成了三份？', next: 'ask_three_souls' },
+                    { text: '你为什么不认周家？', next: 'ask_zhou' },
+                    { text: '离开', exit: true }
+                ]
+            },
+            ask_coffin: {
+                text: `"那棺材里不是尸体，是秀兰的一缕发魂。周家怕她报仇，把她的心、肺、魂分别镇在井、庙、桑三处。"
+
+老周停止敲木鱼，庙里骤然安静。
+
+"竖棺镇魂，是因为人躺着才能安息，站着就只能永远醒着。秀兰在这庙里站了三十年，你说她疼不疼？"`,
+                choices: [
+                    { text: '怎么解开镇魂？', next: 'ask_release' },
+                    { text: '回去', next: 'start' }
+                ]
+            },
+            ask_release: {
+                text: `"撕黄符、断红绳、唤真名。可在那之前，你得让她相信你。你要是带着恨去撕符，她会以为你是周家派来灭她的。"
+
+老周把木鱼递给你："敲三下，告诉她你是来送她的，不是来镇她的。"`,
+                choices: [
+                    { text: '我记住了', next: 'start', effects: { npcAffinity: 5, setFlag: 'huimen_exp_lao_zhou_release_hint' } },
+                    { text: '离开', exit: true }
+                ]
+            },
+            ask_three_souls: {
+                text: `"井里镇着她的心，庙里镇着她的肺，桑树里镇着她的肾。三魂归一，她才能想起自己是谁。"
+
+老周从怀里掏出一枚小小的铜铃："这是庙里供了几十年的引魂铃。你若是去井边、桑树下，摇一摇，她的魂会跟着你走。"`,
+                choices: [
+                    { text: '收下铜铃', next: 'start', effects: { npcAffinity: 15, addItem: '老周的引魂铃', setFlag: 'huimen_exp_lao_zhou_bell' } },
+                    { text: '回去', next: 'start' }
+                ]
+            },
+            ask_zhou: {
+                text: `"周家男人活不过四十，是因为祖上把命都用来抵债了。每一代都有人拿女人的命换自己的寿。"
+
+老周抬起眼，眼眶里一片浑浊："我年轻时也差点成了这种人。后来我在庙前跪了三天三夜，秀兰……秀兰她没害我。她说：'你不是他们。' 我就一直守到现在。"
+
+他把手覆在你的手背上："别做他们。做个人。"`,
+                choices: [
+                    { text: '我会还她公道', next: 'start', effects: { npcAffinity: 10 } },
+                    { text: '离开', exit: true }
+                ]
+            }
+        }
+    },
+    a_huan: {
+        name: '阿浣',
+        title: '井边浣衣女',
+        dialogue: {
+            start: {
+                text: `井沿上蹲着一个穿蓝布衫的女子，正用井水洗一件红色的嫁衣。嫁衣上的血色越洗越浓，把井水都染红了一小片。
+
+她抬起头，脸是模糊的，像被水泡过的旧照片。
+
+"你是周家的人？" 她问，"秀兰姐等你们，等得井底都长出了青苔。"`,
+                choices: [
+                    { text: '你认识秀兰？', next: 'ask_xiulan' },
+                    { text: '这口井有什么古怪？', next: 'ask_well' },
+                    { text: '你在洗什么？', next: 'ask_wash' },
+                    { text: '离开', exit: true }
+                ]
+            },
+            ask_xiulan: {
+                text: `"秀兰姐是这世上最好的人。她没出嫁前，常把绣好的帕子分给我们这些穷人。她说等嫁了人，要在院子里种一棵桂花树。"
+
+阿浣的声音像从水底传来："可周家不要桂花树，只要她的八字、她的肚子、她的命。"
+
+她忽然凑近你："你要是想让她记住人的好，就给她带一枝桂花。她闻见桂花香，就会想起自己还是人的时候。"`,
+                choices: [
+                    { text: '我记下了', next: 'start', effects: { npcAffinity: 10, setFlag: 'huimen_exp_a_huan_osmanthus_hint' } },
+                    { text: '离开', exit: true }
+                ]
+            },
+            ask_well: {
+                text: `"这口井是周家女人的坟。不只是秀兰，还有柳红、阿绣、云袖……她们的魂都在井底排着队，等一个出口。"
+
+她停下洗衣的手："你下井的时候，会听见很多声音。不要回头，不要答应任何名字。只要叫秀兰，一直叫她的名字。"
+
+阿浣从水里捞起一块皂角递给你："把这个碾碎了撒进井里，水会暖一些。她泡了三十年，太冷了。"`,
+                choices: [
+                    { text: '收下皂角', next: 'start', effects: { npcAffinity: 15, addItem: '阿浣的皂角', setFlag: 'huimen_exp_a_huan_soap' } },
+                    { text: '回去', next: 'start' }
+                ]
+            },
+            ask_wash: {
+                text: `"我在洗她的嫁衣。她死的时候穿的就是这件，血浸透了丝线，怎么洗都洗不干净。"
+
+阿浣把嫁衣浸入井水里，水面立刻浮出一张女子的脸，又很快消散。
+
+"你要是愿意，帮我一起洗。洗淡了，她的怨气也会淡一点。"`,
+                choices: [
+                    { text: '帮她一起洗', next: 'start', effects: { npcAffinity: 10, sanity: -3, yin: -2, setFlag: 'huimen_exp_a_huan_washed' } },
+                    { text: '离开', exit: true }
+                ]
+            }
+        }
+    }
+};
+
+export default { StoryData, Endings, NPCs };

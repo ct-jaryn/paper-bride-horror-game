@@ -51,6 +51,7 @@ export function loadStory(storyId, forceReset = false) {
 
             Huimen.StoryData = module.StoryData;
             Huimen.Endings = module.Endings;
+            Huimen.NPCs = module.NPCs || {};
             applyEasterEggs();
             initStoryData(forceReset);
         })

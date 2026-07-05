@@ -64,6 +64,12 @@ export function makeChoice(choice, choiceIndex) {
             return;
         }
 
+        // NPC 对话分支
+        if (choice.npc && typeof Huimen.startNPCDialogue === 'function') {
+            Huimen.startNPCDialogue(choice.npc, choice.npcNode || 'start');
+            return;
+        }
+
         if (choice.next) {
             renderScene(choice.next);
         } else if (choice.ending) {
