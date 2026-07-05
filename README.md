@@ -24,19 +24,10 @@
 
 由于当前 PAT 没有 `pages` 权限，需要你在 GitHub 上完成一次设置：
 
-### 方式一：GitHub Actions（推荐，已配置工作流）
-
 1. 打开仓库 **Settings → Pages**
 2. **Source** 选择 **GitHub Actions**
-3. 保存后，工作流会自动运行；或进入 **Actions → Deploy to GitHub Pages** 手动触发
+3. 保存后，`.github/workflows/static.yml` 工作流会自动运行；或进入 **Actions → Deploy static content to Pages** 手动触发
 4. 等待 1–3 分钟，访问上面的预览地址即可
-
-### 方式二：Deploy from a branch
-
-1. 打开仓库 **Settings → Pages**
-2. **Source** 选择 **Deploy from a branch**
-3. 选择 **Branch: main / Folder: (root)**
-4. 保存后等待 1–3 分钟，访问上面的预览地址即可
 
 之后每次推送到 `main` 分支，GitHub Pages 都会自动重新部署。事、共享世界观的 **中式文字恐怖游戏集**。  
 > 每一卷都是独立的民俗恐怖故事，发生在同一个「阴阳交错」的世界里，共享相同的民俗符号、诅咒规则与因果逻辑。
