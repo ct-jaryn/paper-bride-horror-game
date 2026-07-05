@@ -24,6 +24,44 @@
 
 由于当前 PAT 没有 `pages` 权限，需要你在 GitHub 上完成一次设置：
 
+### 方式一：GitHub Actions（推荐，已配置工作流）
+
+1. 打开仓库 **Settings → Pages**
+2. **Source** 选择 **GitHub Actions**
+3. 保存后，工作流会自动运行；或进入 **Actions → Deploy to GitHub Pages** 手动触发
+4. 等待 1–3 分钟，访问上面的预览地址即可
+
+### 方式二：Deploy from a branch
+
+1. 打开仓库 **Settings → Pages**
+2. **Source** 选择 **Deploy from a branch**
+3. 选择 **Branch: main / Folder: (root)**
+4. 保存后等待 1–3 分钟，访问上面的预览地址即可
+
+之后每次推送到 `main` 分支，GitHub Pages 都会自动重新部署。事、共享世界观的 **中式文字恐怖游戏集**。  
+> 每一卷都是独立的民俗恐怖故事，发生在同一个「阴阳交错」的世界里，共享相同的民俗符号、诅咒规则与因果逻辑。
+>
+> 🎮 **在线预览**：https://ct-jaryn.github.io/paper-bride-horror-game/  
+> 📦 **源码仓库**：https://github.com/ct-jaryn/paper-bride-horror-game
+
+---
+
+## 简介
+
+《阴阳簿》记录人与鬼之间未了之事。簿中的每一页，都是一个被执念困住的灵魂。它们或因冤而死，或因爱而不舍，或因罪而难以超生。只有"有缘人"才能翻开这些页面，进入它们的故事。
+
+你，就是这本簿子的最新记录者。
+
+---
+
+## 在线预览
+
+仓库已改为公开，预览地址为：
+
+👉 **[https://ct-jaryn.github.io/paper-bride-horror-game/](https://ct-jaryn.github.io/paper-bride-horror-game/)**
+
+由于当前 PAT 没有 `pages` 权限，需要你在 GitHub 上完成一次设置：
+
 1. 打开仓库 **Settings → Pages**
 2. **Source** 选择 **Deploy from a branch**
 3. 选择 **Branch: main / Folder: (root)**
