@@ -18,11 +18,18 @@
 
 ## 在线预览
 
-项目已通过 GitHub Pages 自动部署，点击即可游玩：
+仓库已改为公开，预览地址为：
 
 👉 **[https://ct-jaryn.github.io/paper-bride-horror-game/](https://ct-jaryn.github.io/paper-bride-horror-game/)**
 
-> 部署状态由 GitHub Actions / Pages 自动维护，每次 `main` 分支更新后自动重新发布。
+由于当前 PAT 没有 `pages` 权限，需要你在 GitHub 上完成一次设置：
+
+1. 打开仓库 **Settings → Pages**
+2. **Source** 选择 **Deploy from a branch**
+3. 选择 **Branch: main / Folder: (root)**
+4. 保存后等待 1–3 分钟，访问上面的预览地址即可
+
+之后每次推送到 `main` 分支，GitHub Pages 会自动重新部署。
 
 ---
 
