@@ -13,7 +13,7 @@
  */
 
 import { readdirSync } from 'fs';
-import { join } from 'path';
+import { join, resolve, basename } from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
@@ -219,10 +219,24 @@ export async function validateAllStories(report = createConsoleReport()) {
 }
 
 async function main() {
-    console.log(`开始校验 ${readdirSync(storiesDir).filter(n => n.startsWith('story_') && n.endsWith('.js')).length} 个故事...\n`);
-
+    const targetArg = process.argv[2];
     const report = createConsoleReport();
-    await validateAllStories(report);
+
+    if (targetArg) {
+        const storyPath = resolve(targetArg);
+        const file = basename(storyPath);
+        if (!file.startsWith('story_') || !file.endsWith('.js')) {
+            console.error(`指定的文件不是故事文件: ${targetArg}`);
+            process.exit(1);
+        }
+        const storyId = file.replace(/^story_/, '').replace(/\.js$/, '');
+        console.log(`开始校验 ${file}...\n`);
+        const module = await import(pathToFileURL(storyPath).href);
+        validateStory(storyId, module.StoryData, module.Endings, report);
+    } else {
+        console.log(`开始校验 ${readdirSync(storiesDir).filter(n => n.startsWith('story_') && n.endsWith('.js')).length} 个故事...\n`);
+        await validateAllStories(report);
+    }
 
     console.log('\n--------------------------------');
     console.log(`校验完成：错误 ${report.errors} 个，警告 ${report.warnings} 个`);
