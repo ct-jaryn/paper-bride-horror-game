@@ -46,7 +46,9 @@ function defineLazyProperties(obj, idMap) {
         Object.defineProperty(obj, key, {
             get() {
                 if (!cached) {
-                    cache = document.getElementById(idMap[key]);
+                    cache = (typeof document !== 'undefined' && document.getElementById)
+                        ? document.getElementById(idMap[key])
+                        : null;
                     cached = true;
                 }
                 return cache;
@@ -84,6 +86,7 @@ export function refreshDomCache() {
  * 安全的 DOM 元素访问：若元素不存在则返回 null 并打印警告（可选）
  */
 export function safeElement(id, silent = false) {
+    if (typeof document === 'undefined') return null;
     const el = document.getElementById(id);
     if (!el && !silent) {
         console.warn('DOM 元素未找到:', id);

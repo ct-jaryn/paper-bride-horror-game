@@ -5,6 +5,7 @@
 
 import { Huimen } from './namespace.js';
 import { safeMergeSave } from './utils.js';
+import { Platform } from './platform.js';
 
 const SAVE_VERSION = 2;
 const STORAGE_KEY = 'huimen_save_v2';
@@ -30,7 +31,7 @@ let dirty = false;
  */
 function readRaw() {
     try {
-        const saved = localStorage.getItem(STORAGE_KEY);
+        const saved = Platform.storage.getItem(STORAGE_KEY);
         if (saved) return JSON.parse(saved);
     } catch (e) {
         console.error('读取统一存档失败:', e);
@@ -43,7 +44,7 @@ function readRaw() {
  */
 function writeRaw(data) {
     try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        Platform.storage.setItem(STORAGE_KEY, JSON.stringify(data));
         cache = JSON.parse(JSON.stringify(data));
         dirty = false;
         return true;
@@ -87,7 +88,7 @@ function getDefaultSave() {
  */
 function readLegacy(key) {
     try {
-        const saved = localStorage.getItem(key);
+        const saved = Platform.storage.getItem(key);
         if (saved) return JSON.parse(saved);
     } catch (e) {
         console.warn(`读取旧存档 key 失败: ${key}`, e);
@@ -145,14 +146,13 @@ function migrateFromLegacy() {
 
     // 各故事存档
     try {
-        for (let i = 0; i < localStorage.length; i++) {
-            const key = localStorage.key(i);
+        Platform.storage.keys().forEach(key => {
             if (key && key.startsWith('huimen_save_')) {
                 const storyId = key.replace('huimen_save_', '');
                 const data = readLegacy(key);
                 if (data) save.stories[storyId] = data;
             }
-        }
+        });
     } catch (e) {
         console.warn('迁移故事存档失败:', e);
     }
@@ -166,17 +166,11 @@ function migrateFromLegacy() {
 function clearLegacyKeys() {
     try {
         Object.values(LEGACY_KEYS).forEach(key => {
-            localStorage.removeItem(key);
+            Platform.storage.removeItem(key);
         });
 
-        const toRemove = [];
-        for (let i = 0; i < localStorage.length; i++) {
-            const key = localStorage.key(i);
-            if (key && key.startsWith('huimen_save_')) {
-                toRemove.push(key);
-            }
-        }
-        toRemove.forEach(key => localStorage.removeItem(key));
+        const toRemove = Platform.storage.keys().filter(key => key && key.startsWith('huimen_save_'));
+        toRemove.forEach(key => Platform.storage.removeItem(key));
     } catch (e) {
         console.warn('清理旧存档失败:', e);
     }
@@ -354,7 +348,7 @@ export function hasAnyStorySave(storyManifest) {
 export function clearAll() {
     cache = getDefaultSave();
     dirty = true;
-    localStorage.removeItem(STORAGE_KEY);
+    Platform.storage.removeItem(STORAGE_KEY);
     clearLegacyKeys();
     Huimen.GlobalFlags = {};
     return true;

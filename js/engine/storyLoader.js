@@ -9,6 +9,7 @@ import * as SaveManager from './saveManager.js';
 import { resetState, loadStoryState } from './state.js';
 import { showScreen, renderScene } from './renderer.js';
 import { applyEasterEggs } from './storyExtensions.js';
+import { Platform } from './platform.js';
 
 /**
  * 设置指定故事的加载状态
@@ -33,8 +34,10 @@ export function loadStory(storyId, forceReset = false) {
     Huimen.CurrentStory = story;
     setStoryLoading(storyId, true);
 
-    const scriptUrl = new URL(story.scriptPath, document.baseURI).href;
-    import(scriptUrl)
+    const scriptUrl = Platform.isMinigame()
+        ? story.scriptPath
+        : new URL(story.scriptPath, document.baseURI).href;
+    Platform.loadScript(scriptUrl)
         .then(module => {
             setStoryLoading(storyId, false);
 

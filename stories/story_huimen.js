@@ -44,7 +44,7 @@ export const StoryData = {
 她的灯笼忽明忽暗，照得地上纸钱纷飞。`,
         effects: {
             sanity: -5,
-            yin: 10,
+            yin: 5,
             visual: 'flicker',
             visualDuration: 2000
         },
@@ -60,14 +60,14 @@ export const StoryData = {
             {
                 text: '仔细观察那两个纸人',
                 next: 'inspect_paper_dolls',
-                effects: { sanity: -8, yin: 5 }
+                effects: { sanity: -8, yin: 2 }
             },
             {
                 text: '侧耳倾听，纸人似乎在低语',
                 next: 'paper_whisper',
                 condition: { yinAbove: 15 },
                 hidden: true,
-                effects: { sanity: -5, yin: 10 }
+                effects: { sanity: -5, yin: 5 }
             }
         ]
     },
@@ -90,7 +90,7 @@ export const StoryData = {
 你忽然明白了：秀兰不只在井底。她还在这些纸人里，在每一张纸钱上，在每一根红绳里。`,
         effects: {
             sanity: -10,
-            yin: 15,
+            yin: 7,
             setFlag: 'heard_paper_whisper'
         },
         choices: [
@@ -125,7 +125,7 @@ export const StoryData = {
 [whisper]那影子有三个头。[/whisper]`,
         effects: {
             sanity: -10,
-            yin: 10
+            yin: 5
         },
         choices: [
             {
@@ -157,7 +157,7 @@ export const StoryData = {
 [red]你的阴气太重了。[/red]`,
         effects: {
             sanity: -25,
-            yin: 30,
+            yin: 15,
             visual: 'paper-doll',
             visualDuration: 3000
         },
@@ -187,7 +187,7 @@ export const StoryData = {
 
 身后，风声呜咽，像是在笑。`,
         effects: {
-            yin: 15,
+            yin: 7,
             time: 30
         },
         choices: [
@@ -248,7 +248,7 @@ export const StoryData = {
 李婆笑了："[whisper]血脉里的债，总得有人还。你今晚上了轿，就是她的新郎了。[/whisper]"`,
         effects: {
             sanity: -12,
-            yin: 8
+            yin: 4
         },
         choices: [
             {
@@ -278,7 +278,7 @@ export const StoryData = {
         effects: {
             addItem: '护身符',
             sanity: -5,
-            yin: 5
+            yin: 2
         },
         choices: [
             {
@@ -289,7 +289,7 @@ export const StoryData = {
             {
                 text: '觉得晦气，把符扔了',
                 next: 'to_old_house',
-                effects: { sanity: -5, yin: 10 }
+                effects: { sanity: -5, yin: 5 }
             }
         ]
     },
@@ -318,7 +318,7 @@ export const StoryData = {
 你注意到，他们每个人的手腕上，都系着一根红绳。红绳的另一端，消失在棺材下面。`,
         effects: {
             sanity: -10,
-            yin: 10,
+            yin: 5,
             visual: 'flicker',
             visualDuration: 3000
         },
@@ -365,7 +365,7 @@ export const StoryData = {
 那团影子见你不答，慢慢地、慢慢地沉进了地板缝里，只留下一缕潮湿的、像是从井底带上来的腥气。`,
         effects: {
             sanity: -10,
-            yin: 10,
+            yin: 5,
             setFlag: 'saw_corner_shadow'
         },
         choices: [
@@ -403,7 +403,7 @@ export const StoryData = {
 [red]这不是还债。这是要把你搭进去。[/red]`,
         effects: {
             sanity: -15,
-            yin: 10
+            yin: 5
         },
         choices: [
             {
@@ -441,7 +441,7 @@ export const StoryData = {
 他们松开了你的手腕。`,
         effects: {
             sanity: -5,
-            yin: 5,
+            yin: 2,
             setFlag: 'knows_ritual_loophole'
         },
         choices: [
@@ -501,7 +501,7 @@ export const StoryData = {
 三姑指了指棺材后面的小门："秀兰在里面等你。今晚子时，拜堂。"`,
         effects: {
             sanity: -18,
-            yin: 15
+            yin: 7
         },
         choices: [
             {
@@ -578,7 +578,7 @@ export const StoryData = {
 你想松手，却发现自己的手被水面吸住了。`,
         effects: {
             sanity: -20,
-            yin: 20,
+            yin: 10,
             visual: 'whisper'
         },
         choices: [
@@ -659,7 +659,7 @@ export const StoryData = {
 [whisper]"你终于……来娶我了。"[/whisper]`,
         effects: {
             sanity: -40,
-            yin: 30,
+            yin: 15,
             visual: 'blood',
             visualDuration: 3000
         },
@@ -694,7 +694,7 @@ export const StoryData = {
 [red]你无路可逃。[/red]`,
         effects: {
             sanity: -20,
-            yin: 20,
+            yin: 10,
             time: 60
         },
         choices: [
@@ -738,7 +738,7 @@ export const StoryData = {
 "新郎官，" 它们一起说，"吉时到了。"`,
         effects: {
             sanity: -35,
-            yin: 25,
+            yin: 12,
             visual: 'paper-doll',
             visualDuration: 4000
         },
@@ -773,7 +773,7 @@ export const StoryData = {
 那只手的无名指上，戴着祖母的金戒指。`,
         effects: {
             sanity: -30,
-            yin: 30,
+            yin: 15,
             time: 60
         },
         choices: [
@@ -808,7 +808,7 @@ export const StoryData = {
 而那个周家少爷，正是你的祖父。`,
         effects: {
             sanity: -15,
-            yin: 10,
+            yin: 5,
             setFlag: 'knowsTruth'
         },
         choices: [
@@ -875,7 +875,7 @@ export const StoryData = {
 那是一口红漆棺材，棺盖上钉着九根桃木钉。`,
         effects: {
             sanity: -20,
-            yin: 25,
+            yin: 12,
             visual: 'blood',
             visualDuration: 3000
         },
@@ -888,7 +888,7 @@ export const StoryData = {
             {
                 text: '没有钥匙，只能徒手拔钉',
                 next: 'pull_nails_barehand',
-                effects: { sanity: -15, yin: 15 }
+                effects: { sanity: -15, yin: 7 }
             }
         ]
     },
@@ -1012,7 +1012,7 @@ export const StoryData = {
 [scream]盖头下，是一张和你一模一样的脸。[/scream]`,
         effects: {
             sanity: -50,
-            yin: 40,
+            yin: 20,
             visual: 'shake'
         },
         choices: [
@@ -1033,7 +1033,7 @@ export const StoryData = {
 你的手腕上留下了一圈青紫的勒痕，形状像是一只手握过的痕迹。`,
         effects: {
             sanity: -15,
-            yin: 10,
+            yin: 5,
             time: 30
         },
         choices: [
@@ -1058,7 +1058,7 @@ export const StoryData = {
 [red]原来，从你一出生，他们就知道你会回来。[/red]`,
         effects: {
             sanity: -25,
-            yin: 20
+            yin: 10
         },
         choices: [
             {
@@ -1080,7 +1080,7 @@ export const StoryData = {
 窗缝里塞进一张红纸，上面是你的生辰八字。`,
         effects: {
             time: 60,
-            yin: 10
+            yin: 5
         },
         choices: [
             {
@@ -1105,7 +1105,7 @@ export const StoryData = {
 
 你注意到，他的手腕上，红绳已经勒进了骨头里。`,
         effects: {
-            yin: 30,
+            yin: 15,
             time: 120
         },
         choices: [
@@ -1141,7 +1141,7 @@ export const StoryData = {
 秀兰的盖头飘了起来。`,
         effects: {
             sanity: -30,
-            yin: 30,
+            yin: 15,
             visual: 'shake'
         },
         choices: [
@@ -1202,7 +1202,7 @@ export const StoryData = {
 它们的脸，和你一模一样。`,
         effects: {
             sanity: -30,
-            yin: 20,
+            yin: 10,
             visual: 'paper-doll'
         },
         choices: [
@@ -1230,7 +1230,7 @@ export const StoryData = {
 "你烧了秀兰的嫁妆。" 二叔说，"她会更生气的。"`,
         effects: {
             sanity: -15,
-            yin: 20,
+            yin: 10,
             time: 60
         },
         choices: [
@@ -1262,7 +1262,7 @@ export const StoryData = {
 [red]那不是祖母。[/red]`,
         effects: {
             sanity: -20,
-            yin: 10,
+            yin: 5,
             setFlag: 'foundBones'
         },
         choices: [
@@ -1285,7 +1285,7 @@ export const StoryData = {
 [red]你的阴气太重了。[/red]`,
         effects: {
             sanity: -30,
-            yin: 40
+            yin: 20
         },
         choices: [
             {
@@ -1465,7 +1465,7 @@ export const StoryData = {
 你把两件嫁衣紧紧抱在怀里。周家的罪孽，比你想的更深、更广。`,
         effects: {
             sanity: -10,
-            yin: 15,
+            yin: 7,
             addItem: '柳红的嫁衣'
         },
         ending: 'hidden_brideLink'

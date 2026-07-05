@@ -143,6 +143,8 @@ export function checkGameOver() {
  * 触发视觉特效
  */
 export function triggerEffect(effect, duration = 2000) {
+    if (typeof document === 'undefined') return;
+
     switch (effect) {
         case 'flicker': {
             const overlay = document.getElementById('flicker-overlay');

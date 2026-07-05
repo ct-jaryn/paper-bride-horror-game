@@ -12,6 +12,8 @@ import { init as initCG } from '../cg.js';
 import { init as initCurrency } from '../currency.js';
 import { initGame } from './engine/game.js';
 import './engine/endingManager.js';
+import './engine/endingGallery.js';
+import { initWeappBridge, isWechatWebview } from './weapp-bridge.js';
 
 // 注入故事清单（成就、货币等子系统会在自身模块加载时注册到 Huimen）
 Huimen.StoryManifest = StoryManifest;
@@ -47,7 +49,15 @@ function boot() {
 }
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', boot);
+    document.addEventListener('DOMContentLoaded', maybeBoot);
 } else {
-    boot();
+    maybeBoot();
+}
+
+function maybeBoot() {
+    if (isWechatWebview()) {
+        initWeappBridge().then(boot).catch(boot);
+    } else {
+        boot();
+    }
 }

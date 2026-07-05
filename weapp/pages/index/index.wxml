@@ -1,0 +1,7 @@
+<web-view
+    class="webview-container"
+    src="{{h5Url}}"
+    bindmessage="onMessage"
+    bindload="onWebviewLoad"
+    binderror="onWebviewError"
+></web-view>

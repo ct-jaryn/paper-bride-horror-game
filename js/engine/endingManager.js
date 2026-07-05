@@ -5,9 +5,17 @@
  */
 
 import { Huimen } from './namespace.js';
-import { emit } from './eventBus.js';
+import { emit, on } from './eventBus.js';
 import * as SaveManager from './saveManager.js';
 import { ui } from './dom.js';
+
+// 离开结局页时清除死亡氛围 class
+on('screenChange', (e) => {
+    if (e && e.screen !== 'ending') {
+        const endingScreen = document.getElementById('ending-screen');
+        if (endingScreen) endingScreen.classList.remove('death-ending');
+    }
+});
 
 /**
  * 显示结局画面并触发成就检查
@@ -52,8 +60,28 @@ export function showEnding(endingId) {
 
     if (ui.endingTitle) ui.endingTitle.textContent = ending.title;
     if (ui.endingText) ui.endingText.textContent = ending.text;
+
+    // 显示当前故事结局收集进度
+    const endingCountEl = document.getElementById('ending-count');
+    if (endingCountEl && Huimen.CurrentStory && Huimen.Endings) {
+        const storyId = Huimen.CurrentStory.id;
+        const total = Object.keys(Huimen.Endings).length;
+        const unlocked = (Huimen.AchievementEngine?.endingsReached[storyId] || []).length;
+        endingCountEl.textContent = `已解锁结局 ${unlocked} / ${total}`;
+    } else if (endingCountEl) {
+        endingCountEl.textContent = '';
+    }
+
     if (typeof Huimen.showScreen === 'function') {
         Huimen.showScreen('ending');
+    }
+
+    // 死亡结局增加额外血色氛围
+    const endingScreen = document.getElementById('ending-screen');
+    if (endingScreen) {
+        const isDeath = /死亡|疯狂|附身|万劫|劫|鬼|尸|替|纸人|溺|溺亡|迷失/.test(ending.title || '') ||
+            ['madness', 'possessed', 'eternalNight'].includes(endingId);
+        endingScreen.classList.toggle('death-ending', isDeath);
     }
 
     emit('endingShown', {

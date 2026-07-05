@@ -12,6 +12,7 @@ import { getShichen, checkCondition, applyEffects } from './effectEngine.js';
 import { saveStoryState, patchGameState, pushToArray } from './state.js';
 import { makeChoice } from './recordManager.js';
 import { loadStory } from './storyLoader.js';
+import { Platform } from './platform.js';
 
 // 打字机状态
 let typingInterval = null;
@@ -278,6 +279,7 @@ export function renderChoices(choices) {
         if (choice.danger) btn.classList.add('danger');
         if (choice.hidden) btn.classList.add('hidden-choice');
         btn.textContent = choice.text;
+        btn.style.setProperty('--order', String(index));
 
         btn.addEventListener('click', () => {
             makeChoice(choice, index);
@@ -340,9 +342,9 @@ export function renderStorySelect() {
     document.querySelectorAll('.story-reset-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const storyId = btn.dataset.story;
-            if (confirm('确定要删除这个故事的存档，重新开始吗？')) {
-                loadStory(storyId, true);
-            }
+            Platform.confirm('确定要删除这个故事的存档，重新开始吗？').then(confirmed => {
+                if (confirmed) loadStory(storyId, true);
+            });
         });
     });
 }

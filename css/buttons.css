@@ -70,6 +70,24 @@
     outline-offset: 3px;
 }
 
+.horror-btn.danger {
+    border-color: var(--bright-red);
+    color: #ffb3b3;
+    text-shadow: 0 0 6px rgba(196, 30, 58, 0.4);
+    animation: dangerPulse 1.5s ease-in-out infinite;
+}
+
+.horror-btn.danger:hover {
+    background: linear-gradient(90deg, rgba(80, 10, 10, 0.9), rgba(40, 10, 10, 0.9));
+    color: #fff;
+    box-shadow: 0 0 40px rgba(196, 30, 58, 0.55), inset 0 0 30px rgba(196, 30, 58, 0.18);
+}
+
+@keyframes dangerPulse {
+    0%, 100% { border-color: var(--bright-red); box-shadow: 0 0 10px rgba(196, 30, 58, 0.3); }
+    50% { border-color: rgba(255, 80, 80, 0.95); box-shadow: 0 0 25px rgba(196, 30, 58, 0.6); }
+}
+
 .hidden {
     display: none !important;
 }

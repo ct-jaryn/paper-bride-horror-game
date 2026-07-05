@@ -298,3 +298,189 @@
     100% { top: 110%; opacity: 0; transform: translateX(25px) rotate(45deg); }
 }
 
+/* ===== 标题页氛围增强 ===== */
+.title-vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.7) 80%, rgba(0,0,0,0.95) 100%);
+    pointer-events: none;
+    z-index: 2;
+    animation: vignettePulse 6s ease-in-out infinite;
+}
+
+@keyframes vignettePulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+.title-fog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background:
+        radial-gradient(ellipse at 20% 80%, rgba(139, 0, 0, 0.08) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 70%, rgba(139, 0, 0, 0.06) 0%, transparent 35%);
+    pointer-events: none;
+    z-index: 2;
+    animation: fogDrift 20s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes fogDrift {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* 白灯笼 */
+.title-lantern {
+    position: absolute;
+    top: 8%;
+    width: 34px;
+    height: 48px;
+    background: rgba(240, 230, 210, 0.08);
+    border: 1px solid rgba(240, 230, 210, 0.18);
+    border-radius: 50% 50% 45% 45% / 40% 40% 60% 60%;
+    z-index: 2;
+    pointer-events: none;
+    animation: lanternSwing 5s ease-in-out infinite;
+    box-shadow: 0 0 30px rgba(240, 230, 210, 0.08);
+}
+
+.title-lantern::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    width: 1px;
+    height: 12px;
+    background: rgba(139, 115, 85, 0.4);
+    transform: translateX(-50%);
+}
+
+.title-lantern::after {
+    content: '奠';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.85rem;
+    color: rgba(240, 230, 210, 0.25);
+    letter-spacing: 0;
+}
+
+.title-lantern.left {
+    left: 12%;
+    animation-delay: 0s;
+}
+
+.title-lantern.right {
+    right: 12%;
+    animation-delay: 2.5s;
+}
+
+.lantern-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(240, 230, 210, 0.08) 0%, transparent 70%);
+    animation: lanternGlow 4s ease-in-out infinite;
+}
+
+@keyframes lanternSwing {
+    0%, 100% { transform: rotate(-6deg); }
+    50% { transform: rotate(6deg); }
+}
+
+@keyframes lanternGlow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.9; }
+}
+
+/* 血滴 */
+.title-blood-drip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+    overflow: hidden;
+}
+
+.title-blood-drip::before,
+.title-blood-drip::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    width: 3px;
+    background: linear-gradient(180deg, rgba(139,0,0,0.9), rgba(196,30,58,0.4));
+    border-radius: 0 0 50% 50%;
+    opacity: 0.7;
+    animation: bloodDrip 7s ease-in infinite;
+}
+
+.title-blood-drip::before {
+    left: 18%;
+    height: 80px;
+    animation-delay: 1s;
+}
+
+.title-blood-drip::after {
+    left: 84%;
+    height: 110px;
+    animation-delay: 4s;
+    animation-duration: 9s;
+}
+
+@keyframes bloodDrip {
+    0% { transform: translateY(-100%); opacity: 0; }
+    10% { opacity: 0.8; }
+    80% { opacity: 0.6; }
+    100% { transform: translateY(110vh); opacity: 0; }
+}
+
+/* 标题字增强 */
+.game-title {
+    animation: titleFadeIn 1s ease-out both, titlePulse 4s ease-in-out infinite 1s, titleGlitch 8s infinite 3s;
+}
+
+@keyframes titleGlitch {
+    0%, 90%, 100% { transform: translate(0); }
+    91% { transform: translate(-2px, 1px); }
+    92% { transform: translate(2px, -1px); }
+    93% { transform: translate(0); }
+}
+
+.subtitle {
+    animation: titleFadeIn 1s ease-out 0.5s both, subtitleFlicker 5s infinite 2s;
+}
+
+@keyframes subtitleFlicker {
+    0%, 100% { opacity: 1; }
+    48% { opacity: 1; }
+    49% { opacity: 0.3; }
+    50% { opacity: 1; }
+    51% { opacity: 0.4; }
+    52% { opacity: 1; }
+}
+
+/* 印章 */
+.paper-seal-decoration {
+    animation: sealBreath 7s ease-in-out infinite, sealBlood 10s infinite;
+}
+
+@keyframes sealBlood {
+    0%, 95%, 100% { border-color: rgba(139, 0, 0, 0.18); }
+    96% { border-color: rgba(196, 30, 58, 0.5); box-shadow: 0 0 20px rgba(196, 30, 58, 0.2); }
+    98% { border-color: rgba(139, 0, 0, 0.18); }
+}
+

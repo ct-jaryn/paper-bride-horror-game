@@ -6,6 +6,7 @@
 
 import { Huimen } from './js/engine/namespace.js';
 import { loadSoundSettings, saveSoundSettings } from './js/engine/saveManager.js';
+import { Platform } from './js/engine/platform.js';
 
 let audioCtx = null;
 let masterGain = null;
@@ -445,8 +446,7 @@ function init() {
     bindGameEvents();
 
     // 首次用户交互时尝试解锁音频上下文
-    document.addEventListener('click', unlockAudio, { once: true });
-    document.addEventListener('touchstart', unlockAudio, { once: true });
+    Platform.onUserInteraction(unlockAudio, { once: true });
 }
 
 export { init };

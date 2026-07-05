@@ -5,6 +5,7 @@
 
 import { Huimen } from './js/engine/namespace.js';
 import { loadCurrency, saveCurrency } from './js/engine/saveManager.js';
+import { Platform } from './js/engine/platform.js';
 
 const CurrencyManager = (function () {
     let balance = 0;
@@ -104,6 +105,8 @@ const CurrencyManager = (function () {
             return;
         }
 
+        if (Platform.isMinigame() || typeof document === 'undefined') return;
+
         const existing = document.getElementById('currency-toast');
         if (existing) existing.remove();
 
@@ -121,6 +124,7 @@ const CurrencyManager = (function () {
     }
 
     function renderDisplays() {
+        if (Platform.isMinigame()) return;
         document.querySelectorAll('.currency-display .currency-value').forEach(el => {
             el.textContent = balance;
         });
@@ -233,7 +237,9 @@ const CurrencyManager = (function () {
             freeReviveUsed.add(storyId);
             save();
             showToast('续命香已燃，借命还阳');
-            if (typeof Huimen.loadStory === 'function') {
+            if (typeof Huimen.reviveAtCheckpoint === 'function') {
+                Huimen.reviveAtCheckpoint(storyId);
+            } else if (typeof Huimen.loadStory === 'function') {
                 Huimen.loadStory(storyId, true);
             }
             return true;
@@ -248,9 +254,11 @@ const CurrencyManager = (function () {
         }
         freeReviveUsed.add(storyId);
         save();
-        showToast(cost === 0 ? '首命天授，借命还阳' : '借命还阳，故事重启');
+        showToast(cost === 0 ? '首命天授，借命还阳' : '借命还阳，回到关键选择');
 
-        if (typeof Huimen.loadStory === 'function') {
+        if (typeof Huimen.reviveAtCheckpoint === 'function') {
+            Huimen.reviveAtCheckpoint(storyId);
+        } else if (typeof Huimen.loadStory === 'function') {
             Huimen.loadStory(storyId, true);
         } else {
             showToast('故事引擎未就绪');
@@ -287,6 +295,7 @@ const CurrencyManager = (function () {
 
     function showShop() {
         updateShopUI();
+        if (Platform.isMinigame()) return;
         if (typeof Huimen.showScreen === 'function') {
             Huimen.showScreen('shop');
         } else {
@@ -296,6 +305,7 @@ const CurrencyManager = (function () {
     }
 
     function hideShop() {
+        if (Platform.isMinigame()) return;
         if (typeof Huimen.showScreen === 'function') {
             Huimen.showScreen(Huimen.CurrentStory ? 'game' : 'title');
         } else {
@@ -305,6 +315,7 @@ const CurrencyManager = (function () {
     }
 
     function updateShopUI() {
+        if (Platform.isMinigame()) return;
         const balanceEl = document.getElementById('shop-balance');
         if (balanceEl) balanceEl.textContent = balance;
 
@@ -315,6 +326,7 @@ const CurrencyManager = (function () {
     }
 
     function createGameUI() {
+        if (Platform.isMinigame()) return;
         const gameScreen = document.getElementById('game-screen');
         if (!gameScreen) return;
 
@@ -346,7 +358,7 @@ const CurrencyManager = (function () {
         const btn = document.createElement('button');
         btn.id = 'revive-btn';
         btn.className = 'horror-btn danger revive-btn';
-        btn.textContent = free ? '借命还阳（首命免费）' : `借命还阳（${REVIVE_COST} 阴钱）`;
+        btn.textContent = free ? '借命还阳（首命免费 · 回退选择）' : `借命还阳（${REVIVE_COST} 阴钱 · 回退选择）`;
         endingContent.appendChild(btn);
 
         btn.addEventListener('click', () => {
@@ -357,6 +369,7 @@ const CurrencyManager = (function () {
     }
 
     function bindShopButtons() {
+        if (Platform.isMinigame()) return;
         document.querySelectorAll('.shop-open-btn').forEach(btn => {
             btn.addEventListener('click', showShop);
         });
@@ -482,8 +495,10 @@ const CurrencyManager = (function () {
         createGameUI();
         bindShopButtons();
 
-        const storyGrid = document.getElementById('story-grid');
-        if (storyGrid) storyGrid.addEventListener('click', trackStoryStart);
+        if (typeof document !== 'undefined') {
+            const storyGrid = document.getElementById('story-grid');
+            if (storyGrid) storyGrid.addEventListener('click', trackStoryStart);
+        }
 
         registerEvents();
     }

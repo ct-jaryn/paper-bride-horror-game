@@ -11,8 +11,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const tests = [
     '../test_esm_boot.mjs',
-    'stories-integration.mjs',
-    'state-engine-integration.mjs'
+    'state-engine-integration.mjs',
+    'minigame-integration.mjs',
+    'stories-integration.mjs'
 ];
 
 async function runTest(script) {

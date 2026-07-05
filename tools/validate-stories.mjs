@@ -14,7 +14,7 @@
 
 import { readdirSync } from 'fs';
 import { join } from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const storiesDir = join(__dirname, '..', 'stories');
@@ -208,7 +208,7 @@ export async function validateAllStories(report = createConsoleReport()) {
         const storyId = file.replace(/^story_/, '').replace(/\.js$/, '');
         const storyPath = join(storiesDir, file);
         try {
-            const module = await import(storyPath);
+            const module = await import(pathToFileURL(storyPath).href);
             validateStory(storyId, module.StoryData, module.Endings, report);
         } catch (e) {
             report.error(storyId, `加载失败: ${e.message}`);

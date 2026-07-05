@@ -10,14 +10,18 @@ import { escapeHtml, formatGameTime } from './utils.js';
 import { skipTyping, renderScene, isTyping } from './renderer.js';
 import { applyEffects, checkGameOver, getShichen } from './effectEngine.js';
 import * as SaveManager from './saveManager.js';
-import { saveStoryState, pushToArray, patchGameState } from './state.js';
+import { saveStoryState, pushToArray, patchGameState, updateState } from './state.js';
 import { showEnding } from './endingManager.js';
+import { Platform } from './platform.js';
 
 /**
  * 执行选择：记录、生效、推进
  */
 export function makeChoice(choice, choiceIndex) {
     if (isTyping()) skipTyping();
+
+    // 在做选择前存档，用于死亡后复活回退
+    saveReviveCheckpoint();
 
     const sceneId = Huimen.GameState.currentScene;
 
@@ -66,6 +70,76 @@ export function makeChoice(choice, choiceIndex) {
             showEnding(choice.ending);
         }
     }, 200);
+}
+
+/**
+ * 保存复活检查点：记录当前状态到 reviveCheckpoints
+ */
+export function saveReviveCheckpoint() {
+    const state = Huimen.GameState;
+    const checkpoint = {
+        sanity: state.sanity,
+        yin: state.yin,
+        time: state.time,
+        inventory: [...state.inventory],
+        flags: { ...state.flags },
+        currentScene: state.currentScene,
+        history: [...state.history],
+        choiceLog: JSON.parse(JSON.stringify(state.choiceLog))
+    };
+    pushToArray('reviveCheckpoints', checkpoint, { maxLength: 20 });
+}
+
+/**
+ * 借命还阳：回到上一个关键选择，并将阴气清零
+ */
+export function reviveAtCheckpoint(storyId) {
+    const checkpoints = Huimen.GameState.reviveCheckpoints || [];
+    if (checkpoints.length === 0) {
+        // 没有检查点时退回完整重开
+        if (typeof Huimen.loadStory === 'function') {
+            Huimen.loadStory(storyId, true);
+        }
+        return true;
+    }
+
+    const checkpoint = checkpoints[checkpoints.length - 1];
+
+    // 恢复状态到该选择之前
+    updateState({
+        sanity: checkpoint.sanity,
+        yin: 0,
+        time: checkpoint.time,
+        inventory: checkpoint.inventory,
+        flags: checkpoint.flags,
+        currentScene: checkpoint.currentScene,
+        history: checkpoint.history,
+        choiceLog: checkpoint.choiceLog
+    });
+
+    // 移除已使用的检查点
+    patchGameState('reviveCheckpoints', checkpoints.slice(0, -1));
+
+    if (Huimen.CurrentStory) {
+        saveStoryState(Huimen.CurrentStory.id);
+    }
+
+    if (typeof Huimen.showScreen === 'function') {
+        Huimen.showScreen('game');
+    }
+    renderScene(checkpoint.currentScene);
+
+    if (Huimen.ToastManager) {
+        Huimen.ToastManager.show({
+            icon: '阳',
+            title: '借命还阳',
+            description: '阴气散尽，你回到了上一个关键选择',
+            duration: 3500,
+            className: 'revive-toast'
+        });
+    }
+
+    return true;
 }
 
 /**
@@ -283,22 +357,18 @@ export function renderJourneyContent() {
  */
 export function exportCurrentRecord() {
     const text = exportChoiceLog();
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(() => {
-            if (Huimen.ToastManager) {
-                Huimen.ToastManager.show({
-                    icon: '录',
-                    title: '记录已复制',
-                    description: '当前命簿已复制到剪贴板',
-                    duration: 2500
-                });
-            }
-        }).catch(() => {
-            showExportFallback(text);
-        });
-    } else {
+    Platform.setClipboard(text).then(() => {
+        if (Huimen.ToastManager) {
+            Huimen.ToastManager.show({
+                icon: '录',
+                title: '记录已复制',
+                description: '当前命簿已复制到剪贴板',
+                duration: 2500
+            });
+        }
+    }).catch(() => {
         showExportFallback(text);
-    }
+    });
 }
 
 function showExportFallback(text) {
@@ -381,3 +451,4 @@ Huimen.openJourneyOverlay = openJourneyOverlay;
 Huimen.closeJourneyOverlay = closeJourneyOverlay;
 Huimen.exportCurrentRecord = exportCurrentRecord;
 Huimen.replayCurrentStory = replayCurrentStory;
+Huimen.reviveAtCheckpoint = reviveAtCheckpoint;

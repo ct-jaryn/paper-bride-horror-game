@@ -11,6 +11,7 @@ import { resetState } from './state.js';
 import { isTouchDevice } from './utils.js';
 import { showScreen, renderScene, renderStorySelect, renderAchievements, updateStatus, updateInventory } from './renderer.js';
 import { loadStory } from './storyLoader.js';
+import { Platform } from './platform.js';
 
 /**
  * 初始化游戏
@@ -67,6 +68,25 @@ export function initGame() {
         }
     });
 
+    const reviveBtn = document.getElementById('revive-btn');
+    if (reviveBtn) {
+        reviveBtn.addEventListener('click', () => {
+            if (Huimen.CurrentStory && typeof Huimen.reviveAtCheckpoint === 'function') {
+                Huimen.reviveAtCheckpoint(Huimen.CurrentStory.id);
+            }
+        });
+    }
+
+    // 结局显示时决定是否展示“借命还阳”按钮
+    if (typeof Huimen.GameEvents !== 'undefined') {
+        Huimen.GameEvents.on('endingShown', () => {
+            const checkpoints = (Huimen.GameState && Huimen.GameState.reviveCheckpoints) || [];
+            if (reviveBtn) {
+                reviveBtn.classList.toggle('hidden', checkpoints.length === 0);
+            }
+        });
+    }
+
     const endingToTitleBtn = document.getElementById('ending-to-title-btn');
     if (endingToTitleBtn) {
         endingToTitleBtn.addEventListener('click', () => showScreen('title'));
@@ -122,6 +142,11 @@ export function initGame() {
         if (Huimen.openJourneyOverlay) Huimen.openJourneyOverlay();
     });
 
+    const endingGalleryTitleBtn = document.getElementById('ending-gallery-title-btn');
+    if (endingGalleryTitleBtn) endingGalleryTitleBtn.addEventListener('click', () => {
+        if (Huimen.openEndingGallery) Huimen.openEndingGallery();
+    });
+
     const journeySelectBtn = document.getElementById('journey-select-btn');
     if (journeySelectBtn) journeySelectBtn.addEventListener('click', () => {
         if (Huimen.openJourneyOverlay) Huimen.openJourneyOverlay();
@@ -131,6 +156,14 @@ export function initGame() {
     if (journeyClose) journeyClose.addEventListener('click', () => {
         if (Huimen.closeJourneyOverlay) Huimen.closeJourneyOverlay();
     });
+
+    const journeyEndingGalleryBtn = document.getElementById('journey-ending-gallery-btn');
+    if (journeyEndingGalleryBtn) {
+        journeyEndingGalleryBtn.addEventListener('click', () => {
+            if (Huimen.closeJourneyOverlay) Huimen.closeJourneyOverlay();
+            if (Huimen.openEndingGallery) Huimen.openEndingGallery();
+        });
+    }
 
     const journeyOverlay = document.getElementById('journey-overlay');
     if (journeyOverlay) {

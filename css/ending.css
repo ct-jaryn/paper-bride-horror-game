@@ -9,6 +9,25 @@
     max-width: 680px;
     padding: 2rem;
     width: 100%;
+    animation: endingContentEnter 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes endingContentEnter {
+    0% {
+        opacity: 0;
+        transform: scale(0.96) translateY(30px);
+        filter: blur(8px);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.01) translateY(-4px);
+        filter: blur(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0);
+    }
 }
 
 .ending-title {
@@ -16,14 +35,35 @@
     color: var(--blood-red);
     margin-bottom: 1.5rem;
     letter-spacing: 0.5rem;
+    animation: endingTitleShake 6s ease-in-out infinite 1s;
+    text-shadow:
+        0 0 20px rgba(139, 0, 0, 0.7),
+        0 0 40px rgba(139, 0, 0, 0.35);
+}
+
+@keyframes endingTitleShake {
+    0%, 100% { transform: translate(0); }
+    92% { transform: translate(0); }
+    93% { transform: translate(-1px, 1px); }
+    94% { transform: translate(1px, -1px); }
+    95% { transform: translate(0); }
+    96% { transform: translate(1px, 1px); }
+    97% { transform: translate(-1px, -1px); }
+    98% { transform: translate(0); }
 }
 
 .ending-text {
     font-size: 1.1rem;
     line-height: 2;
     color: var(--ghost-white);
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.2rem;
     white-space: pre-wrap;
+    animation: endingTextReveal 1.5s ease-out 0.4s both;
+}
+
+@keyframes endingTextReveal {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 .ending-actions {
@@ -31,10 +71,155 @@
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
+    animation: endingActionsFadeIn 1s ease-out 1s both;
+}
+
+@keyframes endingActionsFadeIn {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 .ending-actions .horror-btn {
     margin: 0;
     min-width: 140px;
+}
+
+.ending-count {
+    font-size: 0.95rem;
+    color: var(--aged-yellow);
+    letter-spacing: 0.15rem;
+    margin-bottom: 2rem;
+    opacity: 0.85;
+    animation: endingCountPulse 2s ease-in-out infinite;
+}
+
+@keyframes endingCountPulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+/* 结局页氛围 */
+.ending-vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at center, transparent 20%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.95) 100%),
+        radial-gradient(circle at 50% 0%, rgba(139, 0, 0, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 2;
+    animation: endingVignettePulse 4s ease-in-out infinite;
+}
+
+@keyframes endingVignettePulse {
+    0%, 100% { opacity: 0.9; }
+    50% { opacity: 1; }
+}
+
+.ending-blood-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+    opacity: 0.5;
+}
+
+.ending-blood-rain::before,
+.ending-blood-rain::after {
+    content: '';
+    position: absolute;
+    top: -20%;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(139,0,0,0), rgba(139,0,0,0.8), rgba(196,30,58,0.3));
+    animation: endingBloodFall 4s linear infinite;
+}
+
+.ending-blood-rain::before {
+    left: 22%;
+    height: 120px;
+    animation-delay: 0.2s;
+}
+
+.ending-blood-rain::after {
+    left: 76%;
+    height: 160px;
+    animation-duration: 5s;
+    animation-delay: 1.5s;
+}
+
+@keyframes endingBloodFall {
+    0% { transform: translateY(-100%); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.4; }
+    100% { transform: translateY(120vh); opacity: 0; }
+}
+
+.ending-ash-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.ending-ash-layer::before,
+.ending-ash-layer::after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    width: 7px;
+    height: 10px;
+    background: rgba(180, 180, 180, 0.1);
+    opacity: 0;
+    animation: endingAshFall 9s linear infinite;
+}
+
+.ending-ash-layer::before {
+    left: 35%;
+    animation-delay: 0s;
+}
+
+.ending-ash-layer::after {
+    left: 62%;
+    width: 5px;
+    height: 8px;
+    animation-duration: 12s;
+    animation-delay: 4s;
+}
+
+@keyframes endingAshFall {
+    0% { top: -10%; opacity: 0; }
+    10% { opacity: 0.4; }
+    90% { opacity: 0.2; }
+    100% { top: 110%; opacity: 0; transform: translateX(20px) rotate(40deg); }
+}
+
+/* 死亡结局额外血色 */
+#ending-screen.death-ending .ending-vignette {
+    background:
+        radial-gradient(circle at center, transparent 20%, rgba(60, 0, 0, 0.5) 70%, rgba(30, 0, 0, 0.95) 100%),
+        radial-gradient(circle at 50% 0%, rgba(196, 30, 58, 0.25) 0%, transparent 50%);
+}
+
+#ending-screen.death-ending .ending-title {
+    color: var(--bright-red);
+    text-shadow:
+        0 0 25px rgba(196, 30, 58, 0.9),
+        0 0 55px rgba(139, 0, 0, 0.5);
+    animation: endingTitleShake 4s ease-in-out infinite 0.5s, deathTitlePulse 2s ease-in-out infinite;
+}
+
+@keyframes deathTitlePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
 }
 

@@ -13,7 +13,7 @@ export const StoryManifest = [
         horrorLevel: 9,
         playTime: '30–45 分钟',
         tags: ['冥婚', '复仇', '家族罪孽'],
-        scriptPath: 'stories/story_huimen.js'
+        scriptPath: 'stories/story_huimen_expansion.js'
     },
     {
         id: 'shouye',

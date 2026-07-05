@@ -21,10 +21,11 @@ const DEFAULT_STATE = {
     flags: {},
     currentScene: 'prologue',
     history: [],
-    choiceLog: []
+    choiceLog: [],
+    reviveCheckpoints: []
 };
 
-const ALLOWED_UPDATE_KEYS = ['sanity', 'yin', 'time', 'inventory', 'flags', 'currentScene', 'history', 'choiceLog', 'lastSaveAt'];
+const ALLOWED_UPDATE_KEYS = ['sanity', 'yin', 'time', 'inventory', 'flags', 'currentScene', 'history', 'choiceLog', 'lastSaveAt', 'reviveCheckpoints'];
 
 function cloneState() {
     return JSON.parse(JSON.stringify(DEFAULT_STATE));
