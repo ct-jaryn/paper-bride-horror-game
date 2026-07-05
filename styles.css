@@ -1,0 +1,13 @@
+/* 《阴阳簿》样式入口 —— 按模块拆分 */
+@import url('css/base.css');
+@import url('css/title.css');
+@import url('css/buttons.css');
+@import url('css/game.css');
+@import url('css/effects.css');
+@import url('css/ending.css');
+@import url('css/story-select.css');
+@import url('css/achievements.css');
+@import url('css/mobile.css');
+@import url('css/cg.css');
+@import url('css/currency.css');
+@import url('css/records.css');

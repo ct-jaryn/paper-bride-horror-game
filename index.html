@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self';">
+    <title>阴阳簿 — 中式文字恐怖游戏集</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- 标题画面 -->
+        <div id="title-screen" class="screen active">
+            <div class="paper-texture"></div>
+            <!-- 飘落的纸灰/纸钱粒子层 -->
+            <div class="paper-ash-layer" aria-hidden="true"></div>
+
+            <div class="title-content">
+                <h1 class="game-title">阴阳簿</h1>
+                <p class="subtitle">红烛照幽冥，白幡引亡魂</p>
+                <p class="subtitle-en">Tales from the Nether</p>
+                <div class="title-actions">
+                    <button id="continue-btn" class="horror-btn primary hidden">续读命簿</button>
+                    <button id="start-btn" class="horror-btn primary">翻开簿册</button>
+                </div>
+                <p class="title-hint" id="title-hint">轻触画面以开启阴阳之门</p>
+            </div>
+
+            <!-- 印章式装饰 -->
+            <div class="paper-seal-decoration" aria-hidden="true">
+                <span class="paper-seal-text">阴阳簿</span>
+            </div>
+
+            <!-- 底部工具栏 -->
+            <nav class="title-toolbar" aria-label="标题页功能">
+                <button id="achievements-btn" class="toolbar-btn" aria-label="成就">
+                    <span class="toolbar-icon" aria-hidden="true">录</span>
+                    <span class="toolbar-label">阴阳全录</span>
+                </button>
+                <button id="cg-gallery-title-btn" class="toolbar-btn" data-open-cg-gallery aria-label="图鉴">
+                    <span class="toolbar-icon" aria-hidden="true">卷</span>
+                    <span class="toolbar-label">残卷图鉴</span>
+                </button>
+                <button id="shop-title-btn" class="toolbar-btn shop-open-btn" aria-label="商店">
+                    <span class="toolbar-icon" aria-hidden="true">市</span>
+                    <span class="toolbar-label">阴市</span>
+                </button>
+                <button id="journey-title-btn" class="toolbar-btn" aria-label="历程">
+                    <span class="toolbar-icon" aria-hidden="true">程</span>
+                    <span class="toolbar-label">阴阳历程</span>
+                </button>
+                <button id="sound-toggle-title" class="toolbar-btn" aria-label="切换音效">
+                    <span class="toolbar-icon sound-toggle-icon" aria-hidden="true">音</span>
+                    <span class="toolbar-label sound-toggle-label">音效</span>
+                </button>
+            </nav>
+        </div>
+
+        <!-- 故事选择画面 -->
+        <div id="story-select-screen" class="screen">
+            <div class="paper-texture"></div>
+            <div id="currency-display-select" class="currency-display select">
+                <span class="currency-label">阴钱</span>
+                <span class="currency-value">0</span>
+                <button class="shop-open-btn horror-btn secondary tiny">阴市</button>
+            </div>
+            <div class="story-select-content">
+                <h2 class="section-title">请选择一卷</h2>
+                <div id="story-grid" class="story-grid"></div>
+                <button id="journey-select-btn" class="horror-btn secondary">阴阳历程</button>
+                <button id="cg-gallery-select-btn" class="horror-btn secondary" data-open-cg-gallery>残卷图鉴</button>
+                <button id="back-to-title-btn" class="horror-btn secondary">返回封面</button>
+            </div>
+        </div>
+
+        <!-- 游戏主画面 -->
+        <div id="game-screen" class="screen">
+            <div class="paper-texture"></div>
+            
+            <!-- 顶部状态栏 -->
+            <header class="status-bar">
+                <div class="status-item">
+                    <span class="status-label">时辰</span>
+                    <span id="time-display" class="status-value">戌时三刻</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">理智</span>
+                    <div class="meter">
+                        <div id="sanity-bar" class="meter-fill sanity"></div>
+                    </div>
+                    <span id="sanity-value" class="status-value">100</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">阴气</span>
+                    <div class="meter">
+                        <div id="yin-bar" class="meter-fill yin"></div>
+                    </div>
+                    <span id="yin-value" class="status-value">0</span>
+                </div>
+                <div class="status-item currency-display">
+                    <span class="status-label">阴钱</span>
+                    <span class="currency-value status-value">0</span>
+                    <button class="shop-open-btn horror-btn secondary tiny">阴市</button>
+                </div>
+                <button id="record-btn" class="record-btn" title="选择记录" aria-label="选择记录">
+                    <span aria-hidden="true">记</span>
+                </button>
+            </header>
+
+            <!-- 主文本区 -->
+            <main class="story-area">
+                <div id="story-text" class="story-text"></div>
+                <div id="typing-cursor" class="cursor">▌</div>
+                <div id="skip-hint" class="skip-hint">点击文本跳过打字 ▌</div>
+            </main>
+
+            <!-- 物品栏 -->
+            <div id="inventory" class="inventory hidden">
+                <span class="inventory-label">物品：</span>
+                <div id="inventory-items" class="inventory-items"></div>
+            </div>
+
+            <!-- 选择区 -->
+            <div id="choices" class="choices-area"></div>
+
+            <!-- 特效层 -->
+            <div id="effects-layer" class="effects-layer">
+                <div id="flicker-overlay" class="flicker-overlay"></div>
+                <div id="blood-splatter" class="blood-splatter hidden"></div>
+                <div id="ghost-whisper" class="ghost-whisper hidden"></div>
+                <div id="paper-doll" class="paper-doll hidden"></div>
+            </div>
+        </div>
+
+        <!-- 结局画面 -->
+        <div id="ending-screen" class="screen">
+            <div class="paper-texture"></div>
+            <div class="ending-content">
+                <h2 id="ending-title" class="ending-title"></h2>
+                <p id="ending-text" class="ending-text"></p>
+                <div class="ending-actions">
+                    <button id="restart-btn" class="horror-btn">重来一世</button>
+                    <button id="ending-to-select-btn" class="horror-btn secondary">返回选卷</button>
+                    <button id="ending-to-title-btn" class="horror-btn secondary">返回封面</button>
+                </div>
+            </div>
+        </div>
+        <!-- 成就面板 -->
+        <div id="achievements-screen" class="screen">
+            <div class="paper-texture"></div>
+            <div class="achievements-content">
+                <div class="achievements-header">
+                    <h2 class="section-title">阴阳全录</h2>
+                    <p class="section-subtitle">已解锁成就：<span id="achievement-count">0 / 0</span></p>
+                </div>
+                <div id="achievement-list" class="achievement-list"></div>
+                <button id="back-from-achievements-btn" class="horror-btn secondary">返回封面</button>
+            </div>
+        </div>
+
+        <!-- CG 展示层 -->
+        <div id="cg-overlay" class="cg-overlay hidden">
+            <div class="paper-texture"></div>
+            <button id="cg-close" class="cg-close" aria-label="关闭">×</button>
+            <div class="cg-frame">
+                <img id="cg-image" class="cg-image" alt="CG">
+                <div id="cg-placeholder" class="cg-placeholder hidden">
+                    <span class="cg-placeholder-mark">囍</span>
+                </div>
+            </div>
+            <div id="cg-title" class="cg-title"></div>
+        </div>
+
+        <!-- CG 图鉴 -->
+        <div id="cg-gallery-overlay" class="cg-overlay hidden">
+            <div class="paper-texture"></div>
+            <div class="cg-gallery-content">
+                <div class="achievements-header">
+                    <h2 class="section-title">残卷图鉴</h2>
+                    <p class="section-subtitle">已解锁 CG：<span id="cg-unlock-count">0</span></p>
+                </div>
+                <div id="cg-gallery-list" class="cg-gallery-list"></div>
+                <button class="horror-btn secondary cg-gallery-close">返回</button>
+            </div>
+        </div>
+
+        <!-- 阴市商店面板 -->
+        <div id="shop-screen" class="screen">
+            <div class="paper-texture"></div>
+            <div class="shop-content">
+                <div class="shop-header">
+                    <h2 class="section-title">阴市</h2>
+                    <p class="section-subtitle">阴钱余额：<span id="shop-balance">0</span></p>
+                </div>
+                <div class="shop-grid">
+                    <div class="shop-item">
+                        <div class="shop-item-name">通灵符</div>
+                        <div class="shop-item-desc">购买一张通灵符，下次求签不扣阴钱。</div>
+                        <div class="shop-item-price"><span id="shop-hint-cost">10</span> 阴钱</div>
+                        <button id="shop-buy-hint" class="horror-btn">购买</button>
+                    </div>
+                    <div class="shop-item">
+                        <div class="shop-item-name">窥梦图</div>
+                        <div class="shop-item-desc">解锁一张珍藏插图，收入残卷图鉴。</div>
+                        <div class="shop-item-price"><span id="shop-cg-cost">50</span> 阴钱</div>
+                        <button id="shop-buy-cg" class="horror-btn" data-cg-id="dream_1">购买</button>
+                    </div>
+                    <div class="shop-item">
+                        <div class="shop-item-name">续命香</div>
+                        <div class="shop-item-desc">购买一柱续命香，死亡结局时可借命还阳一次。</div>
+                        <div class="shop-item-price"><span id="shop-revive-cost">50</span> 阴钱</div>
+                        <button id="shop-buy-revive" class="horror-btn">购买</button>
+                    </div>
+                </div>
+                <div class="shop-recharge">
+                    <h3>开发者测试入口（模拟充值）</h3>
+                    <p class="shop-recharge-note">此处仅供开发/演示，不会发起任何真实支付，也不会保存到服务端。</p>
+                    <div class="shop-recharge-row">
+                        <input id="shop-recharge-input" type="number" min="1" max="9999" placeholder="输入阴钱数量（1-9999）">
+                        <button id="shop-recharge-btn" class="horror-btn secondary">模拟充值</button>
+                    </div>
+                </div>
+                <button id="shop-close-btn" class="horror-btn secondary">返回</button>
+            </div>
+        </div>
+
+        <!-- 选择记录浮层 -->
+        <div id="record-overlay" class="record-overlay hidden">
+            <div class="paper-texture"></div>
+            <div class="record-content">
+                <div class="record-header">
+                    <div>
+                        <h2 class="section-title">命簿记录</h2>
+                        <p class="section-subtitle">每一次选择，皆成定数</p>
+                        <p id="record-story-title" class="record-story-title"></p>
+                    </div>
+                    <div class="record-actions">
+                        <button id="record-export" class="horror-btn secondary tiny" title="导出记录">导出</button>
+                        <button id="record-replay" class="horror-btn secondary tiny" title="复盘此局">复盘</button>
+                        <button id="record-close" class="record-close" aria-label="关闭">×</button>
+                    </div>
+                </div>
+                <div id="record-stats" class="record-stats"></div>
+                <div id="record-list" class="record-list"></div>
+            </div>
+        </div>
+
+        <!-- 故事历程浮层 -->
+        <div id="journey-overlay" class="record-overlay hidden">
+            <div class="paper-texture"></div>
+            <div class="record-content">
+                <div class="record-header">
+                    <div>
+                        <h2 class="section-title">阴阳历程</h2>
+                        <p class="section-subtitle">七卷故事，皆是因果</p>
+                    </div>
+                    <button id="journey-close" class="record-close" aria-label="关闭">×</button>
+                </div>
+                <div id="journey-list" class="journey-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

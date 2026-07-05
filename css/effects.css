@@ -1,0 +1,116 @@
+/* 特效层 */
+.effects-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.flicker-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 50%, rgba(0,0,0,0.3) 100%);
+    opacity: 0;
+    animation: flicker 8s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 0; }
+    5% { opacity: 0.3; }
+    6% { opacity: 0; }
+    8% { opacity: 0.2; }
+    9% { opacity: 0; }
+    15% { opacity: 0; }
+    16% { opacity: 0.4; }
+    17% { opacity: 0; }
+    95% { opacity: 0; }
+    96% { opacity: 0.2; }
+    97% { opacity: 0; }
+}
+
+.blood-splatter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at 30% 20%, rgba(139, 0, 0, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139, 0, 0, 0.2) 0%, transparent 40%);
+    opacity: 0.15;
+    pointer-events: none;
+    animation: bloodPulse 2s ease-in-out;
+}
+
+@keyframes bloodPulse {
+    0% { opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.15; }
+}
+
+.ghost-whisper {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.1);
+    font-size: 1.2rem;
+    letter-spacing: 0.3rem;
+    text-align: center;
+    animation: whisperFade 3s ease-in-out;
+}
+
+@keyframes whisperFade {
+    0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    50% { opacity: 0.6; }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
+
+.paper-doll {
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    width: 80px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid var(--blood-red);
+    transform: translateY(-50%);
+    animation: paperDollAppear 2s ease-out;
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+.paper-doll::before {
+    content: "囍";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: var(--blood-red);
+}
+
+@keyframes paperDollAppear {
+    0% { opacity: 0; transform: translateY(-50%) scale(0.8); }
+    50% { opacity: 1; transform: translateY(-50%) scale(1.05); }
+    100% { opacity: 0.9; transform: translateY(-50%) scale(1); }
+}
+
+/* 屏幕震动 */
+.shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+

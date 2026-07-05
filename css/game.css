@@ -1,0 +1,301 @@
+/* 游戏主画面 */
+#game-screen {
+    background: var(--paper-color);
+    padding: 2rem;
+    /* display 由 .screen.active 控制，不可在此写 display: flex */
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* 状态栏 */
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(139, 0, 0, 0.3);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 3;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.status-item.currency-display {
+    margin-left: auto;
+}
+
+.status-label {
+    color: var(--aged-yellow);
+    font-size: 0.9rem;
+    letter-spacing: 0.2rem;
+}
+
+.status-value {
+    color: var(--ghost-white);
+    font-size: 1rem;
+    min-width: 2rem;
+}
+
+.meter {
+    width: 80px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.meter-fill {
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+.meter-fill.sanity {
+    background: linear-gradient(90deg, #8b0000, #c41e3a);
+}
+
+.meter-fill.yin {
+    background: linear-gradient(90deg, #1a1a2e, #4a4a6a);
+}
+
+/* 故事文本区 */
+.story-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    z-index: 3;
+    position: relative;
+}
+
+.story-text {
+    font-size: 1.15rem;
+    line-height: 2;
+    letter-spacing: 0.05rem;
+    white-space: pre-wrap;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.story-text:hover {
+    text-shadow: 0 0 8px rgba(139, 0, 0, 0.3);
+}
+
+.story-text:active {
+    opacity: 0.95;
+}
+
+.skip-hint {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    font-size: 0.75rem;
+    color: rgba(139, 115, 85, 0.6);
+    letter-spacing: 0.1rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 4;
+}
+
+.skip-hint.visible {
+    opacity: 1;
+}
+
+.story-text .red {
+    color: var(--bright-red);
+    text-shadow: 0 0 10px rgba(196, 30, 58, 0.5);
+}
+
+.story-text .faded {
+    color: #666;
+    font-style: italic;
+}
+
+.story-text .whisper {
+    color: #888;
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+.story-text .scream {
+    color: var(--bright-red);
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+}
+
+.cursor {
+    display: inline-block;
+    color: var(--blood-red);
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* 物品栏 */
+.inventory {
+    padding: 0.8rem 1rem;
+    border-top: 1px solid rgba(139, 0, 0, 0.2);
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.inventory-label {
+    color: var(--aged-yellow);
+    font-size: 0.9rem;
+    letter-spacing: 0.2rem;
+}
+
+.inventory-items {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.inventory-item {
+    background: rgba(139, 0, 0, 0.15);
+    border: 1px solid rgba(139, 0, 0, 0.4);
+    padding: 0.3rem 0.8rem;
+    font-size: 0.85rem;
+    border-radius: 2px;
+}
+
+/* 音效开关 */
+#sound-toggle,
+.sound-toggle {
+    background: transparent;
+    border: 1px solid rgba(139, 0, 0, 0.5);
+    color: var(--blood-red);
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    margin-left: auto;
+    z-index: 3;
+    min-width: 64px;
+    text-align: center;
+}
+
+#sound-toggle:hover,
+.sound-toggle:hover {
+    background: rgba(139, 0, 0, 0.15);
+    border-color: var(--bright-red);
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.3);
+}
+
+#sound-toggle.muted,
+.sound-toggle.muted {
+    color: #555;
+    border-color: #444;
+}
+
+#sound-toggle.muted:hover,
+.sound-toggle.muted:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #666;
+}
+
+.sound-toggle.global-sound-toggle {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 200;
+    margin-left: 0;
+}
+
+/* 选择区 */
+/* 响应式 */
+@media (max-width: 768px) {
+    .game-title {
+        font-size: 3.2rem;
+        letter-spacing: 0.8rem;
+        padding-left: 0.8rem;
+    }
+
+    .subtitle {
+        font-size: 1.05rem;
+        letter-spacing: 0.25rem;
+    }
+
+    .subtitle-en {
+        font-size: 0.75rem;
+        letter-spacing: 0.15rem;
+    }
+
+    #title-screen {
+        padding: 5vh 1rem 2vh;
+    }
+
+    .title-actions {
+        max-width: 300px;
+    }
+
+    .title-actions .horror-btn.primary {
+        font-size: 1.1rem;
+        letter-spacing: 0.35rem;
+    }
+
+    .title-toolbar {
+        gap: 0.4rem;
+        padding: 0.5rem 0.4rem;
+    }
+
+    .toolbar-btn {
+        min-width: 56px;
+        padding: 0.4rem 0.2rem;
+    }
+
+    .toolbar-label {
+        font-size: 0.65rem;
+    }
+
+    .paper-seal-decoration {
+        width: 70px;
+        height: 70px;
+        right: 5%;
+        bottom: 14%;
+    }
+
+    .paper-seal-text {
+        font-size: 1.6rem;
+    }
+
+    #game-screen {
+        padding: 1rem;
+    }
+
+    .status-bar {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .meter {
+        width: 50px;
+    }
+
+    #sound-toggle,
+    .sound-toggle {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+        min-width: 56px;
+    }
+}
+

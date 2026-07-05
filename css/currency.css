@@ -1,0 +1,349 @@
+/* ===== 阴钱货币系统 ===== */
+
+/* 货币显示 */
+.currency-display {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: inherit;
+    z-index: 10;
+}
+
+.currency-display.select {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(10, 8, 7, 0.85);
+    border: 1px solid rgba(139, 0, 0, 0.5);
+    padding: 0.5rem 0.8rem;
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.25);
+}
+
+.currency-display.game {
+    /* 状态栏内由 justify-content: space-between 自动分布 */
+}
+
+.currency-label {
+    color: var(--aged-yellow);
+    font-size: 0.85rem;
+    letter-spacing: 0.15rem;
+}
+
+.currency-value {
+    color: var(--bright-red);
+    font-size: 1rem;
+    font-weight: bold;
+    min-width: 2rem;
+    text-align: center;
+    text-shadow: 0 0 8px rgba(196, 30, 58, 0.4);
+}
+
+.horror-btn.tiny {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1rem;
+    margin: 0;
+}
+
+/* 游戏内求签按钮 */
+.hint-btn {
+    align-self: flex-start;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    margin: 0 0 0.5rem 0;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.hint-btn:not(:disabled) {
+    opacity: 1;
+}
+
+/* 提示面板 */
+.hint-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.hint-content {
+    background: rgba(20, 15, 12, 0.95);
+    border: 1px solid var(--blood-red);
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(139, 0, 0, 0.4);
+}
+
+.hint-content h3 {
+    color: var(--bright-red);
+    font-size: 1.5rem;
+    letter-spacing: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.hint-content p {
+    color: var(--ghost-white);
+    font-size: 1.05rem;
+    line-height: 2;
+    margin-bottom: 1.5rem;
+    white-space: pre-wrap;
+}
+
+/* 阴市商店 */
+#shop-screen {
+    background: var(--bg-black);
+    justify-content: flex-start;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.shop-content {
+    width: 100%;
+    max-width: 900px;
+    z-index: 3;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.shop-header {
+    margin-bottom: 2rem;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    text-align: left;
+    align-items: stretch;
+}
+
+.shop-item {
+    background: rgba(20, 15, 12, 0.85);
+    border: 1px solid rgba(139, 0, 0, 0.4);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.shop-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--blood-red);
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+
+.shop-item:hover {
+    border-color: var(--bright-red);
+    box-shadow: 0 0 25px rgba(139, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+.shop-item:hover::before {
+    opacity: 1;
+}
+
+.shop-item-name {
+    font-size: 1.3rem;
+    color: var(--bright-red);
+    letter-spacing: 0.2rem;
+}
+
+.shop-item-desc {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #aaa;
+    flex: 1;
+}
+
+.shop-item-price {
+    font-size: 1rem;
+    color: var(--aged-yellow);
+    letter-spacing: 0.1rem;
+}
+
+.shop-item-price span {
+    color: var(--bright-red);
+    font-weight: bold;
+}
+
+.shop-item .horror-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.7rem 0;
+    margin: 0;
+}
+
+/* 模拟充值区 */
+.shop-recharge {
+    background: rgba(20, 15, 12, 0.6);
+    border: 1px dashed rgba(139, 0, 0, 0.4);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.shop-recharge h3 {
+    color: var(--aged-yellow);
+    font-size: 1.1rem;
+    letter-spacing: 0.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.shop-recharge-note {
+    color: #777;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.shop-recharge-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+#shop-recharge-input {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(139, 0, 0, 0.5);
+    color: var(--ghost-white);
+    padding: 0.7rem 1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    min-width: 180px;
+    outline: none;
+}
+
+#shop-recharge-input:focus {
+    border-color: var(--bright-red);
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.3);
+}
+
+/* 借命还阳按钮 */
+.revive-btn {
+    margin-top: 1rem;
+    border-color: var(--bright-red);
+    color: var(--bright-red);
+}
+
+.revive-btn:hover {
+    background: var(--bright-red);
+    color: var(--bg-black);
+}
+
+/* 阴钱变动提示 */
+.currency-toast {
+    padding: 1rem 1.5rem;
+    color: var(--ghost-white);
+    font-size: 0.95rem;
+    letter-spacing: 0.05rem;
+    line-height: 1.6;
+}
+
+.currency-toast .toast-info {
+    width: 100%;
+}
+
+/* 货币系统响应式 */
+@media (max-width: 768px) {
+    .currency-display.select {
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.35rem 0.6rem;
+    }
+
+    .currency-label {
+        font-size: 0.75rem;
+    }
+
+    .currency-value {
+        font-size: 0.9rem;
+    }
+
+    .horror-btn.tiny {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.7rem;
+    }
+
+    .status-bar .currency-display {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 0.3rem;
+    }
+
+    .hint-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .hint-content {
+        padding: 1.5rem;
+    }
+
+    .hint-content h3 {
+        font-size: 1.2rem;
+        letter-spacing: 0.3rem;
+    }
+
+    .hint-content p {
+        font-size: 0.95rem;
+    }
+
+    #shop-screen {
+        padding: 1rem;
+    }
+
+    .shop-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .shop-item {
+        padding: 1rem;
+    }
+
+    .shop-recharge-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #shop-recharge-input {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .currency-display.select {
+        position: static;
+        justify-content: center;
+        margin: 0.5rem auto 0;
+        width: fit-content;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+    }
+
+    .status-bar .currency-display {
+        justify-content: center;
+    }
+}
+

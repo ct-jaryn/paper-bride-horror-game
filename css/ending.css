@@ -1,0 +1,40 @@
+/* 结局画面 */
+#ending-screen {
+    background: var(--bg-black);
+}
+
+.ending-content {
+    text-align: center;
+    z-index: 3;
+    max-width: 680px;
+    padding: 2rem;
+    width: 100%;
+}
+
+.ending-title {
+    font-size: 2.5rem;
+    color: var(--blood-red);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5rem;
+}
+
+.ending-text {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--ghost-white);
+    margin-bottom: 2.5rem;
+    white-space: pre-wrap;
+}
+
+.ending-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.ending-actions .horror-btn {
+    margin: 0;
+    min-width: 140px;
+}
+

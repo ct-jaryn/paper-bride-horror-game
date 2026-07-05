@@ -1,0 +1,76 @@
+/* 按钮 */
+.horror-btn {
+    background: transparent;
+    border: 1px solid var(--blood-red);
+    color: var(--blood-red);
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.3rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0.5rem;
+    font-family: inherit;
+    position: relative;
+    overflow: hidden;
+}
+
+.horror-btn:hover {
+    background: var(--blood-red);
+    color: var(--bg-black);
+    box-shadow: 0 0 30px rgba(139, 0, 0, 0.6);
+}
+
+.horror-btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.4);
+}
+
+.horror-btn:focus-visible {
+    outline: 1px solid var(--bright-red);
+    outline-offset: 3px;
+}
+
+.horror-btn.secondary {
+    border-color: var(--aged-yellow);
+    color: var(--aged-yellow);
+}
+
+.horror-btn.secondary:hover {
+    background: var(--aged-yellow);
+    color: var(--bg-black);
+}
+
+.horror-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: #444;
+    color: #666;
+}
+
+.horror-btn:disabled:hover {
+    background: transparent;
+    box-shadow: none;
+}
+
+.horror-btn.primary {
+    border-color: var(--blood-red);
+    color: var(--blood-red);
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.horror-btn.primary:hover {
+    background: var(--blood-red);
+    color: var(--bg-black);
+    box-shadow: 0 0 35px rgba(139, 0, 0, 0.7);
+}
+
+.horror-btn.primary:focus-visible {
+    outline: 1px solid var(--bright-red);
+    outline-offset: 3px;
+}
+
+.hidden {
+    display: none !important;
+}
+

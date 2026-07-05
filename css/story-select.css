@@ -1,0 +1,198 @@
+/* ===== 故事选择画面 ===== */
+#story-select-screen {
+    background: var(--bg-black);
+    justify-content: flex-start;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.story-select-content {
+    width: 100%;
+    max-width: 1200px;
+    z-index: 3;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--blood-red);
+    letter-spacing: 1rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: var(--aged-yellow);
+    letter-spacing: 0.3rem;
+    margin-bottom: 2rem;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    align-items: stretch;
+}
+
+.story-card {
+    background: rgba(20, 15, 12, 0.8);
+    border: 1px solid rgba(139, 0, 0, 0.4);
+    padding: 1.5rem;
+    text-align: left;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.story-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--blood-red);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.story-card:hover {
+    border-color: var(--bright-red);
+    box-shadow: 0 0 30px rgba(139, 0, 0, 0.3);
+    transform: translateY(-5px);
+}
+
+.story-card:hover::before {
+    opacity: 1;
+}
+
+.story-card-header {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(139, 0, 0, 0.2);
+    padding-bottom: 0.8rem;
+}
+
+.story-card-title {
+    font-size: 1.8rem;
+    color: var(--bright-red);
+    letter-spacing: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.story-card-subtitle {
+    font-size: 0.9rem;
+    color: var(--aged-yellow);
+    letter-spacing: 0.1rem;
+}
+
+.story-card-desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--ghost-white);
+    margin-bottom: 1rem;
+    flex: 1;
+}
+
+.story-card-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.story-card-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.2rem;
+}
+
+.story-tag {
+    background: rgba(139, 0, 0, 0.15);
+    border: 1px solid rgba(139, 0, 0, 0.3);
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    color: var(--aged-yellow);
+}
+
+.story-card-actions {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+.story-card-actions .horror-btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+    flex: 1;
+    text-align: center;
+    margin: 0;
+}
+
+.story-card-actions .horror-btn.secondary {
+    flex: 0 0 auto;
+    min-width: 90px;
+}
+
+.story-card-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 8, 7, 0.92);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.story-card-loading.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.story-card-loading::after {
+    content: '';
+    width: 36px;
+    height: 36px;
+    border: 2px solid rgba(139, 0, 0, 0.3);
+    border-top-color: var(--bright-red);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.story-card-loading-text {
+    color: var(--aged-yellow);
+    letter-spacing: 0.2rem;
+    font-size: 0.9rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem;
+        letter-spacing: 0.5rem;
+    }
+    
+    .story-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

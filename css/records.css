@@ -1,0 +1,502 @@
+/* ===== 选择记录与阴阳历程系统 ===== */
+
+/* 游戏内记录按钮 */
+.record-btn {
+    background: transparent;
+    border: 1px solid rgba(139, 0, 0, 0.5);
+    color: var(--blood-red);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: inherit;
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
+    margin-left: 0.5rem;
+    flex-shrink: 0;
+}
+
+.record-btn:hover,
+.record-btn:focus-visible {
+    background: rgba(139, 0, 0, 0.15);
+    border-color: var(--bright-red);
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.3);
+    outline: none;
+}
+
+.record-btn:focus-visible {
+    outline: 1px solid var(--bright-red);
+    outline-offset: 2px;
+}
+
+/* 浮层通用 */
+.record-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 110;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: rgba(10, 10, 10, 0.92);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+}
+
+.record-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.record-content {
+    position: relative;
+    z-index: 101;
+    width: 100%;
+    max-width: 720px;
+    max-height: 85vh;
+    background: rgba(20, 15, 12, 0.95);
+    border: 1px solid rgba(139, 0, 0, 0.4);
+    box-shadow: 0 0 40px rgba(139, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.record-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid rgba(139, 0, 0, 0.3);
+}
+
+.record-header .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.5rem;
+}
+
+.record-header .section-subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 0.2rem;
+    margin-bottom: 0;
+}
+
+.record-close {
+    background: transparent;
+    border: 1px solid rgba(139, 0, 0, 0.4);
+    color: var(--blood-red);
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    line-height: 1;
+}
+
+.record-close:hover,
+.record-close:focus-visible {
+    background: rgba(139, 0, 0, 0.2);
+    border-color: var(--bright-red);
+    outline: none;
+}
+
+.record-stats {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(139, 0, 0, 0.15);
+    font-size: 0.85rem;
+    color: var(--aged-yellow);
+    letter-spacing: 0.1rem;
+}
+
+.record-stats span {
+    background: rgba(139, 0, 0, 0.1);
+    border: 1px solid rgba(139, 0, 0, 0.2);
+    padding: 0.3rem 0.7rem;
+}
+
+.record-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem 1.5rem 1.5rem;
+}
+
+.record-empty {
+    text-align: center;
+    color: #555;
+    font-size: 0.95rem;
+    padding: 2rem 0;
+    letter-spacing: 0.1rem;
+}
+
+.record-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(139, 0, 0, 0.1);
+    align-items: flex-start;
+}
+
+.record-item:last-child {
+    border-bottom: none;
+}
+
+.record-step {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(139, 0, 0, 0.15);
+    border: 1px solid rgba(139, 0, 0, 0.4);
+    color: var(--blood-red);
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 2px;
+}
+
+.record-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.record-scene {
+    font-size: 0.75rem;
+    color: var(--aged-yellow);
+    letter-spacing: 0.1rem;
+}
+
+.record-choice {
+    font-size: 1rem;
+    color: var(--ghost-white);
+    line-height: 1.5;
+}
+
+.record-effects {
+    font-size: 0.75rem;
+    color: #777;
+    letter-spacing: 0.05rem;
+}
+
+.record-time {
+    font-size: 0.75rem;
+    color: #555;
+    white-space: nowrap;
+    margin-top: 2px;
+}
+
+.record-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.record-story-title {
+    font-size: 0.9rem;
+    color: var(--blood-red);
+    letter-spacing: 0.15rem;
+    margin-top: 0.5rem;
+    min-height: 1.2em;
+}
+
+.horror-btn.tiny {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1rem;
+}
+
+/* 导出 / 复盘通用遮罩 */
+.record-export-overlay,
+.record-replay-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 4, 3, 0.92);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.record-export-dialog,
+.record-replay-dialog {
+    width: 100%;
+    max-width: 700px;
+    max-height: 90vh;
+    background: rgba(20, 15, 12, 0.98);
+    border: 1px solid rgba(139, 0, 0, 0.5);
+    box-shadow: 0 0 60px rgba(139, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.record-export-dialog h3,
+.record-replay-header h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.3rem;
+    color: var(--blood-red);
+    letter-spacing: 0.3rem;
+    margin: 0;
+}
+
+.record-export-dialog textarea {
+    width: 100%;
+    flex: 1;
+    min-height: 300px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(139, 0, 0, 0.3);
+    color: var(--ghost-white);
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    padding: 1rem;
+    resize: none;
+    outline: none;
+}
+
+.record-export-dialog .horror-btn {
+    margin: 1rem;
+    align-self: flex-end;
+}
+
+.record-replay-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(139, 0, 0, 0.3);
+}
+
+.record-replay-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem 1.5rem 1.5rem;
+}
+
+.replay-step {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(139, 0, 0, 0.1);
+}
+
+.replay-step:last-child {
+    border-bottom: none;
+}
+
+.replay-step-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.replay-step-num {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(139, 0, 0, 0.15);
+    border: 1px solid rgba(139, 0, 0, 0.4);
+    color: var(--blood-red);
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.replay-step-scene {
+    font-size: 0.85rem;
+    color: var(--aged-yellow);
+    letter-spacing: 0.1rem;
+}
+
+.replay-step-text {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    padding-left: 2.2rem;
+}
+
+.replay-step-choice {
+    font-size: 0.95rem;
+    color: var(--ghost-white);
+    padding-left: 2.2rem;
+    line-height: 1.5;
+}
+
+.replay-step-effects {
+    font-size: 0.75rem;
+    color: #777;
+    padding-left: 2.2rem;
+    margin-top: 0.25rem;
+}
+
+/* 隐藏选择按钮样式 */
+.choice-btn.hidden-choice {
+    border-style: dashed;
+    border-color: rgba(139, 0, 0, 0.4);
+    color: #888;
+}
+
+.choice-btn.hidden-choice:hover {
+    border-color: var(--bright-red);
+    color: var(--ghost-white);
+}
+
+/* 阴阳历程卡片 */
+.journey-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem 1.5rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.journey-card {
+    background: rgba(20, 15, 12, 0.9);
+    border: 1px solid rgba(139, 0, 0, 0.25);
+    padding: 1.2rem;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.journey-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--blood-red);
+    opacity: 0.3;
+    transition: opacity 0.25s ease;
+}
+
+.journey-card.completed {
+    border-color: rgba(139, 0, 0, 0.5);
+    background: rgba(30, 15, 15, 0.9);
+}
+
+.journey-card.completed::before {
+    opacity: 0.8;
+}
+
+.journey-card:hover {
+    border-color: rgba(139, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.15);
+}
+
+.journey-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.journey-card-title {
+    font-size: 1.4rem;
+    color: var(--bright-red);
+    letter-spacing: 0.3rem;
+}
+
+.journey-card-subtitle {
+    font-size: 0.8rem;
+    color: var(--aged-yellow);
+    letter-spacing: 0.1rem;
+}
+
+.journey-card-desc {
+    font-size: 0.9rem;
+    color: var(--ghost-white);
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+    opacity: 0.85;
+}
+
+.journey-card-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: #777;
+    margin-bottom: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.journey-endings {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.journey-ending-tag {
+    background: rgba(139, 0, 0, 0.15);
+    border: 1px solid rgba(139, 0, 0, 0.3);
+    color: var(--aged-yellow);
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.05rem;
+}
+
+/* 历程系统响应式 */
+@media (max-width: 768px) {
+    .record-overlay {
+        padding: 1rem;
+    }
+
+    .record-content {
+        max-height: 90vh;
+    }
+
+    .record-header {
+        padding: 1rem;
+    }
+
+    .record-header .section-title {
+        font-size: 1.4rem;
+        letter-spacing: 0.3rem;
+    }
+
+    .record-stats {
+        padding: 0.8rem 1rem;
+        gap: 0.5rem;
+    }
+
+    .record-list,
+    .journey-list {
+        padding: 0.8rem 1rem 1rem;
+    }
+
+    .record-item {
+        gap: 0.7rem;
+    }
+
+    .journey-card-header {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .journey-card-title {
+        font-size: 1.2rem;
+    }
+}

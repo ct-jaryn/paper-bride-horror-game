@@ -1,0 +1,198 @@
+/* ===== 成就系统 ===== */
+
+/* 标题画面成就按钮 */
+#achievements-btn {
+    margin-top: 0;
+}
+
+/* 成就面板 */
+#achievements-screen {
+    background: var(--bg-black);
+    justify-content: flex-start;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.achievements-content {
+    width: 100%;
+    max-width: 900px;
+    z-index: 3;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.achievements-header {
+    margin-bottom: 2rem;
+}
+
+.achievement-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.achievement-card {
+    background: rgba(20, 15, 12, 0.8);
+    border: 1px solid rgba(139, 0, 0, 0.3);
+    padding: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.achievement-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--blood-red);
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+.achievement-card.unlocked {
+    border-color: rgba(139, 0, 0, 0.6);
+    background: rgba(40, 15, 15, 0.8);
+}
+
+.achievement-card.unlocked::before {
+    opacity: 1;
+}
+
+.achievement-card.locked {
+    opacity: 0.6;
+}
+
+.achievement-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--blood-red);
+    color: var(--blood-red);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.achievement-card.unlocked .achievement-icon {
+    background: rgba(139, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.3);
+}
+
+.achievement-info {
+    flex: 1;
+}
+
+.achievement-name {
+    font-size: 1.1rem;
+    color: var(--ghost-white);
+    letter-spacing: 0.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.achievement-card.unlocked .achievement-name {
+    color: var(--bright-red);
+}
+
+.achievement-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #888;
+}
+
+.achievement-status {
+    font-size: 0.8rem;
+    color: var(--aged-yellow);
+    writing-mode: vertical-rl;
+    letter-spacing: 0.2rem;
+}
+
+.achievement-card.unlocked .achievement-status {
+    color: var(--bright-red);
+}
+
+/* Toast 统一容器 */
+.toast-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    pointer-events: none;
+}
+
+.toast {
+    background: rgba(20, 10, 10, 0.95);
+    border: 1px solid var(--blood-red);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transform: translateX(120%);
+    opacity: 0;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 30px rgba(139, 0, 0, 0.4);
+    max-width: 320px;
+    pointer-events: auto;
+}
+
+.toast.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.toast-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--blood-red);
+    color: var(--blood-red);
+    font-size: 1.3rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.toast-name {
+    font-size: 1rem;
+    color: var(--bright-red);
+    letter-spacing: 0.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.toast-desc {
+    font-size: 0.8rem;
+    color: #aaa;
+    line-height: 1.5;
+}
+
+/* 成就解锁提示：.achievement-toast 仅作标记，具体样式继承 .toast */
+.achievement-toast {
+}
+
+@media (max-width: 768px) {
+    .toast-container {
+        right: 0.5rem;
+        left: 0.5rem;
+        align-items: flex-end;
+    }
+
+    .toast {
+        right: 0;
+        left: auto;
+        max-width: calc(100% - 1rem);
+    }
+}
+
