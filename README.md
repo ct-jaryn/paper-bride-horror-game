@@ -1,6 +1,28 @@
-# 《阴阳簿》—— 中式文字恐怖游戏集
+# 阴阳簿 · Paper Bride Horror Game
 
-《阴阳簿》是一个多故事、共享世界观的文字恐怖游戏。每一卷都是一个独立的中式恐怖故事，但它们发生在同一个"阴阳交错"的世界里，共享相同的民俗符号、诅咒规则与因果逻辑。
+> 一个多故事、共享世界观的 **中式文字恐怖游戏集**。  
+> 每一卷都是独立的民俗恐怖故事，发生在同一个「阴阳交错」的世界里，共享相同的民俗符号、诅咒规则与因果逻辑。
+>
+> 🎮 **在线预览**：https://ct-jaryn.github.io/paper-bride-horror-game/  
+> 📦 **源码仓库**：https://github.com/ct-jaryn/paper-bride-horror-game
+
+---
+
+## 简介
+
+《阴阳簿》记录人与鬼之间未了之事。簿中的每一页，都是一个被执念困住的灵魂。它们或因冤而死，或因爱而不舍，或因罪而难以超生。只有"有缘人"才能翻开这些页面，进入它们的故事。
+
+你，就是这本簿子的最新记录者。
+
+---
+
+## 在线预览
+
+项目已通过 GitHub Pages 自动部署，点击即可游玩：
+
+👉 **[https://ct-jaryn.github.io/paper-bride-horror-game/](https://ct-jaryn.github.io/paper-bride-horror-game/)**
+
+> 部署状态由 GitHub Actions / Pages 自动维护，每次 `main` 分支更新后自动重新发布。
 
 ---
 
