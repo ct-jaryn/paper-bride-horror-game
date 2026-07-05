@@ -37,8 +37,8 @@
     #back-to-title-btn,
     #back-from-achievements-btn,
     #achievements-btn {
-        min-height: 44px;
-        min-width: 44px;
+        min-height: 48px;
+        min-width: 48px;
         padding: 0.75rem 1.5rem;
         font-size: 1rem;
         -webkit-tap-highlight-color: transparent;
@@ -50,30 +50,34 @@
     }
 
     .status-bar {
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        padding: 0.6rem 0;
+        gap: 0.4rem;
+        padding: 0.5rem;
         margin-bottom: 0.75rem;
     }
 
     .status-item {
-        gap: 0.35rem;
+        gap: 0.25rem;
         flex: 1 1 auto;
-        min-width: 80px;
+        min-width: 70px;
+    }
+
+    .status-icon {
+        font-size: 0.75rem;
+        width: 1rem;
     }
 
     .status-label {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 
     .status-value {
-        font-size: 0.9rem;
-        min-width: 2rem;
+        font-size: 0.8rem;
+        min-width: 1.5rem;
     }
 
     .meter {
-        width: 50px;
-        height: 6px;
+        width: 42px;
+        height: 5px;
     }
 
     .story-area {
@@ -135,11 +139,26 @@
     }
 
     .story-card {
-        padding: 1rem;
+        padding: 0;
+    }
+
+    .story-card-header {
+        padding: 1rem 1rem 0.75rem;
     }
 
     .story-card-title {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
+    }
+
+    .story-card-progress {
+        top: 1rem;
+        right: 1rem;
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    .story-card-body {
+        padding: 0.75rem 1rem;
     }
 
     .story-card-desc {
@@ -148,6 +167,7 @@
     }
 
     .story-card-actions {
+        padding: 0 1rem 1rem;
         justify-content: stretch;
     }
 

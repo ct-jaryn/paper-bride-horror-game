@@ -84,6 +84,11 @@ export function updateStatus() {
     ui.yinBar.style.width = `${Math.max(0, Huimen.GameState.yin)}%`;
     ui.yinValue.textContent = Math.floor(Huimen.GameState.yin);
 
+    const sanityItem = document.getElementById('sanity-item');
+    const yinItem = document.getElementById('yin-item');
+    if (sanityItem) sanityItem.classList.toggle('danger', Huimen.GameState.sanity <= 30);
+    if (yinItem) yinItem.classList.toggle('danger', Huimen.GameState.yin >= 70);
+
     if (Huimen.GameState.sanity < 30) {
         document.body.style.filter = 'contrast(1.2) saturate(0.6)';
     } else {
@@ -300,27 +305,38 @@ export function renderStorySelect() {
 
     ui.storyGrid.innerHTML = '';
 
-    Huimen.StoryManifest.forEach(story => {
+    const achievementData = SaveManager.loadAchievements();
+    const endingsReached = achievementData.endingsReached || {};
+
+    Huimen.StoryManifest.forEach((story, index) => {
         const hasSave = SaveManager.loadStorySave(story.id);
+        const reached = endingsReached[story.id] || [];
+        const progressText = reached.length > 0 ? `已达成 ${reached.length} 结局` : (hasSave ? '有存档' : '未开始');
 
         const card = document.createElement('div');
         card.className = 'story-card';
+        card.style.setProperty('--order', String(index));
         card.innerHTML = `
             <div class="story-card-header">
-                <h3 class="story-card-title">${escapeHtml(story.title)}</h3>
+                <div class="story-card-title-wrap">
+                    <h3 class="story-card-title">${escapeHtml(story.title)}</h3>
+                    <span class="story-card-progress">${escapeHtml(progressText)}</span>
+                </div>
                 <span class="story-card-subtitle">${escapeHtml(story.subtitle)}</span>
             </div>
-            <p class="story-card-desc">${escapeHtml(story.description)}</p>
-            <div class="story-card-meta">
-                <span>难度: ${escapeHtml(story.difficulty)}</span>
-                <span>恐怖度: ${'★'.repeat(story.horrorLevel)}</span>
-                <span>${escapeHtml(story.playTime)}</span>
-            </div>
-            <div class="story-card-tags">
-                ${story.tags.map(tag => `<span class="story-tag">${escapeHtml(tag)}</span>`).join('')}
+            <div class="story-card-body">
+                <p class="story-card-desc">${escapeHtml(story.description)}</p>
+                <div class="story-card-meta">
+                    <span>难度: ${escapeHtml(story.difficulty)}</span>
+                    <span>恐怖度: ${'★'.repeat(story.horrorLevel)}</span>
+                    <span>${escapeHtml(story.playTime)}</span>
+                </div>
+                <div class="story-card-tags">
+                    ${story.tags.map(tag => `<span class="story-tag">${escapeHtml(tag)}</span>`).join('')}
+                </div>
             </div>
             <div class="story-card-actions">
-                <button class="horror-btn story-start-btn" data-story="${escapeHtml(story.id)}">${hasSave ? '继续' : '开始'}</button>
+                <button class="horror-btn story-start-btn" data-story="${escapeHtml(story.id)}"${hasSave ? ' data-continue' : ''}>${hasSave ? '继续' : '开始'}</button>
                 ${hasSave ? `<button class="horror-btn secondary story-reset-btn" data-story="${escapeHtml(story.id)}">重新开始</button>` : ''}
             </div>
             <div class="story-card-loading" data-loading="${escapeHtml(story.id)}">
@@ -380,6 +396,21 @@ export function renderAchievements() {
         ui.achievementCount.textContent = `${Huimen.AchievementEngine.getUnlockedCount()} / ${allAchievements.length}`;
     }
 }
+
+export function showLoading(text = '载入幽冥……') {
+    const el = document.getElementById('global-loading');
+    const textEl = el ? el.querySelector('.loading-text') : null;
+    if (textEl) textEl.textContent = text;
+    if (el) el.classList.add('active');
+}
+
+export function hideLoading() {
+    const el = document.getElementById('global-loading');
+    if (el) el.classList.remove('active');
+}
+
+Huimen.showLoading = showLoading;
+Huimen.hideLoading = hideLoading;
 
 // 导出公共 API 到 Huimen
 Huimen.renderScene = renderScene;

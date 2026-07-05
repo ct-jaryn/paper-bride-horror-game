@@ -31,22 +31,39 @@
 
 .story-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
     align-items: stretch;
 }
 
 .story-card {
-    background: rgba(20, 15, 12, 0.8);
-    border: 1px solid rgba(139, 0, 0, 0.4);
-    padding: 1.5rem;
+    background: rgba(18, 12, 10, 0.85);
+    border: 1px solid rgba(139, 0, 0, 0.35);
+    padding: 0;
     text-align: left;
-    transition: all 0.3s ease;
+    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    border-radius: 2px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: storyCardEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.story-card:nth-child(1) { animation-delay: 0.05s; }
+.story-card:nth-child(2) { animation-delay: 0.1s; }
+.story-card:nth-child(3) { animation-delay: 0.15s; }
+.story-card:nth-child(4) { animation-delay: 0.2s; }
+.story-card:nth-child(5) { animation-delay: 0.25s; }
+.story-card:nth-child(6) { animation-delay: 0.3s; }
+.story-card:nth-child(7) { animation-delay: 0.35s; }
+
+@keyframes storyCardEnter {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 .story-card::before {
@@ -57,31 +74,60 @@
     width: 4px;
     height: 100%;
     background: var(--blood-red);
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
+    opacity: 0.6;
+    transition: all 0.35s ease;
+}
+
+.story-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 80% 0%, rgba(139, 0, 0, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
 }
 
 .story-card:hover {
-    border-color: var(--bright-red);
-    box-shadow: 0 0 30px rgba(139, 0, 0, 0.3);
-    transform: translateY(-5px);
+    border-color: rgba(196, 30, 58, 0.7);
+    box-shadow: 0 12px 40px rgba(139, 0, 0, 0.35);
+    transform: translateY(-8px) scale(1.01);
 }
 
 .story-card:hover::before {
     opacity: 1;
+    width: 6px;
+    background: var(--bright-red);
+    box-shadow: 0 0 20px rgba(196, 30, 58, 0.5);
+}
+
+.story-card:hover::after {
+    opacity: 1;
 }
 
 .story-card-header {
-    margin-bottom: 1rem;
+    padding: 1.5rem 1.5rem 1rem;
     border-bottom: 1px solid rgba(139, 0, 0, 0.2);
-    padding-bottom: 0.8rem;
+    position: relative;
+    background: rgba(30, 15, 15, 0.25);
+}
+
+.story-card-title-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.4rem;
 }
 
 .story-card-title {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     color: var(--bright-red);
-    letter-spacing: 0.3rem;
-    margin-bottom: 0.3rem;
+    letter-spacing: 0.35rem;
+    margin: 0;
+    text-shadow: 0 0 15px rgba(139, 0, 0, 0.4);
 }
 
 .story-card-subtitle {
@@ -90,12 +136,32 @@
     letter-spacing: 0.1rem;
 }
 
+.story-card-progress {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 0.75rem;
+    color: var(--aged-yellow);
+    letter-spacing: 0.05rem;
+    background: rgba(139, 0, 0, 0.12);
+    border: 1px solid rgba(139, 0, 0, 0.25);
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+}
+
+.story-card-body {
+    padding: 1rem 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
 .story-card-desc {
     font-size: 0.95rem;
-    line-height: 1.7;
+    line-height: 1.75;
     color: var(--ghost-white);
     margin-bottom: 1rem;
-    flex: 1;
+    opacity: 0.9;
 }
 
 .story-card-meta {
@@ -111,35 +177,44 @@
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
+    margin-top: auto;
     margin-bottom: 1.2rem;
 }
 
 .story-tag {
-    background: rgba(139, 0, 0, 0.15);
-    border: 1px solid rgba(139, 0, 0, 0.3);
-    padding: 0.2rem 0.6rem;
+    background: rgba(139, 0, 0, 0.12);
+    border: 1px solid rgba(139, 0, 0, 0.28);
+    padding: 0.25rem 0.65rem;
     font-size: 0.75rem;
     color: var(--aged-yellow);
+    letter-spacing: 0.05rem;
+    transition: all 0.2s ease;
+}
+
+.story-card:hover .story-tag {
+    background: rgba(139, 0, 0, 0.2);
+    border-color: rgba(196, 30, 58, 0.45);
 }
 
 .story-card-actions {
     display: flex;
     gap: 0.8rem;
     flex-wrap: wrap;
-    margin-top: auto;
+    padding: 0 1.5rem 1.5rem;
 }
 
 .story-card-actions .horror-btn {
-    padding: 0.6rem 1.5rem;
-    font-size: 0.9rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.95rem;
     flex: 1;
     text-align: center;
     margin: 0;
+    min-height: 44px;
 }
 
 .story-card-actions .horror-btn.secondary {
     flex: 0 0 auto;
-    min-width: 90px;
+    min-width: 100px;
 }
 
 .story-card-loading {

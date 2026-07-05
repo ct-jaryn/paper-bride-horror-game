@@ -7,7 +7,7 @@ import { Huimen } from './namespace.js';
 import { ui } from './dom.js';
 import * as SaveManager from './saveManager.js';
 import { resetState, loadStoryState } from './state.js';
-import { showScreen, renderScene } from './renderer.js';
+import { showScreen, renderScene, showLoading, hideLoading } from './renderer.js';
 import { applyEasterEggs } from './storyExtensions.js';
 import { Platform } from './platform.js';
 
@@ -33,6 +33,7 @@ export function loadStory(storyId, forceReset = false) {
 
     Huimen.CurrentStory = story;
     setStoryLoading(storyId, true);
+    showLoading('翻开命簿……');
 
     const scriptUrl = Platform.isMinigame()
         ? story.scriptPath
@@ -40,6 +41,7 @@ export function loadStory(storyId, forceReset = false) {
     Platform.loadScript(scriptUrl)
         .then(module => {
             setStoryLoading(storyId, false);
+            hideLoading();
 
             if (!module.StoryData || !module.Endings) {
                 console.error('故事脚本加载后变量未找到:', story.scriptPath);
@@ -57,6 +59,7 @@ export function loadStory(storyId, forceReset = false) {
         })
         .catch(err => {
             setStoryLoading(storyId, false);
+            hideLoading();
             Huimen.CurrentStory = null;
             console.error('加载故事脚本失败:', story.scriptPath, err);
             alert('故事加载失败，请检查文件路径。');

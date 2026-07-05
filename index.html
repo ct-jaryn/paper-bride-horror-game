@@ -94,17 +94,20 @@
             <!-- 顶部状态栏 -->
             <header class="status-bar">
                 <div class="status-item">
+                    <span class="status-icon" aria-hidden="true">时</span>
                     <span class="status-label">时辰</span>
                     <span id="time-display" class="status-value">戌时三刻</span>
                 </div>
-                <div class="status-item">
+                <div class="status-item" id="sanity-item">
+                    <span class="status-icon" aria-hidden="true">神</span>
                     <span class="status-label">理智</span>
                     <div class="meter">
                         <div id="sanity-bar" class="meter-fill sanity"></div>
                     </div>
                     <span id="sanity-value" class="status-value">100</span>
                 </div>
-                <div class="status-item">
+                <div class="status-item" id="yin-item">
+                    <span class="status-icon" aria-hidden="true">阴</span>
                     <span class="status-label">阴气</span>
                     <div class="meter">
                         <div id="yin-bar" class="meter-fill yin"></div>
@@ -112,6 +115,7 @@
                     <span id="yin-value" class="status-value">0</span>
                 </div>
                 <div class="status-item currency-display">
+                    <span class="status-icon" aria-hidden="true">钱</span>
                     <span class="status-label">阴钱</span>
                     <span class="currency-value status-value">0</span>
                     <button class="shop-open-btn horror-btn secondary tiny">阴市</button>
@@ -335,6 +339,11 @@
                 <div id="journey-list" class="journey-list"></div>
             </div>
         </div>
+    </div>
+
+    <div id="global-loading">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">载入幽冥……</div>
     </div>
 
     <script type="module" src="js/main.js"></script>
