@@ -2,8 +2,10 @@
  * 《ganshi》场景模块：prologue
  */
 
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
 export const scenes = {
-    prologue: {
+    prologue: createScene('prologue', {
         title: '赶尸',
         text: `雨夜，山路。
 
@@ -30,33 +32,22 @@ export const scenes = {
             addItem: '铜铃'
         },
         choices: [
-            {
-                text: '检查黄符是否脱落',
-                next: 'check_talisman'
-            },
-            {
-                text: '大声念赶尸咒',
-                next: 'chant_corpse_spell'
-            },
-            {
-                text: '质问尸体为何发笑',
-                next: 'ask_corpse_laugh'
-            },
-            {
+            createChoice({ text: '检查黄符是否脱落', next: 'check_talisman' }),
+            createChoice({ text: '大声念赶尸咒', next: 'chant_corpse_spell' }),
+            createChoice({ text: '质问尸体为何发笑', next: 'ask_corpse_laugh' }),
+            createChoice({
                 text: '你阴气太重，听见尸体们在低声交谈',
                 next: 'corpse_conversation',
                 condition: { yinAbove: 15 },
                 hidden: true,
                 effects: { sanity: -5, yin: 10 }
-            },
-            {
+            }),
+            createChoice({
                 text: '路边红影里似乎站着一位穿嫁衣的女子…',
                 npc: 'xiulan_ghost',
                 npcNode: 'start',
                 custom: true
-            }
+            })
         ]
-    },
-
-    // 尸语（新增隐藏分支）
+    })
 };

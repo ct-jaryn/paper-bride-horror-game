@@ -55,7 +55,8 @@ export function createChoice({
     setFlag,
     hideIf,
     npc,
-    npcNode
+    npcNode,
+    custom
 }) {
     const choice = { text };
     if (next) choice.next = next;
@@ -68,5 +69,6 @@ export function createChoice({
     if (hideIf) choice.hideIf = hideIf;
     if (npc) choice.npc = npc;
     if (npcNode) choice.npcNode = npcNode;
+    if (custom !== undefined) choice.custom = custom;
     return choice;
 }
