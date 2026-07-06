@@ -39,6 +39,39 @@ export const scenes = {
                 next: "osmanthus_trace",
             }),
             createChoice({
+                text: "你已知云袖之名，循着桂花香去青石镇桂花巷",
+                next: "osmanthus_alley",
+                condition: {
+                    flag: "knowsName",
+                },
+                hidden: true,
+                effects: {
+                    time: 60,
+                },
+            }),
+            createChoice({
+                text: "凌晨三点，座机忽然响了，仿佛有故人要嘱托",
+                next: "mysterious_call",
+                condition: {
+                    flag: "knowsName",
+                },
+                hidden: true,
+                effects: {
+                    yin: 5,
+                },
+            }),
+            createChoice({
+                text: "天快亮了，林叔来接班时似乎有话要说",
+                next: "lin_shu_memory",
+                condition: {
+                    flag: "promised",
+                },
+                hidden: true,
+                effects: {
+                    time: 30,
+                },
+            }),
+            createChoice({
                 text: "你曾听见过纸人低语，那曲调里有相似的绝望",
                 next: "paper_whisper_tune",
                 condition: {

@@ -9,7 +9,7 @@ export const scenes = {
 
 药柜上的抽屉大多已经腐烂，地上散落着各种药材。空气中弥漫着一股苦涩的药味。
 
-柜台后面挂着一块匾额，上面写着"悬壶济世"，但"世"字被人用刀划掉了。`,effects:{"sanity":-3,"yin":2},choices:[createChoice({"text":"翻看药柜","next":"huimen_exp2_medicine_drawer","effects":{"yin":1}}),createChoice({"text":"查看柜台下的账本","next":"huimen_exp2_medicine_account","effects":{"yin":1}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+柜台后面挂着一块匾额，上面写着"悬壶济世"，但"世"字被人用刀划掉了。`,effects:{"sanity":-3,"yin":2},choices:[createChoice({"text":"翻看药柜","next":"huimen_exp2_medicine_drawer","effects":{"yin":1}}),createChoice({"text":"查看柜台下的账本","next":"huimen_exp2_medicine_account","effects":{"yin":1}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"你已读过药铺账本，柜台后似乎还有暗门","next":"huimen_exp2_medicine_secret","condition":{"flag":"huimen_exp2_read_medicine_account"},"hidden":true,"effects":{"yin":2}})]}),
     huimen_exp2_medicine_drawer: createScene('huimen_exp2_medicine_drawer', {title:'药柜',text:`你拉开一个药柜抽屉。
 
 里面没有药材，只有一叠黄纸，纸上写着许多人的名字和生辰八字。你翻到最后，找到了秀兰的名字。

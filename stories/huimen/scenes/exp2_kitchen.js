@@ -11,7 +11,7 @@ export const scenes = {
 
 你打开锅盖，一股桂花的香气飘出来。锅里不是汤，是一锅凝固的桂花糕。
 
-[red]这是秀兰被活埋前，最后一次想做却没有做成的桂花糕。[/red]`,effects:{"sanity":-5,"yin":2},choices:[createChoice({"text":"尝一口桂花糕","next":"huimen_exp2_kitchen_taste","effects":{"yin":3}}),createChoice({"text":"重新蒸一锅","next":"huimen_exp2_kitchen_cook","effects":{"yin":-3}}),createChoice({"text":"查看灶台下的柴火","next":"huimen_exp2_kitchen_firewood","effects":{"yin":1}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+[red]这是秀兰被活埋前，最后一次想做却没有做成的桂花糕。[/red]`,effects:{"sanity":-5,"yin":2},choices:[createChoice({"text":"尝一口桂花糕","next":"huimen_exp2_kitchen_taste","effects":{"yin":3}}),createChoice({"text":"重新蒸一锅","next":"huimen_exp2_kitchen_cook","effects":{"yin":-3}}),createChoice({"text":"查看灶台下的柴火","next":"huimen_exp2_kitchen_firewood","effects":{"yin":1}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"你觉察灶台里封着东西，蹲下细看","next":"huimen_exp2_kitchen_stove","condition":{"flag":"knowsTruth"},"hidden":true,"effects":{"yin":2}})]}),
     huimen_exp2_kitchen_taste: createScene('huimen_exp2_kitchen_taste', {title:'尝糕',text:`你舀起一勺凝固的桂花糕，放进嘴里。
 
 糕是苦的，苦得让你想吐。但你咽了下去。

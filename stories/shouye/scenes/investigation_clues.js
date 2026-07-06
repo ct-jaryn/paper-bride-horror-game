@@ -49,6 +49,17 @@ export const scenes = {
                     time: 60,
                 },
             }),
+            createChoice({
+                text: "报纸背面有周氏纸扎铺的广告，先去春香班驻唱的戏园子旧址",
+                next: "old_opera_house_ruins",
+                condition: {
+                    flag: "knowsFullStory",
+                },
+                hidden: true,
+                effects: {
+                    time: 60,
+                },
+            }),
         ],
     })
 };

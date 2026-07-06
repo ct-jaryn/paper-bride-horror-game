@@ -9,7 +9,7 @@ export const scenes = {
 
 戏台比huimen_exp_street_opera_tune那座更大，台柱上缠满了红绸。台上没有演员，只有一件大红戏服在空中飘动，水袖自己挥舞，像是在表演。
 
-台下发着许多纸人观众，它们整齐地坐着，仰着头，像是在看一出好戏。`,effects:{"sanity":-5,"yin":3},choices:[createChoice({"text":"上台","next":"huimen_exp2_old_theater_stage","effects":{"yin":3}}),createChoice({"text":"坐在纸人中间","next":"huimen_exp2_old_theater_audience","effects":{"yin":2}}),createChoice({"text":"问戏服是不是柳红","next":"huimen_exp2_old_theater_liu_hong","effects":{"yin":1}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+台下发着许多纸人观众，它们整齐地坐着，仰着头，像是在看一出好戏。`,effects:{"sanity":-5,"yin":3},choices:[createChoice({"text":"上台","next":"huimen_exp2_old_theater_stage","effects":{"yin":3}}),createChoice({"text":"坐在纸人中间","next":"huimen_exp2_old_theater_audience","effects":{"yin":2}}),createChoice({"text":"问戏服是不是柳红","next":"huimen_exp2_old_theater_liu_hong","effects":{"yin":1}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"绕到戏台后面，看看后台的镜子","next":"huimen_exp2_theater_backstage","condition":{"flag":"xiulanMercy"},"hidden":true,"effects":{"yin":1}})]}),
     huimen_exp2_old_theater_stage: createScene('huimen_exp2_old_theater_stage', {title:'登台',text:`你走上戏台。
 
 戏服立刻飘到你面前，水袖缠上你的脖子。戏服里没有身体，却发出一个女子的声音：

@@ -26,7 +26,7 @@ export const scenes = {
 
 这是秀兰的八字。周家把她的八字封在纸人里，是要让她生生世世替周家挡灾。
 
-你在纸人脚下还发现了一小截红绳，绳结是同心结，但被剪断了。`,effects:{"sanity":-15,"yin":10,"addItem":"断同心结红绳","setFlag":"paper_doll_investigated"},choices:[createChoice({"text":"烧掉这个纸人","next":"huimen_exp_burn_dolls_alt"}),createChoice({"text":"把红绳收好，走向老宅","next":"huimen_old_house_gate"})]}),
+你在纸人脚下还发现了一小截红绳，绳结是同心结，但被剪断了。`,effects:{"sanity":-15,"yin":10,"addItem":["断同心结红绳","秀兰生辰八字"],"setFlag":"paper_doll_investigated"},choices:[createChoice({"text":"烧掉这个纸人","next":"huimen_exp_burn_dolls_alt"}),createChoice({"text":"把红绳收好，走向老宅","next":"huimen_old_house_gate"})]}),
     investigate_well: createScene('investigate_well', {title:'井边调查',text:`你趴在井口，借着手电光往里看。
 
 井水很深，但出奇地清澈。你看见井壁上刻满了字，都是同一个名字，被刻了一遍又一遍：
@@ -63,7 +63,7 @@ export const scenes = {
 
 每一具纸人，都对应着一个被周家害死的女子。她们的一部分被填进纸人里，替周家挡灾、还债、守墓。
 
-你在账册最后一页，发现了一张夹在里面的契约——周家与纸扎铺的百年契约。`,effects:{"sanity":-10,"yin":8,"addItem":"族谱碎片二","setFlag":"paper_shop_investigated"},choices:[createChoice({"text":"烧了这张契约","ending":"hidden_paperDollBurned"}),createChoice({"text":"带契约去祠堂对质","next":"huimen_exp_ancestral_hall"})]}),
+你在账册最后一页，发现了一张夹在里面的契约——周家与纸扎铺的百年契约。`,effects:{"sanity":-10,"yin":8,"addItem":["族谱碎片二","周家纸人契约"],"setFlag":"paper_shop_investigated"},choices:[createChoice({"text":"烧了这张契约","ending":"hidden_paperDollBurned"}),createChoice({"text":"带契约去祠堂对质","next":"huimen_exp_ancestral_hall"})]}),
     investigate_mulberry_tree: createScene('investigate_mulberry_tree', {title:'桑树调查',text:`你围着老桑树转了几圈，发现树干上有一道细长的裂缝。
 
 裂缝里塞着一团东西，你小心翼翼抠出来——是一缕用红绳扎着的头发，头发已经干枯发白，但还能看出曾经乌黑过。

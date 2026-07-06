@@ -11,7 +11,7 @@ export const scenes = {
 
 屋里摆满了接生用的器具：剪刀、秤、铜盆，还有一叠叠染血的布。正中的床上躺着一个老妇人，盖着白布，一动不动。
 
-[red]她已经死了三十年，却还在等下一个产妇。[/red]`,effects:{"sanity":-8,"yin":3},choices:[createChoice({"text":"掀开白布","next":"huimen_exp2_midwife_body","effects":{"yin":3}}),createChoice({"text":"查看接生箱","next":"huimen_exp2_midwife_box","effects":{"yin":2}}),createChoice({"text":"对着尸体说话","next":"huimen_exp2_midwife_talk","effects":{"yin":1}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+[red]她已经死了三十年，却还在等下一个产妇。[/red]`,effects:{"sanity":-8,"yin":3},choices:[createChoice({"text":"掀开白布","next":"huimen_exp2_midwife_body","effects":{"yin":3}}),createChoice({"text":"查看接生箱","next":"huimen_exp2_midwife_box","effects":{"yin":2}}),createChoice({"text":"对着尸体说话","next":"huimen_exp2_midwife_talk","effects":{"yin":1}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"你已从稳婆口中听过真相，床板下或许还有暗格","next":"huimen_exp2_midwife_secret_room","condition":{"flag":"huimen_exp2_heard_midwife_confession"},"hidden":true,"effects":{"yin":2}})]}),
     huimen_exp2_midwife_body: createScene('huimen_exp2_midwife_body', {title:'稳婆遗躯',text:`你掀开白布。
 
 老妇人的脸干瘪如纸，眼睛却睁得很大，像是看见了什么恐怖的东西。她的手里攥着一张黄符，符上写着"封"。

@@ -17,8 +17,14 @@ function collectEffects(scene) {
 
     function scan(effects) {
         if (!effects || typeof effects !== 'object') return;
-        if (effects.setFlag) flags.add(effects.setFlag);
-        if (effects.addItem) items.add(effects.addItem);
+        if (effects.setFlag) {
+            const flagsToAdd = Array.isArray(effects.setFlag) ? effects.setFlag : [effects.setFlag];
+            flagsToAdd.forEach(f => flags.add(f));
+        }
+        if (effects.addItem) {
+            const itemsToAdd = Array.isArray(effects.addItem) ? effects.addItem : [effects.addItem];
+            itemsToAdd.forEach(i => items.add(i));
+        }
     }
 
     scan(scene.effects);

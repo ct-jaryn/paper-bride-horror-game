@@ -25,6 +25,17 @@ export const scenes = {
                     flag: "knowsCoffin",
                 },
             }),
+            createChoice({
+                text: "天快亮了，这一夜的故事还没讲完",
+                next: "night_two_dawn",
+                condition: {
+                    flag: "yunxiuKnowsTruth",
+                },
+                hidden: true,
+                effects: {
+                    time: 30,
+                },
+            }),
         ],
     }),
     yunxiu_final_words: createScene('yunxiu_final_words', {

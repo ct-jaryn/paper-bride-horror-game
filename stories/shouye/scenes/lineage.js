@@ -49,6 +49,17 @@ export const scenes = {
                 text: "去找齐所有线索再动手",
                 next: "patrol_corridor",
             }),
+            createChoice({
+                text: "手记最后一页夹着一张更老的纸，看看陈守一写了什么",
+                next: "first_watcher_journal",
+                condition: {
+                    hasItem: "守夜人手记",
+                },
+                hidden: true,
+                effects: {
+                    sanity: -5,
+                },
+            }),
         ],
     })
 };

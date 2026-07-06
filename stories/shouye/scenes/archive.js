@@ -26,6 +26,17 @@ export const scenes = {
                     time: 60,
                 },
             }),
+            createChoice({
+                text: "县志提到了青石镇东街的周氏纸扎铺，去旧址看看",
+                next: "zhousheng_workshop_ruins",
+                condition: {
+                    flag: "knowsFullArchiveTruth",
+                },
+                hidden: true,
+                effects: {
+                    time: 60,
+                },
+            }),
         ],
     }),
     archive_truth_reveal: createScene('archive_truth_reveal', {

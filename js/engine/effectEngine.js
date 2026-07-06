@@ -101,15 +101,21 @@ export function applyEffects(effects) {
         adjustNumber('time', effects.time);
     }
     if (effects.addItem) {
-        const added = pushToArray('inventory', effects.addItem, { unique: true });
-        if (added) emit('itemAdd', { item: effects.addItem });
+        const items = Array.isArray(effects.addItem) ? effects.addItem : [effects.addItem];
+        for (const item of items) {
+            const added = pushToArray('inventory', item, { unique: true });
+            if (added) emit('itemAdd', { item });
+        }
     }
     if (effects.removeItem) {
         removeFromArray('inventory', effects.removeItem);
     }
     if (effects.setFlag) {
-        setGlobalFlag(effects.setFlag, true);
-        emit('flagSet', { flag: effects.setFlag });
+        const flags = Array.isArray(effects.setFlag) ? effects.setFlag : [effects.setFlag];
+        for (const flag of flags) {
+            setGlobalFlag(flag, true);
+            emit('flagSet', { flag });
+        }
     }
     if (effects.clearFlag) {
         clearGlobalFlag(effects.clearFlag);

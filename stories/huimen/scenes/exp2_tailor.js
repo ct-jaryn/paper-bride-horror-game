@@ -9,7 +9,7 @@ export const scenes = {
 
 铺子里挂着许多嫁衣，每一件都红得刺眼。裁缝台上放着一把剪刀，剪刀上缠着一缕长发。
 
-墙上贴着许多纸条，都是尺寸和名字。你看见了秀兰的名字，后面写着"嫁衣一套，加急"。`,effects:{"sanity":-5,"yin":2},choices:[createChoice({"text":"查看那件嫁衣","next":"huimen_exp2_tailor_dress","effects":{"yin":2}}),createChoice({"text":"拿起剪刀","next":"huimen_exp2_tailor_scissors","effects":{"yin":1}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+墙上贴着许多纸条，都是尺寸和名字。你看见了秀兰的名字，后面写着"嫁衣一套，加急"。`,effects:{"sanity":-5,"yin":2},choices:[createChoice({"text":"查看那件嫁衣","next":"huimen_exp2_tailor_dress","effects":{"yin":2}}),createChoice({"text":"拿起剪刀","next":"huimen_exp2_tailor_scissors","effects":{"yin":1}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"你已知道秀兰的遭遇，柜台下似乎藏着更多身形","next":"huimen_exp2_tailor_secret","condition":{"flag":"knowsTruth"},"hidden":true,"effects":{"yin":2}})]}),
     huimen_exp2_tailor_dress: createScene('huimen_exp2_tailor_dress', {title:'裁缝铺嫁衣',text:`你取下那件绣着"秀兰"二字的嫁衣。
 
 嫁衣是崭新的，像是刚做好没多久。可它永远不会有人穿了。

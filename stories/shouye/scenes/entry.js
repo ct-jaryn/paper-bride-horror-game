@@ -87,6 +87,17 @@ export const scenes = {
                     sanity: -5,
                 },
             }),
+            createChoice({
+                text: "你想起老规矩，先为她敬一炷香",
+                next: "burn_incense_for_her",
+                condition: {
+                    flag: "knowsName",
+                },
+                hidden: true,
+                effects: {
+                    yin: -5,
+                },
+            }),
         ],
     }),
     knock_first: createScene('knock_first', {

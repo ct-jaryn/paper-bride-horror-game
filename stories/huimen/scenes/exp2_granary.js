@@ -11,7 +11,7 @@ export const scenes = {
 
 谷堆里藏着许多东西：破碎的瓷碗、生锈的铜钱、褪色的红绳。你走到谷堆中央，发现那里有一个凹陷，像是一个人曾经蜷缩过。
 
-[red]秀兰被活埋前，曾在这里躲了一夜。[/red]`,effects:{"sanity":-5,"yin":2},choices:[createChoice({"text":"躺在凹陷里","next":"huimen_exp2_granary_lie","effects":{"yin":2}}),createChoice({"text":"翻找谷堆","next":"huimen_exp2_granary_search","effects":{"yin":1}}),createChoice({"text":"点燃一盏油灯","next":"huimen_exp2_granary_light","effects":{"yin":1}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+[red]秀兰被活埋前，曾在这里躲了一夜。[/red]`,effects:{"sanity":-5,"yin":2},choices:[createChoice({"text":"躺在凹陷里","next":"huimen_exp2_granary_lie","effects":{"yin":2}}),createChoice({"text":"翻找谷堆","next":"huimen_exp2_granary_search","effects":{"yin":1}}),createChoice({"text":"点燃一盏油灯","next":"huimen_exp2_granary_light","effects":{"yin":1}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"你已知道秀兰的遭遇，循着叹息声去谷堆深处","next":"huimen_exp2_granary_soul","condition":{"flag":"knowsTruth"},"hidden":true,"effects":{"yin":2}})]}),
     huimen_exp2_granary_lie: createScene('huimen_exp2_granary_lie', {title:'谷凹',text:`你躺在那个凹陷里。
 
 谷粒从四面八方涌来，像是要把你埋住。你闭上眼睛，感到一种奇异的安心。

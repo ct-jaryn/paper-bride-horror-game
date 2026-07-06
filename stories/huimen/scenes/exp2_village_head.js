@@ -11,7 +11,7 @@ export const scenes = {
 
 正屋里坐着一个老者，穿着长袍，手里握着一卷黄纸。
 
-"你来了。" 老者说，"我是周家村的村长。秀兰的事，是我主持办的。"`,effects:{"sanity":-8,"yin":3},choices:[createChoice({"text":"质问他","next":"huimen_exp2_village_head_confront","effects":{"yin":2}}),createChoice({"text":"索要族谱","next":"huimen_exp2_village_head_record","effects":{"yin":2}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"在村长家密室发现一卷血契","next":"huimen_exp2_blood_contract","condition":{"flag":"huimen_exp2_confronted_village_head"},"effects":{"yin":2}})]}),
+"你来了。" 老者说，"我是周家村的村长。秀兰的事，是我主持办的。"`,effects:{"sanity":-8,"yin":3,"setFlag":"huimen_exp2_heard_village_head_secret"},choices:[createChoice({"text":"质问他","next":"huimen_exp2_village_head_confront","effects":{"yin":2}}),createChoice({"text":"索要族谱","next":"huimen_exp2_village_head_record","effects":{"yin":2}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"村长家床底似乎有暗门，你已敢与他对质","next":"huimen_exp2_village_head_vault","condition":{"flag":"huimen_exp2_confronted_village_head"},"hidden":true,"effects":{"yin":2}}),createChoice({"text":"村长家灶台后还有暗门，通往秘道","next":"huimen_exp2_secret_tunnel","condition":{"flag":"huimen_exp2_confronted_village_head"},"hidden":true,"effects":{"yin":2}}),createChoice({"text":"在村长家密室发现一卷血契","next":"huimen_exp2_blood_contract","condition":{"flag":"huimen_exp2_confronted_village_head"},"effects":{"yin":2}})]}),
     huimen_exp2_village_head_confront: createScene('huimen_exp2_village_head_confront', {title:'村长对质',text:`你质问村长："你为什么要活埋秀兰？"
 
 村长冷笑："她是周家的耻辱，也是村子的耻辱。不埋她，周家能放过我们？"

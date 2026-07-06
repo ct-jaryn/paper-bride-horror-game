@@ -82,11 +82,18 @@ export const scenes = {
                 },
             }),
             createChoice({
-                text: "先去找周生的棺材和遗物",
-                next: "basement_descent",
+                text: "她想去青石河，你口袋里正好有那枚铜镜",
+                next: "river_bottom_vision",
+                condition: {
+                    flag: "yunxiuWantsRiver",
+                },
+                hidden: true,
+                effects: {
+                    yin: 10,
+                },
             }),
             createChoice({
-                text: "去找周生投河的记录",
+                text: "先去找周生投河的记录",
                 next: "county_archive",
                 effects: {
                     time: 60,

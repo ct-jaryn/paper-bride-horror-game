@@ -82,7 +82,7 @@ export const scenes = {
             sanity: -15,
             yin: 10,
             setFlag: "foundZhouShengCache",
-            addItem: "旦角头面",
+            addItem: ["旦角头面", "周生的信"],
         },
         choices: [
             createChoice({
@@ -105,6 +105,28 @@ export const scenes = {
                 next: "coffin_to_yunxiu",
                 condition: {
                     flag: "foundCoffin",
+                },
+            }),
+            createChoice({
+                text: "铁皮柜最底层还有东西，翻开那面用红绸包着的镜子",
+                next: "zhousheng_mirror_vision",
+                condition: {
+                    flag: "foundZhouShengCache",
+                },
+                hidden: true,
+                effects: {
+                    yin: 5,
+                },
+            }),
+            createChoice({
+                text: "那摞民国登记册还没翻完，继续查那场火灾的死难名单",
+                next: "fire_victim_list",
+                condition: {
+                    flag: "foundZhouShengCache",
+                },
+                hidden: true,
+                effects: {
+                    time: 60,
                 },
             }),
         ],
