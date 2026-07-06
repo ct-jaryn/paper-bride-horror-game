@@ -71,7 +71,9 @@ import { scenes as exp_village_street_coreScenes } from './scenes/exp_village_st
 import { scenes as exp_village_street_districts_hubScenes } from './scenes/exp_village_street_districts_hub.js';
 import { scenes as exp_village_street_eventsScenes } from './scenes/exp_village_street_events.js';
 import { scenes as exp_village_street_events_hubScenes } from './scenes/exp_village_street_events_hub.js';
+import { scenes as exp_village_street_keepsakesScenes } from './scenes/exp_village_street_keepsakes.js';
 import { scenes as exp_village_street_offeringsScenes } from './scenes/exp_village_street_offerings.js';
+import { scenes as exp_village_street_spiritsScenes } from './scenes/exp_village_street_spirits.js';
 import { scenes as exp_village_street_toysScenes } from './scenes/exp_village_street_toys.js';
 import { scenes as exp_village_street_wellScenes } from './scenes/exp_village_street_well.js';
 import { scenes as exp_village_street_xiulan_hubScenes } from './scenes/exp_village_street_xiulan_hub.js';
@@ -170,7 +172,9 @@ export const StoryData = {
     ...exp_village_street_districts_hubScenes,
     ...exp_village_street_eventsScenes,
     ...exp_village_street_events_hubScenes,
+    ...exp_village_street_keepsakesScenes,
     ...exp_village_street_offeringsScenes,
+    ...exp_village_street_spiritsScenes,
     ...exp_village_street_toysScenes,
     ...exp_village_street_wellScenes,
     ...exp_village_street_xiulan_hubScenes,
