@@ -210,7 +210,7 @@ export const scenes = {
 这一夜，七号厅再没传出任何声响。
 
 天亮了，林叔来接班。他看着七号厅，点点头："你是个好守灵人。"`,
-        ending: 'peacefulRest'
+        ending: 'normal_peacefulRest'
     },
 
     burn_photo: {
@@ -236,7 +236,7 @@ export const scenes = {
             {
                 text: '挣扎',
                 next: 'struggle_dragged',
-                ending: 'drownedOnLand'
+                ending: 'death_drownedOnLand'
             }
         ]
     }

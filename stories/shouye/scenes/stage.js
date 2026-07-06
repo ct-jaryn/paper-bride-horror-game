@@ -113,7 +113,7 @@ export const scenes = {
             yin: -20,
             sanity: 5
         },
-        ending: 'stageRestored'
+        ending: 'normal_stageRestored'
     },
 
     hide_in_duty_room: {
@@ -134,7 +134,7 @@ export const scenes = {
         effects: {
             sanity: -40
         },
-        ending: 'trappedWatcher'
+        ending: 'death_trappedWatcher'
     },
 
     follow_her: {
@@ -154,7 +154,7 @@ export const scenes = {
 你意识到，她已经找到了新的听众。
 
 而你，再也不会醒来了。`,
-        ending: 'duetWithGhost'
+        ending: 'death_duetWithGhost'
     },
 
     struggle_dragged: {
@@ -168,7 +168,7 @@ export const scenes = {
 最后一刻，你听见她说：
 
 [whisper]"既然不愿意帮我唱，那就替我看完这场戏吧。"[/whisper]`,
-        ending: 'drownedOnLand'
+        ending: 'death_drownedOnLand'
     },
 
     // 新增场景：桂香引

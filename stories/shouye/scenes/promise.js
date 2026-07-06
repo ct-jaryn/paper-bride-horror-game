@@ -98,14 +98,14 @@ export const scenes = {
             {
                 text: '拾起银钗，送她最后一程',
                 next: '',
-                ending: 'peony_pavilion_final',
+                ending: 'hidden_peony_pavilion_final',
                 condition: { flag: 'yunxiuWishComplete' },
                 hidden: true
             },
             {
                 text: '目送她离去',
                 next: '',
-                ending: 'finalCurtain'
+                ending: 'hidden_finalCurtain'
             }
         ]
     },
@@ -129,6 +129,6 @@ export const scenes = {
             sanity: -50,
             yin: 40
         },
-        ending: 'drownedOnLand'
+        ending: 'death_drownedOnLand'
     }
 };

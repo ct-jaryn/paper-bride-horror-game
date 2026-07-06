@@ -59,7 +59,7 @@ export const scenes = {
             sanity: 10,
             yin: -20
         },
-        ending: 'sealedNight'
+        ending: 'normal_sealedNight'
     },
 
     call_for_help: {
@@ -83,7 +83,7 @@ export const scenes = {
             sanity: -40,
             yin: 30
         },
-        ending: 'glassShatter'
+        ending: 'death_glassShatter'
     },
 
     hide_behind_curtain: {
@@ -103,6 +103,6 @@ export const scenes = {
 戏票上写着：
 
 [faded]"今晚子时，青石戏台，《牡丹亭》。特邀：周遥。"[/faded]`,
-        ending: 'invitedToShow'
+        ending: 'normal_invitedToShow'
     }
 };

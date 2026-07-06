@@ -146,7 +146,7 @@ export const scenes = {
             {
                 text: '跟着她走向戏台',
                 next: 'follow_her',
-                ending: 'duetWithGhost'
+                ending: 'death_duetWithGhost'
             },
             {
                 text: '猛掐自己大腿，强迫自己清醒',

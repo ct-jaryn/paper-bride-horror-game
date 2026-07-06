@@ -90,12 +90,12 @@ export const scenes = {
             {
                 text: '跟她走',
                 next: 'follow_her',
-                ending: 'duetWithGhost'
+                ending: 'death_duetWithGhost'
             },
             {
                 text: '反抗',
                 next: 'struggle_dragged',
-                ending: 'drownedOnLand'
+                ending: 'death_drownedOnLand'
             }
         ]
     },
@@ -121,7 +121,7 @@ export const scenes = {
 [whisper]"还我戏台……还我戏台……"[/whisper]
 
 你再也走不出七号厅了。`,
-        ending: 'endlessChorus'
+        ending: 'death_endlessChorus'
     },
 
     beg_mercy: {
@@ -139,6 +139,6 @@ export const scenes = {
 你成了观众之一。
 
 永远。`,
-        ending: 'drownedOnLand'
+        ending: 'death_drownedOnLand'
     }
 };
