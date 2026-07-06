@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：hidden_self
  */
 
 export const Endings = {
-sealedButWaiting: {
+sealedButWaiting: createEnding('sealedButWaiting', {
         title: '普通结局 · 封印待醒',
         text: `你封住了纸人。
 
@@ -16,8 +17,8 @@ sealedButWaiting: {
 等你放松警惕，等你忘记它的存在，等你再次离开这个家。
 
 然后，它也许会自己走出去。`
-    },
-hidden_mirrorRelease: {
+    }),
+hidden_mirrorRelease: createEnding('hidden_mirrorRelease', {
         title: '隐藏结局 · 镜释',
         text: `你用铜镜碎片照了纸人整整一夜。
 
@@ -34,8 +35,8 @@ hidden_mirrorRelease: {
 她化作一缕青烟，消失在晨光里。
 
 铜镜碎片也在那一刻裂成了粉末。你知道，它的使命完成了。`
-    },
-hidden_paperGroom: {
+    }),
+hidden_paperGroom: createEnding('hidden_paperGroom', {
         title: '隐藏结局 · 纸新郎',
         text: `你成了院子里的新郎。
 
@@ -48,8 +49,8 @@ hidden_paperGroom: {
 你很想告诉它，真正的你从来没有画过新娘妆。
 
 但纸人没有舌头，只有沙沙声。`
-    },
-hidden_redThread: {
+    }),
+hidden_redThread: createEnding('hidden_redThread', {
         title: '隐藏结局 · 断红绳',
         text: `你夺过红绳，用打火机点燃。
 
@@ -64,8 +65,8 @@ hidden_redThread: {
 父亲第二天醒了，精神好了很多。他看着院子里剩下的纸灰，什么也没问。
 
 你知道，有些债，要用一场假婚姻来还；有些执念，烧掉红绳就能断。`
-    },
-hidden_trueName: {
+    }),
+hidden_trueName: createEnding('hidden_trueName', {
         title: '隐藏结局 · 真名',
         text: `在纸壳即将覆盖你脸的那一刻，你拼尽全力喊出自己的名字。
 
@@ -80,8 +81,8 @@ hidden_trueName: {
 父亲后来渐渐好了。母亲说，那天夜里她听见院子里有人在哭，也有人笑。
 
 你明白了一件事：名字是灵魂的锚。只要你不忘记自己，就没有东西能替你活。`
-    },
-hidden_whoAmI: {
+    }),
+hidden_whoAmI: createEnding('hidden_whoAmI', {
         title: '隐藏结局 · 忘我',
         text: `你放弃了辨认。
 
@@ -96,5 +97,5 @@ hidden_whoAmI: {
 风吹过，发出沙沙的声响。
 
 你觉得自己从来没有这么轻松过。`
-    }
+    })
 };

@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：normal
  */
 
 export const Endings = {
-finalCurtain: {
+finalCurtain: createEnding('finalCurtain', {
         title: '真结局 · 曲终人散',
         text: `你唱完了《牡丹亭》。
 
@@ -16,8 +17,8 @@ finalCurtain: {
 你站在台下，听见一个女子的声音轻轻说："谢谢。"
 
 你抬头，台上空无一人。只有风吹过幕布，像是有人在谢幕。`
-    },
-reunion: {
+    }),
+reunion: createEnding('reunion', {
         title: '真结局 · 团圆',
         text: `云袖知道了真相，周生也得到了救赎。
 
@@ -30,8 +31,8 @@ reunion: {
 一男，一女。
 
 曲终，人散，缘尽。`
-    },
-peacefulDeparture: {
+    }),
+peacefulDeparture: createEnding('peacefulDeparture', {
         title: '普通结局 · 归还',
         text: `你还回了云袖的银钗。
 
@@ -42,5 +43,5 @@ peacefulDeparture: {
 有时候半夜醒来，你会听见窗外有人在唱《牡丹亭》。
 
 你不敢看窗外。你知道，她可能还在找下一个愿意听她唱完的人。`
-    }
+    })
 };

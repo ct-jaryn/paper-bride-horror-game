@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 《守夜》死亡结局
  */
 
 export const Endings = {
-    death_drownedOnLand: {
+    death_drownedOnLand: createEnding('death_drownedOnLand', {
         title: '死亡结局 · 陆沉',
         text: `你被黑水吞没，沉入了永恒的戏台之下。
 
@@ -12,8 +13,8 @@ export const Endings = {
 听了几百年后，你也会忘记自己曾经是谁。
 
 只依稀记得，某个午夜，你本该敲那三下门。`
-    },
-    death_glassShatter: {
+    }),
+    death_glassShatter: createEnding('death_glassShatter', {
         title: '死亡结局 · 碎窗',
         text: `玻璃碎了，无数碎片扎进你的身体。
 
@@ -24,8 +25,8 @@ export const Endings = {
 第二天，林叔在值班室发现了你的尸体。你的脸上带着诡异的微笑，嘴里塞满了碎玻璃。
 
 你的眼睛睁得很大，像是在看一场永不落幕的戏。`
-    },
-    death_endlessChorus: {
+    }),
+    death_endlessChorus: createEnding('death_endlessChorus', {
         title: '死亡结局 · 万戏同鸣',
         text: `你的强行超度激怒了云袖。
 
@@ -36,8 +37,8 @@ export const Endings = {
 你的耳朵永远充斥着《牡丹亭》的唱段，你的眼睛永远看见红色的戏服。
 
 直到你学会那出戏，直到你变成她的一部分。`
-    },
-    death_trappedWatcher: {
+    }),
+    death_trappedWatcher: createEnding('death_trappedWatcher', {
         title: '死亡结局 · 永远的观众',
         text: `你被困在值班室里，成了云袖唯一的观众。
 
@@ -46,8 +47,8 @@ export const Endings = {
 你的身体渐渐干枯，但你的眼睛始终睁着。
 
 因为戏，还没有散场。`
-    },
-    death_duetWithGhost: {
+    }),
+    death_duetWithGhost: createEnding('death_duetWithGhost', {
         title: '死亡结局 · 阴阳同唱',
         text: `你和云袖躺在一起，听她唱完了《牡丹亭》。
 
@@ -56,8 +57,8 @@ export const Endings = {
 但你并不孤独。在云袖的戏里，你是她百年来的第一个知音。
 
 你们的戏，从此再也不用落幕。`
-    },
-    death_makeupMirror: {
+    }),
+    death_makeupMirror: createEnding('death_makeupMirror', {
         title: '死亡结局 · 妆镜',
         text: `你忍不住又看了一眼铜镜。
 
@@ -74,8 +75,8 @@ export const Endings = {
 戏，开演了。
 
 而你，再也演不完。`
-    },
-    death_burningStage: {
+    }),
+    death_burningStage: createEnding('death_burningStage', {
         title: '死亡结局 · 焚台重演',
         text: `火盆里的纸人突然直立起来，像是被什么东西拽住了。
 
@@ -88,8 +89,8 @@ export const Endings = {
 你站在戏台中央，穿着不知何时落在身上的红戏服。横梁砸下来的时候，你听见云袖在你耳边说：
 
 "这一次，有人陪我一起死了。"`
-    },
-    death_riverBottom: {
+    }),
+    death_riverBottom: createEnding('death_riverBottom', {
         title: '死亡结局 · 河底长眠',
         text: `你沿着阶梯走下河底，却没有在周生面前停下。
 
@@ -118,8 +119,8 @@ export const Endings = {
 [faded]"第七代守夜人周遥，失踪于青石河。存七号厅。"[/faded]
 
 [red]你成了七号厅，新的住客。[/red]`
-    },
-    death_arsonCurse: {
+    }),
+    death_arsonCurse: createEnding('death_arsonCurse', {
         title: '死亡结局 · 火咒',
         text: `你去找纵火者后人对峙的那天晚上，殡仪馆着火了。
 
@@ -138,5 +139,5 @@ export const Endings = {
 然后，一切归于黑暗。
 
 [red]纵火的诅咒，传承了近百年，终于找到了新的祭品。[/red]`
-    }
+    })
 };

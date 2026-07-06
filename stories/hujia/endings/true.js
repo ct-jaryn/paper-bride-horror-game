@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：true
  */
 
 export const Endings = {
-trueLove: {
+trueLove: createEnding('trueLove', {
         title: '真结局 · 真心渡劫',
         text: `狐女替你挡了雷劫。
 
@@ -20,8 +21,8 @@ trueLove: {
 "周远，" 她有时候会问你，"你后悔吗？"
 
 你摇摇头："遇见你，是我这辈子最好的事。"`
-    },
-foxHusband: {
+    }),
+foxHusband: createEnding('foxHusband', {
         title: '普通结局 · 狐婿',
         text: `你成了狐女的丈夫。
 
@@ -36,8 +37,8 @@ foxHusband: {
 但你不在乎。
 
 因为在青丘山，有人等你回家。`
-    },
-fiftyYears: {
+    }),
+fiftyYears: createEnding('fiftyYears', {
         title: '真结局 · 五十年',
         text: `你用五十年寿命换了避雷珠。
 
@@ -54,8 +55,8 @@ fiftyYears: {
 你虽然只有几十年的寿命，但每一天都很充实。
 
 临终那天，狐女握着你的手："下辈子，换我找你。"`
-    },
-foxLetsGo: {
+    }),
+foxLetsGo: createEnding('foxLetsGo', {
         title: '真结局 · 放生',
         text: `狐女放过了你。
 
@@ -70,8 +71,8 @@ foxLetsGo: {
 月光下，一只白狐朝你点了点头，然后消失在树林里。
 
 你知道，她来告别。`
-    },
-bloodDebtPaid: {
+    }),
+bloodDebtPaid: createEnding('bloodDebtPaid', {
         title: '真结局 · 血债两清',
         text: `你给了狐女心头血，她渡劫而去。
 
@@ -88,8 +89,8 @@ bloodDebtPaid: {
 你闭上眼睛，感到前所未有的平静。
 
 周家与狐族的恩怨，到此为止。`
-    },
-foxPerishes: {
+    }),
+foxPerishes: createEnding('foxPerishes', {
         title: '普通结局 · 狐灭',
         text: `狐女渡劫失败，灰飞烟灭。
 
@@ -104,5 +105,5 @@ foxPerishes: {
 酒洒在地上，渗入泥土。
 
 也许在某个世界里，你们会相遇。`
-    }
+    })
 };

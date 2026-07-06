@@ -79,8 +79,24 @@ python3 -m http.server 8765
 # 验证所有故事数据
 node tools/validate_stories.mjs
 
+# 死场景检测
+node tools/detect_dead_scenes.mjs
+
+# 选项条件合法性检查
+node tools/validate_choice_conditions.mjs
+
+# flag/item 引用检查
+node tools/validate_item_flag_usage.mjs
+
 # 测试结局可达性
 node tools/test_all_endings_reachability.mjs
+
+# 引擎单元测试
+node tools/test_scene_factory.mjs
+node tools/test_effect_engine.mjs
+node tools/test_ending_factory.mjs
+node tools/test_renderer.mjs
+node tools/test_save_manager.mjs
 
 # 随机 walkthrough 冒烟测试
 node tools/playthrough_test.mjs

@@ -50,16 +50,49 @@ open http://localhost:8765
 
 | 工具 | 命令 | 目的 |
 |------|------|------|
-| Node.js 验证 | `node tools/validate_stories.mjs` | 检查故事数据引用完整性 |
+| 故事数据验证 | `node tools/validate_stories.mjs` | 检查故事数据引用完整性 |
+| 场景标题验证 | `node tools/validate_scene_titles.mjs` | 检查场景标题是否重复/为空 |
+| 死场景检测 | `node tools/detect_dead_scenes.mjs` | 从 prologue 出发找出不可达场景 |
+| 选项条件合法性检查 | `node tools/validate_choice_conditions.mjs` | 校验 choice.condition 字段类型与场景引用 |
+| flag/item 引用检查 | `node tools/validate_item_flag_usage.mjs` | 检查条件引用的 flag/item 是否在全剧有定义 |
 | 结局可达性测试 | `node tools/test_all_endings_reachability.mjs` | 从 prologue 出发计算可达结局 |
+| 场景工厂测试 | `node tools/test_scene_factory.mjs` | 验证 createScene / createChoice |
+| 效果引擎单元测试 | `node tools/test_effect_engine.mjs` | 验证时辰、条件、游戏结束判定 |
+| 结局工厂单元测试 | `node tools/test_ending_factory.mjs` | 验证 createEnding / createNPC / 对话节点 |
+| renderer 单元测试 | `node tools/test_renderer.mjs` | 使用 jsdom 验证 DOM 渲染 |
+| 存档管理单元测试 | `node tools/test_save_manager.mjs` | 验证 SaveManager 持久化 API |
 | 随机 walkthrough | `node tools/playthrough_test.mjs` | 随机路径冒烟测试 |
 | 隐藏结局测试 | `node tools/test_hidden_endings.mjs` | 检查全局 flag 触发的隐藏路径 |
+| 浏览器 DOM 冒烟测试 | `NODE_PATH=$(npm root -g) node tools/test_browser_boot.cjs` | 验证浏览器启动流程 |
+| 小游戏打包 | `node tools/bundle-stories-for-minigame.mjs` | 将故事打包为小游戏 bundle |
 
 ### 提交前检查
 
 1. 运行 `node tools/validate_stories.mjs` 确保没有坏引用
-2. 运行 `node tools/test_all_endings_reachability.mjs` 确认新增结局可达
-3. 在浏览器中打开本地服务器，手动走通关键路径
+2. 运行 `node tools/detect_dead_scenes.mjs` 确认没有新增死场景
+3. 运行 `node tools/validate_choice_conditions.mjs` 确认选项条件合法
+4. 运行 `node tools/test_all_endings_reachability.mjs` 确认新增结局可达
+5. 运行 `node tools/test_scene_factory.mjs`、`test_effect_engine.mjs`、`test_ending_factory.mjs`、`test_renderer.mjs`、`test_save_manager.mjs` 确认引擎单元测试通过
+6. 在浏览器中打开本地服务器，手动走通关键路径
+
+### CI 流程
+
+项目使用 `.github/workflows/ci.yml`，在 `push` / `pull_request` 到 `main` 分支时触发，共 12 项检查：
+
+1. `tools/validate_stories.mjs` — 故事数据引用完整性
+2. `tools/validate_scene_titles.mjs` — 场景标题合法性
+3. `tools/test_all_endings_reachability.mjs` — 结局可达性
+4. `tools/test_scene_factory.mjs` — 场景工厂
+5. `tools/test_effect_engine.mjs` — 效果引擎
+6. `tools/test_ending_factory.mjs` — 结局/NPC 工厂
+7. `tools/test_renderer.mjs` — 渲染器（jsdom）
+8. `tools/test_save_manager.mjs` — 存档管理器
+9. `tools/test_browser_boot.cjs` — 浏览器 DOM 冒烟测试
+10. `tools/validate_choice_conditions.mjs` — 选项条件合法性
+11. `tools/detect_dead_scenes.mjs` — 死场景检测（`continue-on-error: true`）
+12. `tools/validate_item_flag_usage.mjs` — flag/item 引用检查（`continue-on-error: true`）
+
+CI 默认安装全局 `jsdom` 以支持浏览器环境冒烟测试与 renderer 单元测试。
 
 ### 分支策略
 
@@ -84,16 +117,48 @@ open http://localhost:8765
 
 **步骤**：
 1. 按主题选择或新建 `scenes/[theme].js`
-2. 使用 `createScene(id, { title, text, choices })` 或对象字面量定义场景
+2. 使用工厂函数或对象字面量定义场景：
+
+```javascript
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
+export const scenes = {
+  new_scene: createScene('new_scene', {
+    title: '新场景',
+    text: '场景正文……',
+    choices: [
+      createChoice({ text: '前进', next: 'next_scene' }),
+      createChoice({ text: '隐藏', next: 'secret_scene', condition: { flag: 'found_key' }, hidden: true })
+    ]
+  })
+};
+```
+
 3. 确保至少有一个已有场景的 `next` 指向新场景 id
 4. 运行 `node tools/validate_stories.mjs`
-5. 运行 `node tools/test_all_endings_reachability.mjs` 检查可达性
+5. 运行 `node tools/detect_dead_scenes.mjs`
+6. 运行 `node tools/test_all_endings_reachability.mjs` 检查可达性
 
 ### 添加新结局
 
 **需修改的文件**：
 1. `stories/{id}/endings/index.js` - 添加结局定义
 2. 触发场景 - 将某个场景的 `next` 设为结局 id，或让 `onEnter` 触发结局
+
+**示例**：
+
+```javascript
+import { createEnding } from '../../../js/engine/endingFactory.js';
+
+export const Endings = {
+  ending_new: createEnding('ending_new', {
+    title: '新结局',
+    text: '结局描述……',
+    hidden: false,
+    cg: 'ending_new_cg'
+  })
+};
+```
 
 **示例提交**：`feat(huimen): add hidden ending for Qing Shi Town discovery`
 

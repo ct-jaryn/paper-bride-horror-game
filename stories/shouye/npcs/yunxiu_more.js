@@ -1,11 +1,12 @@
+import { createDialogueChoice, createDialogueNode } from '../../../js/engine/endingFactory.js';
 /**
  * NPC 模块：yunxiu_more
  */
 
 export const yunxiuMoreDialogue = {
-// ===== 批次13：扩充云袖对话 =====
-            yunxiu_life_question: {
-                text: `"守夜人，"云袖忽然问，"活着的滋味，是什么样的？"
+  // ===== 批次13：扩充云袖对话 =====
+  yunxiu_life_question: createDialogueNode('yunxiu_life_question', {
+    text: `"守夜人，"云袖忽然问，"活着的滋味，是什么样的？"
 
 你愣了一下。
 
@@ -22,13 +23,20 @@ export const yunxiuMoreDialogue = {
 云袖抬起头，看着你。
 
 "你说得对。"她露出一个极淡的笑，"原来，死了也还能选。谢谢你，守夜人。"`,
-                choices: [
-                    { text: '继续陪她聊聊', next: 'yunxiu_final_play' },
-                    { text: '告辞', exit: true, effects: { npcAffinity: 15, sanity: 10 } }
-                ]
-            },
-            yunxiu_other_members: {
-                text: `"你见过班子里其他人吗？"你问。
+    choices: [createDialogueChoice({
+      text: '继续陪她聊聊',
+      next: 'yunxiu_final_play'
+    }), createDialogueChoice({
+      text: '告辞',
+      exit: true,
+      effects: {
+        npcAffinity: 15,
+        sanity: 10
+      }
+    })]
+  }),
+  yunxiu_other_members: createDialogueNode('yunxiu_other_members', {
+    text: `"你见过班子里其他人吗？"你问。
 
 云袖的眼神黯了黯。
 
@@ -49,13 +57,24 @@ export const yunxiuMoreDialogue = {
 "我帮你去超度他们。"你说。
 
 "谢谢你。"云袖擦了擦泪，"告诉他们……告诉他们，云袖想他们了。"`,
-                choices: [
-                    { text: '答应她，去废墟', exit: true, effects: { npcAffinity: 25, setFlag: 'yunxiuAskedAboutMembers', sanity: 5 } },
-                    { text: '问她和周生的事', next: 'yunxiu_zhou_sheng', condition: { flag: 'knowsZhouSheng' } }
-                ]
-            },
-            yunxiu_memory_fire: {
-                text: `"你还记得那场火吗？"你轻声问。
+    choices: [createDialogueChoice({
+      text: '答应她，去废墟',
+      exit: true,
+      effects: {
+        npcAffinity: 25,
+        setFlag: 'yunxiuAskedAboutMembers',
+        sanity: 5
+      }
+    }), createDialogueChoice({
+      text: '问她和周生的事',
+      next: 'yunxiu_zhou_sheng',
+      condition: {
+        flag: 'knowsZhouSheng'
+      }
+    })]
+  }),
+  yunxiu_memory_fire: createDialogueNode('yunxiu_memory_fire', {
+    text: `"你还记得那场火吗？"你轻声问。
 
 云袖闭上了眼。
 
@@ -80,13 +99,24 @@ export const yunxiuMoreDialogue = {
 她闭上眼，声音轻得像风：
 
 "然后，就是漫长的、水底的黑暗。"`,
-                choices: [
-                    { text: '告诉她周生的真相', next: 'yunxiu_zhou_sheng', condition: { flag: 'knowsZhouSheng' } },
-                    { text: '什么都不说，只是握住她的手', exit: true, effects: { npcAffinity: 20, sanity: 10, setFlag: 'yunxiuComforted' } }
-                ]
-            },
-            yunxiu_dream: {
-                text: `"云袖，"你问，"你这些年，做过梦吗？"
+    choices: [createDialogueChoice({
+      text: '告诉她周生的真相',
+      next: 'yunxiu_zhou_sheng',
+      condition: {
+        flag: 'knowsZhouSheng'
+      }
+    }), createDialogueChoice({
+      text: '什么都不说，只是握住她的手',
+      exit: true,
+      effects: {
+        npcAffinity: 20,
+        sanity: 10,
+        setFlag: 'yunxiuComforted'
+      }
+    })]
+  }),
+  yunxiu_dream: createDialogueNode('yunxiu_dream', {
+    text: `"云袖，"你问，"你这些年，做过梦吗？"
 
 她愣了一下，然后苦笑。
 
@@ -107,13 +137,23 @@ export const yunxiuMoreDialogue = {
 "也许，"你轻声说，"是因为，你心里一直觉得他抛下了你。所以记忆里，你也握不住他。"
 
 云袖抬起头，看着你，眼里的雾，一点一点散了。`,
-                choices: [
-                    { text: '告诉她周生一直在等她', next: 'yunxiu_zhou_sheng', condition: { flag: 'knowsZhouSheng' } },
-                    { text: '继续陪她', exit: true, effects: { npcAffinity: 20, sanity: 5 } }
-                ]
-            },
-            yunxiu_farewell_prep: {
-                text: `"云袖，"你问，"如果有一天，你真的能走了，你想怎么走？"
+    choices: [createDialogueChoice({
+      text: '告诉她周生一直在等她',
+      next: 'yunxiu_zhou_sheng',
+      condition: {
+        flag: 'knowsZhouSheng'
+      }
+    }), createDialogueChoice({
+      text: '继续陪她',
+      exit: true,
+      effects: {
+        npcAffinity: 20,
+        sanity: 5
+      }
+    })]
+  }),
+  yunxiu_farewell_prep: createDialogueNode('yunxiu_farewell_prep', {
+    text: `"云袖，"你问，"如果有一天，你真的能走了，你想怎么走？"
 
 她想了很久。
 
@@ -130,12 +170,19 @@ export const yunxiuMoreDialogue = {
 "能。"你说。
 
 "那，"她笑了，"我现在就开始练嗓子。这一折《惊梦》，我等了一百年，要唱得最好。"`,
-                choices: [
-                    { text: '答应她，为她搭起戏台', exit: true, effects: { npcAffinity: 30, setFlag: 'promised', setFlag: 'yunxiuWishComplete', sanity: 10 } }
-                ]
-            },
-            yunxiu_question_greed: {
-                text: `"守夜人，"云袖忽然问，"人为什么会害人？"
+    choices: [createDialogueChoice({
+      text: '答应她，为她搭起戏台',
+      exit: true,
+      effects: {
+        npcAffinity: 30,
+        setFlag: 'promised',
+        setFlag: 'yunxiuWishComplete',
+        sanity: 10
+      }
+    })]
+  }),
+  yunxiu_question_greed: createDialogueNode('yunxiu_question_greed', {
+    text: `"守夜人，"云袖忽然问，"人为什么会害人？"
 
 "什么意思？"
 
@@ -158,11 +205,16 @@ export const yunxiuMoreDialogue = {
 "我会记住的。"你说，"我还会写下来。"
 
 "那就好。"云袖点点头，"有你在，我放心了。"`,
-                choices: [
-                    { text: '答应她把真相写进书里', exit: true, effects: { npcAffinity: 25, setFlag: 'yunxiuKnowsArson', setFlag: 'yunxiuRemembered', sanity: 10 } }
-                ]
-            }
+    choices: [createDialogueChoice({
+      text: '答应她把真相写进书里',
+      exit: true,
+      effects: {
+        npcAffinity: 25,
+        setFlag: 'yunxiuKnowsArson',
+        setFlag: 'yunxiuRemembered',
+        sanity: 10
+      }
+    })]
+  })
 };
-
 export const NPCs = {};
-

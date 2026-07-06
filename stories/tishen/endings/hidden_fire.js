@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：hidden_fire
  */
 
 export const Endings = {
-hidden_burn_my_remains: {
+hidden_burn_my_remains: createEnding('hidden_burn_my_remains', {
         title: '隐藏结局 · 焚我残躯',
         text: `你用自己的命，换了一个替身重生的机会。
 
@@ -24,8 +25,8 @@ hidden_burn_my_remains: {
 每年清明，她都会来这里烧两炷香。
 
 一炷给你，一炷给那个替你活过五年的纸人。`
-    },
-hidden_phoenixDoll: {
+    }),
+hidden_phoenixDoll: createEnding('hidden_phoenixDoll', {
         title: '隐藏结局 · 焚符',
         text: `你点燃黄符，火焰顺着纸人的胸口烧了上去。
 
@@ -42,8 +43,8 @@ hidden_phoenixDoll: {
 只有你知道，纸人的记忆像一枚烧红的针，留在了你的脑子里。
 
 你再也不敢看火。`
-    },
-hidden_inkWash: {
+    }),
+hidden_inkWash: createEnding('hidden_inkWash', {
         title: '隐藏结局 · 入画',
         text: `老人写好反替符，让你站在灯笼下的阴影里。
 
@@ -64,8 +65,8 @@ hidden_inkWash: {
 你被困在一具纸壳里，连眨眼都做不到。
 
 铺子里只剩下老人继续扎纸马的声音，和一盏永远不灭的白灯笼。`
-    },
-hidden_artisansCurse: {
+    }),
+hidden_artisansCurse: createEnding('hidden_artisansCurse', {
         title: '隐藏结局 · 匠诅',
         text: `你带着朱砂回家，按照老人教的法子，封住纸人的眼、耳、口、鼻。
 
@@ -88,5 +89,5 @@ hidden_artisansCurse: {
 从今以后，你永远不能说出自己的真名。
 
 一旦说出口，就会从内到外，烧成一堆纸灰。`
-    }
+    })
 };

@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：hidden_stage
  */
 
 export const Endings = {
-hidden_operaOfMercy: {
+hidden_operaOfMercy: createEnding('hidden_operaOfMercy', {
         title: '隐藏结局 · 慈悲戏',
         text: `你没有唱完《牡丹亭》。
 
@@ -20,8 +21,8 @@ hidden_operaOfMercy: {
 但你不在乎。
 
 [red]有些戏，本来就不该唱完。[/red]`
-    },
-hidden_noFaceAudience: {
+    }),
+hidden_noFaceAudience: createEnding('hidden_noFaceAudience', {
         title: '隐藏结局 · 无面观众',
         text: `你决定不登台，也不做观众。
 
@@ -38,8 +39,8 @@ hidden_noFaceAudience: {
 云袖站在台上，看着他们离开，轻声说："原来，他们也在等我散场。"
 
 戏台空了。`
-    },
-hidden_redLantern: {
+    }),
+hidden_redLantern: createEnding('hidden_redLantern', {
         title: '隐藏结局 · 红灯笼',
         text: `你取下了戏台上最后一盏红灯笼。
 
@@ -52,8 +53,8 @@ hidden_redLantern: {
 第二天，青石镇的人发现戏台上的红灯笼全都不见了。有人说昨晚看见一盏红灯漂在河上，以为是河灯。
 
 你知道，那盏灯带着云袖，去了彼岸。`
-    },
-hidden_openerCurtain: {
+    }),
+hidden_openerCurtain: createEnding('hidden_openerCurtain', {
         title: '隐藏结局 · 启幕人',
         text: `你没有让戏散场，而是让戏重新开始。
 
@@ -70,8 +71,8 @@ hidden_openerCurtain: {
 戏演完后，她把银钗交给你："替我保管。等下一出戏开演时，再把它放回去。"
 
 你答应了。`
-    },
-hidden_eternalStage: {
+    }),
+hidden_eternalStage: createEnding('hidden_eternalStage', {
         title: '隐藏结局 · 永恒戏台',
         text: `你没有破坏戏台，也没有超度云袖。
 
@@ -84,5 +85,5 @@ hidden_eternalStage: {
 有时候月圆之夜，戏台上会出现一个红色的身影，唱一两句就消失。
 
 游客们以为是表演效果。只有你知道，那是云袖在谢幕。`
-    }
+    })
 };

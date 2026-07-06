@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：hidden_bonds
  */
 
 export const Endings = {
-hidden_foxMercy: {
+hidden_foxMercy: createEnding('hidden_foxMercy', {
         title: '隐藏结局 · 狐恩',
         text: `你没有和狐女成婚，却得到了她的承诺。
 
@@ -22,8 +23,8 @@ hidden_foxMercy: {
 她也笑了："人间的事，哪里算得清。"
 
 你闭上眼睛，感到前所未有的平静。`
-    },
-hidden_trueHeart: {
+    }),
+hidden_trueHeart: createEnding('hidden_trueHeart', {
         title: '隐藏结局 · 真心渡',
         text: `你用真心换得了狐女的真心。
 
@@ -38,8 +39,8 @@ hidden_trueHeart: {
 当雷云散去，你们发现彼此都变了。她不再是狐，你不再是普通猎户。你们成了青丘山的守护者，不老不死，却也再不分离。
 
 [red]这便是真心渡劫。[/red]`
-    },
-hidden_no_marriage_no_demon: {
+    }),
+hidden_no_marriage_no_demon: createEnding('hidden_no_marriage_no_demon', {
         title: '隐藏结局 · 人婚不成，妖亦不渡',
         text: `你没有和狐女成婚，但她渡过了雷劫。
 
@@ -64,8 +65,8 @@ hidden_no_marriage_no_demon: {
 [red]人婚不成，妖亦不渡。[/red]
 
 但你和她都知道，有些羁绊，比婚姻更长。`
-    },
-hidden_foxFriend: {
+    }),
+hidden_foxFriend: createEnding('hidden_foxFriend', {
         title: '隐藏结局 · 狐朋',
         text: `你没有答应成婚，也没有拒绝青丘。
 
@@ -82,8 +83,8 @@ hidden_foxFriend: {
 "朋友。"她说，"谢谢你没把我当妖怪。"
 
 "你本来就不是。"你说。`
-    },
-hidden_heartBloodOath: {
+    }),
+hidden_heartBloodOath: createEnding('hidden_heartBloodOath', {
         title: '隐藏结局 · 血誓',
         text: `你给了狐女一滴心头血，但不是让她渡劫用的。
 
@@ -98,8 +99,8 @@ hidden_heartBloodOath: {
 后来她渡劫成功，你活到高寿。你们没有成婚，却比很多夫妻更亲近。
 
 村里人说，周家的猎户有个狐仙妹妹，每逢灾年都会来送粮食。`
-    },
-hidden_foxChild: {
+    }),
+hidden_foxChild: createEnding('hidden_foxChild', {
         title: '隐藏结局 · 狐子',
         text: `你没有和青丘成婚，但你们收养了一只被雷劫劈伤的小狐狸。
 
@@ -112,8 +113,8 @@ hidden_foxChild: {
 "这样也挺好。"青丘说，"不一定要成婚，才有家。"
 
 你点点头。有家，就够了。`
-    },
-hidden_whiteFoxSendoff: {
+    }),
+hidden_whiteFoxSendoff: createEnding('hidden_whiteFoxSendoff', {
         title: '隐藏结局 · 白狐送行',
         text: `你拒绝了狐女，也拒绝了村长。
 
@@ -132,5 +133,5 @@ hidden_whiteFoxSendoff: {
 后来她送你到镇上，又变回白狐，消失在雪地里。
 
 你知道，她会一直"路过"下去。`
-    }
+    })
 };

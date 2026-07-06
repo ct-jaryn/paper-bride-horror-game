@@ -53,7 +53,25 @@ stories/
 
 ### 代码模式
 
-**场景模块标准导出**：
+**场景模块标准导出（推荐工厂函数）**：
+
+```javascript
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
+export const scenes = {
+  scene_id: createScene('scene_id', {
+    id: 'scene_id',
+    title: '场景标题',
+    text: '场景正文',
+    choices: [
+      createChoice({ text: '选择文本', next: 'next_scene_id' })
+    ]
+  })
+};
+```
+
+**对象字面量仍然兼容**：
+
 ```javascript
 export const scenes = {
   scene_id: {
@@ -68,6 +86,7 @@ export const scenes = {
 ```
 
 **故事入口聚合**：
+
 ```javascript
 import { scenes as mainScenes } from './scenes/main.js';
 import { Endings } from './endings/index.js';
@@ -84,6 +103,10 @@ export { Endings, NPCs, StoryConfig };
 
 ### 测试
 - `node tools/validate_stories.mjs`：引用完整性
+- `node tools/validate_scene_titles.mjs`：场景标题合法性
+- `node tools/detect_dead_scenes.mjs`：死场景检测
+- `node tools/validate_choice_conditions.mjs`：选项条件合法性
+- `node tools/validate_item_flag_usage.mjs`：flag/item 引用检查
 - `node tools/test_all_endings_reachability.mjs`：结局可达性
 - `node tools/playthrough_test.mjs`：随机路径冒烟
 

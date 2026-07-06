@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：hidden_acts
  */
 
 export const Endings = {
-hidden_tearBlessing: {
+hidden_tearBlessing: createEnding('hidden_tearBlessing', {
         title: '隐藏结局 · 泪祝',
         text: `你替云袖擦去了那滴胭脂泪。
 
@@ -14,8 +15,8 @@ hidden_tearBlessing: {
 从那以后，七号厅再也没有出过事。
 
 有人说，云袖走之前，把最后一滴泪留在了你的纸巾上。那是她的祝福。`
-    },
-hidden_silverHairpinReturn: {
+    }),
+hidden_silverHairpinReturn: createEnding('hidden_silverHairpinReturn', {
         title: '隐藏结局 · 还钗',
         text: `你把银钗放回了云袖的枕边。
 
@@ -28,8 +29,8 @@ hidden_silverHairpinReturn: {
 她的身影消散后，七号厅里多了一股淡淡的桂花香。
 
 林叔说，那是云袖留下的最后一点气息。`
-    },
-hidden_stageRecord: {
+    }),
+hidden_stageRecord: createEnding('hidden_stageRecord', {
         title: '隐藏结局 · 录音',
         text: `你用手机录下了云袖唱的《牡丹亭》。
 
@@ -42,8 +43,8 @@ hidden_stageRecord: {
 云袖的名字被写进了戏曲史。她不再只是七号厅里的一具无名女尸，而是春香班最后的旦角。
 
 你每年清明都会给她放一段录音。她说，那是她听过最好的返场。`
-    },
-hidden_riversideStage: {
+    }),
+hidden_riversideStage: createEnding('hidden_riversideStage', {
         title: '隐藏结局 · 河畔戏台',
         text: `你带着云袖的遗物，去了青石河畔。
 
@@ -56,8 +57,8 @@ hidden_riversideStage: {
 "去找真正的戏台吧。"你说。
 
 雾气散了，河面恢复平静。你知道，她终于回家了。`
-    },
-hidden_paperWhisperDuet: {
+    }),
+hidden_paperWhisperDuet: createEnding('hidden_paperWhisperDuet', {
         title: '隐藏结局 · 纸人和声',
         text: `你在七号厅里贴满了纸人。
 
@@ -72,8 +73,8 @@ hidden_paperWhisperDuet: {
 你点点头："以后每年都会有人来看你的戏。"
 
 那些纸人你没有烧，而是装进了一个木盒，放在七号厅的角落里。`
-    },
-hidden_yunxiuNamePlaque: {
+    }),
+hidden_yunxiuNamePlaque: createEnding('hidden_yunxiuNamePlaque', {
         title: '隐藏结局 · 名牌',
         text: `你在一块木牌上刻下"云袖"两个字，挂在七号厅的门边。
 
@@ -86,8 +87,8 @@ hidden_yunxiuNamePlaque: {
 有一天夜里，木牌上的名字闪了一下。你打开门，七号厅里空无一人，但戏台上留着一支银钗。
 
 她知道，你做到了。`
-    },
-hidden_lastAudience: {
+    }),
+hidden_lastAudience: createEnding('hidden_lastAudience', {
         title: '隐藏结局 · 最后一名观众',
         text: `你决定做云袖最后一名观众。
 
@@ -104,8 +105,8 @@ hidden_lastAudience: {
 "再见。"
 
 这是她第一次说"再见"，而不是"来陪我"。`
-    },
-hidden_burningCurtain: {
+    }),
+hidden_burningCurtain: createEnding('hidden_burningCurtain', {
         title: '隐藏结局 · 焚幕',
         text: `你点燃了七号厅里那块破烂的戏台幕布。
 
@@ -120,8 +121,8 @@ hidden_burningCurtain: {
 林叔摇摇头："你胆子真大。"
 
 但你知道，云袖需要的不是胆子，是一个愿意帮她落幕的人。`
-    },
-hidden_morgueLullaby: {
+    }),
+hidden_morgueLullaby: createEnding('hidden_morgueLullaby', {
         title: '隐藏结局 · 停尸间摇篮曲',
         text: `你没有给云袖唱《牡丹亭》，而是唱了一首摇篮曲。
 
@@ -134,8 +135,8 @@ hidden_morgueLullaby: {
 从那以后，每当七号厅的灯闪烁，你就会轻轻哼那首摇篮曲。云袖不再睁眼，也不再唱戏。
 
 她只是睡在那里，做一个很长的梦。`
-    },
-hidden_farewellSong: {
+    }),
+hidden_farewellSong: createEnding('hidden_farewellSong', {
         title: '隐藏结局 · 送别曲',
         text: `你请了一天假，专门去学唱《牡丹亭》的《离魂》一折。
 
@@ -152,8 +153,8 @@ hidden_farewellSong: {
 她化作点点红光，消散在空气中。
 
 七号厅的灯，第一次整夜没有闪烁。`
-    },
-hidden_zhouShengLetter: {
+    }),
+hidden_zhouShengLetter: createEnding('hidden_zhouShengLetter', {
         title: '隐藏结局 · 周生信',
         text: `你把信的内容念给云袖听。
 
@@ -174,5 +175,5 @@ hidden_zhouShengLetter: {
 [faded]周生赠云袖[/faded]
 
 你捡起镜子，把它放在她的枕边。`
-    }
+    })
 };

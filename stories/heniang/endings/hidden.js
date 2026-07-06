@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：hidden
  */
 
 export const Endings = {
-hidden_ferryman: {
+hidden_ferryman: createEnding('hidden_ferryman', {
         title: '隐藏结局 · 渡河人',
         text: `你没有超度河娘，也没有和她们谈判。
 
@@ -18,8 +19,8 @@ hidden_ferryman: {
 母亲走后，你成了连接两岸的人。一边是生，一边是死。而你，站在船上。
 
 [red]这便是渡河人的宿命。[/red]`
-    },
-hidden_motherLetter: {
+    }),
+hidden_motherLetter: createEnding('hidden_motherLetter', {
         title: '隐藏结局 · 河底遗书',
         text: `你在河底的石头缝里找到了一封信。
 
@@ -30,8 +31,8 @@ hidden_motherLetter: {
 你把信带回去，裱在相框里。母亲每年七月半都会托梦给你，说水底下不冷，秀姑会给她唱戏。
 
 你渐渐不再悲伤。因为你知道，有些离别，只是换了一种陪伴。`
-    },
-hidden_xiuguChild: {
+    }),
+hidden_xiuguChild: createEnding('hidden_xiuguChild', {
         title: '隐藏结局 · 秀姑之子',
         text: `神婆告诉你，秀姑跳河时已经怀有身孕。
 
@@ -42,8 +43,8 @@ hidden_xiuguChild: {
 从那以后，河边的歌声少了许多。秀姑牵着孩子的手，站在远处朝你点头。
 
 "谢谢你。"她说，"他终于有名字了。"`
-    },
-hidden_riverGoddess: {
+    }),
+hidden_riverGoddess: createEnding('hidden_riverGoddess', {
         title: '隐藏结局 · 河神',
         text: `你没有超度河娘，也没有救母亲上岸。
 
@@ -54,8 +55,8 @@ hidden_riverGoddess: {
 老人们说，河里有了一位新神。她不害人，只保佑两岸太平。
 
 你知道，那位神就是母亲和秀姑。她们不是被河水困住了，是她们选择留在河里，守着这条河。`
-    },
-hidden_drownedChorus: {
+    }),
+hidden_drownedChorus: createEnding('hidden_drownedChorus', {
         title: '隐藏结局 · 水下合唱队',
         text: `你学会了和河娘们一起唱歌。
 
@@ -66,8 +67,8 @@ hidden_drownedChorus: {
 后来你录下这些歌，交给了音乐学院的一位教授。教授说，这些旋律和几百年前的一首古曲很相似。
 
 河娘们终于有了一首属于自己的歌。`
-    },
-hidden_peonyDress: {
+    }),
+hidden_peonyDress: createEnding('hidden_peonyDress', {
         title: '隐藏结局 · 河底戏衣',
         text: `你在河底捞起了一件湿透的红戏服。
 
@@ -78,8 +79,8 @@ hidden_peonyDress: {
 母亲说，那是很久以前一个投河的戏子。她和秀姑一样，都是被辜负的人。
 
 你把戏服捐给了青石镇戏台。戏台重建那天，牡丹花在阳光下盛开。`
-    },
-hidden_summerRain: {
+    }),
+hidden_summerRain: createEnding('hidden_summerRain', {
         title: '隐藏结局 · 夏雨',
         text: `你决定在村里住一个夏天。
 
@@ -92,8 +93,8 @@ hidden_summerRain: {
 "不回来了。"母亲说，"但我们很好。"
 
 醒来后，河水涨了一些，但很清澈。你知道，她们终于走了。`
-    },
-hidden_lastSong: {
+    }),
+hidden_lastSong: createEnding('hidden_lastSong', {
         title: '隐藏结局 · 最后一支歌',
         text: `秀姑答应放母亲走，但要求你为她唱最后一支歌。
 
@@ -108,8 +109,8 @@ hidden_lastSong: {
 "明年见。"她说。
 
 你们约好，每年中元节，你都会来给她唱歌。`
-    },
-hidden_waterGhost: {
+    }),
+hidden_waterGhost: createEnding('hidden_waterGhost', {
         title: '隐藏结局 · 水鬼',
         text: `你没有救任何人，而是成了河娘们的听众。
 
@@ -120,8 +121,8 @@ hidden_waterGhost: {
 有一天，你发现自己也能听见水下最细的声音了。你并不害怕，反而觉得亲切。
 
 也许总有一天，你也会成为她们故事中的一个。`
-    },
-hidden_stoneMemory: {
+    }),
+hidden_stoneMemory: createEnding('hidden_stoneMemory', {
         title: '隐藏结局 · 石碑记忆',
         text: `你把秀姑的尸骨重新安葬，还在墓碑上刻了她的生平。
 
@@ -132,8 +133,8 @@ hidden_stoneMemory: {
 她们不是在拜秀姑，是在拜那块碑。因为那是第一次，有人承认她们曾经活过。
 
 你后来又在河边立了很多碑。每一块碑上，都刻着一个名字。`
-    },
-hidden_incenseBoat: {
+    }),
+hidden_incenseBoat: createEnding('hidden_incenseBoat', {
         title: '隐藏结局 · 香舟',
         text: `你按照神婆教的方法，做了一艘纸船，船上放满香灰和朱砂。
 
@@ -144,5 +145,5 @@ hidden_incenseBoat: {
 第二年清明，你在下游找到了那艘纸船。船已经湿透，但船头的香灰还在。
 
 你把它晒干，重新放回河里。`
-    }
+    })
 };

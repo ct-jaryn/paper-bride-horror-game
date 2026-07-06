@@ -277,6 +277,15 @@ async function loadScript(path) {
         // 小游戏通过 require 加载已打包的 CommonJS/AMD 模块
         if (typeof require !== 'undefined') {
             try {
+                // 若请求的是 stories/{id}/index.js，映射到小游戏 bundle
+                const bundleMatch = path.match(/^stories\/([^/]+)\/index\.js$/);
+                if (bundleMatch) {
+                    const storyId = bundleMatch[1];
+                    const bundle = require('./js/stories-bundle.js');
+                    const mod = bundle.StoryBundles ? bundle.StoryBundles[storyId] : bundle[storyId];
+                    if (mod) return mod;
+                    throw new Error(`小游戏 bundle 中找不到故事: ${storyId}`);
+                }
                 return require(path);
             } catch (e) {
                 warn('loadScript.require', e);

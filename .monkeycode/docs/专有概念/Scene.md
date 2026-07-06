@@ -18,10 +18,42 @@
 |------|------|
 | 数据定义 | `stories/{id}/scenes/*.js` |
 | 数据聚合 | `stories/{id}/index.js` |
+| 工厂函数 | `js/engine/sceneFactory.js` |
 | 渲染 | `js/engine/renderer.js` |
 | 跳转逻辑 | `js/engine/renderer.js` |
 
 ## 结构示例
+
+推荐使用工厂函数定义场景与选择：
+
+```javascript
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
+export const scenes = {
+  prologue: createScene('prologue', {
+    title: '归乡',
+    text: '祖母病逝，你回到三十年未归的山村。',
+    effects: { sanity: -5, yin: 5 },
+    choices: [
+      createChoice({ text: '进村', next: 'village_gate' }),
+      createChoice({
+        text: '绕去后山祖坟',
+        next: 'graveyard_path',
+        condition: { flag: 'knowsAncestralPath' }
+      }),
+      createChoice({
+        text: '你听见纸人在低语',
+        next: 'paper_whisper',
+        condition: { yinAbove: 15 },
+        hidden: true
+      })
+    ],
+    hallucination: '[whisper]你低头看自己的手，发现手腕上已经系了一根红绳。[/whisper]'
+  })
+};
+```
+
+对象字面量仍然完全兼容：
 
 ```javascript
 export const scenes = {
@@ -30,15 +62,8 @@ export const scenes = {
     title: '归乡',
     text: '祖母病逝，你回到三十年未归的山村。',
     choices: [
-      {
-        text: '进村',
-        next: 'village_gate'
-      },
-      {
-        text: '绕去后山祖坟',
-        next: 'graveyard_path',
-        condition: (state) => state.flags.knowsAncestralPath
-      }
+      { text: '进村', next: 'village_gate' },
+      { text: '绕去后山祖坟', next: 'graveyard_path', condition: { flag: 'knowsAncestralPath' } }
     ]
   }
 };
@@ -51,9 +76,13 @@ export const scenes = {
 | `id` | `string` | 唯一标识 |
 | `title` | `string` | 场景标题 |
 | `text` | `string` | 正文，支持 HTML |
+| `effects` | `object` | 进入场景时生效的数值/物品效果 |
+| `choices` | `Choice[]` | 可选项列表 |
+| `condition` | `object/function` | 场景显示/进入条件 |
+| `hallucination` | `string` | 低理智时展示的幻觉文本 |
 | `cg` | `string` | 可选 CG id |
 | `onEnter` | `function` | 进入时副作用 |
-| `choices` | `Choice[]` | 可选项列表 |
+| `ending` | `string` | 进入后直接触发的结局 id |
 
 ## 不变量
 

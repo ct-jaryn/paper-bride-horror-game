@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：true
  */
 
 export const Endings = {
-namedAndFree: {
+namedAndFree: createEnding('namedAndFree', {
         title: '真结局 · 有名之鬼',
         text: `你给了纸人一个名字。
 
@@ -18,8 +19,8 @@ namedAndFree: {
 每年清明，你都会给它烧一炷香。
 
 因为它曾经替你活过。`
-    },
-reclaimSoul: {
+    }),
+reclaimSoul: createEnding('reclaimSoul', {
         title: '真结局 · 魂归本体',
         text: `你收回了魂魄，承受了五年来纸人替你扛下的所有灾病。
 
@@ -32,8 +33,8 @@ reclaimSoul: {
 [whisper]"谢谢你愿意自己活。"[/whisper]
 
 你再也没有见过那个纸人。`
-    },
-setFree: {
+    }),
+setFree: createEnding('setFree', {
         title: '真结局 · 放生',
         text: `你带纸人离开了院子。
 
@@ -46,8 +47,8 @@ setFree: {
 "也好。" 父亲说，"它替我照顾了你五年，是时候让它走了。"
 
 你握住父亲的手。这一次，那是一双真正的、温热的人手。`
-    },
-liftedCurse: {
+    }),
+liftedCurse: createEnding('liftedCurse', {
         title: '真结局 · 解咒',
         text: `你揭下了所有纸人身上的符咒。
 
@@ -60,5 +61,5 @@ liftedCurse: {
 父亲点点头，流下了眼泪。
 
 你把院子里的黄纸全部烧掉。火光中，你仿佛看见一个纸人的身影朝你鞠了一躬，然后消散。`
-    }
+    })
 };

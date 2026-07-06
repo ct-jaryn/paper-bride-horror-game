@@ -1,38 +1,39 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：exp3
  */
 
 export const Endings = {
-huimen_exp3_ending_dawn_return: {
+huimen_exp3_ending_dawn_return: createEnding('huimen_exp3_ending_dawn_return', {
         title: "普通结局 · 黎明还乡",
         text: "你在山村度过了最后一个夜晚。\n\n天光破晓时，纸人退回墙缝，白灯笼一盏盏熄灭。你背着秀兰的骨殖，沿着那条只有清晨才出现的土路走出村子。\n\n村口的老槐树落尽了叶子，露出枯枝间一只鸟巢。巢里空空荡荡，像是一个终于松开的手掌。\n\n你没有回头。你知道有些债还清了，有些影子也该安息了。\n\n回到城里，你把秀兰的骨殖葬在城南的公墓。墓碑上刻着她的名字，没有冠上\"周\"姓。每年清明，你会带一束她生前喜欢的白菊。\n\n只是偶尔，夜深人静，你会梦见一口井，井水里浮着一轮月亮。月亮里有人轻轻唤你：\"谢谢你。\""
-    },
-huimen_exp3_ending_paper_boat_ferry: {
+    }),
+huimen_exp3_ending_paper_boat_ferry: createEnding('huimen_exp3_ending_paper_boat_ferry', {
         title: "普通结局 · 纸船渡",
         text: "你用扎纸匠留下的棉纸，折了一只小船，把秀兰的一缕头发放进去。\n\n河水在夜里是黑色的，纸船却像一盏小灯，顺流而下。你跟着它走，走过石桥，走过芦苇荡，走到河面泛起鱼肚白。\n\n纸船靠岸的地方，已不是山村。你看见远处有炊烟，有鸡鸣，有早起的农夫赶着牛车。\n\n你上了岸，手里还攥着船底的一点湿纸。秀兰的头发不见了，也许是顺水走了，也许是化进了晨光里。\n\n你终于回到人间。可你知道，那只纸船替你渡了两个人。"
-    },
-huimen_exp3_ending_well_bottom_bones: {
+    }),
+huimen_exp3_ending_well_bottom_bones: createEnding('huimen_exp3_ending_well_bottom_bones', {
         title: "普通结局 · 井骨",
         text: "你下到了井底。\n\n井水比想象中温暖，像一口被捂热的棺。你在淤泥里摸到一具细小的骨架，腕上还系着褪色的红绳。\n\n你把骨架抱上来，用外套裹好。月亮正好升到中天，井壁上的青苔一齐亮起微弱的绿光，像无数双闭上的眼睛。\n\n秀兰站在井沿，没有说话。她朝你鞠了一躬，然后化作井底的一圈涟漪。\n\n你带着骨殖离开。之后的许多年，你再也没有做过那个溺水的梦。"
-    },
-huimen_exp3_ending_ancestral_cellar: {
+    }),
+huimen_exp3_ending_ancestral_cellar: createEnding('huimen_exp3_ending_ancestral_cellar', {
         title: "普通结局 · 地窖长明",
         text: "你点燃了地窖里那盏百年油灯。\n\n灯芯爆开一朵灯花，把满墙的名字照得通明。那些名字开始颤抖，像被火舌舔到的纸灰，一片片剥落。\n\n周家祖先把脸埋进阴影里。他们说：\"罢了，罢了，这债我们不讨了。\"\n\n你提着灯走出地窖。灯光所到之处，山村退成一幅褪色的画。你在画外醒来，手里握着一盏早已熄灭的古灯。\n\n灯虽灭了，但你知道，有些东西已经亮过。"
-    },
-huimen_exp3_ending_carpenter_saw: {
+    }),
+huimen_exp3_ending_carpenter_saw: createEnding('huimen_exp3_ending_carpenter_saw', {
         title: "普通结局 · 李木匠的锯",
         text: "李木匠把锯子交到你手里。\n\n\"去锯断那口井边的老槐树。\"他说，\"树里锁着她的名，名锁着魂。\"\n\n你锯了很久。树汁是暗红色的，像血，又像陈年的漆。最后一圈年轮断开时，井里传来一声长长的叹息。\n\n秀兰走出来，脸色苍白，却带着笑。她把一枚木屑放进你手心：\"拿去，这是我还你的。\"\n\n你握着木屑走出山村。它在你口袋里慢慢变成一朵干枯的槐花。"
-    },
-huimen_exp3_hidden_granny_wang_rest: {
+    }),
+huimen_exp3_hidden_granny_wang_rest: createEnding('huimen_exp3_hidden_granny_wang_rest', {
         title: "隐藏结局 · 王婆安息",
         text: "王婆把那双绣鞋烧给了自己。\n\n火光照亮她脸上的皱纹，每一道都藏着几十年的愧疚。她说：\"我当年不该劝她回门。不该给她穿上那双鞋。\"\n\n绣鞋在火里卷曲，像一只终于展翅的蝶。王婆的身影随之淡去，只留下一碗还温着的红糖水。\n\n你喝了糖水，甜得发苦。走出屋子时，天已经亮了。山村的雾气散了，露出远处青色的山脊。\n\n你再也没有见过王婆。但每年中元，你都会在门口放一双干净的布鞋。"
-    },
-huimen_exp3_hidden_clan_head_penance: {
+    }),
+huimen_exp3_hidden_clan_head_penance: createEnding('huimen_exp3_hidden_clan_head_penance', {
         title: "隐藏结局 · 族长忏",
         text: "周家族长跪在祖祠的门槛上，把族谱翻到秀兰那一页。\n\n他用颤抖的手，蘸着朱砂，在\"秀兰\"二字旁边写下\"周氏媳，冤\"。一滴泪落进朱砂里，把那个\"冤\"字晕成一轮红日。\n\n祠堂里的牌位齐齐震颤。最老的那一块裂开一道缝，缝里飘出一缕青烟，像是某个终于松开的叹息。\n\n族长把族谱交给你：\"带她走吧。周家不配再留她。\"\n\n你接过族谱，感觉它轻得像一张纸。走出祠堂时，秀兰就站在日头里，脚边落着一双崭新的布鞋。"
-    },
-huimen_exp3_hidden_return_with_xiulan: {
+    }),
+huimen_exp3_hidden_return_with_xiulan: createEnding('huimen_exp3_hidden_return_with_xiulan', {
         title: "隐藏好结局 · 携骨归",
         text: "你把秀兰的骨殖包好，背在肩上，像背着一个未完的故事。\n\n山村在你身后慢慢收起。纸人、白灯笼、老槐树、无字碑，都像被风卷起的纸灰，一层层褪进雾里。\n\n秀兰走在你身侧，不是鬼魂，只是一个淡淡的影子。她说：\"这次我真的能走了。\"\n\n你问：\"去哪里？\"\n她说：\"去有花开的地方。\"\n\n你们走到镇上的汽车站。第一班车来的时候，天正好亮了。秀兰的影子在晨光里越来越淡，最后化作你肩头一缕暖意。\n\n你带着她的骨殖回到城市，把她葬在一片开满白菊的山坡。从那以后，你再也没有被困在任何一个夜里。\n\n偶尔你会在清晨醒来，枕边落着一根不属于你的长发。你知道，那是她路过时留下的谢意。"
-    }
+    })
 };

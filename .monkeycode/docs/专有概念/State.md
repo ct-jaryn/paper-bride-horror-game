@@ -22,6 +22,37 @@
 | 持久化 | `js/engine/saveManager.js` |
 | 命名空间 | `js/engine/namespace.js` |
 
+## 状态修改方式
+
+推荐通过 `state.js` 提供的 API 写入状态，避免直接修改 `Huimen.GameState`：
+
+```javascript
+import { adjustNumber, setFlag, pushToArray } from '../js/engine/state.js';
+
+adjustNumber('sanity', -10, 0, 100);
+setFlag('knowsTruth', true, 'both');
+pushToArray('inventory', 'copper_mirror', { unique: true });
+```
+
+场景与选择的 `effects` 对象由引擎消费，等效地修改状态。`effects` 支持以下键：
+
+| 键 | 类型 | 作用 |
+|------|------|------|
+| `sanity` / `yin` / `time` | `number` | 对对应数值做增量 |
+| `addItem` | `string` | 向 inventory 添加物品 |
+| `removeItem` | `string` | 从 inventory 移除物品 |
+| `setFlag` | `string` | 设置当前故事 flag |
+
+底层 `updateState` 只允许写入白名单键。
+
+## 状态键白名单
+
+`state.js` 只允许更新以下键：
+
+```javascript
+['sanity', 'yin', 'time', 'inventory', 'flags', 'currentScene', 'history', 'choiceLog', 'lastSaveAt', 'reviveCheckpoints', 'npcState']
+```
+
 ## 结构示例
 
 ```javascript

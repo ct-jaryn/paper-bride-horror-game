@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：hidden_true
  */
 
 export const Endings = {
-hidden_finalCurtain: {
+hidden_finalCurtain: createEnding('hidden_finalCurtain', {
         title: '真结局 · 最后一折',
         text: `你为云袖搭起戏台，听她唱完最后一出《牡丹亭》。
 
@@ -18,8 +19,8 @@ hidden_finalCurtain: {
 [faded]《回门》[/faded]
 
 而第二页，是空白的，等待你写下下一个故事。`
-    },
-hidden_stageCoffinFarewell: {
+    }),
+hidden_stageCoffinFarewell: createEnding('hidden_stageCoffinFarewell', {
         title: '真结局 · 戏台棺',
         text: `你为云袖合上柚木棺盖。
 
@@ -40,8 +41,8 @@ hidden_stageCoffinFarewell: {
 月圆之夜，路过七号厅的人都说，能听见棺材里传来极轻极轻的唱腔。
 
 那不再是怨。是安息后，做的美梦。`
-    },
-hidden_riverReunion: {
+    }),
+hidden_riverReunion: createEnding('hidden_riverReunion', {
         title: '真结局 · 青河重逢',
         text: `云袖走进青石河的那一刻，河水静止了。
 
@@ -66,8 +67,8 @@ hidden_riverReunion: {
 守夜人的手记上，你写下了自己的名字。
 
 而阴阳簿的第二页，终于写满了。`
-    },
-hidden_watcherLineage: {
+    }),
+hidden_watcherLineage: createEnding('hidden_watcherLineage', {
         title: '真结局 · 守渡',
         text: `你完成了渡云袖的使命。
 
@@ -96,8 +97,8 @@ hidden_watcherLineage: {
 明天，会有新的故事，新的亡魂，新的等待。
 
 而你，已经是真正的守夜人了。`
-    },
-hidden_allSoulsRelease: {
+    }),
+hidden_allSoulsRelease: createEnding('hidden_allSoulsRelease', {
         title: '真结局 · 普度',
         text: `你用了一整年，把殡仪馆里所有的"未了魂"都渡了。
 
@@ -126,5 +127,5 @@ hidden_allSoulsRelease: {
 第三页，是空白的。
 
 [whisper]你知道，下一个故事，已经在某个角落，等着被你写下了。[/whisper]`
-    }
+    })
 };

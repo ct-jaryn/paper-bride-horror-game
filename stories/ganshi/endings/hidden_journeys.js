@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：hidden_journeys
  */
 
 export const Endings = {
-hidden_soul_homeward: {
+hidden_soul_homeward: createEnding('hidden_soul_homeward', {
         title: '隐藏结局 · 魂归故里',
         text: `你没有去青石镇报仇。
 
@@ -18,8 +19,8 @@ hidden_soul_homeward: {
 [whisper]"田家后生……谢谢你。"[/whisper]
 
 你抬头看了看天，东方已经亮了。`
-    },
-hidden_youthHome: {
+    }),
+hidden_youthHome: createEnding('hidden_youthHome', {
         title: '隐藏结局 · 归山',
         text: `你背着青年的尸体，翻过了最后一道山梁。
 
@@ -34,8 +35,8 @@ hidden_youthHome: {
 那顿饭很简陋，但你觉得那是你吃过最踏实的一顿。
 
 青年的冤魂没有跟着你离开。他留在了家里，留在了母亲身边。`
-    },
-hidden_masterApprentice: {
+    }),
+hidden_masterApprentice: createEnding('hidden_masterApprentice', {
         title: '隐藏结局 · 师徒缘',
         text: `鬼道人没有杀你，也没有放你走。
 
@@ -50,8 +51,8 @@ hidden_masterApprentice: {
 "两位师父。"你说，"一个教我赶尸，一个教我做人。"
 
 铜铃声响，三具尸体跟着你走。你忽然觉得，这一单不会太平，但你已经不怕了。`
-    },
-hidden_exiledDriver: {
+    }),
+hidden_exiledDriver: createEnding('hidden_exiledDriver', {
         title: '隐藏结局 · 隐名',
         text: `你把账册一页一页撕碎，扔进火里。
 
@@ -72,8 +73,8 @@ hidden_exiledDriver: {
 你从不回答。
 
 因为你带不了。`
-    },
-hidden_seventhDriver: {
+    }),
+hidden_seventhDriver: createEnding('hidden_seventhDriver', {
         title: '隐藏结局 · 第七个赶尸匠',
         text: `你把青年的铜铃系在自己腰间。
 
@@ -98,5 +99,5 @@ hidden_seventhDriver: {
 你忽然明白，自己也会成为第八个。不是现在，是很多年以后。但没关系，你早就选好了埋骨的地方。
 
 铜铃一响，你就知道，有人来接你回家。`
-    }
+    })
 };

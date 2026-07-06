@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：death
  */
 
 export const Endings = {
-becomeFox: {
+becomeFox: createEnding('becomeFox', {
         title: '死亡结局 · 化狐',
         text: `你吞下了狐妖内丹。
 
@@ -16,8 +17,8 @@ becomeFox: {
 猎人剥了它的皮，卖了个好价钱。
 
 没有人知道，那曾经是一个叫周远的人。`
-    },
-hauntedByFox: {
+    }),
+hauntedByFox: createEnding('hauntedByFox', {
         title: '死亡结局 · 狐梦索命',
         text: `你杀了狐女，埋了她的内丹。
 
@@ -28,8 +29,8 @@ hauntedByFox: {
 终于有一天，你醒来发现自己不在床上，而是在青丘山的古墓前。
 
 狐女站在墓门口，朝你伸出手："进来吧。该赔命了。"`
-    },
-lostInFoxRealm: {
+    }),
+lostInFoxRealm: createEnding('lostInFoxRealm', {
         title: '死亡结局 · 迷于青丘',
         text: `你在青丘山里迷失了方向。
 
@@ -40,8 +41,8 @@ lostInFoxRealm: {
 再醒来时，你发现自己变成了一只狐狸，蹲在青丘山的入口。
 
 一只穿红嫁衣的狐女走过来，摸摸你的头："既然你这么想跑，就变成狐狸，永远在这里跑吧。"`
-    },
-survivedAlone: {
+    }),
+survivedAlone: createEnding('survivedAlone', {
         title: '死亡结局 · 独活',
         text: `你抢到了避雷珠，但狐女死在了古墓里。
 
@@ -56,5 +57,5 @@ survivedAlone: {
 五百年后，你成了一个不老不死的怪物。你看着身边的人一个个死去，终于明白：
 
 [red]活着，有时候比死更可怕。[/red]`
-    }
+    })
 };

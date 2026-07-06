@@ -12,6 +12,8 @@ js/engine/
 ├── renderer.js         # 场景渲染、选择 UI、屏幕切换
 ├── game.js             # 标题/结局/按钮事件绑定
 ├── effectEngine.js     # sanity/yin 特效与游戏结束检测
+├── sceneFactory.js     # 场景/选择工厂函数
+├── endingFactory.js    # 结局/NPC/对话工厂函数
 ├── saveManager.js      # localStorage 读写与迁移
 ├── recordManager.js    # 选择记录、复盘、导出
 ├── endingManager.js    # 结局处理与借命还阳
@@ -22,7 +24,7 @@ js/engine/
 ├── eventBus.js         # 轻量事件总线
 ├── dom.js              # DOM 元素引用
 ├── utils.js            # 通用工具函数
-└── platform.js         # 平台适配（Web / 小游戏 / 小程序）
+└── platform.js         # 浏览器/小程序/小游戏跨平台抽象
 ```
 
 ## 关键文件
@@ -34,6 +36,9 @@ js/engine/
 | `storyLoader.js` | 根据 manifest 动态 import 故事模块并初始化状态 |
 | `renderer.js` | 渲染场景文本、状态栏、物品栏、选择与结局画面 |
 | `game.js` | 绑定标题页、游戏内、结局页的所有按钮事件 |
+| `sceneFactory.js` | 提供 `createScene` / `createChoice` 工厂函数 |
+| `endingFactory.js` | 提供 `createEnding` / `createNPC` / 对话节点工厂 |
+| `platform.js` | 浏览器/小程序/小游戏跨平台抽象层 |
 
 ## 依赖
 
@@ -76,7 +81,13 @@ Huimen.GameEvents.on('gameInit', () => {
 - 关键状态写入越界时 `console.warn`
 
 ### 测试
-- 引擎逻辑主要通过 `tools/` 中的 Node 脚本间接验证
+
+- `tools/test_scene_factory.mjs`：验证 `createScene` / `createChoice`
+- `tools/test_effect_engine.mjs`：验证时辰、条件、游戏结束判定
+- `tools/test_ending_factory.mjs`：验证 `createEnding` / `createNPC` / 对话节点
+- `tools/test_renderer.mjs`：使用 jsdom 验证 DOM 渲染
+- `tools/test_save_manager.mjs`：验证 `SaveManager` 持久化 API
+- `tools/test_browser_boot.cjs`：浏览器 DOM 冒烟测试
 - 手动在浏览器中走通关键路径
 
 ## 添加新文件

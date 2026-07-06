@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：death
  */
 
 export const Endings = {
-burnedTogether: {
+burnedTogether: createEnding('burnedTogether', {
         title: '死亡结局 · 同归于尽',
         text: `你烧了纸人，也带走了父亲。
 
@@ -14,8 +15,8 @@ burnedTogether: {
 你跪在父亲的遗像前，发现遗像里的父亲在对你笑。
 
 那笑容，和院子里那个纸人一模一样。`
-    },
-replaced: {
+    }),
+replaced: createEnding('replaced', {
         title: '死亡结局 · 李代桃僵',
         text: `纸人取代了你。
 
@@ -30,8 +31,8 @@ replaced: {
 "这样更像真的。" 它说。
 
 你很想哭，但纸人没有眼泪。`
-    },
-paperTrapped: {
+    }),
+paperTrapped: createEnding('paperTrapped', {
         title: '死亡结局 · 纸囚',
         text: `你同意和纸人换一天，但它再也没有回来。
 
@@ -42,8 +43,8 @@ paperTrapped: {
 你终于明白，纸人不是想活一天。它只是想让你体验一下，它这五年是怎么过的。
 
 而体验完之后，它决定不回来了。`
-    },
-paperFamily: {
+    }),
+paperFamily: createEnding('paperFamily', {
         title: '死亡结局 · 纸家',
         text: `你被父亲——不，被纸父亲带回了院子。
 
@@ -56,8 +57,8 @@ paperFamily: {
 你们三个纸人站在院子里，脸上画着幸福的笑。
 
 风吹过，发出沙沙的声响。像是在笑。`
-    },
-madness: {
+    }),
+madness: createEnding('madness', {
         title: '死亡结局 · 疯魔',
         text: `你崩溃了。
 
@@ -66,8 +67,8 @@ madness: {
 母亲叫来村里人，把你绑起来。他们说你中邪了，要请神婆来治。
 
 神婆来了，看了看院子，摇摇头："这不是中邪。这是替身太多了，真身找不到了。"`
-    },
-slowReplacement: {
+    }),
+slowReplacement: createEnding('slowReplacement', {
         title: '普通结局 · 渐替',
         text: `你让纸人继续替你承受灾病。
 
@@ -78,8 +79,8 @@ slowReplacement: {
 你也不知道答案。
 
 也许再过一年，连你自己也会忘记。`
-    },
-wrappedInPaper: {
+    }),
+wrappedInPaper: createEnding('wrappedInPaper', {
         title: '死亡结局 · 纸裹',
         text: `你被纸人包进了纸里。
 
@@ -94,5 +95,5 @@ wrappedInPaper: {
 你恨它。但你也羡慕它。
 
 因为它至少，还能笑。`
-    }
+    })
 };

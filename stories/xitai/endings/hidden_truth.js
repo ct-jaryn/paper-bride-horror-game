@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：hidden_truth
  */
 
 export const Endings = {
-hidden_songEnds: {
+hidden_songEnds: createEnding('hidden_songEnds', {
         title: '隐藏结局 · 曲终人散',
         text: `你没有陪云袖唱完那出戏。
 
@@ -18,8 +19,8 @@ hidden_songEnds: {
 每年中元节，戏台都不唱《牡丹亭》。
 
 因为那一出戏，终于散了。`
-    },
-hidden_trueWord: {
+    }),
+hidden_trueWord: createEnding('hidden_trueWord', {
         title: '隐藏结局 · 真言',
         text: `你让周生亲口说出了"对不起"。
 
@@ -36,8 +37,8 @@ hidden_trueWord: {
 仅此而已。
 
 [red]有时候，世界上最厉害的法器，不是铜镜，不是黄符，而是一句真心的道歉。[/red]`
-    },
-hidden_photoAshes: {
+    }),
+hidden_photoAshes: createEnding('hidden_photoAshes', {
         title: '隐藏结局 · 焚照',
         text: `你把那张烧焦的胶卷烧了。
 
@@ -50,8 +51,8 @@ hidden_photoAshes: {
 录音笔里只留下一阵风声，像是一群人在远处鼓掌。
 
 戏台终于空了。`
-    },
-hidden_stageWitness: {
+    }),
+hidden_stageWitness: createEnding('hidden_stageWitness', {
         title: '隐藏结局 · 见证',
         text: `你没有登台，也没有离开。
 
@@ -66,8 +67,8 @@ hidden_stageWitness: {
 你起身离开青石镇。 your report (你的报告)里多了一段详细的观剧记录。
 
 同事们说你疯了，但你不在乎。因为你亲眼看见，一出唱了三十年年的鬼戏，终于落幕。`
-    },
-hidden_liuConfession: {
+    }),
+hidden_liuConfession: createEnding('hidden_liuConfession', {
         title: '隐藏结局 · 刘掌柜的供词',
         text: `你找到了刘掌柜的账本。
 
@@ -84,8 +85,8 @@ hidden_liuConfession: {
 那天夜里，戏台的锣鼓声响了最后一次，然后彻底安静下来。
 
 青石镇的人说，那是春香班在谢幕。`
-    },
-hidden_zhouDescendant: {
+    }),
+hidden_zhouDescendant: createEnding('hidden_zhouDescendant', {
         title: '隐藏结局 · 周生后人',
         text: `你找到了周生的后人，一个年轻的戏曲演员。
 
@@ -102,8 +103,8 @@ hidden_zhouDescendant: {
 曲终，她朝周生后人福了一福，化作红光散去。
 
 周生后人跪在地上，久久不能起身。`
-    },
-hidden_yunxiuRequiem: {
+    }),
+hidden_yunxiuRequiem: createEnding('hidden_yunxiuRequiem', {
         title: '隐藏结局 · 安魂曲',
         text: `你没有唱《牡丹亭》，而是给云袖唱了一首安魂曲。
 
@@ -118,5 +119,5 @@ hidden_yunxiuRequiem: {
 戏台上的红灯笼一盏盏熄灭。你把银钗留在台上，转身离开。
 
 青石镇从此再也没有听过鬼戏。`
-    }
+    })
 };

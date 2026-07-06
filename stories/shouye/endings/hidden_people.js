@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：hidden_people
  */
 
 export const Endings = {
-hidden_paperKeeper: {
+hidden_paperKeeper: createEnding('hidden_paperKeeper', {
         title: '隐藏结局 · 纸人保管员',
         text: `你没有把纸人烧掉，而是把它带到了民俗研究所。
 
@@ -14,8 +15,8 @@ hidden_paperKeeper: {
 每年的中元节，研究所都会举办一场小型的《牡丹亭》演出，纪念这位春香班的旦角。
 
 你偶尔会去看。演出结束时，你总觉得后台的帷幕后面，站着一个穿红戏服的身影，正在对你微笑。`
-    },
-hidden_paperFigure: {
+    }),
+hidden_paperFigure: createEnding('hidden_paperFigure', {
         title: '隐藏结局 · 替身焚化',
         text: `你把纸人的灰烬撒入青石河。
 
@@ -26,8 +27,8 @@ hidden_paperFigure: {
 从此以后，七号厅再也没有传出过唱戏声。青石河的渔民说，每逢月夜，河面上会飘过一阵桂花香，还有一段若有若无的《牡丹亭》。
 
 那不再是怨，是归途。`
-    },
-hidden_teahouseReunion: {
+    }),
+hidden_teahouseReunion: createEnding('hidden_teahouseReunion', {
         title: '隐藏结局 · 茶楼重逢',
         text: `你没有急着走，而是静静坐着，陪她喝完了那壶茶。
 
@@ -58,8 +59,8 @@ hidden_teahouseReunion: {
 你笑了笑，结了账，走出了茶楼。
 
 身后，那盏你坐过的灯，无风自动，闪了两下。`
-    },
-hidden_callerPeace: {
+    }),
+hidden_callerPeace: createEnding('hidden_callerPeace', {
         title: '隐藏结局 · 前任安息',
         text: `神秘来电后的第七天，你收到了殡仪馆的通知——前任守夜人陈老先生，在省城医院病逝了。
 
@@ -84,8 +85,8 @@ hidden_callerPeace: {
 风过墓碑，发出一声轻响。
 
 像是，有人在回答："好孩子。"`
-    },
-hidden_apprenticeFamily: {
+    }),
+hidden_apprenticeFamily: createEnding('hidden_apprenticeFamily', {
         title: '隐藏结局 · 学徒归家',
         text: `你查到了那个纸扎学徒的真名——李根生，河南人，民国十五年生于一个贫苦农家。
 
@@ -112,8 +113,8 @@ hidden_apprenticeFamily: {
 空荡荡的厅里，你仿佛听见一个年轻的声音，最后一次响起：
 
 [whisper]"谢谢您，守夜人。我终于，不用再守了。"[/whisper]`
-    },
-hidden_zhouShengRebornHint: {
+    }),
+hidden_zhouShengRebornHint: createEnding('hidden_zhouShengRebornHint', {
         title: '隐藏结局 · 转世',
         text: `云袖和周生在青石河重逢的那天，你站在桥头目送。
 
@@ -136,8 +137,8 @@ hidden_zhouShengRebornHint: {
 你笑了，把这件事，悄悄记进了阴阳簿。
 
 [faded]有些故事，结束了。有些故事，刚刚开始。[/faded]`
-    },
-hidden_gravekeeperLife: {
+    }),
+hidden_gravekeeperLife: createEnding('hidden_gravekeeperLife', {
         title: '隐藏结局 · 守墓人',
         text: `你没有继续当守夜人。
 
@@ -162,5 +163,5 @@ hidden_gravekeeperLife: {
 [whisper]你没有醒。可你的脸上，带着和陈守一一模一样的、了却心愿的安详。[/whisper]
 
 [whisper]守了一辈子墓的人，最后，成了墓的一部分。[/whisper]`
-    }
+    })
 };

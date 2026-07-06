@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：death
  */
 
 export const Endings = {
-eternalDuet: {
+eternalDuet: createEnding('eternalDuet', {
         title: '死亡结局 · 永世同台',
         text: `你接受了云袖，成了她的柳梦梅。
 
@@ -14,8 +15,8 @@ eternalDuet: {
 只有你知道，那出戏已经唱了三十年，还会再唱三百年。
 
 因为你，永远不会让戏散场。`
-    },
-trappedAudience: {
+    }),
+trappedAudience: createEnding('trappedAudience', {
         title: '死亡结局 · 座中客',
         text: `你被困在戏台下，成了永远的观众。
 
@@ -32,8 +33,8 @@ trappedAudience: {
 你转过头，想提醒他快逃。但你的嘴张不开。
 
 你只能看着他，一步步走进戏台，然后变成下一个座中客。`
-    },
-becomeYunxiu: {
+    }),
+becomeYunxiu: createEnding('becomeYunxiu', {
         title: '死亡结局 · 借身',
         text: `你带走了云袖的银钗，云袖便借走了你的身体。
 
@@ -44,8 +45,8 @@ becomeYunxiu: {
 每当有人举起相机，你都会转向镜头。
 
 照片里，你的脸一片空白。`
-    },
-lostInFog: {
+    }),
+lostInFog: createEnding('lostInFog', {
         title: '死亡结局 · 雾中迷',
         text: `你在雾中迷失了方向。
 
@@ -56,8 +57,8 @@ lostInFog: {
 你张开口，发现自己只会唱《牡丹亭》了。
 
 原来，你早就成了戏中人，只是自己不知道。`
-    },
-becomeCostume: {
+    }),
+becomeCostume: createEnding('becomeCostume', {
         title: '死亡结局 · 戏衣',
         text: `你和戏服长在了一起。
 
@@ -68,8 +69,8 @@ becomeCostume: {
 每当有新的"柳梦梅"上台，她就会把你取下来，穿在他身上。
 
 你成了戏台的一部分，永远。`
-    },
-soulBurned: {
+    }),
+soulBurned: createEnding('soulBurned', {
         title: '死亡结局 · 焚魂',
         text: `怨火吞没了你的灵魂。
 
@@ -82,5 +83,5 @@ soulBurned: {
 但你知道，那不是你。
 
 你只是一团灰烬，散落在青石戏台的废墟里。`
-    }
+    })
 };

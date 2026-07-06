@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：hidden_public
  */
 
 export const Endings = {
-hidden_peony_pavilion_final: {
+hidden_peony_pavilion_final: createEnding('hidden_peony_pavilion_final', {
         title: '隐藏结局 · 牡丹亭终章',
         text: `你不仅帮云袖唱完了戏，还让她知道：即使近百年过去，仍有人记得她的名字。
 
@@ -20,8 +21,8 @@ hidden_peony_pavilion_final: {
 这一次，她的声音里没有怨，只有满足。
 
 戏终于散了。`
-    },
-hidden_yunxiuBook: {
+    }),
+hidden_yunxiuBook: createEnding('hidden_yunxiuBook', {
         title: '真结局 · 留名',
         text: `你花了整整一年，写完了一本书。
 
@@ -42,8 +43,8 @@ hidden_yunxiuBook: {
 而你，作为阴阳簿的记录者，知道这才是她真正想要的结局。
 
 [red]被记住，比被超度更重要。[/red]`
-    },
-hidden_eternalAudience: {
+    }),
+hidden_eternalAudience: createEnding('hidden_eternalAudience', {
         title: '隐藏结局 · 永世观众',
         text: `"留下吧。"你说，"七号厅需要你。"
 
@@ -68,8 +69,8 @@ hidden_eternalAudience: {
 你笑了笑，继续刷手机。
 
 [whisper]有些守候，是一辈子的。但只要有人守着，戏就不会真正散场。[/whisper]`
-    },
-hidden_arsonExposed: {
+    }),
+hidden_arsonExposed: createEnding('hidden_arsonExposed', {
         title: '真结局 · 火与名',
         text: `你花了三年，写完了那本书。
 
@@ -96,8 +97,8 @@ hidden_arsonExposed: {
 你把那本书，烧在了纪念碑前。扉页上写着：
 
 [faded]"献给云袖，和所有被遗忘的名字。"[/faded]`
-    },
-hidden_riverLantern: {
+    }),
+hidden_riverLantern: createEnding('hidden_riverLantern', {
         title: '真结局 · 河灯',
         text: `中元节那天，你来到青石桥头。
 
@@ -126,8 +127,8 @@ hidden_riverLantern: {
 你笑了，眼泪却流了下来。
 
 [red]这一夜，青石河，终于安静了。[/red]`
-    },
-hidden_threeSoulsReunion: {
+    }),
+hidden_threeSoulsReunion: createEnding('hidden_threeSoulsReunion', {
         title: '真结局 · 班社团圆',
         text: `你在青石镇废墟上，为春香班五人举行了一场完整的法事。
 
@@ -154,5 +155,5 @@ hidden_threeSoulsReunion: {
 那是一条班子，在河上巡演。
 
 [red]他们的戏，永远不会散场了。[/red]`
-    }
+    })
 };

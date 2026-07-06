@@ -37,5 +37,25 @@ jobs:
       - name: Test effect engine
         run: node tools/test_effect_engine.mjs
 
+      - name: Test ending factory
+        run: node tools/test_ending_factory.mjs
+
+      - name: Test renderer
+        run: node tools/test_renderer.mjs
+
+      - name: Test save manager
+        run: node tools/test_save_manager.mjs
+
       - name: Browser DOM smoke test
         run: NODE_PATH=$(npm root -g) node tools/test_browser_boot.cjs
+
+      - name: Validate choice conditions
+        run: node tools/validate_choice_conditions.mjs
+
+      - name: Detect dead scenes
+        continue-on-error: true
+        run: node tools/detect_dead_scenes.mjs
+
+      - name: Validate item/flag usage
+        continue-on-error: true
+        run: node tools/validate_item_flag_usage.mjs

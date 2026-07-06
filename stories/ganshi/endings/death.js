@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：death
  */
 
 export const Endings = {
-hauntedByBride: {
+hauntedByBride: createEnding('hauntedByBride', {
         title: '死亡结局 · 新娘索命',
         text: `你丢下了女尸，但她没有放过你。
 
@@ -14,8 +15,8 @@ hauntedByBride: {
 一年后，你死了。死时胸口有一道深深的抓痕，像是被女人的指甲抓出来的。
 
 人们把你葬在山里。下葬那天，有人看见一个穿红嫁衣的女子站在远处，看着你入土。`
-    },
-corpsesTaken: {
+    }),
+corpsesTaken: createEnding('corpsesTaken', {
         title: '死亡结局 · 失尸',
         text: `鬼道人收走了三具尸体。
 
@@ -28,8 +29,8 @@ corpsesTaken: {
 是账房先生、青年和女尸。他们来看你死。
 
 你忽然觉得，也许这样也好。至少，你能和他们在一起了。`
-    },
-hauntedByCorpses: {
+    }),
+hauntedByCorpses: createEnding('hauntedByCorpses', {
         title: '死亡结局 · 尸随',
         text: `你丢下了尸体，但尸体没有丢下你。
 
@@ -45,8 +46,8 @@ hauntedByCorpses: {
 
 但这一次，铜铃的另一端，系在了你自己的手腕上。`,
         ending: 'corpsesFollowForever'
-    },
-imprisoned: {
+    }),
+imprisoned: createEnding('imprisoned', {
         title: '死亡结局 · 入狱',
         text: `你被县太爷关进大牢。
 
@@ -61,8 +62,8 @@ imprisoned: {
 你死后，尸体被运出城外，交给了一个赶尸匠。
 
 那个赶尸匠很年轻，姓田。他看着你的尸体，叹了口气："又是一单冤魂。"`
-    },
-death_greedyCourier: {
+    }),
+death_greedyCourier: createEnding('death_greedyCourier', {
         title: '死亡结局 · 贪银者',
         text: `你死了。
 
@@ -75,8 +76,8 @@ death_greedyCourier: {
 你的铜铃被扔进了山涧。很久以后，有旅人说，夜里路过那座山，会听见四个铜铃在响。
 
 [whisper]叮铃。叮铃。叮铃。叮铃。[/whisper]`
-    },
-death_paperGroom: {
+    }),
+death_paperGroom: createEnding('death_paperGroom', {
         title: '死亡结局 · 纸扎新郎',
         text: `你说："我替你成亲。"
 
@@ -99,5 +100,5 @@ death_paperGroom: {
 你成了周家的新"新郎"。
 
 一具会呼吸的、永不腐烂的纸扎新郎。`
-    }
+    })
 };

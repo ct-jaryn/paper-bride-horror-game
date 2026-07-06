@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：hidden_rites
  */
 
 export const Endings = {
-hidden_mercyBride: {
+hidden_mercyBride: createEnding('hidden_mercyBride', {
         title: '隐藏结局 · 新娘之恕',
         text: `你没有让柳红去报仇。
 
@@ -18,8 +19,8 @@ hidden_mercyBride: {
 师父教过你：赶尸匠只管送尸体，不管报仇。
 
 但你不一样。你相信，有些尸体，值得被多管一次闲事。`
-    },
-hidden_bellPardon: {
+    }),
+hidden_bellPardon: createEnding('hidden_bellPardon', {
         title: '隐藏结局 · 铜铃赦',
         text: `你摇动铜铃，没有念禁咒，而是唱了一段师父教过的安魂调。
 
@@ -32,8 +33,8 @@ hidden_bellPardon: {
 天亮时，洞里只剩下一缕青烟。鬼道人走了，没有带走尸体，也没有带走你的命。
 
 从此以后，你的铜铃声里多了一段别人听不懂的旋律。那是你给孤魂野鬼的赦免。`
-    },
-hidden_ledgerLight: {
+    }),
+hidden_ledgerLight: createEnding('hidden_ledgerLight', {
         title: '隐藏结局 · 账册见光',
         text: `你在账房先生的怀里找到了那本被雨水泡软的账册。
 
@@ -44,8 +45,8 @@ hidden_ledgerLight: {
 账房先生的尸体在你怀里慢慢变冷，但嘴角似乎带着笑。你把他葬在县城外的祖坟，墓碑上刻着："义士之墓"。
 
 有人说，赶尸匠不该管阳间的事。可你管了，而且管对了。`
-    },
-hidden_nuo_dance: {
+    }),
+hidden_nuo_dance: createEnding('hidden_nuo_dance', {
         title: '隐藏结局 · 傩戏渡魂',
         text: `你跳完了最后一步。
 
@@ -66,8 +67,8 @@ hidden_nuo_dance: {
 他们说，你是个不能赶尸的赶尸匠。
 
 你听了只是笑。`
-    },
-hidden_paperBrideFreedom: {
+    }),
+hidden_paperBrideFreedom: createEnding('hidden_paperBrideFreedom', {
         title: '隐藏结局 · 纸人替嫁',
         text: `你摇摇头："不，你不用嫁人。我替你扎一个新郎。"
 
@@ -92,5 +93,5 @@ hidden_paperBrideFreedom: {
 人称你为"纸媒人"。
 
 你听了只是摇头："我不是媒人，我是送她们回家的人。"`
-    }
+    })
 };

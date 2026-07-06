@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：true
  */
 
 export const Endings = {
-peacefulParting: {
+peacefulParting: createEnding('peacefulParting', {
         title: '真结局 · 顺水而归',
         text: `你接受了母亲的决定。
 
@@ -12,8 +13,8 @@ peacefulParting: {
 村里人说，那条河不再害人了。河娘还在，但她们只唱歌，不拉人。
 
 你后来有了自己的孩子。你会指着河水说："外婆住在水里。她很勇敢，也很孤单。你要记得她。"`
-    },
-thirtyYearsSong: {
+    }),
+thirtyYearsSong: createEnding('thirtyYearsSong', {
         title: '真结局 · 三十年之约',
         text: `你和秀姑约定，每年七月半来河边唱歌。
 
@@ -26,8 +27,8 @@ thirtyYearsSong: {
 第三十年，你唱完最后一首歌。水面分开，母亲走了上来。
 
 她已经变得很老，但眼神清明。她握着你的手："儿子，妈回家了。"`
-    },
-respectfulStay: {
+    }),
+respectfulStay: createEnding('respectfulStay', {
         title: '真结局 · 尊重',
         text: `你尊重母亲留在水里的选择。
 
@@ -38,8 +39,8 @@ respectfulStay: {
 你说不清这是好是坏。但至少，母亲不再孤单。
 
 而你，也终于明白：爱不是占有，是成全。`
-    },
-honestReburial: {
+    }),
+honestReburial: createEnding('honestReburial', {
         title: '真结局 · 入土为安',
         text: `你重新安葬了秀姑，也超度了母亲。
 
@@ -52,8 +53,8 @@ honestReburial: {
 "下辈子，" 母亲有次说，"我要早点陪她。"
 
 你握紧她的手："这辈子，我陪你。"`
-    },
-yearOfWaiting: {
+    }),
+yearOfWaiting: createEnding('yearOfWaiting', {
         title: '真结局 · 一年之约',
         text: `你在村里等了一年。
 
@@ -70,8 +71,8 @@ yearOfWaiting: {
 秀姑再也没有出现过。但每年七月半，母亲都会在院子里放一碗清水。
 
 "给她喝的。" 母亲说。`
-    },
-sourceRedeemed: {
+    }),
+sourceRedeemed: createEnding('sourceRedeemed', {
         title: '真结局 · 源头澄清',
         text: `你为三百年前的沈氏正了名。
 
@@ -86,8 +87,8 @@ sourceRedeemed: {
 [faded]"沈氏及历代河娘之墓。愿来世不再为河所困。"[/faded]
 
 每年清明，都有人来这里献花。`
-    },
-descendantsApologize: {
+    }),
+descendantsApologize: createEnding('descendantsApologize', {
         title: '真结局 · 后人致歉',
         text: `沈氏的后人向她道歉，她三百年来的怨气终于平息。
 
@@ -100,8 +101,8 @@ descendantsApologize: {
 "那你还想她吗？"
 
 "想。" 母亲说，"但她自由了，就好。"`
-    },
-apologyRedeems: {
+    }),
+apologyRedeems: createEnding('apologyRedeems', {
         title: '真结局 · 道歉',
         text: `负心汉的后人向秀姑道歉，秀姑放下了三十年的恨。
 
@@ -116,5 +117,5 @@ apologyRedeems: {
 "我知道。" 你说。
 
 "你要记住她。" 母亲说，"记住所有不该被遗忘的人。"`
-    }
+    })
 };

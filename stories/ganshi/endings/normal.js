@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：normal
  */
 
 export const Endings = {
-savedBride: {
+savedBride: createEnding('savedBride', {
         title: '真结局 · 救活',
         text: `你救活了柳红。
 
@@ -14,8 +15,8 @@ savedBride: {
 柳红后来嫁了一个老实人，生了两个孩子。每年清明，她都会给你送一篮青团。
 
 你说不清自己是不是好人。但至少，你救了一个本该被活埋的姑娘。`
-    },
-passedTheTest: {
+    }),
+passedTheTest: createEnding('passedTheTest', {
         title: '真结局 · 守尸',
         text: `你没有丢下尸体。
 
@@ -26,8 +27,8 @@ passedTheTest: {
 你成了方圆百里最有名望的赶尸匠。不是因为你的法术高强，而是因为你肯为一具尸体拼命。
 
 师父欠的债，你用自己的方式还了。`
-    },
-thirtyYearsPaper: {
+    }),
+thirtyYearsPaper: createEnding('thirtyYearsPaper', {
         title: '真结局 · 三十年纸',
         text: `你答应每年给鬼道人烧纸。
 
@@ -42,8 +43,8 @@ thirtyYearsPaper: {
 你跪下磕了三个头，然后离开。
 
 从此，你再也不用给谁烧纸了。`
-    },
-ghostRealizesFault: {
+    }),
+ghostRealizesFault: createEnding('ghostRealizesFault', {
         title: '真结局 · 点醒',
         text: `你点醒了鬼道人。
 
@@ -54,8 +55,8 @@ ghostRealizesFault: {
 你用这门秘术，帮助了很多冤死的灵魂安息。
 
 多年后，你也有自己的徒弟。你告诉他："赶尸不是赶尸体，是赶执念。执念散了，尸体才能回家。"`
-    },
-corpsesRevenge: {
+    }),
+corpsesRevenge: createEnding('corpsesRevenge', {
         title: '普通结局 · 尸报',
         text: `三具尸体自己报仇了。
 
@@ -68,8 +69,8 @@ corpsesRevenge: {
 因为你怕。
 
 怕尸体再睁开眼睛，问你："你为什么不帮我？"`
-    },
-mysteryWoman: {
+    }),
+mysteryWoman: createEnding('mysteryWoman', {
         title: '开放式结局 · 第四具尸体',
         text: `你把三具尸体送到目的地，却发现多了一具女尸。
 
@@ -84,8 +85,8 @@ mysteryWoman: {
 "青石镇。" 她说。
 
 你叹了口气。看来这一单，还没完。`
-    },
-escapedWithoutHer: {
+    }),
+escapedWithoutHer: createEnding('escapedWithoutHer', {
         title: '普通结局 · 负疚',
         text: `你逃出了山洞，但把女尸留在了那里。
 
@@ -98,5 +99,5 @@ escapedWithoutHer: {
 她脸上带着微笑，像是在等你。
 
 你给她立了碑，每年烧纸。但你心里知道，她等的不是纸钱，是你回去接她。`
-    }
+    })
 };

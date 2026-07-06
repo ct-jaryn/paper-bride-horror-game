@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：hidden_fates
  */
 
 export const Endings = {
-hidden_villageChiefTruth: {
+hidden_villageChiefTruth: createEnding('hidden_villageChiefTruth', {
         title: '隐藏结局 · 村长的真相',
         text: `你当着全村人的面，说出了村长的秘密。
 
@@ -20,8 +21,8 @@ hidden_villageChiefTruth: {
 "不是替你。"你说，"是替真相。"
 
 从那以后，村里人不再盲目仇视狐族。`
-    },
-hidden_peonyDressFox: {
+    }),
+hidden_peonyDressFox: createEnding('hidden_peonyDressFox', {
         title: '隐藏结局 · 戏服渡狐',
         text: `你穿上了那套烧焦的小生戏服，给狐女唱了一出《牡丹亭》。
 
@@ -34,8 +35,8 @@ hidden_peonyDressFox: {
 "人婚我可以不要。"她说，"但这出戏，我要记住。"
 
 你们约定，每年云袖忌日，你都会来给她唱一段。`
-    },
-hidden_thunderPearlShared: {
+    }),
+hidden_thunderPearlShared: createEnding('hidden_thunderPearlShared', {
         title: '隐藏结局 · 共珠',
         text: `你和青丘一起找到了避雷珠。
 
@@ -50,8 +51,8 @@ hidden_thunderPearlShared: {
 "这样才算一起渡劫。"青丘说。
 
 你笑了。是的，一起。`
-    },
-hidden_ancestorPact: {
+    }),
+hidden_ancestorPact: createEnding('hidden_ancestorPact', {
         title: '隐藏结局 · 祖约',
         text: `你没有抢避雷珠，而是和老狐的怨灵谈判。
 
@@ -70,5 +71,5 @@ hidden_ancestorPact: {
 你后来在青石镇立了一块碑，上面写着："周氏欠狐族一笔血债，周氏后人周远，愿以余生偿还。"
 
 碑立好的那天，青丘的雷劫也平安度过了。`
-    }
+    })
 };

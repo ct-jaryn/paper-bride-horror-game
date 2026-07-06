@@ -1,60 +1,88 @@
+import { createDialogueChoice, createDialogueNode, createNPC } from '../../../js/engine/endingFactory.js';
 /**
  * 《hujia》NPC：云婆婆
  */
 
-export const yun_po = {
-    name: '云婆婆',
-    title: '村中神婆',
-    dialogue: {
-        start: {
-            text: `村口老槐树下坐着一个裹小脚的老太太，手里捻着一串桃木珠。她是云婆婆，村里人红白事都找她看日子。"周家小子，"她眼皮也不抬，"你身上有狐骚味。"`,
-            choices: [
-                { text: '问她周家与狐族的恩怨', next: 'zhou_debt' },
-                { text: '问她狐女为什么选中我', next: 'fox_choice' },
-                { text: '问她铜镜的事', next: 'mirror_tale' },
-                { text: '离开', exit: true }
-            ]
-        },
-        zhou_debt: {
-            text: `云婆婆叹了口气："你祖上在青石镇是猎狐的。三百年前，周家先祖设下陷阱，捕杀了青丘山一窝白狐，把它们的皮卖给了镇上的裁缝。狐族记仇，记了三百年。"她顿了顿，"你父亲救的那只母狐，是当年漏网的狐崽。她报恩，是想还这份债。"`,
-            choices: [
-                { text: '问她怎么还这份债', next: 'repay_debt' },
-                { text: '离开', exit: true }
-            ]
-        },
-        fox_choice: {
-            text: `"狐女选中你，一半是你命硬阳气重，一半是你父亲。"云婆婆压低声音，"她母亲临死前把恩情传给了她。她来娶你，是想用一场人婚把恩情换成因果。成了，她渡劫；不成，她灰飞烟灭。"`,
-            choices: [
-                { text: '问她有没有两全之法', next: 'both_ways' },
-                { text: '离开', exit: true }
-            ]
-        },
-        mirror_tale: {
-            text: `"那面镜子？"云婆婆脸色变了，"那是你祖上从青石镇带出来的，里面封着一只老狐。三百年前就是它告密，让周家找到了狐窝。后来狐族反噬，把它也封进了镜子里。它恨周家，也恨狐族，你千万别信它。"`,
-            choices: [
-                { text: '问她怎么处置镜子', next: 'mirror_deal' },
-                { text: '离开', exit: true }
-            ]
-        },
-        repay_debt: {
-            text: `"还债不难，难的是肯不肯低头。"云婆婆说，"你若真心承认周家错了，不把狐女当妖怪，反有转机。狐族最重因果，你父亲种下的善因，你若能续上，就能结出善果。"她说着，从怀里掏出一张泛黄的纸，"这是你父亲当年救狐时落下的，或许有用。"`,
-            effects: { npcAffinity: 10, addItem: '狐毛契约残页' },
-            choices: [
-                { text: '谢过她', exit: true }
-            ]
-        },
-        both_ways: {
-            text: `"两全？"云婆婆冷笑，"世间哪来那么多两全。不过……你若不把她当妻，把她当人，或许不必死。狐狸修千年，求的不过是一个'被当成真的'。你把她当成真的，她就未必非要你的阳气。"`,
-            effects: { npcAffinity: 5 },
-            choices: [
-                { text: '记下她的话', exit: true }
-            ]
-        },
-        mirror_deal: {
-            text: `"别碰它，别打碎它。"云婆婆说，"最安全的办法，是用红布包住，埋到青丘山脚下的老槐树下。那是狐族祭祖的地方，老狐不敢造次。但你要是真把它放出来……"她没有说完，只是摇了摇头。`,
-            choices: [
-                { text: '离开', exit: true }
-            ]
-        }
-    }
+export const yun_po = createNPC('yun_po', {
+  name: '云婆婆',
+  title: '村中神婆',
+  dialogue: {
+    start: createDialogueNode('start', {
+      text: `村口老槐树下坐着一个裹小脚的老太太，手里捻着一串桃木珠。她是云婆婆，村里人红白事都找她看日子。"周家小子，"她眼皮也不抬，"你身上有狐骚味。"`,
+      choices: [createDialogueChoice({
+        text: '问她周家与狐族的恩怨',
+        next: 'zhou_debt'
+      }), createDialogueChoice({
+        text: '问她狐女为什么选中我',
+        next: 'fox_choice'
+      }), createDialogueChoice({
+        text: '问她铜镜的事',
+        next: 'mirror_tale'
+      }), createDialogueChoice({
+        text: '离开',
+        exit: true
+      })]
+    }),
+    zhou_debt: createDialogueNode('zhou_debt', {
+      text: `云婆婆叹了口气："你祖上在青石镇是猎狐的。三百年前，周家先祖设下陷阱，捕杀了青丘山一窝白狐，把它们的皮卖给了镇上的裁缝。狐族记仇，记了三百年。"她顿了顿，"你父亲救的那只母狐，是当年漏网的狐崽。她报恩，是想还这份债。"`,
+      choices: [createDialogueChoice({
+        text: '问她怎么还这份债',
+        next: 'repay_debt'
+      }), createDialogueChoice({
+        text: '离开',
+        exit: true
+      })]
+    }),
+    fox_choice: createDialogueNode('fox_choice', {
+      text: `"狐女选中你，一半是你命硬阳气重，一半是你父亲。"云婆婆压低声音，"她母亲临死前把恩情传给了她。她来娶你，是想用一场人婚把恩情换成因果。成了，她渡劫；不成，她灰飞烟灭。"`,
+      choices: [createDialogueChoice({
+        text: '问她有没有两全之法',
+        next: 'both_ways'
+      }), createDialogueChoice({
+        text: '离开',
+        exit: true
+      })]
+    }),
+    mirror_tale: createDialogueNode('mirror_tale', {
+      text: `"那面镜子？"云婆婆脸色变了，"那是你祖上从青石镇带出来的，里面封着一只老狐。三百年前就是它告密，让周家找到了狐窝。后来狐族反噬，把它也封进了镜子里。它恨周家，也恨狐族，你千万别信它。"`,
+      choices: [createDialogueChoice({
+        text: '问她怎么处置镜子',
+        next: 'mirror_deal'
+      }), createDialogueChoice({
+        text: '离开',
+        exit: true
+      })]
+    }),
+    repay_debt: createDialogueNode('repay_debt', {
+      text: `"还债不难，难的是肯不肯低头。"云婆婆说，"你若真心承认周家错了，不把狐女当妖怪，反有转机。狐族最重因果，你父亲种下的善因，你若能续上，就能结出善果。"她说着，从怀里掏出一张泛黄的纸，"这是你父亲当年救狐时落下的，或许有用。"`,
+      effects: {
+        npcAffinity: 10,
+        addItem: '狐毛契约残页'
+      },
+      choices: [createDialogueChoice({
+        text: '谢过她',
+        exit: true
+      })]
+    }),
+    both_ways: createDialogueNode('both_ways', {
+      text: `"两全？"云婆婆冷笑，"世间哪来那么多两全。不过……你若不把她当妻，把她当人，或许不必死。狐狸修千年，求的不过是一个'被当成真的'。你把她当成真的，她就未必非要你的阳气。"`,
+      effects: {
+        npcAffinity: 5
+      },
+      choices: [createDialogueChoice({
+        text: '记下她的话',
+        exit: true
+      })]
+    }),
+    mirror_deal: createDialogueNode('mirror_deal', {
+      text: `"别碰它，别打碎它。"云婆婆说，"最安全的办法，是用红布包住，埋到青丘山脚下的老槐树下。那是狐族祭祖的地方，老狐不敢造次。但你要是真把它放出来……"她没有说完，只是摇了摇头。`,
+      choices: [createDialogueChoice({
+        text: '离开',
+        exit: true
+      })]
+    })
+  }
+});
+export const NPCs = {
+  yun_po
 };

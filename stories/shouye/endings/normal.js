@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 《守夜》普通结局
  */
 
 export const Endings = {
-    normal_peacefulRest: {
+    normal_peacefulRest: createEnding('normal_peacefulRest', {
         title: '普通结局 · 安息',
         text: `你的恭敬换来了云袖的安宁。
 
@@ -12,8 +13,8 @@ export const Endings = {
 但你知道，她只是暂时睡去。也许明年，也许十年后，她还会再次睁开眼睛。
 
 因为那个戏台，始终没有修好。`
-    },
-    normal_sealedNight: {
+    }),
+    normal_sealedNight: createEnding('normal_sealedNight', {
         title: '险胜结局 · 封门一夜',
         text: `你用护身符挡住了云袖，撑到了天亮。
 
@@ -22,8 +23,8 @@ export const Endings = {
 林叔看着你，摇摇头："她只是换了个地方唱戏。下次醒来，怨气会更重。"
 
 你低头看着碎掉的护身符，知道这件事还没有结束。`
-    },
-    normal_invitedToShow: {
+    }),
+    normal_invitedToShow: createEnding('normal_invitedToShow', {
         title: '开放式结局 · 特邀观众',
         text: `你逃过了这一夜，但收到了云袖的邀请。
 
@@ -34,8 +35,8 @@ export const Endings = {
 你知道，总有一天你会去。
 
 因为你已经听懂了她的戏。`
-    },
-    normal_stageRestored: {
+    }),
+    normal_stageRestored: createEnding('normal_stageRestored', {
         title: '真结局 · 戏台重修',
         text: `你把青石戏台的戏牌还给了云袖。
 
@@ -44,8 +45,8 @@ export const Endings = {
 你偶尔会回去看看。有人说，月圆之夜，能在戏台上看见一个穿红戏服的女子在唱《牡丹亭》。
 
 她的脸上，带着满足的笑。`
-    },
-    normal_morningRitual: {
+    }),
+    normal_morningRitual: createEnding('normal_morningRitual', {
         title: '普通结局 · 晨祭',
         text: `你整晚守在七号厅外，每隔一个时辰便上一炷香，洒一杯酒。
 
@@ -60,8 +61,8 @@ export const Endings = {
 你知道她没有真正散去。也许某个雨夜，她还会醒来，继续找她的戏台。
 
 但至少今夜，你们相安无事。`
-    },
-    normal_simpleWatch: {
+    }),
+    normal_simpleWatch: createEnding('normal_simpleWatch', {
         title: '普通结局 · 平夜',
         text: `你选择不深究。
 
@@ -86,5 +87,5 @@ export const Endings = {
 [whisper]守，不难。难的是渡。[/whisper]
 
 [whisper]你守住了，却没能渡。这，也是一种结局。[/whisper]`
-    }
+    })
 };

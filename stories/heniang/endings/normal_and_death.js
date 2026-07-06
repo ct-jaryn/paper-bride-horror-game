@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：normal_and_death
  */
 
 export const Endings = {
-deceivedSalvation: {
+deceivedSalvation: createEnding('deceivedSalvation', {
         title: '普通结局 · 骗来的团圆',
         text: `你骗了秀姑，烧了她的尸骨，换回了母亲。
 
@@ -18,8 +19,8 @@ deceivedSalvation: {
 "我来还债了。" 你说。
 
 你走进河里。这一次，你没有挣扎。`
-    },
-otherHeniang: {
+    }),
+otherHeniang: createEnding('otherHeniang', {
         title: '死亡结局 · 众怒',
         text: `你烧了秀姑，激怒了河里的其他河娘。
 
@@ -36,8 +37,8 @@ otherHeniang: {
 但她推不动。
 
 你们母子，都留在了河里。`
-    },
-joinMother: {
+    }),
+joinMother: createEnding('joinMother', {
         title: '死亡结局 · 母子同归',
         text: `你走进河里，陪母亲。
 
@@ -46,5 +47,5 @@ joinMother: {
 "傻孩子。" 母亲说。
 
 "我不傻。" 你说，"我只是不想让你一个人。"`
-    }
+    })
 };

@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：hidden_life
  */
 
 export const Endings = {
-hidden_dollName: {
+hidden_dollName: createEnding('hidden_dollName', {
         title: '隐藏结局 · 纸生之名',
         text: `你给纸人起了一个名字，不是周安，不是你的名字，而是"纸生"。
 
@@ -20,8 +21,8 @@ hidden_dollName: {
 父亲醒来后，院子里的纸人不见了。他的病也渐渐好了。
 
 每年清明，你都会给纸生烧一炷香。虽然你不知道它去了哪里，但你相信，它一定找到了自己的家。`
-    },
-hidden_fathersConfession: {
+    }),
+hidden_fathersConfession: createEnding('hidden_fathersConfession', {
         title: '隐藏结局 · 父忏',
         text: `你坐在父亲床边，听他说了一整夜的话。
 
@@ -36,8 +37,8 @@ hidden_fathersConfession: {
 父亲的病没有立刻好，但他的眼神清明了许多。
 
 你们父子之间，终于没有纸人隔着了。`
-    },
-hidden_paperLife: {
+    }),
+hidden_paperLife: createEnding('hidden_paperLife', {
         title: '隐藏结局 · 纸命',
         text: `你没有烧掉纸人，也没有把它留在院子里。
 
@@ -56,8 +57,8 @@ hidden_paperLife: {
 你笑了笑："是啊。"
 
 你们都不是原来的自己了，但你们都活着。`
-    },
-hidden_ashPeace: {
+    }),
+hidden_ashPeace: createEnding('hidden_ashPeace', {
         title: '隐藏结局 · 灰安',
         text: `你把院子里烧纸人的灰烬收集起来，装进一个陶罐，埋在槐树下。
 
@@ -74,8 +75,8 @@ hidden_ashPeace: {
 醒来后，槐树下的陶罐裂开了一道缝，里面长出了一株小小的青草。
 
 你给它浇了水，没有拔它。`
-    },
-hidden_soulShare: {
+    }),
+hidden_soulShare: createEnding('hidden_soulShare', {
         title: '隐藏结局 · 共魂',
         text: `你没有收回魂魄，也没有让纸人继续替你承受。
 
@@ -92,8 +93,8 @@ hidden_soulShare: {
 你们一起照顾父亲，一起过日子。村里人一开始觉得诡异，后来也习惯了。
 
 毕竟，你们都是好人。`
-    },
-hidden_strawFather: {
+    }),
+hidden_strawFather: createEnding('hidden_strawFather', {
         title: '隐藏结局 · 稻草父亲',
         text: `你发现父亲身体里的稻草不是纸人的诅咒，而是他自己扎的。
 
@@ -108,8 +109,8 @@ hidden_strawFather: {
 院子里多了一个稻草人，穿着父亲旧衣服。父亲说，那是他的替身，替庄稼防鸟用的。
 
 你看着那个稻草人，觉得它比任何纸人都更像人。`
-    },
-hidden_secondDoll: {
+    }),
+hidden_secondDoll: createEnding('hidden_secondDoll', {
         title: '隐藏结局 · 第二个替身',
         text: `你回到城里后，发现家里也有一个纸人。
 
@@ -128,5 +129,5 @@ hidden_secondDoll: {
 有时候你会收到它发来的消息，汇报你的生活。你看着那些消息，觉得陌生又熟悉。
 
 也许这就是现代版的替身。`
-    }
+    })
 };

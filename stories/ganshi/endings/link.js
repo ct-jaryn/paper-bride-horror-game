@@ -1,9 +1,10 @@
+import { createEnding } from '../../../js/engine/endingFactory.js';
 /**
  * 结局模块：link
  */
 
 export const Endings = {
-toZhouClan: {
+toZhouClan: createEnding('toZhouClan', {
         title: '联动结局 · 前往周家',
         text: `你带着女尸前往周家。
 
@@ -18,8 +19,8 @@ toZhouClan: {
 [whisper]新的故事，将在那里继续。[/whisper]
 
 （解锁隐藏联动：在《回门》中可发现赶尸匠留下的线索）`
-    },
-toQingshiTown: {
+    }),
+toQingshiTown: createEnding('toQingshiTown', {
         title: '联动结局 · 青石镇',
         text: `你改变路线，前往青石镇。
 
@@ -33,8 +34,8 @@ toQingshiTown: {
 
 "云袖……" 她喃喃道，"我认得她……"`,
         ending: 'linkedToXitai'
-    },
-hidden_zhouFoxLink: {
+    }),
+hidden_zhouFoxLink: createEnding('hidden_zhouFoxLink', {
         title: '隐藏结局 · 狐缘周孽',
         text: `你没有去青石镇，而是去了青丘山。
 
@@ -53,9 +54,9 @@ hidden_zhouFoxLink: {
 [red]狐族的报恩，狐族的报仇，都在一个"缘"字里。[/red]
 
 而你，刚好站在这个缘的交汇点。`
-    }
+    })
 ,
-arrivedQingshi: {
+arrivedQingshi: createEnding('arrivedQingshi', {
         title: '联动结局 · 周家喜事',
         text: `你到达青石镇，正赶上周家办喜事。
 
@@ -70,5 +71,5 @@ arrivedQingshi: {
 [red]周家又在害人了。[/red]
 
 （可衔接《回门》主线剧情）`
-    }
+    })
 };
