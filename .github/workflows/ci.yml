@@ -22,5 +22,8 @@ jobs:
       - name: Validate story data
         run: node tools/validate_stories.mjs
 
+      - name: Validate scene titles
+        run: node tools/validate_scene_titles.mjs
+
       - name: Test ending reachability
         run: node tools/test_all_endings_reachability.mjs
