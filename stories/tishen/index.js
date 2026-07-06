@@ -3,7 +3,8 @@
  */
 
 import { scenes as agreeScenes } from './scenes/agree.js';
-import { scenes as askScenes } from './scenes/ask.js';
+import { scenes as askDollScenes } from './scenes/ask_doll.js';
+import { scenes as askRitualScenes } from './scenes/ask_ritual.js';
 import { scenes as barricadeScenes } from './scenes/barricade.js';
 import { scenes as breakScenes } from './scenes/break.js';
 import { scenes as burnScenes } from './scenes/burn.js';
@@ -49,7 +50,8 @@ import { NPCs } from './npcs/index.js';
 
 export const StoryData = {
     ...agreeScenes,
-    ...askScenes,
+    ...askDollScenes,
+    ...askRitualScenes,
     ...barricadeScenes,
     ...breakScenes,
     ...burnScenes,

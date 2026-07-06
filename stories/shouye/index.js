@@ -23,7 +23,9 @@ import { scenes as promiseScenes } from './scenes/promise.js';
 import { scenes as ritualScenes } from './scenes/ritual.js';
 import { scenes as riverScenes } from './scenes/river.js';
 import { scenes as stageScenes } from './scenes/stage.js';
-import { scenes as victimsScenes } from './scenes/victims.js';
+import { scenes as victimsDescendantsScenes } from './scenes/victims_descendants.js';
+import { scenes as victimsReleaseScenes } from './scenes/victims_release.js';
+import { scenes as victimsResearchScenes } from './scenes/victims_research.js';
 import { scenes as villageScenes } from './scenes/village.js';
 import { scenes as watchersScenes } from './scenes/watchers.js';
 import { scenes as yunxiuScenes } from './scenes/yunxiu.js';
@@ -52,7 +54,9 @@ export const StoryData = {
     ...ritualScenes,
     ...riverScenes,
     ...stageScenes,
-    ...victimsScenes,
+    ...victimsDescendantsScenes,
+    ...victimsReleaseScenes,
+    ...victimsResearchScenes,
     ...villageScenes,
     ...watchersScenes,
     ...yunxiuScenes,
