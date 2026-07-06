@@ -30,7 +30,7 @@ stories/
 | `{id}/config.js` | 故事级配置：默认状态、时辰阶段、特殊规则 |
 | `{id}/scenes/*.js` | 按主题/地点拆分的场景模块 |
 | `{id}/endings/index.js` | 结局字典 |
-| `{id}/npcs/index.js` | NPC 字典 |
+| `{id}/npcs/index.js` | NPC 字典（NPC 较多时拆分为独立文件，再于 `index.js` 聚合，如 `huimen/npcs/{lao_zhou,xiao_fu,a_huan}.js`、`xitai/npcs/{lao_zhao,zhou_po,liu_niang}.js`） |
 
 ## 依赖
 
@@ -42,6 +42,7 @@ stories/
 **依赖本模块的**：
 - `js/engine/storyLoader.js` - 动态 import
 - `tools/validate_stories.mjs` - 验证引用完整性
+- `tools/validate_npc_references.mjs` - 验证 choice.npc / choice.npcNode 指向存在的 NPC 与对话节点
 - `tools/test_all_endings_reachability.mjs` - 测试结局可达性
 
 ## 规范
@@ -108,6 +109,7 @@ export { Endings, NPCs, StoryConfig };
 - `node tools/detect_duplicate_scenes.mjs`：场景定义重复检测
 - `node tools/validate_choice_conditions.mjs`：选项条件合法性
 - `node tools/validate_item_flag_usage.mjs`：flag/item 引用检查
+- `node tools/validate_npc_references.mjs`：NPC 引用合法性（choice.npc 指向存在的 NPC，choice.npcNode 指向该 NPC dialogue 中存在的节点，缺省为 start）
 - `node tools/test_all_endings_reachability.mjs`：结局可达性
 - `node tools/playthrough_test.mjs`：随机路径冒烟
 
@@ -133,5 +135,7 @@ export { Endings, NPCs, StoryConfig };
 - [ ] 所有场景有 `id`、`title`、`text`
 - [ ] 所有 `next` 指向有效场景或结局
 - [ ] 结局在 `endings/index.js` 中定义
+- [ ] 所有 `choice.npc` 指向 `npcs/index.js` 中存在的 NPC ID
+- [ ] 所有 `choice.npcNode` 指向该 NPC `dialogue` 中存在的节点（缺省为 `start`）
 - [ ] 新增模块已在 `index.js` 中导入
 - [ ] 验证脚本通过

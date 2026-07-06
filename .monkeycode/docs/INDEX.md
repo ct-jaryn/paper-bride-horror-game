@@ -91,6 +91,9 @@ node tools/validate_choice_conditions.mjs
 # flag/item 引用检查
 node tools/validate_item_flag_usage.mjs
 
+# NPC 引用检查
+node tools/validate_npc_references.mjs
+
 # 测试结局可达性
 node tools/test_all_endings_reachability.mjs
 

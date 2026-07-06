@@ -56,6 +56,7 @@ open http://localhost:8765
 | 场景定义重复检测 | `node tools/detect_duplicate_scenes.mjs` | 检测场景 id 或内容重复 |
 | 选项条件合法性检查 | `node tools/validate_choice_conditions.mjs` | 校验 choice.condition 字段类型与场景引用 |
 | flag/item 引用检查 | `node tools/validate_item_flag_usage.mjs` | 检查条件引用的 flag/item 是否在全剧有定义 |
+| NPC 引用检查 | `node tools/validate_npc_references.mjs` | 检查 choice.npc 指向存在的 NPC，choice.npcNode 指向该 NPC 对话中存在的节点（缺省 start） |
 | 结局可达性测试 | `node tools/test_all_endings_reachability.mjs` | 从 prologue 出发计算可达结局 |
 | 场景工厂测试 | `node tools/test_scene_factory.mjs` | 验证 createScene / createChoice |
 | 效果引擎单元测试 | `node tools/test_effect_engine.mjs` | 验证时辰、条件、游戏结束判定 |
@@ -70,15 +71,16 @@ open http://localhost:8765
 ### 提交前检查
 
 1. 运行 `node tools/validate_stories.mjs` 确保没有坏引用
-2. 运行 `node tools/detect_dead_scenes.mjs` 确认没有新增死场景
-3. 运行 `node tools/validate_choice_conditions.mjs` 确认选项条件合法
-4. 运行 `node tools/test_all_endings_reachability.mjs` 确认新增结局可达
-5. 运行 `node tools/test_scene_factory.mjs`、`test_effect_engine.mjs`、`test_ending_factory.mjs`、`test_renderer.mjs`、`test_save_manager.mjs` 确认引擎单元测试通过
-6. 在浏览器中打开本地服务器，手动走通关键路径
+2. 运行 `node tools/validate_npc_references.mjs` 确认 NPC 引用合法（choice.npc / choice.npcNode 指向存在的 NPC 与对话节点）
+3. 运行 `node tools/detect_dead_scenes.mjs` 确认没有新增死场景
+4. 运行 `node tools/validate_choice_conditions.mjs` 确认选项条件合法
+5. 运行 `node tools/test_all_endings_reachability.mjs` 确认新增结局可达
+6. 运行 `node tools/test_scene_factory.mjs`、`test_effect_engine.mjs`、`test_ending_factory.mjs`、`test_renderer.mjs`、`test_save_manager.mjs` 确认引擎单元测试通过
+7. 在浏览器中打开本地服务器，手动走通关键路径
 
 ### CI 流程
 
-项目使用 `.github/workflows/ci.yml`，在 `push` / `pull_request` 到 `main` 分支时触发，共 14 项检查：
+项目使用 `.github/workflows/ci.yml`，在 `push` / `pull_request` 到 `main` 分支时触发，共 15 项检查：
 
 1. `tools/validate_stories.mjs` — 故事数据引用完整性
 2. `tools/validate_scene_titles.mjs` — 场景标题合法性
@@ -90,9 +92,12 @@ open http://localhost:8765
 8. `tools/test_save_manager.mjs` — 存档管理器
 9. `tools/test_browser_boot.cjs` — 浏览器 DOM 冒烟测试
 10. `tools/validate_choice_conditions.mjs` — 选项条件合法性
-11. `tools/detect_duplicate_scenes.mjs` — 场景定义重复检测
-12. `tools/detect_dead_scenes.mjs` — 死场景检测（`continue-on-error: true`）
-13. `tools/validate_item_flag_usage.mjs` — flag/item 引用检查（`continue-on-error: true`）
+11. `tools/validate_npc_references.mjs` — NPC 引用合法性（阻塞级别）
+12. `tools/detect_duplicate_scenes.mjs` — 场景定义重复检测
+13. `tools/detect_dead_scenes.mjs` — 死场景检测（`continue-on-error: true`）
+14. `tools/validate_item_flag_usage.mjs` — flag/item 引用检查（`continue-on-error: true`）
+
+> 注：前 12 步为阻塞检查，失败将中断 CI；最后 2 步为非阻塞提示。
 
 CI 默认安装全局 `jsdom` 以支持浏览器环境冒烟测试与 renderer 单元测试。
 
