@@ -53,6 +53,7 @@ open http://localhost:8765
 | 故事数据验证 | `node tools/validate_stories.mjs` | 检查故事数据引用完整性 |
 | 场景标题验证 | `node tools/validate_scene_titles.mjs` | 检查场景标题是否重复/为空 |
 | 死场景检测 | `node tools/detect_dead_scenes.mjs` | 从 prologue 出发找出不可达场景 |
+| 场景定义重复检测 | `node tools/detect_duplicate_scenes.mjs` | 检测场景 id 或内容重复 |
 | 选项条件合法性检查 | `node tools/validate_choice_conditions.mjs` | 校验 choice.condition 字段类型与场景引用 |
 | flag/item 引用检查 | `node tools/validate_item_flag_usage.mjs` | 检查条件引用的 flag/item 是否在全剧有定义 |
 | 结局可达性测试 | `node tools/test_all_endings_reachability.mjs` | 从 prologue 出发计算可达结局 |
@@ -77,7 +78,7 @@ open http://localhost:8765
 
 ### CI 流程
 
-项目使用 `.github/workflows/ci.yml`，在 `push` / `pull_request` 到 `main` 分支时触发，共 12 项检查：
+项目使用 `.github/workflows/ci.yml`，在 `push` / `pull_request` 到 `main` 分支时触发，共 14 项检查：
 
 1. `tools/validate_stories.mjs` — 故事数据引用完整性
 2. `tools/validate_scene_titles.mjs` — 场景标题合法性
@@ -89,8 +90,9 @@ open http://localhost:8765
 8. `tools/test_save_manager.mjs` — 存档管理器
 9. `tools/test_browser_boot.cjs` — 浏览器 DOM 冒烟测试
 10. `tools/validate_choice_conditions.mjs` — 选项条件合法性
-11. `tools/detect_dead_scenes.mjs` — 死场景检测（`continue-on-error: true`）
-12. `tools/validate_item_flag_usage.mjs` — flag/item 引用检查（`continue-on-error: true`）
+11. `tools/detect_duplicate_scenes.mjs` — 场景定义重复检测
+12. `tools/detect_dead_scenes.mjs` — 死场景检测（`continue-on-error: true`）
+13. `tools/validate_item_flag_usage.mjs` — flag/item 引用检查（`continue-on-error: true`）
 
 CI 默认安装全局 `jsdom` 以支持浏览器环境冒烟测试与 renderer 单元测试。
 

@@ -38,7 +38,7 @@ js/engine/
 | `game.js` | 绑定标题页、游戏内、结局页的所有按钮事件 |
 | `sceneFactory.js` | 提供 `createScene` / `createChoice` 工厂函数 |
 | `endingFactory.js` | 提供 `createEnding` / `createNPC` / 对话节点工厂 |
-| `platform.js` | 浏览器/小程序/小游戏跨平台抽象层 |
+| `platform.js` | 浏览器/小程序/小游戏跨平台抽象层，支持小游戏 bundle 映射 |
 
 ## 依赖
 

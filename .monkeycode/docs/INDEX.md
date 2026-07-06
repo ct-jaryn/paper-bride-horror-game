@@ -82,6 +82,9 @@ node tools/validate_stories.mjs
 # 死场景检测
 node tools/detect_dead_scenes.mjs
 
+# 场景定义重复检测
+node tools/detect_duplicate_scenes.mjs
+
 # 选项条件合法性检查
 node tools/validate_choice_conditions.mjs
 

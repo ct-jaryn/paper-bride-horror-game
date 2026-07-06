@@ -13,6 +13,20 @@ export const NPCs = { /* npcId -> NPC */ };           // 可选
 export const StoryConfig = { /* 故事级配置 */ };      // 可选
 ```
 
+**effects 对象支持的字段及数组形式**：
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| `sanity` | `number` | 理智增减值 |
+| `yin` | `number` | 阴气增减值 |
+| `time` | `number` | 时辰增减值 |
+| `addItem` | `string/string[]` | 添加物品，支持字符串或字符串数组 |
+| `removeItem` | `string` | 移除单个物品 |
+| `setFlag` | `string/string[]` | 设置全局 flag，支持字符串或字符串数组 |
+| `clearFlag` | `string` | 清除全局 flag |
+| `visual` | `string` | 触发视觉特效 |
+| `visualDuration` | `number` | 特效持续时间（毫秒） |
+
 ### StoryConfig 结构
 
 ```javascript
@@ -25,6 +39,7 @@ export const StoryConfig = { /* 故事级配置 */ };      // 可选
     // 故事特有初始 flag
     flags: { knowsTruth: false }
   },
+  defaultItems: ['打火机'],  // 可选：初始物品列表
   timePhases: [
     { name: '戌时三刻', start: 1140, end: 1200 },
     { name: '亥时', start: 1200, end: 1320 }
@@ -42,7 +57,8 @@ export const StoryConfig = { /* 故事级配置 */ };      // 可选
   text: '祖母病逝……',      // 场景正文（支持 HTML）
   effects: {                // 可选：进入场景时生效的数值/物品效果
     sanity: -5,
-    addItem: '纸人碎片'
+    addItem: '纸人碎片'     // 支持单个字符串或字符串数组
+    // addItem: ['纸人碎片', '铜镜']  // 数组形式可一次添加多个物品
   },
   choices: [                // 可选：玩家可选项
     createChoice({ text: '进村', next: 'village_gate' })
@@ -64,7 +80,7 @@ export const StoryConfig = { /* 故事级配置 */ };      // 可选
 | `id` | `string` | 是 | 场景唯一标识 |
 | `title` | `string` | 是 | 场景标题 |
 | `text` | `string` | 是 | 场景正文 |
-| `effects` | `object` | 否 | 进入场景时生效的数值/物品效果 |
+| `effects` | `object` | 否 | 进入场景时生效的数值/物品效果，`addItem` 和 `setFlag` 支持数组形式 |
 | `choices` | `Choice[]` | 否 | 玩家可选项 |
 | `condition` | `object/function` | 否 | 场景显示/进入条件 |
 | `hallucination` | `string` | 否 | 低理智时替换或追加的幻觉文本 |
@@ -109,7 +125,7 @@ export const StoryConfig = { /* 故事级配置 */ };      // 可选
 | `effect` | `(state) => void` | 选择后立即执行的副作用函数 |
 | `effects` | `object` | 选择后立即执行的数值/物品效果 |
 | `consume` | `string` | 消耗的物品 id |
-| `setFlag` | `object` | 设置 game/global/both flag |
+| `setFlag` | `object/object[]` | 设置 game/global/both flag，支持数组形式一次设置多个 |
 | `hidden` | `boolean` | 是否以隐藏选项形式存在 |
 | `npc` | `string` | 进入的 NPC 对话 id |
 | `npcNode` | `string` | NPC 对话入口节点 |

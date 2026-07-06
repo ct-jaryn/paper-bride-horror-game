@@ -105,6 +105,7 @@ export { Endings, NPCs, StoryConfig };
 - `node tools/validate_stories.mjs`：引用完整性
 - `node tools/validate_scene_titles.mjs`：场景标题合法性
 - `node tools/detect_dead_scenes.mjs`：死场景检测
+- `node tools/detect_duplicate_scenes.mjs`：场景定义重复检测
 - `node tools/validate_choice_conditions.mjs`：选项条件合法性
 - `node tools/validate_item_flag_usage.mjs`：flag/item 引用检查
 - `node tools/test_all_endings_reachability.mjs`：结局可达性
