@@ -11,7 +11,7 @@ export const StoryManifest = [
         description: '祖母病逝，你回到三十年未归的山村。白幡、红烛、黑棺，还有一口井下等了你三十年的新娘。',
         difficulty: '中等',
         horrorLevel: 9,
-        playTime: '30–45 分钟',
+        playTime: '90–120 分钟',
         tags: ['冥婚', '复仇', '家族罪孽'],
         scriptPath: 'stories/huimen/index.js'
     },
@@ -22,7 +22,7 @@ export const StoryManifest = [
         description: '你在县城殡仪馆做守灵人。这一夜，七号厅的尸体不愿意闭上眼睛。它一直在看门口。',
         difficulty: '简单',
         horrorLevel: 8,
-        playTime: '20–30 分钟',
+        playTime: '60–90 分钟',
         tags: ['诈尸', '殡仪馆', '因果'],
         scriptPath: 'stories/shouye/index.js'
     },

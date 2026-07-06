@@ -1,6 +1,9 @@
 import { StoryManifest } from '../stories/manifest.js';
-import { applyEasterEggs } from '../js/engine/storyExtensions.js';
+import { applyEasterEggs } from '../js/engine/storyExtensions/index.js';
 import { Huimen } from '../js/engine/namespace.js';
+
+// 由 effectEngine.checkGameOver() 全局触发的结局，不通过场景图到达
+const GLOBAL_TRIGGER_ENDINGS = new Set(['madness', 'eternalNight']);
 
 const results = [];
 
@@ -36,8 +39,13 @@ for (const story of StoryManifest) {
     // 对每个 ending，找到能到达它的场景，然后从这些场景反向 BFS 到 prologue
     const unreachableEndings = [];
     const reachableEndings = [];
+    const globalEndings = [];
 
     for (const endingId of Object.keys(Endings)) {
+        if (GLOBAL_TRIGGER_ENDINGS.has(endingId)) {
+            globalEndings.push({ endingId, title: Endings[endingId]?.title });
+            continue;
+        }
         // 找到所有能到达该 ending 的场景
         const entryScenes = [];
         for (const [id, scene] of Object.entries(StoryData)) {
@@ -93,20 +101,27 @@ for (const story of StoryManifest) {
         }
     }
 
-    results.push({ storyId, total: Object.keys(Endings).length, reachable: reachableEndings.length, unreachable: unreachableEndings, reachableList: reachableEndings });
+    results.push({ storyId, total: Object.keys(Endings).length, reachable: reachableEndings.length, unreachable: unreachableEndings, global: globalEndings, reachableList: reachableEndings });
 }
 
 console.log('# 所有故事结局可达性测试报告\\n');
 for (const r of results) {
-    const pct = ((r.reachable / r.total) * 100).toFixed(1);
+    const structuralTotal = r.reachable + r.unreachable.length;
+    const pct = structuralTotal > 0 ? ((r.reachable / structuralTotal) * 100).toFixed(1) : '0.0';
     console.log(`## ${r.storyId}`);
     console.log(`- 总结局数: ${r.total}`);
-    console.log(`- 可达: ${r.reachable} (${pct}%)`);
-    console.log(`- 不可达: ${r.unreachable.length}`);
+    console.log(`- 结构可达: ${r.reachable} (${pct}%)`);
+    console.log(`- 结构不可达: ${r.unreachable.length}`);
     if (r.unreachable.length > 0) {
         console.log('  不可达结局列表:');
         for (const u of r.unreachable) {
             console.log(`    - ${u.endingId}: ${u.title || '(no title)'} (入口场景: ${u.entryScenes.join(', ') || '无'})`);
+        }
+    }
+    if (r.global.length > 0) {
+        console.log(`- 全局触发结局: ${r.global.length}`);
+        for (const g of r.global) {
+            console.log(`    - ${g.endingId}: ${g.title || '(no title)'}`);
         }
     }
     console.log();
@@ -115,7 +130,9 @@ for (const r of results) {
 // Global summary
 const totalEndings = results.reduce((a, b) => a + b.total, 0);
 const totalUnreachable = results.reduce((a, b) => a + b.unreachable.length, 0);
+const totalGlobal = results.reduce((a, b) => a + b.global.length, 0);
 console.log(`## 汇总`);
 console.log(`- 全部结局: ${totalEndings}`);
-console.log(`- 不可达结局: ${totalUnreachable}`);
-console.log(`- 整体可达率: ${(((totalEndings - totalUnreachable) / totalEndings) * 100).toFixed(1)}%`);
+console.log(`- 结构不可达结局: ${totalUnreachable}`);
+console.log(`- 全局触发结局: ${totalGlobal}`);
+console.log(`- 结构整体可达率: ${(((totalEndings - totalUnreachable - totalGlobal) / (totalEndings - totalGlobal)) * 100).toFixed(1)}%`);

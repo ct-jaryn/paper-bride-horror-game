@@ -8,7 +8,7 @@ export const StoryConfig = {
     subtitle: "灵堂 · 诈尸 · 守灵人",
     difficulty: "简单",
     horrorLevel: 8,
-    playTime: "20–30 分钟",
+    playTime: "60–90 分钟",
     tags: [
         "诈尸",
         "殡仪馆",

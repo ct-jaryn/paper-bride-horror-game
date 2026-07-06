@@ -1,15 +1,15 @@
 /**
  * 微信小游戏剧情数据包
- * 由 tools/bundle-stories-for-minigame.mjs 自动生成，请勿手动修改。
+ * 指向 stories/{id}/index.js 模块化入口。
  */
 
-import * as huimen from '../../stories/story_huimen_expansion.js';
-import * as shouye from '../../stories/story_shouye.js';
-import * as xitai from '../../stories/story_xitai.js';
-import * as tishen from '../../stories/story_tishen.js';
-import * as heniang from '../../stories/story_heniang.js';
-import * as hujia from '../../stories/story_hujia.js';
-import * as ganshi from '../../stories/story_ganshi.js';
+import * as huimen from '../../stories/huimen/index.js';
+import * as shouye from '../../stories/shouye/index.js';
+import * as xitai from '../../stories/xitai/index.js';
+import * as tishen from '../../stories/tishen/index.js';
+import * as heniang from '../../stories/heniang/index.js';
+import * as hujia from '../../stories/hujia/index.js';
+import * as ganshi from '../../stories/ganshi/index.js';
 
 export const StoryBundles = {
     huimen,

@@ -8,7 +8,7 @@ import { ui } from './dom.js';
 import * as SaveManager from './saveManager.js';
 import { resetState, loadStoryState, updateState } from './state.js';
 import { showScreen, renderScene, showLoading, hideLoading } from './renderer.js';
-import { applyEasterEggs } from './storyExtensions.js';
+import { applyEasterEggs } from './storyExtensions/index.js';
 import { Platform } from './platform.js';
 
 /**
