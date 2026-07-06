@@ -268,30 +268,56 @@ export function renderScene(sceneId) {
     }
 }
 
+const CHOICE_COLLAPSE_THRESHOLD = 8;
+
 /**
- * 渲染选择按钮
+ * 渲染选择按钮（支持折叠）
  */
 export function renderChoices(choices) {
     if (!choices || !ui.choices) return;
 
-    choices.forEach((choice, index) => {
-        if (choice.condition && !checkCondition(choice.condition)) {
-            return;
-        }
+    const visibleChoices = choices.filter((choice) => {
+        return !choice.condition || checkCondition(choice.condition);
+    });
 
+    const shouldCollapse = visibleChoices.length > CHOICE_COLLAPSE_THRESHOLD;
+    const initialChoices = shouldCollapse ? visibleChoices.slice(0, CHOICE_COLLAPSE_THRESHOLD) : visibleChoices;
+    const remainingChoices = shouldCollapse ? visibleChoices.slice(CHOICE_COLLAPSE_THRESHOLD) : [];
+
+    function createButton(choice, index, order) {
         const btn = document.createElement('button');
         btn.className = 'choice-btn';
         if (choice.danger) btn.classList.add('danger');
         if (choice.hidden) btn.classList.add('hidden-choice');
         btn.textContent = choice.text;
-        btn.style.setProperty('--order', String(index));
+        btn.style.setProperty('--order', String(order));
 
         btn.addEventListener('click', () => {
             makeChoice(choice, index);
         });
 
-        ui.choices.appendChild(btn);
+        return btn;
+    }
+
+    ui.choices.innerHTML = '';
+
+    initialChoices.forEach((choice, i) => {
+        ui.choices.appendChild(createButton(choice, choices.indexOf(choice), i));
     });
+
+    if (shouldCollapse) {
+        const toggleBtn = document.createElement('button');
+        toggleBtn.className = 'choice-btn choice-toggle-btn';
+        toggleBtn.textContent = `显示其余 ${remainingChoices.length} 个选择`;
+        toggleBtn.style.setProperty('--order', String(initialChoices.length));
+        toggleBtn.addEventListener('click', () => {
+            toggleBtn.remove();
+            remainingChoices.forEach((choice, i) => {
+                ui.choices.appendChild(createButton(choice, choices.indexOf(choice), initialChoices.length + i));
+            });
+        });
+        ui.choices.appendChild(toggleBtn);
+    }
 }
 
 /**

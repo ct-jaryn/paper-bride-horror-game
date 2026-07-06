@@ -168,6 +168,18 @@
     opacity: 1;
 }
 
+.choice-toggle-btn {
+    border-style: dashed;
+    border-left-color: #666;
+    color: #aaa;
+    font-size: 1rem;
+}
+
+.choice-toggle-btn:hover {
+    color: #fff;
+    border-color: var(--bright-red);
+}
+
 /* ===== 桌面端：右侧放大布局 ===== */
 @media (min-width: 769px) {
     #game-screen.screen.active {

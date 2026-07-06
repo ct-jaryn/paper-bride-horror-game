@@ -6,7 +6,7 @@
 import { Huimen } from './namespace.js';
 import { ui } from './dom.js';
 import * as SaveManager from './saveManager.js';
-import { resetState, loadStoryState } from './state.js';
+import { resetState, loadStoryState, updateState } from './state.js';
 import { showScreen, renderScene, showLoading, hideLoading } from './renderer.js';
 import { applyEasterEggs } from './storyExtensions.js';
 import { Platform } from './platform.js';
@@ -54,6 +54,7 @@ export function loadStory(storyId, forceReset = false) {
             Huimen.StoryData = module.StoryData;
             Huimen.Endings = module.Endings;
             Huimen.NPCs = module.NPCs || {};
+            Huimen.StoryConfig = module.StoryConfig || null;
             applyEasterEggs();
             initStoryData(forceReset);
         })
@@ -80,7 +81,9 @@ export function initStoryData(forceReset) {
 
     if (forceReset) {
         resetState(Huimen.CurrentStory.id, true);
-        SaveManager.removeStorySave(Huimen.CurrentStory.id);
+        if (Huimen.StoryConfig && Huimen.StoryConfig.defaultState) {
+            updateState(Huimen.StoryConfig.defaultState);
+        }
     } else {
         loadStoryState(Huimen.CurrentStory.id, Huimen.StoryData, Huimen.GlobalFlags);
     }

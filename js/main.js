@@ -14,6 +14,7 @@ import { initGame } from './engine/game.js';
 import './engine/endingManager.js';
 import './engine/endingGallery.js';
 import './engine/npcSystem.js';
+import './engine/pauseManager.js';
 import { initWeappBridge, isWechatWebview } from './weapp-bridge.js';
 
 // 注入故事清单（成就、货币等子系统会在自身模块加载时注册到 Huimen）

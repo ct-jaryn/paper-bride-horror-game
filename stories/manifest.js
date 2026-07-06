@@ -13,7 +13,7 @@ export const StoryManifest = [
         horrorLevel: 9,
         playTime: '30–45 分钟',
         tags: ['冥婚', '复仇', '家族罪孽'],
-        scriptPath: 'stories/story_huimen_expansion.js'
+        scriptPath: 'stories/huimen/index.js'
     },
     {
         id: 'shouye',
@@ -24,7 +24,7 @@ export const StoryManifest = [
         horrorLevel: 8,
         playTime: '20–30 分钟',
         tags: ['诈尸', '殡仪馆', '因果'],
-        scriptPath: 'stories/story_shouye.js'
+        scriptPath: 'stories/shouye/index.js'
     },
     {
         id: 'xitai',
@@ -35,7 +35,7 @@ export const StoryManifest = [
         horrorLevel: 10,
         playTime: '40–60 分钟',
         tags: ['鬼戏', '戏班', '诅咒'],
-        scriptPath: 'stories/story_xitai.js'
+        scriptPath: 'stories/xitai/index.js'
     },
     {
         id: 'tishen',
@@ -46,7 +46,7 @@ export const StoryManifest = [
         horrorLevel: 9,
         playTime: '30–45 分钟',
         tags: ['纸人', '替身', '身份恐怖'],
-        scriptPath: 'stories/story_tishen.js'
+        scriptPath: 'stories/tishen/index.js'
     },
     {
         id: 'heniang',
@@ -57,7 +57,7 @@ export const StoryManifest = [
         horrorLevel: 8,
         playTime: '25–40 分钟',
         tags: ['水鬼', '母女', '救赎'],
-        scriptPath: 'stories/story_heniang.js'
+        scriptPath: 'stories/heniang/index.js'
     },
     {
         id: 'hujia',
@@ -68,7 +68,7 @@ export const StoryManifest = [
         horrorLevel: 9,
         playTime: '35–50 分钟',
         tags: ['狐妖', '人妖', '长生'],
-        scriptPath: 'stories/story_hujia.js'
+        scriptPath: 'stories/hujia/index.js'
     },
     {
         id: 'ganshi',
@@ -79,7 +79,7 @@ export const StoryManifest = [
         horrorLevel: 10,
         playTime: '40–60 分钟',
         tags: ['赶尸', '雨夜', '尸变'],
-        scriptPath: 'stories/story_ganshi.js'
+        scriptPath: 'stories/ganshi/index.js'
     }
 ];
 

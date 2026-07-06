@@ -1,0 +1,83 @@
+/**
+ * 《回门》场景模块：exp_village_street_events_hub
+ * 村街随机事件、物品发现与天气事件聚合
+ */
+
+export const scenes = {
+    huimen_exp_village_street_events_hub: {
+        title: '村街四顾',
+        text: `你放慢脚步，仔细观察村街的每一处动静。
+
+雾气在石板路上流转，纸钱偶尔从某个看不见的窗口飘出。你听见风声、水声、远处隐约的唢呐声，却分不清哪些是活人的，哪些是死人的。
+
+[red]这里发生过太多事。每一件旧物，都可能藏着一段记忆。[/red]`,
+        effects: {"sanity":-2,"yin":1},
+        choices: [
+            {text:"雾里似乎有人影晃动",next:"huimen_exp_street_fog",effects:{yin:1},condition:{yinAbove:15},hidden:true},
+            {text:"天上落下雨点，颜色不太对",next:"huimen_exp_street_rain",effects:{yin:1},condition:{yinAbove:18},hidden:true},
+            {text:"纸钱像雪一样飘落",next:"huimen_exp_street_paper_rain",effects:{yin:1},condition:{yinAbove:20},hidden:true},
+            {text:"雾里有声音在叫你的名字",next:"huimen_exp_street_calling",effects:{yin:1},hidden:true},
+            {text:"雾中立着一面朱红镜子",next:"huimen_exp_street_mirror",effects:{yin:1},hidden:true},
+            {text:"下雨了，陪秀兰一起淋",next:"huimen_exp_xiulan_rain",effects:{yin:-1},condition:{flag:"xiulanMercy"}},
+            {text:"身后传来沉重的脚步声",next:"huimen_exp_street_footsteps",effects:{yin:1},hidden:true},
+            {text:"有人吹着你熟悉的口哨",next:"huimen_exp_street_whistle",effects:{yin:1},hidden:true},
+            {text:"墙缝里伸出一只苍白的手",next:"huimen_exp_street_hand",effects:{yin:1},hidden:true},
+            {text:"一扇门在轻轻敲响",next:"huimen_exp_street_knocking",effects:{yin:1},hidden:true},
+            {text:"石板路上有一双红绣鞋",next:"huimen_exp_street_red_shoes",effects:{yin:1},hidden:true},
+            {text:"一个小女孩在街边玩石子",next:"huimen_exp_street_little_girl",effects:{yin:1},hidden:true},
+            {text:"一只纸船顺着石缝漂来",next:"huimen_exp_street_paper_boat",effects:{yin:1},hidden:true},
+            {text:"远处传来唱戏声",next:"huimen_exp_street_opera_tune",effects:{yin:1},hidden:true},
+            {text:"地底传来沉闷的鼓声",next:"huimen_exp_street_drum",effects:{yin:1},hidden:true},
+            {text:"远处有唢呐声和红灯笼",next:"huimen_exp_wedding_procession",effects:{yin:2},hidden:true},
+            {text:"巷口有个卖纸的老妇",next:"huimen_exp_old_woman",effects:{yin:1},hidden:true},
+            {text:"破败戏台上传来唱戏声",next:"huimen_exp_singing_woman",effects:{yin:1},hidden:true},
+            {text:"一盏红灯笼在巷尾飘摇",next:"huimen_exp_red_lantern",effects:{yin:1},hidden:true},
+            {text:"一户人家传出狗吠",next:"huimen_exp_dog_bark",effects:{yin:1},hidden:true},
+            {text:"坟地里有绿色的火焰跳动",next:"huimen_exp_fox_fire",effects:{yin:1},hidden:true},
+            {text:"街道忽然空了，像所有人都消失了",next:"huimen_exp_village_street_empty",effects:{yin:1},hidden:true},
+            {text:"听见许多人在笑",next:"huimen_exp_village_street_laugh",effects:{yin:1},hidden:true},
+            {text:"听见许多女人在哭",next:"huimen_exp_village_street_cry",effects:{yin:1},hidden:true},
+            {text:"石板缝里伸出一只婴儿的小手",next:"huimen_exp_village_street_baby",effects:{yin:1},hidden:true},
+            {text:"一队送亲的队伍走来",next:"huimen_exp_village_street_bride_parade",effects:{yin:2},hidden:true},
+            {text:"路边站着一匹纸马",next:"huimen_exp_village_street_paper_horse",effects:{yin:1},hidden:true},
+            {text:"井里传来敲击声",next:"huimen_exp_village_street_well_sound",effects:{yin:1},hidden:true},
+            {text:"身后跟着一个没有主人的影子",next:"huimen_exp_village_street_ancestor_shadow",effects:{yin:1},hidden:true},
+            {text:"手腕上缠着一根红线",next:"huimen_exp_village_street_red_thread",effects:{yin:1},hidden:true},
+            {text:"去纸扎铺找老人聊聊",next:"huimen_exp_paper_shop_craftsman_memory",effects:{yin:1},condition:{flag:"huimen_exp_learned_doll_substitute"}},
+            {text:"去庙里捐香火",next:"huimen_exp_temple_donation",effects:{yin:1},condition:{hasItem:"清代铜钱"}},
+            {text:"去祖祠找那根红烛",next:"huimen_exp_ancestral_candle",effects:{yin:1},condition:{flag:"huimen_exp_read_ancestral_record"}},
+            {text:"去废墟再找线索",next:"huimen_exp_ruins_photo",effects:{yin:1},condition:{flag:"huimen_exp_read_xiulan_diary"}},
+            {text:"再走一次月光路",next:"huimen_exp_moonlit_path_memory",effects:{yin:1},condition:{flag:"huimen_exp_named_xiulan_on_bridge"}},
+            {text:"用桑叶织命丝",next:"huimen_exp_use_silk",effects:{yin:-1},condition:{hasItem:"桑叶"}},
+            {text:"握紧护身乳牙",next:"huimen_exp_use_child_tooth",effects:{yin:-1},condition:{hasItem:"护身乳牙"}},
+            {text:"把柳红的戏服还给她",next:"huimen_exp_use_liu_hong_dress",effects:{yin:-1},condition:{hasItem:"柳红的戏服"}},
+            {text:"去村中央和祖先对质",next:"huimen_exp_final_confrontation",effects:{yin:1},condition:{flag:"huimen_exp_ended_zhou_curse"}},
+            {text:"天上飞着一只纸鸢",next:"huimen_exp_village_street_paper_kite",effects:{yin:1},hidden:true},
+            {text:"院里有一架自己在晃的秋千",next:"huimen_exp_village_street_swing",effects:{yin:1},hidden:true},
+            {text:"井边放着一个旧木桶",next:"huimen_exp_village_street_well_bucket",effects:{yin:1},hidden:true},
+            {text:"发现另一口枯井",next:"huimen_exp_village_street_old_well",effects:{yin:1},hidden:true},
+            {text:"地上有一把画着并蒂莲的纸扇",next:"huimen_exp_village_street_paper_fan",effects:{yin:1},hidden:true},
+            {text:"桌上摆着一盘红月饼",next:"huimen_exp_village_street_mooncake",effects:{yin:1},hidden:true},
+            {text:"废弃祠堂前有个刻着女子名字的香炉",next:"huimen_exp_village_street_incense_burner",effects:{yin:1},hidden:true},
+            {text:"村口石狮嘴里似乎有东西",next:"huimen_exp_village_street_stone_lion",effects:{yin:1},hidden:true},
+            {text:"一扇门里摆着新婚的床铺",next:"huimen_exp_village_street_abandoned_bed",effects:{yin:1},hidden:true},
+            {text:"河边搭着一座纸桥",next:"huimen_exp_village_street_paper_bridge",effects:{yin:1},hidden:true},
+            {text:"路边垃圾堆里有一本旧歌本",next:"huimen_exp_village_street_song_book",effects:{yin:1},hidden:true},
+            {text:"窗台上有一方绣帕",next:"huimen_exp_village_street_embroidery",effects:{yin:1},hidden:true},
+            {text:"桌上摆着一盘点心",next:"huimen_exp_village_street_wedding_cake",effects:{yin:1},hidden:true},
+            {text:"一只黑狗一直在跟着你",next:"huimen_exp_village_street_ghost_dog",effects:{yin:1},hidden:true},
+            {text:"井沿上停着一只纸鸟",next:"huimen_exp_village_street_paper_bird",effects:{yin:1},hidden:true},
+            {text:"石板路上有一只青色布鞋",next:"huimen_exp_village_street_lost_shoe",effects:{yin:1},hidden:true},
+            {text:"灶台上放着半碗发黑的米饭",next:"huimen_exp_village_street_rice_bowl",effects:{yin:1},hidden:true},
+            {text:"井边有一把木梳",next:"huimen_exp_village_street_comb",effects:{yin:1},hidden:true},
+            {text:"发现一个生锈的信箱",next:"huimen_exp_village_street_letter_box",effects:{yin:1},hidden:true},
+            {text:"一条纸鱼在石板上跳",next:"huimen_exp_village_street_paper_fish",effects:{yin:1},hidden:true},
+            {text:"墙边靠着一把旧扫帚",next:"huimen_exp_village_street_old_broom",effects:{yin:1},hidden:true},
+            {text:"一户人家的门是纸糊的",next:"huimen_exp_village_street_paper_door",effects:{yin:1},hidden:true},
+            {text:"纸门上的门神似乎在看你",next:"huimen_exp_village_street_paper_door_god",effects:{yin:1},condition:{flag:"huimen_exp_saw_village_map"},hidden:true},
+            {text:"院子里堆满了印着囍字的纸钱",next:"huimen_exp_village_street_paper_money_pile",effects:{yin:1},hidden:true},
+            {text:"用破镜碎片照井底",next:"huimen_exp_use_broken_mirror",effects:{yin:-1},condition:{hasItem:"破镜碎片"}},
+            {text:"系上命丝锦带",next:"huimen_exp_use_life_silk",effects:{yin:-1},condition:{hasItem:"命丝锦带"}}
+        ],
+    }
+};

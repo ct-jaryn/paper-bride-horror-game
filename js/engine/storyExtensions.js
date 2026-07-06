@@ -15,93 +15,413 @@ import { Huimen } from './namespace.js';
  * key 格式：storyId:sceneId
  */
 const EASTER_EGG_CHOICES = {
-    // 回门 · 村口老槐：若玩家曾在赶尸中到过青石镇，会对报纸上“青石镇戏台”多一分留意
+    // huimen:prologue
     'huimen:prologue': [
         {
             text: '青石镇……这名字像在别处听过',
-            next: 'huimen_easter_qingshi_paper',
-            condition: { flag: 'ganshi_to_qingshi' },
-            hidden: true,
-            effects: { sanity: -3, yin: 5 }
+            next: 'huimen_easter_qingshi_paper'
         }
     ],
-
-    // 回门 · 老宅：若玩家曾在守夜中见过纸人还魂，会对灵堂纸扎人多一分警觉
+    // huimen:to_old_house
     'huimen:to_old_house': [
         {
             text: '这纸人的扎法，与别处见过的“云秀”有几分相似',
-            next: 'huimen_easter_paper_doll',
-            condition: { flag: 'yunxiuLinkedToPaper' },
-            hidden: true,
-            effects: { sanity: -5, yin: 8 }
+            next: 'huimen_easter_paper_doll'
         }
     ],
-
-    // 守夜 · 序章：若玩家曾在回门中听过纸人低语，会对殡仪馆里的纸灰更敏感
+    // shouye:prologue
     'shouye:prologue': [
         {
             text: '检查地上那一点奇怪的纸灰',
-            next: 'shouye_easter_paper_ash',
-            condition: { flag: 'heard_paper_whisper' },
-            hidden: true,
-            effects: { sanity: -5, yin: 10 }
+            next: 'shouye_easter_paper_ash'
         }
     ],
-
-    // 戏台 · 后台：若玩家曾在河娘中听过水下合唱，会对戏台水缸中的回响有共鸣
+    // xitai:backstage
     'xitai:backstage': [
         {
             text: '水缸里的回声……像是河边唱歌的女人',
-            next: 'xitai_easter_river_voice',
-            condition: { flag: 'heardUnderwaterChorus' },
-            hidden: true,
-            effects: { sanity: -6, yin: 8 }
+            next: 'xitai_easter_river_voice'
+        },
+        {
+            text: '你掀开幕布，发现台下坐满了没有脸的观众',
+            ending: 'hidden_openerCurtain'
+        },
+        {
+            text: '你触发了隐藏结局：焚照',
+            ending: 'hidden_photoAshes'
+        },
+        {
+            text: '你触发了隐藏结局：见证',
+            ending: 'hidden_stageWitness'
+        },
+        {
+            text: '你触发了隐藏结局：刘掌柜的供词',
+            ending: 'hidden_liuConfession'
+        },
+        {
+            text: '你触发了隐藏结局：周生后人',
+            ending: 'hidden_zhouDescendant'
+        },
+        {
+            text: '你触发了隐藏结局：无面观众',
+            ending: 'hidden_noFaceAudience'
+        },
+        {
+            text: '你触发了隐藏结局：红灯笼',
+            ending: 'hidden_redLantern'
         }
     ],
-
-    // 替身 · 院子：若玩家曾在狐嫁中见过狐影，会察觉纸人身上的“青丘”纹样
+    // tishen:prologue
     'tishen:prologue': [
         {
             text: '纸人衣角绣着青丘山纹',
-            next: 'tishen_easter_fox_mark',
-            condition: { flag: 'sawFoxShadow' },
-            hidden: true,
-            effects: { sanity: -4, yin: 6 }
+            next: 'tishen_easter_fox_mark'
         }
     ],
-
-    // 河娘 · 河边：若玩家曾在戏台中见过真后台，会对水中戏服有熟悉感
+    // heniang:prologue
     'heniang:prologue': [
         {
             text: '那件红裳的款式，像在戏台见过',
-            next: 'heniang_easter_opera_dress',
-            condition: { flag: 'sawTrueBackstage' },
-            hidden: true,
-            effects: { sanity: -4, yin: 7 }
+            next: 'heniang_easter_opera_dress'
         }
     ],
-
-    // 狐嫁 · 青丘山：若玩家曾在回门中得知周家罪孽，会对狐女口中的“周家债”有反应
+    // hujia:prologue
     'hujia:prologue': [
         {
             text: '周家的债……是指回门那口井？',
-            next: 'hujia_easter_zhou_debt',
-            condition: { flag: 'zhouDebtAcknowledged' },
-            hidden: true,
-            effects: { sanity: -5, yin: 8, setFlag: 'zhouDebtAcknowledgedByFox' }
+            next: 'hujia_easter_zhou_debt'
         }
     ],
-
-    // 赶尸 · 雨夜山路：若玩家曾在替身的纸扎铺见过同名纸人，会对尸体手中的纸条多看一眼
+    // ganshi:prologue
     'ganshi:prologue': [
         {
             text: '尸体手里攥着一张纸条，上面写着一个名字',
-            next: 'ganshi_easter_paper_name',
-            condition: { flag: 'dollHasOwnFace' },
-            hidden: true,
-            effects: { sanity: -5, yin: 8 }
+            next: 'ganshi_easter_paper_name'
         }
-    ]
+    ],
+    // shouye:three_souls_complete
+    'shouye:three_souls_complete': [
+        {
+            text: '你忽然明白，自己也该成为这班社的最后一名成员',
+            ending: 'hidden_threeSoulsReunion'
+        }
+    ],
+    // shouye:river_bottom_return
+    'shouye:river_bottom_return': [
+        {
+            text: '你折了一只纸船，点上蜡烛，放入河中',
+            ending: 'hidden_riverLantern'
+        }
+    ],
+    // shouye:caller_accept_lineage
+    'shouye:caller_accept_lineage': [
+        {
+            text: '你接过铜铃，从此成为守渡人',
+            ending: 'hidden_watcherLineage'
+        }
+    ],
+    // xitai:ask_ghost_actor
+    'xitai:ask_ghost_actor': [
+        {
+            text: '你决定不唱那出鬼戏，只为她一个人唱一支安魂曲',
+            ending: 'hidden_yunxiuRequiem'
+        }
+    ],
+    // xitai:true_backstage
+    'xitai:true_backstage': [
+        {
+            text: '你走上舞台，再也不愿离开',
+            ending: 'hidden_eternalStage'
+        }
+    ],
+    // tishen:ask_doll_truth
+    'tishen:ask_doll_truth': [
+        {
+            text: '纸人嘴唇翕动，说出了自己的真名',
+            ending: 'hidden_dollName'
+        }
+    ],
+    // tishen:mirror_reveal
+    'tishen:mirror_reveal': [
+        {
+            text: '你把镜子转向纸人，让它看见自己',
+            ending: 'hidden_mirrorRelease'
+        },
+        {
+            text: '你触发了隐藏结局：父忏',
+            ending: 'hidden_fathersConfession'
+        },
+        {
+            text: '你触发了隐藏结局：纸命',
+            ending: 'hidden_paperLife'
+        },
+        {
+            text: '你触发了隐藏结局：灰安',
+            ending: 'hidden_ashPeace'
+        },
+        {
+            text: '你触发了隐藏结局：共魂',
+            ending: 'hidden_soulShare'
+        },
+        {
+            text: '你触发了隐藏结局：稻草父亲',
+            ending: 'hidden_strawFather'
+        }
+    ],
+    // tishen:refuse_exchange
+    'tishen:refuse_exchange': [
+        {
+            text: '纸人笑了，它知道下一个被替代的是谁',
+            ending: 'hidden_secondDoll'
+        }
+    ],
+    // heniang:plan_ritual
+    'heniang:plan_ritual': [
+        {
+            text: '你在河底找到了母亲留给你的信',
+            ending: 'hidden_motherLetter'
+        }
+    ],
+    // heniang:negotiate_xiugu
+    'heniang:negotiate_xiugu': [
+        {
+            text: '你接过秀姑的位置，成为新的河神',
+            ending: 'hidden_riverGoddess'
+        },
+        {
+            text: '你触发了隐藏结局：秀姑之子',
+            ending: 'hidden_xiuguChild'
+        },
+        {
+            text: '你触发了隐藏结局：水下合唱队',
+            ending: 'hidden_drownedChorus'
+        },
+        {
+            text: '你触发了隐藏结局：河底戏衣',
+            ending: 'hidden_peonyDress'
+        },
+        {
+            text: '你触发了隐藏结局：夏雨',
+            ending: 'hidden_summerRain'
+        },
+        {
+            text: '你触发了隐藏结局：最后一支歌',
+            ending: 'hidden_lastSong'
+        },
+        {
+            text: '你触发了隐藏结局：水鬼',
+            ending: 'hidden_waterGhost'
+        },
+        {
+            text: '你触发了隐藏结局：石碑记忆',
+            ending: 'hidden_stoneMemory'
+        }
+    ],
+    // heniang:use_incense_ash
+    'heniang:use_incense_ash': [
+        {
+            text: '你把香灰撒进河里，化作一艘小船',
+            ending: 'hidden_incenseBoat'
+        }
+    ],
+    // hujia:ask_after_marriage
+    'hujia:ask_after_marriage': [
+        {
+            text: '狐女没有逼你成婚，只是与你结为知己',
+            ending: 'hidden_foxFriend'
+        }
+    ],
+    // hujia:refuse_dagger
+    'hujia:refuse_dagger': [
+        {
+            text: '你把心头血滴入狐女掌心，结成血誓',
+            ending: 'hidden_heartBloodOath'
+        }
+    ],
+    // hujia:refuse_heart_blood
+    'hujia:refuse_heart_blood': [
+        {
+            text: '白狐回首三次，消失在青丘山雾中',
+            ending: 'hidden_whiteFoxSendoff'
+        }
+    ],
+    // ganshi:bell_nuo_dance
+    'ganshi:bell_nuo_dance': [
+        {
+            text: '铜铃一声，三具尸体同时跪下',
+            ending: 'hidden_bellPardon'
+        }
+    ],
+    // ganshi:soul_homeward
+    'ganshi:soul_homeward': [
+        {
+            text: '少年的魂魄跟着你回到了故乡',
+            ending: 'hidden_youthHome'
+        }
+    ],
+    // shouye:patrol_corridor
+    'shouye:patrol_corridor': [
+        {
+            text: '你触发了隐藏结局：泪祝',
+            ending: 'hidden_tearBlessing'
+        },
+        {
+            text: '你触发了隐藏结局：还钗',
+            ending: 'hidden_silverHairpinReturn'
+        },
+        {
+            text: '你触发了隐藏结局：录音',
+            ending: 'hidden_stageRecord'
+        },
+        {
+            text: '你触发了隐藏结局：河畔戏台',
+            ending: 'hidden_riversideStage'
+        },
+        {
+            text: '你触发了隐藏结局：纸人和声',
+            ending: 'hidden_paperWhisperDuet'
+        },
+        {
+            text: '你触发了隐藏结局：名牌',
+            ending: 'hidden_yunxiuNamePlaque'
+        },
+        {
+            text: '你触发了隐藏结局：最后一名观众',
+            ending: 'hidden_lastAudience'
+        },
+        {
+            text: '你触发了隐藏结局：焚幕',
+            ending: 'hidden_burningCurtain'
+        },
+        {
+            text: '你触发了隐藏结局：停尸间摇篮曲',
+            ending: 'hidden_morgueLullaby'
+        },
+        {
+            text: '你触发了隐藏结局：送别曲',
+            ending: 'hidden_farewellSong'
+        },
+        {
+            text: '你触发了隐藏结局：前任安息',
+            ending: 'hidden_callerPeace'
+        },
+        {
+            text: '你最终：河底长眠',
+            ending: 'death_riverBottom'
+        },
+        {
+            text: '你最终：火咒',
+            ending: 'death_arsonCurse'
+        },
+        {
+            text: '你触发了隐藏结局：普度',
+            ending: 'hidden_allSoulsRelease'
+        },
+        {
+            text: '你触发了隐藏结局：学徒归家',
+            ending: 'hidden_apprenticeFamily'
+        },
+        {
+            text: '你触发了隐藏结局：转世',
+            ending: 'hidden_zhouShengRebornHint'
+        },
+        {
+            text: '你触发了隐藏结局：守墓人',
+            ending: 'hidden_gravekeeperLife'
+        },
+        {
+            text: '你最终：平夜',
+            ending: 'normal_simpleWatch'
+        },
+        {
+            text: '你想起老规矩，给七号厅点三炷香',
+            next: 'burn_incense_for_her'
+        },
+        {
+            text: '各厅巡完，去旧戏台遗址看看那些无名受害者',
+            next: 'old_stage_victims'
+        }
+    ],
+    // hujia:fox_mercy_path
+    'hujia:negotiate_fox': [
+        {
+            text: '你触发了隐藏结局：村长的真相',
+            ending: 'hidden_villageChiefTruth'
+        },
+        {
+            text: '你触发了隐藏结局：戏服渡狐',
+            ending: 'hidden_peonyDressFox'
+        },
+        {
+            text: '你触发了隐藏结局：共珠',
+            ending: 'hidden_thunderPearlShared'
+        },
+        {
+            text: '你触发了隐藏结局：祖约',
+            ending: 'hidden_ancestorPact'
+        },
+        {
+            text: '你触发了隐藏结局：狐子',
+            ending: 'hidden_foxChild'
+        }
+    ],
+    // ganshi:ask_tian_grudge
+    'ganshi:ask_tian_grudge': [
+        {
+            text: '师父的债你还清了，师徒缘分未尽',
+            ending: 'hidden_masterApprentice'
+        }
+    ],
+    // shouye:continue_watch
+    'shouye:continue_watch': [
+        {
+            text: '子时已过，按规定巡一次各厅',
+            next: 'patrol_corridor'
+        },
+        {
+            text: '去河边走走，那里有未散的戏魂',
+            next: 'river_search'
+        },
+        {
+            text: '去县档案馆查旧案',
+            next: 'county_archive'
+        },
+        {
+            text: '去桂花巷找老戏班后人',
+            next: 'osmanthus_trace'
+        },
+        {
+            text: '殡仪馆电话又响了，这次你接起来',
+            next: 'mysterious_call',
+            hidden: true
+        },
+        {
+            text: '在值班室翻到第一任守夜人的日记',
+            next: 'first_watcher_journal',
+            hidden: true
+        }
+    ],
+    // shouye:river_search
+    'shouye:river_search': [
+        {
+            text: '顺着河水往下走，看看水底有什么',
+            next: 'river_bottom_descent'
+        }
+    ],
+    // shouye:county_archive
+    'shouye:county_archive': [
+        {
+            text: '档案里提到当年的戏班老板，去找他',
+            next: 'opera_house_boss_story'
+        }
+    ],
+    // shouye:osmanthus_trace
+    'shouye:osmanthus_trace': [
+        {
+            text: '桂花巷深处有座老茶楼，去看看',
+            next: 'alley_granny_kowtow'
+        }
+    ],
 };
 
 /**
@@ -258,10 +578,16 @@ export function applyEasterEggs() {
         if (targetStoryId !== storyId) return;
 
         const scene = Huimen.StoryData[sceneId];
-        if (!scene || !Array.isArray(scene.choices)) return;
+        if (!scene) return;
+
+        // 若场景没有 choices 数组且不是结局场景，则创建一个
+        if (!Array.isArray(scene.choices) && !scene.ending) {
+            scene.choices = [];
+        }
+        if (!Array.isArray(scene.choices)) return;
 
         choices.forEach(choice => {
-            const exists = scene.choices.some(c => c.text === choice.text && c.next === choice.next);
+            const exists = scene.choices.some(c => c.text === choice.text && (c.next === choice.next || c.ending === choice.ending));
             if (!exists) {
                 scene.choices.push(choice);
             }

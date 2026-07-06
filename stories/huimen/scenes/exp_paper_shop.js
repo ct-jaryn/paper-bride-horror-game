@@ -1,0 +1,129 @@
+/**
+ * 《回门》场景模块：exp_paper_shop
+ */
+
+export const scenes = {
+    huimen_exp_paper_shop: {
+        title: '纸扎铺',
+        text: `你推开纸扎铺的门。
+
+门轴发出刺耳的"吱呀"声，像是骨头在摩擦。铺子里摆满了纸人、纸马、纸轿、纸房子，每一双墨点眼睛都在盯着你。
+
+柜台后面坐着一个老人，正低着头糊纸人。他的动作很慢，浆糊刷在竹篾上，发出黏腻的声响。
+
+"客人，" 老人头也不抬，"要扎什么？"
+
+你还没来得及回答，他就把手里那个纸人转了过来。
+
+[red]纸人的脸，和你一模一样。[/red]
+
+"这个不像你。" 老人说，"下巴的痣，还差一点。"`,
+        effects: {"sanity":-10,"yin":3,"visual":"paper-doll","visualDuration":2000},
+        choices: [{"text":"质问他为什么扎你的脸","next":"huimen_exp_paper_doll_craftsman","effects":{"sanity":-3,"yin":2}},{"text":"转身就跑","next":"huimen_exp_paper_doll_chase","effects":{"sanity":-5,"yin":3}},{"text":"仔细观察铺子里的纸人","next":"huimen_exp_paper_shop_backroom","effects":{"yin":2}},{"text":"给秀兰扎一套嫁妆","next":"huimen_exp_paper_offering","condition":{"flag":"huimen_exp_saw_village_map"},"effects":{"sanity":5,"yin":-5}},{"text":"爬上屋顶看看","next":"huimen_exp_paper_shop_roof","effects":{"yin":2}},{"text":"发现纸人的眼睛在动","next":"huimen_exp_paper_shop_doll_eyes","condition":{"flag":"huimen_exp_learned_doll_substitute"},"effects":{"yin":2}},{"text":"发现通往地下室的暗门","next":"huimen_exp2_paper_doll_origin","condition":{"flag":"huimen_exp_learned_doll_substitute"},"effects":{"yin":2}},{"text":"去地下室看看","next":"huimen_exp3_paper_shop_basement","effects":{"yin":2}},{"text":"亲手给秀兰扎一套纸嫁妆","next":"huimen_exp_paper_offering_alt"},{"text":"搜查纸扎铺的柜台和账册","next":"investigate_paper_shop"},{"text":"柜台后还躲着一个年轻学徒","npc":"xiao_fu","npcNode":"start","effects":{"yin":1},"custom":true}],
+        hallucination: '[whisper]柜台后面的老人抬起头，他的脸和你一模一样。[/whisper]',
+    }
+,
+    huimen_exp_paper_shop_backroom: {
+        title: '纸扎铺后屋',
+        text: `你绕过柜台，进了后屋。
+
+后屋比前厅小得多，正中摆着一张床，床上躺着一个人，盖着白布。你掀开白布一角，下面是一张没有五官的脸。
+
+不，不是脸。是一张等待被画上的纸。
+
+床边堆着许多已经画好的脸，每张都写着名字。你翻看着，看到了"二叔"、"三姑"、"四婶"，还有你自己的名字。
+
+[red]你的名字下面压着一张秀兰的脸。[/red]
+
+你拿起秀兰的脸。纸很薄，却出奇地沉。纸上有一双眼睛，正静静地看着你。
+
+[whisper]"把我的脸还给我。"[/whisper]`,
+        effects: {"sanity":-12,"yin":3,"addItem":"秀兰的纸脸"},
+        choices: [{"text":"把纸脸烧掉","next":"huimen_exp_burn_paper_face","effects":{"sanity":5,"yin":-10}},{"text":"把纸脸收好","next":"huimen_exp_village_street","effects":{"yin":2}},{"text":"放回床上，退出后屋","next":"huimen_exp_paper_doll_chase","effects":{"sanity":-5,"yin":3}}],
+    }
+,
+    huimen_exp_lead_to_paper_shop: {
+        title: '引火',
+        text: `你转身朝纸扎铺跑，纸人们抬着空轿子追你。
+
+你冲进铺子，抓起一盏油灯砸向那些纸人。纸人们浑身是浆糊，一点就着。火势迅速蔓延，把整个铺子吞没。
+
+你逃出铺子，回头一看，纸人们在火中扭动，发出婴儿般的哭声。
+
+[red]你烧了周家三十年的替身。[/red]
+
+火焰里，许多模糊的身影站起来，朝你鞠躬，然后消散在夜空中。`,
+        effects: {"sanity":-10,"yin":5,"setFlag":"huimen_exp_burned_paper_shop"},
+        choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}},{"text":"火势蔓延到整个村子，让一切化为灰烬","ending":"huimen_exp_ending_paper_doll_burned","condition":{"flag":"huimen_exp_burned_paper_shop"},"effects":{"yin":5}}],
+    }
+,
+    huimen_exp_paper_shop_roof: {
+        title: '纸铺屋顶',
+        text: `你爬上纸扎铺的屋顶。
+
+屋顶上堆满了晒干的纸人，它们面朝下趴着，像一群沉睡的尸体。你踩上去，脚下发出"咔嚓咔嚓"的声响。
+
+屋顶中央有一个小洞，你透过洞往下看，看见铺子里的老人正在画一张脸。
+
+那张脸不是你的，是一个老人的脸。你认出来，那是你祖父年轻时的模样。
+
+"替身要扎得像，才能替得主。" 老人喃喃自语，"周文啊周文，你欠的债，让你的孙子来还。"`,
+        effects: {"sanity":-8,"yin":3},
+        choices: [{"text":"跳下去阻止他","next":"huimen_exp_paper_doll_craftsman","effects":{"yin":2}},{"text":"悄悄离开屋顶","next":"huimen_exp_village_street","effects":{"yin":1}}],
+    }
+,
+    huimen_exp_paper_shop_craftsman_memory: {
+        title: '扎纸匠的记忆',
+        text: `你再次来到纸扎铺，老人还在糊纸人。
+
+这次他没有抬头，只是自顾自地说："我年轻时，也爱过一个人。"
+
+你停下脚步。
+
+"她也是周家的'不祥女'，叫阿绣。她被沉塘那天，我躲在人群里，不敢出声。"
+
+"后来我开始扎纸人。每扎一个，我就当是给她扎一个替身。扎了三十年，她的魂还是没回来。"
+
+[red]原来扎纸匠不是周家的帮凶，也是周家的受害者。[/red]
+
+"你如果能救出秀兰，" 他说，"能不能也替我问问阿绣，她恨不恨我？"`,
+        effects: {"sanity":-5,"yin":2,"setFlag":"huimen_exp_knows_craftsman_past"},
+        choices: [{"text":"答应他","next":"huimen_exp_village_street","effects":{"yin":1}}],
+    }
+,
+    huimen_exp_paper_shop_doll_eyes: {
+        title: '纸眼',
+        text: `你再次进入纸扎铺，发现所有的纸人都在看着你。
+
+它们的眼睛是墨点的，但你感觉到它们的视线。你走到一个纸人面前，发现它的眼睛在转动。
+
+"你们为什么看我？" 你问。
+
+纸人们没有回答，但它们的嘴角开始上扬，露出和你一样的笑。
+
+"因为我们都是你。" 它们一起说，"你是我们，我们也是你。"
+
+[red]你忽然分不清，自己是人，还是纸人。[/red]
+
+你摸了摸自己的脸，皮肤是温热的。还好，你还是人。`,
+        effects: {"sanity":-10,"yin":3},
+        choices: [{"text":"把纸人的眼睛都涂上墨","next":"huimen_exp_paper_shop_doll_eyes_blind","effects":{"sanity":-5,"yin":-5}},{"text":"离开铺子","next":"huimen_exp_village_street","effects":{"yin":1}}],
+    }
+,
+    huimen_exp_paper_shop_doll_eyes_blind: {
+        title: '盲眼',
+        text: `你抓起朱砂，把纸人们的眼睛都涂黑了。
+
+纸人们开始尖叫："看不见了！看不见了！"
+
+"看不见就对了。" 你说，"你们不是人，不需要看见。"
+
+纸人们瘫倒在地，像被抽走了灵魂。铺子里安静下来，只有你的呼吸声。
+
+老人从柜台后面走出来，叹了口气："你断了它们的目，它们就不能再学你了。"
+
+"那就让它们别学我。" 你说。`,
+        effects: {"sanity":-5,"yin":-5},
+        choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
+    }
+};

@@ -139,6 +139,13 @@ export function resetState(storyId = null, keepGlobalFlags = true) {
     if (keepGlobalFlags) {
         Huimen.GameState.flags = { ...Huimen.GlobalFlags };
     }
+    if (Huimen.StoryConfig && Huimen.StoryConfig.defaultState) {
+        Object.entries(Huimen.StoryConfig.defaultState).forEach(([key, value]) => {
+            if (ALLOWED_UPDATE_KEYS.includes(key)) {
+                Huimen.GameState[key] = clone(value);
+            }
+        });
+    }
 }
 
 /**

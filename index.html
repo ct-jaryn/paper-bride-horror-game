@@ -123,6 +123,9 @@
                 <button id="record-btn" class="record-btn" title="选择记录" aria-label="选择记录">
                     <span aria-hidden="true">记</span>
                 </button>
+                <button id="pause-btn" class="record-btn" title="暂停" aria-label="暂停">
+                    <span aria-hidden="true">停</span>
+                </button>
             </header>
 
             <!-- 主文本区 -->
@@ -290,6 +293,20 @@
                 </div>
                 <div id="record-stats" class="record-stats"></div>
                 <div id="record-list" class="record-list"></div>
+            </div>
+        </div>
+
+        <!-- 暂停浮层 -->
+        <div id="pause-overlay" class="record-overlay hidden">
+            <div class="paper-texture"></div>
+            <div class="pause-content">
+                <h2 class="section-title">暂停</h2>
+                <p class="section-subtitle">阴阳暂停，因果待续</p>
+                <div class="pause-actions">
+                    <button id="pause-resume-btn" class="horror-btn">继续此局</button>
+                    <button id="pause-to-select-btn" class="horror-btn secondary">返回选卷</button>
+                    <button id="pause-to-title-btn" class="horror-btn secondary">返回封面</button>
+                </div>
             </div>
         </div>
 

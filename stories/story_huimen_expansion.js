@@ -16399,6 +16399,748 @@ StoryData.huimen_exp3_return_mainline = {
 };
 
 // ------------------------------------------------------------
+// 接入此前未引用的21个结局
+// ------------------------------------------------------------
+
+StoryData.huimen_exp_paper_doll_alt = {
+    title: '纸人堂',
+    text: `你走近那排纸人，发现其中一个空位。纸扎匠正在往那个空位上贴一张新的脸——眉眼分明，神情木然。
+
+那是你的脸。
+
+你想起村里的规矩：纸人替命。周家欠的债，需要一个活人来还。而你就是被选中的那个。
+
+你动弹不得。红绸花别上你的胸口，喜服披在你的肩上。
+
+李婆笑着对孩子们说："看，新郎官来了。"
+
+你也跟着笑。纸人是不会哭的。`,
+    choices: [
+        { text: '成为纸人', ending: 'paperDoll' }
+    ]
+};
+
+StoryData.huimen_exp_escape_aftermath = {
+    title: '归城',
+    text: `你翻过后山，沿着山路跑了一夜。天亮时，你看见了县城的轮廓。
+
+你买了最早的一班汽车票，回到城市。
+
+一切似乎回到了正轨。你上班，吃饭，睡觉。可你渐渐发现，自己不需要睡觉，也不需要吃饭。镜子里的人越来越苍白。
+
+某个深夜，你打开衣柜，发现一套叠得整整齐齐的大红喜服。喜服上别着你的照片，照片里的你，嘴角咧到耳根。
+
+[whisper]你跑出山村的那个身体，从来就不是你的。[/whisper]`,
+    choices: [
+        { text: '是时候回门了', ending: 'escapedButNot' }
+    ]
+},
+
+StoryData.huimen_exp_burn_dolls_alt = {
+    title: '焚偶',
+    text: `村口那两个纸扎人，一男一女，穿着大红喜服。
+
+你掏出打火机，点燃了他们的衣角。
+
+纸人在火中扭动，发出婴儿般的哭声。火光里，两个模糊的身影手拉着手，朝你鞠了一躬。
+
+"债还清了。"秀兰的声音从火中传来。
+
+村民们惊恐地看着你，却没人敢上前。`,
+    choices: [
+        { text: '让一切烧成灰', ending: 'hidden_paperDollBurned' }
+    ]
+},
+
+StoryData.huimen_exp_paper_offering_alt = {
+    title: '嫁妆',
+    text: `你走进纸扎铺，亲手给秀兰扎了一套嫁妆。
+
+纸轿子、纸衣裳、纸首饰、一对小小的纸鞋。你在每件东西上都写上"周氏秀兰"四个字。
+
+然后你把它们堆在村口，一把火烧了。
+
+火光里，秀兰穿上了那身纸嫁衣。她不再是浑身湿透的怨鬼，而是一个清清爽爽的新娘。
+
+"这是我第一次，堂堂正正地穿上嫁衣。"她说。`,
+    choices: [
+        { text: '送她出嫁', ending: 'huimen_exp_paper_offering' }
+    ]
+},
+
+// 井相关结局
+StoryData.huimen_exp_well_whisper_alt = {
+    title: '井语',
+    text: `你没有开棺，而是坐在井边，对着井水说话。
+
+"秀兰，我知道你能听见。我不是来娶你的，我是来听你说的。"
+
+井水开始翻涌。一个女子的声音从深处传来，平静地讲述她的一生：怎么认识祖父，怎么怀上孩子，怎么被周家人活埋。
+
+你打开手机录音。天亮后，你把这段录音交给了来村里调查的记者。`,
+    choices: [
+        { text: '让她的声音被听见', ending: 'hidden_wellWhisper' }
+    ]
+},
+
+StoryData.huimen_exp_well_truth_record = {
+    title: '井语成录',
+    text: `你在井边坐了一夜。
+
+秀兰的话很多，讲到天亮都没讲完。你用手机录下了所有——山里没信号，但录音功能还能用。
+
+三个月后，一篇报道登了出来：《山村冥婚三十年：一个被活埋女子的声音》。
+
+秀兰的名字第一次以受害者的身份出现在报纸上。她给你托梦，说："我终于不用只躺在井底说话了。"`,
+    choices: [
+        { text: '把录音保存一辈子', ending: 'huimen_exp_well_whisper_truth' }
+    ]
+},
+
+StoryData.huimen_exp_red_coffin_open_alt = {
+    title: '开棺',
+    text: `你打开了井底的红棺。
+
+里面没有尸体，只有一件叠得整整齐齐的嫁衣，和一个小小的纸人。纸人脸上画着秀兰的眉眼，胸口贴着你的生辰八字。
+
+你明白了：周家不仅想让你娶秀兰，还想让你成为她的替身。
+
+你把嫁衣和纸人一起烧了。火光中，秀兰的身影渐渐清晰，眼里有泪。
+
+"你救了自己，"她说，"也救了我。"`,
+    choices: [
+        { text: '结束替身', ending: 'hidden_redCoffinOpen' }
+    ]
+},
+
+// 周家与族谱结局
+StoryData.huimen_exp_zhou_curse_alt = {
+    title: '血脉',
+    text: `你跪在祠堂里，承认周家血脉里流的罪。
+
+秀兰和她的孩子终于解脱，但一道红光没入你的胸口。从今以后，你会在梦里不断回到那些山村、戏台、古墓，遇见一个又一个被周家害过的人。
+
+你是周家最后的血脉，也是周家最后的还债人。
+
+但你不再害怕。因为只要你不忘，那些亡魂就不会真正消失。`,
+    choices: [
+        { text: '接下这份债', ending: 'hidden_zhouCurse' }
+    ]
+},
+
+StoryData.huimen_exp_family_tree_alt = {
+    title: '新谱',
+    text: `你把周家族谱扔进了火盆。
+
+那本泛黄的册子里，每一页都写着周家男丁的名字，却没有一个女子。你看着它烧成灰，又亲手写了一份新的。
+
+新的族谱第一页，是秀兰的名字。第二页，是那个孩子的名字。后面才是周家的男人们。
+
+二叔想阻止你，但秀兰站在你身后，他不敢动。
+
+"从今天起，"你说，"周家欠她们的，一笔笔还。"`,
+    choices: [
+        { text: '重写族谱', ending: 'hidden_familyTreeAshes' }
+    ]
+},
+
+StoryData.huimen_exp_zhou_women_alt = {
+    title: '女名墙',
+    text: `你在老宅祠堂里找到了一面墙。墙上密密麻麻刻着很多名字：周氏秀兰、周氏柳红、周氏云袖……每一个都是周家害过的女子。
+
+你把她们的名字一个个抄下来，写成了一份长长的名单，贴在村口。
+
+村民们围过来看。有人说你疯了，有人看完后默默流泪。
+
+秀兰站在你身后，轻声说："原来我们不只是鬼，我们也是人。"
+
+"一直都是。"你说。`,
+    choices: [
+        { text: '让她们被看见', ending: 'hidden_zhouWomen' }
+    ]
+},
+
+// 嫁衣与红盖头
+StoryData.huimen_exp_bride_link_alt = {
+    title: '红嫁衣',
+    text: `你带走了柳红的嫁衣。
+
+两件红嫁衣叠在一起，一件写着"秀兰"，一件写着"柳红"。她们隔着时空，成了同命相连的姐妹。
+
+你离开山村后，把柳红的嫁衣交给了赶尸匠田小七。他看着嫁衣上的"柳"字，沉默了很久。
+
+"我会带她回家。"他说。`,
+    choices: [
+        { text: '让她们不再孤单', ending: 'hidden_brideLink' }
+    ]
+},
+
+StoryData.huimen_exp_bride_veil_alt = {
+    title: '盖头',
+    text: `你捡起了秀兰的红盖头。
+
+那盖头不是给你盖的，是给她自己盖的。她盖了三十年，因为死的时候，没有人愿意看她的脸。
+
+你轻轻掀开盖头，看见了一个清秀的姑娘，眼角有一颗小小的泪痣。
+
+"我好看吗？"她问。
+
+"好看。"你说。
+
+她把盖头收好，递给你："帮我烧了。我不想再盖着了。"`,
+    choices: [
+        { text: '烧了盖头', ending: 'hidden_brideVeil' }
+    ]
+},
+
+// 逃离与留下
+StoryData.huimen_exp_village_escape_alt = {
+    title: '离村',
+    text: `你没有回头，也没有成亲。
+
+你趁着夜色翻过后山，一路跑回城里。报了警，带着警察和记者回到村子。
+
+但村子已经空了。井还在，老宅还在，纸扎人还在，但村民都不见了。
+
+只有井边的青苔上，留着一双小小的红绣鞋印。
+
+秀兰没有跟你走，但也没有留你。她只是让你活着离开了。`,
+    choices: [
+        { text: '活下去', ending: 'hidden_villageEscape' }
+    ]
+},
+
+StoryData.huimen_exp_village_ghost_alt = {
+    title: '村中鬼',
+    text: `你终究没有走出村子。
+
+不是秀兰拦你，而是你自己停下了脚步。你渐渐习惯了纸钱的气味，习惯了白灯笼的光，习惯了每到子时便响起的唢呐。
+
+村民们看见你，会远远地鞠一躬，叫你"周家的守夜人"。
+
+你的手腕上系着一根红绳，红绳的另一端消失在雾里。有时候你自己也忘了，那端系着的到底是谁。
+
+很多年后，又一个年轻人回到山村。你站在纸人中间，朝他露出和其他纸人一样的笑。`,
+    choices: [
+        { text: '成为纸人中的一员', ending: 'huimen_exp_village_ghost' }
+    ]
+},
+
+StoryData.huimen_exp_forgotten_alt = {
+    title: '被遗忘的名字',
+    text: `你在山村里走了很多年。
+
+你记得自己姓周，记得秀兰，记得一口井。但你忘了自己为什么要回来，忘了自己有没有走出去。
+
+村里的石碑上刻满了名字，你找了很多遍，找不到自己的。
+
+秀兰告诉你："名字被纸人借走的人，是回不来的。"
+
+你低头看了看自己的手，发现手指正在变纸，变脆，变白。`,
+    choices: [
+        { text: '接受被遗忘', ending: 'huimen_exp_forgotten' }
+    ]
+},
+
+// 桑树、月光、青松
+StoryData.huimen_exp_mulberry_guard_alt = {
+    title: '桑树守灵',
+    text: `你决定留在老桑树下。
+
+桑树里封着秀兰的一缕头发。你握着那缕头发，感到她的怨念像蚕丝一样缠住你，却不勒紧。
+
+"你不走了？"她问。
+
+"不走了。"你说，"我替你守着，守到周家的债还清为止。"`,
+    choices: [
+        { text: '做守树人', ending: 'huimen_exp_mulberry_guard' }
+    ]
+},
+
+StoryData.huimen_exp_little_pine_alt = {
+    title: '青松',
+    text: `你在秀兰的坟旁种了一棵松树。
+
+那棵松树种下时只有筷子高，三年后却长得比你还高。村里人说，那棵树长得太快，不像凡间的树。
+
+每年清明，你都会在树下坐一会儿。风过时，松针沙沙作响，像是一个女子在低声说话。
+
+有一天，你在树下捡到一片松针，上面缠着一根细细的红绳。`,
+    choices: [
+        { text: '把红绳埋回土里', ending: 'hidden_littlePine' }
+    ]
+},
+
+StoryData.huimen_exp_moon_pact_alt = {
+    title: '月约',
+    text: `秀兰提出一个条件：她不要你娶她，只要你每年七月半来陪她坐一夜。
+
+你答应了。
+
+那一夜没有红嫁衣，没有纸人，只有你和秀兰坐在井边，看月亮从东山升到西山。
+
+"我现在算嫁人了吗？"你问。
+
+她笑了："算吧。嫁给月光了。"`,
+    choices: [
+        { text: '明年再见', ending: 'hidden_moonPact' }
+    ]
+},
+
+// 纸门与鬼孩
+StoryData.huimen_exp_gate_of_paper_alt = {
+    title: '纸门',
+    text: `你把老宅的门拆了下来，换成了一扇纸门。
+
+纸门上画着秀兰的像，旁边写着："周氏秀兰，明媒正娶。"
+
+村里人都不敢从这扇门走，说会撞邪。但你每天都从纸门下进出，风雨无阻。
+
+一年后，纸门没有烂，反而变得更加鲜艳。秀兰的像也越来越清晰。
+
+有一天，你出门时，听见她在门后说："周家的门，终于为我开了。"`,
+    choices: [
+        { text: '为她开门', ending: 'hidden_gateOfPaper' }
+    ]
+},
+
+StoryData.huimen_exp_little_boy_friend_alt = {
+    title: '鬼孩伴行',
+    text: `你答应陪小鬼玩一夜。
+
+你们踢了纸毽子，放了纸船，在井边数星星。小鬼说他叫"元宝"，是秀兰当年未出世的孩子分出来的一缕魂。
+
+"姐姐太苦了。"元宝说，"你帮她，我就帮你。"
+
+天亮时，元宝化作一道青光钻进你的影子里。`,
+    choices: [
+        { text: '带他一起走', ending: 'huimen_exp_little_boy_friend' }
+    ]
+},
+
+// 真结局·回门续章
+StoryData.huimen_exp_redemption_loop_alt = {
+    title: '回门续章',
+    text: `你牵着秀兰的手，沿着月光小路走出山村。
+
+她没有盖头，没有血泪，只是一个沉默的姑娘。你把她带到后山，和无字碑一起，重新立了一座新碑。
+
+碑上刻着："周氏秀兰之墓。民国三年生，民国二十三年卒。周家后人立。"
+
+秀兰看着那行字，忽然笑了："原来回门，是真的可以回家的。"
+
+她化作红光消散前，把一枚金戒指放在你手心。`,
+    choices: [
+        { text: '带她回家', ending: 'huimen_exp_redemption_loop' }
+    ]
+},
+
+// ============================================================
+// 游戏时长扩展：时辰 / 调查 / 道具 / 谜题 四大机制
+// ============================================================
+
+// ===== 时辰推进系统 =====
+StoryData.shichen_hai_entry = {
+    title: '亥时 · 入夜',
+    text: `村口的雾气更浓了。
+
+你抬头看天，月亮已经偏西。山村里没有钟，但你本能地感觉到——时辰变了。
+
+[faded]戌时已过，亥时降临。[/faded]
+
+李婆的白灯笼在雾中一晃，不见了踪影。老槐树上的纸人被风吹得沙沙作响，像是在交头接耳。
+
+[whisper]亥时，阴阳交替。活人开始困倦，亡者开始清醒。[/whisper]
+
+你摸了摸口袋里的东西，决定接下来的每一步都要更谨慎。`,
+    effects: { time: 60, setFlag: 'shichen_hai' },
+    choices: [
+        { text: '继续往老宅走', next: 'to_old_house' },
+        { text: '先调查一下村口', next: 'huimen_exp_village_street' }
+    ]
+};
+
+StoryData.shichen_zi_entry = {
+    title: '子时 · 魂醒',
+    text: `一阵阴冷的风从井口方向吹来。
+
+你忽然意识到，子时已到。
+
+山村里所有的白灯笼同时亮了起来，照得纸钱像雪片一样飞舞。远处传来一声唢呐，凄厉得不像人间能发出的声音。
+
+[faded]子时，万鬼苏醒。[/faded]
+
+秀兰就在这一片唢呐声里，第一次真正"出现"了——不是纸人，不是风声，而是井口一缕缓缓升起的红衣。
+
+你感到手腕上的脉搏，和某种更古老的心跳，渐渐重合。`,
+    effects: { time: 60, setFlag: 'shichen_zi', yin: 10 },
+    choices: [
+        { text: '靠近井口', next: 'huimen_exp_well_night' },
+        { text: '退回老宅', next: 'to_old_house', effects: { sanity: -5 } }
+    ]
+};
+
+StoryData.shichen_chou_entry = {
+    title: '丑时 · 真相',
+    text: `子时三刻的唢呐声停了。
+
+但村子并没有安静下来。相反，你听见无数细碎的声音从四面八方涌来——祠堂里的牌位在轻微颤动，纸扎铺里的纸人在轻轻拍手，老宅房梁上的灰尘簌簌落下。
+
+[faded]丑时，真相浮出。[/faded]
+
+你忽然明白，这个村子里所有被掩盖的东西，都会在丑时露出破绽。族谱、契约、井底的棺材、还有那些被抹去的女子名字——它们都在等你去发现。
+
+你只剩下寅时之前的这段时间了。`,
+    effects: { time: 60, setFlag: 'shichen_chou', sanity: -5 },
+    choices: [
+        { text: '去祠堂查族谱', next: 'huimen_exp_ancestral_hall' },
+        { text: '去纸扎铺找线索', next: 'huimen_exp_paper_shop' },
+        { text: '去井底开棺', next: 'approach_coffin' }
+    ]
+};
+
+StoryData.shichen_yin_entry = {
+    title: '寅时 · 黎明之前',
+    text: `天边泛起一丝极淡的鱼肚白，但山村依然笼罩在浓雾里。
+
+[faded]寅时，是一夜中最黑暗的时刻，也是离黎明最近的时刻。[/faded]
+
+你感到秀兰的气息就在身边。她的执念、她的怨恨、她未了的心愿，都在这一刻凝聚成了最后的提问。
+
+"周家后人，"她的声音不再飘忽，而是清晰得像在你耳边，"你要怎么还这笔债？"
+
+你只有这一个机会了。`,
+    effects: { time: 60, setFlag: 'shichen_yin', yin: 15 },
+    choices: [
+        { text: '答应娶她，完成冥婚', next: 'approach_coffin' },
+        { text: '帮她讨回公道', next: 'huimen_exp_ancestral_women_wall' },
+        { text: '带她离开山村', next: 'huimen_exp_moonlit_escape' }
+    ]
+};
+
+// ===== 调查取证系统：关键线索 =====
+StoryData.investigate_old_house = {
+    title: '老宅调查',
+    text: `你决定暂时不进灵堂，而是在老宅四周细细查看。
+
+院墙的青苔里嵌着半块碎瓷，瓷片上画着一个"囍"字，但"喜"字的下半部分被人用指甲抠掉了。窗台下有一小堆燃尽的纸灰，你用手拨开，发现里面藏着一张烧焦的纸条，只剩几个字：
+
+[faded]"……秀兰……井……活埋……"[/faded]
+
+正房的门缝里，塞着一本破旧的日记。你抽出来，是祖父的字迹。最后一页写着：
+
+[faded]"我对不起秀兰。她怀的是周家的孩子，可爹说周家不能有这种丑事。我眼睁睁看着她被推进井里，一个字也没敢说。"[/faded]
+
+你的手指开始发抖。`,
+    effects: { sanity: -10, yin: 5, addItem: '祖父日记残页', setFlag: 'knows_xiulan_truth' },
+    choices: [
+        { text: '把日记收好，继续调查', next: 'investigate_items_hub' },
+        { text: '直接去灵堂', next: 'to_old_house' }
+    ]
+};
+
+StoryData.investigate_paper_dolls = {
+    title: '纸人调查',
+    text: `你蹲下身，仔细查看那两个纸扎人。
+
+男纸人的骨架是用竹篾扎的，很普通。但女纸人的骨架里，却混着一缕真正的头发——黑色的、柔软的、属于活人的头发。
+
+你强忍着恶心，用指甲划开女纸人的腹部。纸壳里掉出一张折叠得很小的黄纸，上面用朱砂写着生辰八字。
+
+[faded]"癸丑年七月初七，周氏秀兰。"[/faded]
+
+这是秀兰的八字。周家把她的八字封在纸人里，是要让她生生世世替周家挡灾。
+
+你在纸人脚下还发现了一小截红绳，绳结是同心结，但被剪断了。`,
+    effects: { sanity: -15, yin: 10, addItem: '秀兰生辰八字', addItem: '断同心结红绳', setFlag: 'paper_doll_investigated' },
+    choices: [
+        { text: '烧掉这个纸人', next: 'huimen_exp_burn_dolls_alt' },
+        { text: '把红绳收好', next: 'to_old_house' }
+    ]
+};
+
+StoryData.investigate_well = {
+    title: '井边调查',
+    text: `你趴在井口，借着手电光往里看。
+
+井水很深，但出奇地清澈。你看见井壁上刻满了字，都是同一个名字，被刻了一遍又一遍：
+
+[faded]"秀兰秀兰秀兰……"[/faded]
+
+刻痕有新有旧，最旧的一道已经风化，最新的一道却像是刚刻上去的——可谁会在井壁上刻字？
+
+井沿上放着一只锈迹斑斑的铁钩，钩尖缠着几根长发。你把头发取下来，发现发根处还连着一小块头皮。
+
+[red]这不是自然脱落的头发。这是被人生生扯下来的。[/red]
+
+井水里忽然泛起一圈涟漪，像是有人在深处叹了口气。`,
+    effects: { sanity: -12, yin: 12, addItem: '井壁长发', setFlag: 'well_investigated' },
+    choices: [
+        { text: '继续下井查看', next: 'huimen_exp_well_night' },
+        { text: '退后，去别处调查', next: 'huimen_exp_village_street' }
+    ]
+};
+
+StoryData.investigate_ancestral_hall = {
+    title: '祠堂调查',
+    text: `你绕到祠堂后面，发现一面被牌匾遮住的墙。
+
+搬开牌匾，墙上密密麻麻刻着很多女子的名字。每一个名字前面都刻着"周氏"，但没有生卒年月，只有一个"埋"字。
+
+秀兰的名字在倒数第三行。她下面还有两个名字：周氏柳红、周氏云袖。
+
+[faded]周家百年，不知埋了多少女子。[/faded]
+
+墙脚有一堆碎瓷片，你拼了一会儿，发现是一只摔碎的碗，碗底印着"庚申年聘"四个字。
+
+你忽然意识到，这不是普通的墙。这是周家的"债墙"——每一个被周家害死的女子，名字都被刻在这里，用来镇住她们的魂。`,
+    effects: { sanity: -15, yin: 15, addItem: '族谱碎片一', addItem: '债墙拓片', setFlag: 'debt_wall_found' },
+    choices: [
+        { text: '用石头把这些名字凿下来', next: 'huimen_exp_zhou_women_alt' },
+        { text: '把拓片收好', next: 'huimen_exp_ancestral_hall' }
+    ]
+};
+
+StoryData.investigate_paper_shop = {
+    title: '纸扎铺调查',
+    text: `你推开纸扎铺的门，里面堆满了未完工的纸人。
+
+柜台后面的架子上，摆着一本泛黄的账册。你翻开，发现每一页都记录着周家订做的纸人：
+
+[faded]"民国三年，周家订纸新娘一具，内填秀兰发一束。"[/faded]
+
+[faded]"民国十二年，周家订纸童一具，内填柳红甲一片。"[/faded]
+
+[faded]"民国二十三年，周家订纸女一具，内填云袖衣一角。"[/faded]
+
+每一具纸人，都对应着一个被周家害死的女子。她们的一部分被填进纸人里，替周家挡灾、还债、守墓。
+
+你在账册最后一页，发现了一张夹在里面的契约——周家与纸扎铺的百年契约。`,
+    effects: { sanity: -10, yin: 8, addItem: '周家纸人契约', addItem: '族谱碎片二', setFlag: 'paper_shop_investigated' },
+    choices: [
+        { text: '烧了这张契约', ending: 'hidden_paperDollBurned' },
+        { text: '带契约去祠堂对质', next: 'huimen_exp_ancestral_hall' }
+    ]
+};
+
+StoryData.investigate_mulberry_tree = {
+    title: '桑树调查',
+    text: `你围着老桑树转了几圈，发现树干上有一道细长的裂缝。
+
+裂缝里塞着一团东西，你小心翼翼抠出来——是一缕用红绳扎着的头发，头发已经干枯发白，但还能看出曾经乌黑过。
+
+红绳上系着一个小木牌，刻着"秀兰"两个字。
+
+[faded]这是秀兰被活埋前，被周家人从她头上剪下来的。他们把头发封在桑树里，是要借桑树的"丧"音，把她的魂永远困在村子里。[/faded]
+
+你在树根处还发现了几枚铜钱，排成一个奇怪的图案。那是镇魂钱。
+
+你把这些东西都收了起来。`,
+    effects: { sanity: -8, yin: 10, addItem: '桑树中的头发', addItem: '镇魂铜钱', setFlag: 'mulberry_investigated' },
+    choices: [
+        { text: '把头发和红绳一起烧掉', next: 'huimen_exp_mulberry_guard_alt' },
+        { text: '在树下磕头', next: 'huimen_exp_moonlit_grave' }
+    ]
+};
+
+StoryData.investigate_ruins = {
+    title: '戏台废墟调查',
+    text: `你在青石戏台的废墟里翻找。
+
+烧焦的木梁下，压着半块残破的戏牌，上面写着"春香班"三个字。戏牌旁边有一支银簪子，簪头雕着一朵牡丹。
+
+[faded]云袖的簪子。[/faded]
+
+你忽然想起守夜人故事里那个叫云袖的旦角。她死在戏台大火里，后来被周生移入青石河。她的簪子怎么会在这里？
+
+废墟深处，你还发现了一块刻着字的石碑。碑文记载：周家祖上曾与春香班有过一场"纸人换命"的交易——周家用一具纸人，换云袖为周家挡一次大灾。
+
+[faded]原来周家的债，从百年前就开始了。[/faded]`,
+    effects: { sanity: -12, yin: 10, addItem: '云袖银簪', addItem: '周家百年债碑拓片', setFlag: 'ruins_investigated' },
+    choices: [
+        { text: '去祠堂把债碑和族谱对照', next: 'huimen_exp_ancestral_hall' },
+        { text: '把银簪带到井边', next: 'huimen_exp_well_night' }
+    ]
+};
+
+// 调查汇总节点
+StoryData.investigate_items_hub = {
+    title: '线索整理',
+    text: `你找了个背风的角落，把收集到的线索一一摊开。
+
+祖父日记、秀兰生辰八字、井壁长发、债墙拓片、周家契约、桑树头发、云袖银簪、族谱碎片……
+
+这些线索拼凑出一个可怕的真相：周家百年来一直在用女子的命抵债。秀兰不是第一个，也不会是最后一个。
+
+[red]除非你终结它。[/red]
+
+你感到肩上的重量。你不仅是回门的周家后人，也可能是唯一能让这些女子安息的人。`,
+    effects: { sanity: -5, yin: 5, setFlag: 'clues_assembled' },
+    choices: [
+        { text: '去祠堂烧毁族谱', next: 'huimen_exp_family_tree_alt', condition: { hasItem: '族谱碎片一', hasItem: '族谱碎片二' } },
+        { text: '去井底开棺', next: 'approach_coffin' },
+        { text: '去纸扎铺终结契约', ending: 'hidden_paperDollBurned', condition: { hasItem: '周家纸人契约' } }
+    ]
+};
+
+// ===== 道具与生存资源系统 =====
+StoryData.safe_house = {
+    title: '老宅偏房 · 安全屋',
+    text: `你推开老宅西侧一间偏僻的小屋。
+
+屋里很干净，像是有人定期打扫。桌上摆着几支没点过的香烛，墙角堆着一小袋糯米，窗台上还压着几张黄纸符。
+
+[faded]这是历代周家守夜人用来"歇脚"的地方。[/faded]
+
+你关上门，坐在椅子上。屋外的一切喧嚣都被隔绝了。你可以在这里点一支香烛，吃一把糯米，让紧绷的神经稍稍放松。
+
+但你不能一直躲着。天快亮了，你必须在天亮前做出选择。`,
+    effects: { yin: -5 },
+    choices: [
+        { text: '点香烛恢复理智', next: 'safe_house_candle', condition: { lacksItem: '香烛' }, effects: { addItem: '香烛' } },
+        { text: '吃糯米压阴气', next: 'safe_house_nuomi', condition: { lacksItem: '糯米' }, effects: { addItem: '糯米' } },
+        { text: '拿护身符防身', next: 'safe_house_talisman', condition: { lacksItem: '护身符' }, effects: { addItem: '护身符' } },
+        { text: '休息够了，继续行动', next: 'to_old_house' }
+    ]
+};
+
+StoryData.safe_house_candle = {
+    title: '烛光',
+    text: `你点燃一支香烛。
+
+火苗很小，但意外地稳定。橙黄色的光照着你疲惫的脸，你感到理智在慢慢回流。
+
+[whisper]香烛是活人的火。鬼怕火，人也靠火找回自己。[/whisper]
+
+你吹灭蜡烛，把剩下的收好。`,
+    effects: { sanity: 20, time: 15 },
+    choices: [
+        { text: '离开安全屋', next: 'to_old_house' }
+    ]
+};
+
+StoryData.safe_house_nuomi = {
+    title: '糯米',
+    text: `你抓了一把生糯米塞进嘴里。
+
+米很硬，嚼起来涩涩的，但咽下去之后，你感到胸口那股阴冷的气散了一些。
+
+[faded]糯米压阴，这是老规矩。[/faded]
+
+你又装了一小袋糯米随身带着。`,
+    effects: { yin: -15, time: 10 },
+    choices: [
+        { text: '离开安全屋', next: 'to_old_house' }
+    ]
+};
+
+StoryData.safe_house_talisman = {
+    title: '护身符',
+    text: `你拿起一张黄纸符。
+
+符上的朱砂画着你看不懂的图案，但摸起来有一种奇异的温度，不像纸，更像人皮。
+
+你把护身符折好，贴身收着。它也许能在关键时刻替你挡一次灾。`,
+    effects: { sanity: 10, addItem: '护身符' },
+    choices: [
+        { text: '离开安全屋', next: 'to_old_house' }
+    ]
+};
+
+// 道具使用场景示例
+StoryData.use_talisman_ghost = {
+    title: '护身',
+    text: `一个纸人突然朝你扑来！
+
+你下意识摸出护身符挡在面前。纸人撞到符上，发出一声刺耳的尖叫，像被火烧到一样缩了回去。
+
+但护身符也瞬间变成了黑色，碎成几片飘落。
+
+[faded]它替你挡了一次。[/faded]`,
+    effects: { sanity: -5, removeItem: '护身符', yin: -10 },
+    choices: [
+        { text: '趁机会逃走', next: 'huimen_exp_village_street' }
+    ]
+};
+
+// ===== 谜题锁系统 =====
+StoryData.old_house_door_locked = {
+    title: '老宅门锁',
+    text: `老宅的大门紧闭。
+
+门上没有锁孔，只有两个凹陷下去的巴掌印，像是有人曾用力拍过门。门缝里塞着一张黄纸，纸上写着：
+
+[faded]"周家后人，以血以名，方可入门。"[/faded]
+
+你想起在纸人腹中发现的生辰八字。秀兰的八字——癸丑年七月初七。
+
+也许，这就是开门的"名"。`,
+    effects: { yin: 5 },
+    choices: [
+        { text: '把秀兰的生辰八字按在门印上', next: 'to_old_house', condition: { hasItem: '秀兰生辰八字' }, effects: { removeItem: '秀兰生辰八字', setFlag: 'old_house_unlocked' } },
+        { text: '用血涂抹门印', next: 'to_old_house', effects: { sanity: -10, yin: 10, setFlag: 'old_house_unlocked_blood' } },
+        { text: '绕到后院翻墙', next: 'to_old_house', effects: { sanity: -5 } }
+    ]
+};
+
+StoryData.red_coffin_locked = {
+    title: '红棺封印',
+    text: `井底的红棺被七根红绳捆着，每根红绳都系着一枚铜钱。
+
+棺盖上刻着一行字：
+
+[faded]"开棺需以情丝为引，以照魂为镜。"[/faded]
+
+你摸了摸口袋里的断同心结红绳和云袖银簪——不对，云袖银簪是照魂的吗？
+
+也许，你还需要找到一面镜子。`,
+    effects: { yin: 10 },
+    choices: [
+        { text: '用红绳和铜镜一起解封', next: 'open_red_coffin', condition: { hasItem: '断同心结红绳', hasItem: '云袖银簪' }, effects: { removeItem: '断同心结红绳', removeItem: '云袖银簪', setFlag: 'red_coffin_unlocked' } },
+        { text: '强行扯断红绳', ending: 'hidden_redCoffinOpen' },
+        { text: '放弃开棺', next: 'huimen_exp_well_night' }
+    ]
+};
+
+StoryData.family_tree_puzzle = {
+    title: '族谱拼图',
+    text: `你手中的族谱碎片只有三张，拼起来刚好是一页。
+
+第一片记载着周家男丁的姓名和生卒。第二片记载着每一代"纸新娘"的名字，但都被朱砂划掉了。第三片是空白，只在角落有一行小字：
+
+[faded]"女不入谱，以纸代之。"[/faded]
+
+你把三张碎片按顺序拼好，族谱上浮现出一个完整的名单——周家百年来所有被活埋、被纸替的女子名字。
+
+[faded]秀兰、柳红、云袖……还有更多你不知道的名字。[/faded]`,
+    effects: { sanity: -15, yin: 10, setFlag: 'family_tree_complete' },
+    choices: [
+        { text: '把完整的族谱带走', next: 'huimen_exp_family_tree_alt' },
+        { text: '把族谱碎片贴回祠堂墙上', next: 'huimen_exp_zhou_women_alt' },
+        { text: '烧了族谱，终结契约', ending: 'hidden_paperDollBurned', condition: { hasItem: '周家纸人契约' } }
+    ]
+};
+
+// ===== 真结局守门：阴阳簿记录者 =====
+StoryData.true_ending_gate = {
+    title: '阴阳簿',
+    text: `你集齐了所有线索，也做出了最后的选择。
+
+秀兰站在你面前，不再是浑身湿透的怨鬼，而是一个穿着红嫁衣、眼角有泪痣的姑娘。
+
+"周家后人，"她问，"你愿意成为阴阳簿的记录者吗？"
+
+"记录者？"
+
+"记录我们这些被遗忘的人。"她说，"不是超度，不是复仇，只是记住。只要有人记得，我们就不是白白的死。"`,
+    effects: { sanity: 10, yin: -20 },
+    choices: [
+        { text: '我答应你', ending: 'hidden_perfect_redemption', condition: { flag: 'clues_assembled' } },
+        { text: '我会把你的故事写下来', ending: 'huimen_exp_redemption_loop', condition: { flag: 'clues_assembled' } }
+    ]
+};
+
+// ------------------------------------------------------------
 // 将新入口注入现有场景
 // ------------------------------------------------------------
 
@@ -16468,12 +17210,199 @@ StoryData.ask_coffin.choices.push({
     effects: { yin: -3 }
 });
 
+// ===== 此前未引用结局的入口注入 =====
+StoryData.inspect_paper_dolls.choices.push({
+    text: '那个空位上的纸人，脸画得很像自己',
+    next: 'huimen_exp_paper_doll_alt'
+});
+StoryData.huimen_exp_moonlit_escape.choices.push({
+    text: '逃回城市，假装一切没发生过',
+    next: 'huimen_exp_escape_aftermath'
+});
+StoryData.huimen_exp_paper_doll_chase.choices.push({
+    text: '追上那个纸人，把它和同伴一起烧了',
+    next: 'huimen_exp_burn_dolls_alt'
+});
+StoryData.huimen_exp_paper_shop.choices.push({
+    text: '亲手给秀兰扎一套纸嫁妆',
+    next: 'huimen_exp_paper_offering_alt'
+});
+StoryData.huimen_exp_well_night.choices.push({
+    text: '坐在井边，听她说',
+    next: 'huimen_exp_well_whisper_alt'
+});
+StoryData.huimen_exp_well_night.choices.push({
+    text: '打开手机录音，把她说的话录下来',
+    next: 'huimen_exp_well_truth_record'
+});
+StoryData.approach_coffin.choices.push({
+    text: '打开井底的红棺',
+    next: 'huimen_exp_red_coffin_open_alt'
+});
+StoryData.huimen_exp_ancestral_hall.choices.push({
+    text: '跪在祖宗牌位前，承认周家的罪',
+    next: 'huimen_exp_zhou_curse_alt'
+});
+StoryData.find_family_tree.choices.push({
+    text: '把族谱烧了，重写一份',
+    next: 'huimen_exp_family_tree_alt'
+});
+StoryData.huimen_exp_ancestral_women_wall.choices.push({
+    text: '把这些名字抄下来，贴在村口',
+    next: 'huimen_exp_zhou_women_alt'
+});
+StoryData.huimen_exp_village_street_bride_parade.choices.push({
+    text: '带走柳红的嫁衣',
+    next: 'huimen_exp_bride_link_alt'
+});
+StoryData.huimen_exp2_xiulan_memory_wedding_unveil.choices.push({
+    text: '轻轻掀开秀兰的盖头',
+    next: 'huimen_exp_bride_veil_alt'
+});
+StoryData.run_away_coffin.choices.push({
+    text: '头也不回地离开村子',
+    next: 'huimen_exp_village_escape_alt'
+});
+StoryData.huimen_exp_village_street.choices.push({
+    text: '在村里住下来，渐渐习惯这里的一切',
+    next: 'huimen_exp_village_ghost_alt'
+});
+StoryData.huimen_exp_village_street.choices.push({
+    text: '在村中寻找自己的名字，却越来越迷失',
+    next: 'huimen_exp_forgotten_alt'
+});
+StoryData.huimen_exp_mulberry_tree.choices.push({
+    text: '留在桑树下，替她守灵',
+    next: 'huimen_exp_mulberry_guard_alt'
+});
+StoryData.huimen_exp_moonlit_grave.choices.push({
+    text: '在秀兰坟旁种一棵松树',
+    next: 'huimen_exp_little_pine_alt'
+});
+StoryData.huimen_exp_moonlit_path_end.choices.push({
+    text: '答应她每年七月半来陪她看月亮',
+    next: 'huimen_exp_moon_pact_alt'
+});
+StoryData.to_old_house.choices.push({
+    text: '把老宅的门换成一扇纸门',
+    next: 'huimen_exp_gate_of_paper_alt'
+});
+StoryData.huimen_exp_play_with_boy.choices.push({
+    text: '答应陪他玩一夜，然后带他走',
+    next: 'huimen_exp_little_boy_friend_alt'
+});
+StoryData.huimen_exp3_return_mainline.choices.push({
+    text: '牵着秀兰的手，沿着月光小路走出山村',
+    next: 'huimen_exp_redemption_loop_alt',
+    condition: { hasItem: '秀兰的骨殖' },
+    hidden: true
+});
+
 StoryData.to_old_house.choices.push({
     text: '村街尽头有块石碑，刻着"入村者三，出村者一"',
     next: 'huimen_exp3_loop_stone',
     condition: { yinAbove: 8 },
     hidden: true,
     effects: { yin: 1 }
+});
+
+// ------------------------------------------------------------
+// 游戏时长扩展：时辰 / 调查 / 道具 / 谜题 入口注入
+// ------------------------------------------------------------
+
+// 时辰推进：在关键节点根据 time 进入时辰过渡场景
+StoryData.prologue.choices.push({
+    text: '感觉时辰已晚，先在村口整理思绪',
+    next: 'shichen_hai_entry',
+    condition: { timeAfter: 1200 },
+    hidden: true,
+    effects: { time: 30 }
+});
+StoryData.to_old_house.choices.push({
+    text: '子时将至，去井边看看',
+    next: 'shichen_zi_entry',
+    condition: { timeAfter: 1350 },
+    hidden: true,
+    effects: { time: 30 }
+});
+StoryData.huimen_exp_well_night.choices.push({
+    text: '丑时到了，该去揭开真相',
+    next: 'shichen_chou_entry',
+    condition: { timeAfter: 1500 },
+    hidden: true,
+    effects: { time: 30 }
+});
+StoryData.huimen_exp_ancestral_hall.choices.push({
+    text: '寅时将近，是时候做最后抉择',
+    next: 'shichen_yin_entry',
+    condition: { timeAfter: 1620 },
+    hidden: true,
+    effects: { time: 30 }
+});
+
+// 调查入口
+StoryData.to_old_house.choices.push({
+    text: '不进灵堂，先调查老宅',
+    next: 'investigate_old_house'
+});
+StoryData.inspect_paper_dolls.choices.push({
+    text: '拆开纸人，检查里面藏着什么',
+    next: 'investigate_paper_dolls'
+});
+StoryData.huimen_exp_well_night.choices.push({
+    text: '趴在井口做详细调查',
+    next: 'investigate_well'
+});
+StoryData.huimen_exp_ancestral_hall.choices.push({
+    text: '绕到祠堂后面查看',
+    next: 'investigate_ancestral_hall'
+});
+StoryData.huimen_exp_paper_shop.choices.push({
+    text: '搜查纸扎铺的柜台和账册',
+    next: 'investigate_paper_shop'
+});
+StoryData.huimen_exp_mulberry_tree.choices.push({
+    text: '仔细检查老桑树',
+    next: 'investigate_mulberry_tree'
+});
+StoryData.huimen_exp_ruins.choices.push({
+    text: '在废墟里翻找旧物',
+    next: 'investigate_ruins'
+});
+
+// 安全屋入口
+StoryData.to_old_house.choices.push({
+    text: '先去西侧偏房歇一歇',
+    next: 'safe_house'
+});
+
+// 谜题锁入口
+StoryData.prologue.choices.push({
+    text: '老宅大门似乎被什么东西封住了',
+    next: 'old_house_door_locked'
+});
+StoryData.approach_coffin.choices.push({
+    text: '红棺被红绳和铜钱封印着',
+    next: 'red_coffin_locked'
+});
+StoryData.find_family_tree.choices.push({
+    text: '族谱碎成几片，需要先拼起来',
+    next: 'family_tree_puzzle',
+    condition: { hasItem: '族谱碎片一', hasItem: '族谱碎片二' }
+});
+
+// 真结局守门
+StoryData.huimen_exp_ancestral_women_wall_rename.choices.push({
+    text: '一切已明，打开阴阳簿',
+    next: 'true_ending_gate',
+    condition: { flag: 'clues_assembled' },
+    hidden: true
+});
+StoryData.huimen_exp_redemption_loop_alt.choices.push({
+    text: '在带她走之前，先问她是否愿意成为记录',
+    next: 'true_ending_gate',
+    condition: { flag: 'clues_assembled' },
+    hidden: true
 });
 
 // ------------------------------------------------------------

@@ -1,0 +1,26 @@
+/* ===== 暂停浮层 ===== */
+
+.pause-content {
+    position: relative;
+    text-align: center;
+    max-width: 420px;
+    width: 100%;
+    padding: 2rem 1.5rem;
+    z-index: 1;
+}
+
+.pause-content .section-title {
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    margin-bottom: 0.5rem;
+}
+
+.pause-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-top: 1.75rem;
+}
+
+.pause-actions .horror-btn {
+    width: 100%;
+}

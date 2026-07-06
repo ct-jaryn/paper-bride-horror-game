@@ -49,6 +49,9 @@ export const Huimen = {
     // 故事清单（由 main.js 注入）
     StoryManifest: null,
 
+    // 当前故事配置（由 storyLoader.js 注入）
+    StoryConfig: null,
+
     // 公共 API（由各引擎模块注入）
     loadStory: null,
     showScreen: null,

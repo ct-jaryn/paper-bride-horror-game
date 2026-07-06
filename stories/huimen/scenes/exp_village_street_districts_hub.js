@@ -1,0 +1,48 @@
+/**
+ * 《回门》场景模块：exp_village_street_districts_hub
+ * 村街外围区域与深层地点聚合
+ */
+
+export const scenes = {
+    huimen_exp_village_street_districts_hub: {
+        title: '村外之路',
+        text: `你沿着村街向更深处走去。
+
+房屋越来越稀疏，雾气却越来越浓。路边开始出现一些你不认识的建筑：没有门牌的药铺、挂着褪色红绸的裁缝铺、半塌的学堂、长满青苔的河神石。
+
+[red]这些才是村子真正的脏腑。[/red]`,
+        effects: {"sanity":-3,"yin":2},
+        choices: [
+            {text:"去河边看看",next:"huimen_exp2_riverbank",effects:{yin:1}},
+            {text:"去祖坟地",next:"huimen_exp2_graveyard",effects:{yin:1}},
+            {text:"去稳婆家",next:"huimen_exp2_midwife_house",effects:{yin:1}},
+            {text:"去纸扎匠家",next:"huimen_exp2_paper_maker_house",effects:{yin:1}},
+            {text:"去盲婆婆家",next:"huimen_exp2_blind_granny_house",effects:{yin:1}},
+            {text:"去村长家",next:"huimen_exp2_village_head_house",condition:{flag:"huimen_exp2_heard_village_head_secret"},effects:{yin:1}},
+            {text:"去废弃厨房",next:"huimen_exp2_kitchen",effects:{yin:1}},
+            {text:"去粮仓",next:"huimen_exp2_granary",effects:{yin:1}},
+            {text:"去学堂遗址",next:"huimen_exp2_school",effects:{yin:1}},
+            {text:"走山路去后山",next:"huimen_exp2_mountain_path",effects:{yin:1}},
+            {text:"去孩子们玩耍的空地",next:"huimen_exp2_child_ghost_playground",effects:{yin:1}},
+            {text:"去牧童小屋",next:"huimen_exp2_cowherd_hut",effects:{yin:1}},
+            {text:"去药铺",next:"huimen_exp2_medicine_shop",effects:{yin:1}},
+            {text:"去裁缝铺",next:"huimen_exp2_tailor_shop",effects:{yin:1}},
+            {text:"去废弃祠堂",next:"huimen_exp2_abandoned_hall",effects:{yin:1}},
+            {text:"去老戏台看看",next:"huimen_exp2_old_theater",effects:{yin:1}},
+            {text:"去河神石那里",next:"huimen_exp2_river_god",effects:{yin:1}},
+            {text:"去那片像镜子的湖",next:"huimen_exp2_mirror_lake",effects:{yin:1}},
+            {text:"去无名碑林",next:"huimen_exp2_nameless_stones",effects:{yin:1}},
+            {text:"去老槐树下",next:"huimen_exp2_old_tree",effects:{yin:1}},
+            {text:"进入秀兰的记忆",next:"huimen_exp2_xiulan_memory_childhood",effects:{yin:1}},
+            {text:"进入秀兰的婚礼记忆",next:"huimen_exp2_xiulan_memory_wedding",effects:{yin:1}},
+            {text:"进入秀兰的井底记忆",next:"huimen_exp2_xiulan_memory_well",effects:{yin:1}},
+            {text:"去周家祖宅看看",next:"huimen_exp3_zhou_mansion_gate",effects:{yin:1}},
+            {text:"去王婆家",next:"huimen_exp3_granny_wang_house",effects:{yin:1}},
+            {text:"去李木匠铺",next:"huimen_exp3_carpenter_li_shop",effects:{yin:1}},
+            {text:"去族长家",next:"huimen_exp3_clan_head_house",effects:{yin:1}},
+            {text:"在村里住下来，渐渐习惯这里的一切",next:"huimen_exp_village_ghost_alt",condition:{yinAbove:25},effects:{yin:2}},
+            {text:"在村中寻找自己的名字，却越来越迷失",next:"huimen_exp_forgotten_alt",condition:{sanityBelow:20},effects:{sanity:-5,yin:3}},
+            {text:"回村街",next:"huimen_exp_village_street",effects:{yin:1}}
+        ],
+    }
+};

@@ -12,6 +12,7 @@ import { isTouchDevice } from './utils.js';
 import { showScreen, renderScene, renderStorySelect, renderAchievements, updateStatus, updateInventory } from './renderer.js';
 import { loadStory } from './storyLoader.js';
 import { Platform } from './platform.js';
+import { initPause } from './pauseManager.js';
 
 /**
  * 初始化游戏
@@ -107,6 +108,9 @@ export function initGame() {
             if (Huimen.openRecordOverlay) Huimen.openRecordOverlay();
         });
     }
+
+    // 绑定「暂停」按钮与暂停浮层
+    initPause();
 
     const recordClose = document.getElementById('record-close');
     if (recordClose) {
