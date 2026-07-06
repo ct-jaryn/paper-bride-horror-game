@@ -1,5 +1,6 @@
 /**
- * 《回门》场景模块：exp_xiulan_daily
+ * 《回门》场景模块：exp_xiulan_joy
+ * 秀兰的温馨日常互动
  */
 
 export const scenes = {
@@ -18,8 +19,7 @@ export const scenes = {
 你握紧了拳头。周家连一棵树都不放过。`,
         effects: {"sanity":5,"yin":-8,"removeItem":"桂花"},
         choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
+    },
     huimen_exp_xiulan_sing: {
         title: '秀兰唱戏',
         text: `你坐在井边，秀兰给你唱了一段戏。
@@ -37,8 +37,7 @@ export const scenes = {
 她笑得更开心了，像得到了全世界最好的夸奖。`,
         effects: {"sanity":5,"yin":-5},
         choices: [{"text":"让她再唱一段","next":"huimen_exp_xiulan_sing_more","effects":{"sanity":3,"yin":-3}},{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
+    },
     huimen_exp_xiulan_sing_more: {
         title: '秀兰再唱',
         text: `秀兰又唱了一段《惊梦》。
@@ -54,8 +53,7 @@ export const scenes = {
 秀兰点点头，脸上带着满足的笑。你忽然觉得，如果她能一直这样笑，该有多好。`,
         effects: {"sanity":5,"yin":-5,"setFlag":"huimen_exp_heard_xiulan_sing"},
         choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}},{"text":"和她一起唱完最后一段","ending":"huimen_exp_ending_sing_together","condition":{"flag":"huimen_exp_heard_xiulan_sing"},"effects":{"yin":-5}}],
-    }
-,
+    },
     huimen_exp_xiulan_dance: {
         title: '月下舞',
         text: `秀兰从井里出来，在月光下跳舞。
@@ -75,8 +73,7 @@ export const scenes = {
 [red]月光下，她的舞带着一种说不出的凄美。[/red]`,
         effects: {"sanity":5,"yin":-5},
         choices: [{"text":"鼓掌","next":"huimen_exp_xiulan_dance_clap","effects":{"sanity":3,"yin":-3}},{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
+    },
     huimen_exp_xiulan_dance_clap: {
         title: '鼓掌',
         text: `你鼓起掌来。
@@ -94,8 +91,7 @@ export const scenes = {
 秀兰点点头，身影渐渐淡去。你知道，她又回到了井里。但她的心情，似乎好了很多。`,
         effects: {"sanity":10,"yin":-10,"setFlag":"huimen_exp_xiulan_danced"},
         choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}},{"text":"邀请她再跳最后一支舞","ending":"huimen_exp_ending_last_dance","condition":{"flag":"huimen_exp_xiulan_danced"},"effects":{"yin":-5}}],
-    }
-,
+    },
     huimen_exp_xiulan_cook: {
         title: '桂花糕',
         text: `你想起秀兰想吃桂花糕的愿望。
@@ -115,8 +111,7 @@ export const scenes = {
 [red]你看着她满足的样子，心里又酸又软。[/red]`,
         effects: {"sanity":5,"yin":-5},
         choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
+    },
     huimen_exp_xiulan_sew: {
         title: '秀兰嫁衣',
         text: `你找到一块红布和针线，决定给秀兰做一件嫁衣。
@@ -132,8 +127,7 @@ export const scenes = {
 "你的手很笨。" 她说，"但你的心很细。"`,
         effects: {"sanity":10,"yin":-10,"setFlag":"huimen_exp_made_xiulan_dress"},
         choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
+    },
     huimen_exp_xiulan_school: {
         title: '学堂',
         text: `你带秀兰"去"了一趟学堂。
@@ -151,8 +145,7 @@ export const scenes = {
 秀兰笑了，那笑容里没有怨，只有对未来的向往。`,
         effects: {"sanity":5,"yin":-5},
         choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
+    },
     huimen_exp_xiulan_laugh: {
         title: '秀兰的笑',
         text: `你讲了一个很冷的笑话给秀兰听。
@@ -168,8 +161,7 @@ export const scenes = {
 "谢谢你。" 她说，"我死之前，也爱笑。死后三十年，今天才知道自己还能笑。"`,
         effects: {"sanity":5,"yin":-5},
         choices: [{"text":"再讲一个","next":"huimen_exp_xiulan_laugh_more","effects":{"sanity":3,"yin":-3}},{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
+    },
     huimen_exp_xiulan_laugh_more: {
         title: '再笑',
         text: `你又讲了一个更冷的笑话。
@@ -187,48 +179,7 @@ export const scenes = {
 秀兰抬起头，又笑了。这次笑得更久，更深。`,
         effects: {"sanity":10,"yin":-10,"setFlag":"huimen_exp_made_xiulan_laugh"},
         choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
-    huimen_exp_xiulan_angry: {
-        title: '秀兰的怒',
-        text: `你问秀兰："你恨周家吗？"
-
-秀兰的脸色变了。井里的水开始翻涌，像一锅沸腾的血。
-
-"恨？" 她说，"我恨了三十年。我恨周文的母亲，恨那些村民，恨周家的每一块砖。"
-
-"那你恨周文吗？"
-
-她愣了一下，然后低下头："恨。也不恨。我恨他没有救我，可我明白他救不了我。"
-
-[red]她的愤怒像井水一样汹涌，却也像井水一样深不见底。[/red]
-
-"你想让我不恨吗？" 她问。
-
-"不。" 你说，"你有权利恨。但别让恨把你永远困在这里。"`,
-        effects: {"sanity":-5,"yin":3},
-        choices: [{"text":"帮她发泄愤怒","next":"huimen_exp_xiulan_angry_release","effects":{"sanity":-5,"yin":-5}},{"text":"安静地陪她","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
-    huimen_exp_xiulan_angry_release: {
-        title: '泄愤',
-        text: `你捡起一块石头，递给秀兰。
-
-"砸吧。" 你说，"把井壁砸碎，把恨都砸出来。"
-
-秀兰接过石头——不，是阴气凝成的石头——砸向井壁。
-
-"砰！砰！砰！" 每一声都像是三十年的控诉。
-
-井壁上的符咒开始剥落，井水开始变清。秀兰砸了整整一百下，直到阴气耗尽，瘫坐在井底。
-
-"够了。" 她说，"我不想再砸了。"
-
-你坐在井沿，陪着她。天边的月亮，似乎亮了一些。`,
-        effects: {"sanity":5,"yin":-10,"setFlag":"huimen_exp_xiulan_anger_released"},
-        choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
+    },
     huimen_exp_xiulan_hope: {
         title: '秀兰的愿',
         text: `秀兰问你："外面的世界，女孩子真的可以自己做主吗？"
@@ -246,8 +197,7 @@ export const scenes = {
 "好。" 你说，"下辈子，我们做朋友。"`,
         effects: {"sanity":10,"yin":-10},
         choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
+    },
     huimen_exp_xiulan_flower_2: {
         title: '再献花',
         text: `你又摘了一朵桂花，放在井沿。

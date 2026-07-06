@@ -84,7 +84,8 @@ import { scenes as exp_wellScenes } from './scenes/exp_well.js';
 import { scenes as exp_womenScenes } from './scenes/exp_women.js';
 import { scenes as exp_xiulanScenes } from './scenes/exp_xiulan.js';
 import { scenes as exp_xiulan_bondScenes } from './scenes/exp_xiulan_bond.js';
-import { scenes as exp_xiulan_dailyScenes } from './scenes/exp_xiulan_daily.js';
+import { scenes as exp_xiulan_angerScenes } from './scenes/exp_xiulan_anger.js';
+import { scenes as exp_xiulan_joyScenes } from './scenes/exp_xiulan_joy.js';
 import { scenes as exp_xiulan_memoryScenes } from './scenes/exp_xiulan_memory.js';
 import { scenes as ghostScenes } from './scenes/ghost.js';
 import { scenes as mainScenes } from './scenes/main.js';
@@ -187,7 +188,8 @@ export const StoryData = {
     ...exp_womenScenes,
     ...exp_xiulanScenes,
     ...exp_xiulan_bondScenes,
-    ...exp_xiulan_dailyScenes,
+    ...exp_xiulan_angerScenes,
+    ...exp_xiulan_joyScenes,
     ...exp_xiulan_memoryScenes,
     ...ghostScenes,
     ...mainScenes,

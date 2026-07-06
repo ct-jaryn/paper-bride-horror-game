@@ -18,7 +18,10 @@ import { scenes as memoryEntryScenes } from './scenes/memory_entry.js';
 import { scenes as memoryFireScenes } from './scenes/memory_fire.js';
 import { scenes as nightScenes } from './scenes/night.js';
 import { scenes as paperScenes } from './scenes/paper.js';
-import { scenes as patrolScenes } from './scenes/patrol.js';
+import { scenes as patrolEntryScenes } from './scenes/patrol_entry.js';
+import { scenes as patrolHallFiveScenes } from './scenes/patrol_hall_five.js';
+import { scenes as patrolHallOneScenes } from './scenes/patrol_hall_one.js';
+import { scenes as patrolHallThreeScenes } from './scenes/patrol_hall_three.js';
 import { scenes as prologueScenes } from './scenes/prologue.js';
 import { scenes as promiseScenes } from './scenes/promise.js';
 import { scenes as ritualScenes } from './scenes/ritual.js';
@@ -50,7 +53,10 @@ export const StoryData = {
     ...memoryFireScenes,
     ...nightScenes,
     ...paperScenes,
-    ...patrolScenes,
+    ...patrolEntryScenes,
+    ...patrolHallFiveScenes,
+    ...patrolHallOneScenes,
+    ...patrolHallThreeScenes,
     ...prologueScenes,
     ...promiseScenes,
     ...ritualScenes,
