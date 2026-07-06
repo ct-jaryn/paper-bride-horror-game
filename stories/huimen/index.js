@@ -43,7 +43,9 @@ import { scenes as exp3_loopScenes } from './scenes/exp3_loop.js';
 import { scenes as exp3_mainScenes } from './scenes/exp3_main.js';
 import { scenes as exp3_xiulanScenes } from './scenes/exp3_xiulan.js';
 import { scenes as exp3_xiulan_memoryScenes } from './scenes/exp3_xiulan_memory.js';
-import { scenes as exp3_zhou_mansionScenes } from './scenes/exp3_zhou_mansion.js';
+import { scenes as exp3_zhou_mansionCellarScenes } from './scenes/exp3_zhou_mansion_cellar.js';
+import { scenes as exp3_zhou_mansionCourtyardScenes } from './scenes/exp3_zhou_mansion_courtyard.js';
+import { scenes as exp3_zhou_mansionEntryScenes } from './scenes/exp3_zhou_mansion_entry.js';
 import { scenes as exp_ancestralScenes } from './scenes/exp_ancestral.js';
 import { scenes as exp_coffinScenes } from './scenes/exp_coffin.js';
 import { scenes as exp_creatureScenes } from './scenes/exp_creature.js';
@@ -144,7 +146,9 @@ export const StoryData = {
     ...exp3_mainScenes,
     ...exp3_xiulanScenes,
     ...exp3_xiulan_memoryScenes,
-    ...exp3_zhou_mansionScenes,
+    ...exp3_zhou_mansionCellarScenes,
+    ...exp3_zhou_mansionCourtyardScenes,
+    ...exp3_zhou_mansionEntryScenes,
     ...exp_ancestralScenes,
     ...exp_coffinScenes,
     ...exp_creatureScenes,

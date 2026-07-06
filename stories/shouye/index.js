@@ -14,7 +14,8 @@ import { scenes as investigationScenes } from './scenes/investigation.js';
 import { scenes as legacyScenes } from './scenes/legacy.js';
 import { scenes as lineageScenes } from './scenes/lineage.js';
 import { scenes as makeupScenes } from './scenes/makeup.js';
-import { scenes as memoryScenes } from './scenes/memory.js';
+import { scenes as memoryEntryScenes } from './scenes/memory_entry.js';
+import { scenes as memoryFireScenes } from './scenes/memory_fire.js';
 import { scenes as nightScenes } from './scenes/night.js';
 import { scenes as paperScenes } from './scenes/paper.js';
 import { scenes as patrolScenes } from './scenes/patrol.js';
@@ -45,7 +46,8 @@ export const StoryData = {
     ...legacyScenes,
     ...lineageScenes,
     ...makeupScenes,
-    ...memoryScenes,
+    ...memoryEntryScenes,
+    ...memoryFireScenes,
     ...nightScenes,
     ...paperScenes,
     ...patrolScenes,
