@@ -3,7 +3,7 @@
  * 纯 Node 环境运行，不依赖浏览器 API
  */
 
-import { getShichen, checkCondition, checkGameOver, SHICHEN } from '../js/engine/effectEngine.js';
+import { getShichen, checkCondition, checkGameOver, applyEffects, SHICHEN } from '../js/engine/effectEngine.js';
 import { Huimen } from '../js/engine/namespace.js';
 
 let passed = 0;
@@ -91,6 +91,42 @@ assert('未触发结局 -> null', checkGameOver() === null);
 Huimen.GameState.sanity = originalSanity;
 Huimen.GameState.yin = originalYin;
 Huimen.GameState.time = originalTime;
+
+console.log('测试 applyEffects');
+Huimen.GameState.sanity = 80;
+Huimen.GameState.yin = 20;
+Huimen.GameState.inventory = [];
+Huimen.GameState.flags = {};
+
+applyEffects({ sanity: -10, yin: 5 });
+assert('applyEffects: sanity 减少', Huimen.GameState.sanity === 70);
+assert('applyEffects: yin 增加', Huimen.GameState.yin === 25);
+
+applyEffects({ addItem: '铜钱' });
+assert('applyEffects: 单个 addItem', Huimen.GameState.inventory.includes('铜钱'));
+
+applyEffects({ addItem: ['红线', '铜镜碎片'] });
+assert('applyEffects: 数组 addItem 第一项', Huimen.GameState.inventory.includes('红线'));
+assert('applyEffects: 数组 addItem 第二项', Huimen.GameState.inventory.includes('铜镜碎片'));
+
+applyEffects({ addItem: '铜钱' });
+assert('applyEffects: 重复 addItem 不重复', Huimen.GameState.inventory.filter(i => i === '铜钱').length === 1);
+
+applyEffects({ removeItem: '铜钱' });
+assert('applyEffects: removeItem', !Huimen.GameState.inventory.includes('铜钱'));
+
+applyEffects({ setFlag: 'met_xiulan' });
+assert('applyEffects: 单个 setFlag', Huimen.GameState.flags.met_xiulan === true);
+
+applyEffects({ setFlag: ['rescued', 'forgiven'] });
+assert('applyEffects: 数组 setFlag 第一项', Huimen.GameState.flags.rescued === true);
+assert('applyEffects: 数组 setFlag 第二项', Huimen.GameState.flags.forgiven === true);
+
+applyEffects({ clearFlag: 'met_xiulan' });
+assert('applyEffects: clearFlag', Huimen.GameState.flags.met_xiulan === undefined);
+
+applyEffects(null);
+assert('applyEffects: null 安全', true);
 
 console.log(`\n测试完成: 通过 ${passed}, 失败 ${failed}`);
 if (failed > 0) process.exit(1);
