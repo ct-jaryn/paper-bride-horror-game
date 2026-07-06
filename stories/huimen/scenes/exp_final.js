@@ -2,10 +2,10 @@
  * 《回门》场景模块：exp_final
  */
 
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
 export const scenes = {
-    huimen_exp_final_confrontation: {
-        title: '最终对质',
-        text: `你回到村中央，那里站着周家所有的祖先。
+    huimen_exp_final_confrontation: createScene('huimen_exp_final_confrontation', {title:'最终对质',text:`你回到村中央，那里站着周家所有的祖先。
 
 他们的身影模糊，却带着压迫感。最老的那个祖先走上前："你闹够了没有？"
 
@@ -15,14 +15,8 @@ export const scenes = {
 
 [red]你终于听到了真相：周家的兴旺，是踩着女人的尸骨堆起来的。[/red]
 
-"那周家就完了。" 你说，"从今天起，周家不再靠女人续命。"`,
-        effects: {"sanity":-10,"yin":5},
-        choices: [{"text":"用族谱和她们谈判","next":"huimen_exp_final_choice","condition":{"hasItem":"周家秘录"},"effects":{"yin":-5}},{"text":"直接冲过去","ending":"huimen_exp_ancestor_judge","effects":{"sanity":-10,"yin":5}}],
-    }
-,
-    huimen_exp_final_choice: {
-        title: '抉择',
-        text: `你翻开周家秘录，当着所有祖先的面，把记载女子罪名的那一页撕了下来。
+"那周家就完了。" 你说，"从今天起，周家不再靠女人续命。"`,effects:{"sanity":-10,"yin":5},choices:[createChoice({"text":"用族谱和她们谈判","next":"huimen_exp_final_choice","condition":{"hasItem":"周家秘录"},"effects":{"yin":-5}}),createChoice({"text":"直接冲过去","ending":"huimen_exp_ancestor_judge","effects":{"sanity":-10,"yin":5}})]}),
+    huimen_exp_final_choice: createScene('huimen_exp_final_choice', {title:'抉择',text:`你翻开周家秘录，当着所有祖先的面，把记载女子罪名的那一页撕了下来。
 
 "周家的债，我来还。" 你说，"但你们欠她们的清白，我现在就还给她们。"
 
@@ -32,14 +26,8 @@ export const scenes = {
 
 祖先们的身影开始颤抖、扭曲，最后化为灰烬。
 
-[red]周家的诅咒，从你这一代，彻底终结。[/red]`,
-        effects: {"sanity":20,"yin":-20,"removeItem":"周家秘录","setFlag":"huimen_exp_ended_zhou_curse"},
-        choices: [{"text":"带秀兰离开","next":"huimen_exp_redemption_loop","effects":{"yin":-5}}],
-    }
-,
-    huimen_exp_final_goodbye: {
-        title: '终别',
-        text: `你决定带秀兰离开。
+[red]周家的诅咒，从你这一代，彻底终结。[/red]`,effects:{"sanity":20,"yin":-20,"removeItem":"周家秘录","setFlag":"huimen_exp_ended_zhou_curse"},choices:[createChoice({"text":"带秀兰离开","next":"huimen_exp_redemption_loop","effects":{"yin":-5}})]}),
+    huimen_exp_final_goodbye: createScene('huimen_exp_final_goodbye', {title:'终别',text:`你决定带秀兰离开。
 
 天快亮了，村子开始崩塌。纸人化为灰烬，红绳断裂，囍字褪色。你牵着秀兰的手，沿着村口的小路往外走。
 
@@ -53,14 +41,8 @@ export const scenes = {
 
 你们走出村口，第一缕阳光照在你们身上。秀兰的身影开始变淡，但她的笑容很真。
 
-"谢谢你。" 她说，"我终于可以走了。"`,
-        effects: {"sanity":20,"yin":-20},
-        ending: 'huimen_exp_redemption_loop',
-    }
-,
-    huimen_exp_final_hug: {
-        title: '终幕拥抱',
-        text: `你张开双臂，对秀兰说："我能抱你一下吗？"
+"谢谢你。" 她说，"我终于可以走了。"`,effects:{"sanity":20,"yin":-20},ending:'huimen_exp_redemption_loop'}),
+    huimen_exp_final_hug: createScene('huimen_exp_final_hug', {title:'终幕拥抱',text:`你张开双臂，对秀兰说："我能抱你一下吗？"
 
 秀兰愣住了："你不怕？"
 
@@ -74,8 +56,5 @@ export const scenes = {
 
 你抱得更紧了一些。
 
-"你不会再孤单了。" 你说，"无论结局如何，我都在这里。"`,
-        effects: {"sanity":15,"yin":-15,"setFlag":"huimen_exp_hugged_xiulan"},
-        choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
+"你不会再孤单了。" 你说，"无论结局如何，我都在这里。"`,effects:{"sanity":15,"yin":-15,"setFlag":"huimen_exp_hugged_xiulan"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]})
 };

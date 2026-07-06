@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《heniang》场景模块：refuse
  */
 
 export const scenes = {
-    refuse_deceive: {
-        title: '拒绝欺骗',
-        text: `你决定不骗秀姑。
+  refuse_deceive: createScene('refuse_deceive', {
+    title: '拒绝欺骗',
+    text: `你决定不骗秀姑。
 
 你带着找到的几块骨头来到河边，对水里喊："秀姑阿姨，我找到你的骨头了。我不打算烧，也不打算骗你。我只想知道，我妈是不是自愿跟你走的。"
 
@@ -20,29 +21,30 @@ export const scenes = {
 母亲看着你，眼里有泪："你回去吧。好好活着。"
 
 秀姑却说："你每年来看看我们就行。不用下来。"`,
-        effects: {
-            sanity: -10,
-            yin: -10,
-            setFlag: 'honestApproach'
-        },
-        choices: [
-            {
-                text: '接受母亲的决定',
-                ending: 'peacefulParting'
-            },
-            {
-                text: '拒绝接受，想办法救她',
-                next: 'search_for_other_way'
-            },
-            {
-                text: '你听过水下合唱，知道她们不是不想走，是没人渡',
-                next: 'ferryman_path',
-                condition: { flag: 'heardUnderwaterChorus' },
-                hidden: true,
-                effects: { sanity: -5, yin: 10 }
-            }
-        ]
+    effects: {
+      sanity: -10,
+      yin: -10,
+      setFlag: 'honestApproach'
     },
+    choices: [createChoice({
+      text: '接受母亲的决定',
+      ending: 'peacefulParting'
+    }), createChoice({
+      text: '拒绝接受，想办法救她',
+      next: 'search_for_other_way'
+    }), createChoice({
+      text: '你听过水下合唱，知道她们不是不想走，是没人渡',
+      next: 'ferryman_path',
+      condition: {
+        flag: 'heardUnderwaterChorus'
+      },
+      hidden: true,
+      effects: {
+        sanity: -5,
+        yin: 10
+      }
+    })]
+  })
 
-    // 渡河人（新增隐藏分支）
+  // 渡河人（新增隐藏分支）
 };

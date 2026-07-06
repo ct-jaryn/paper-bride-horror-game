@@ -2,10 +2,10 @@
  * 《回门》场景模块：exp_street_mirror
  */
 
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
 export const scenes = {
-    huimen_exp_street_mirror: {
-        title: '雾镜',
-        text: `雾中出现一面镜子。
+    huimen_exp_street_mirror: createScene('huimen_exp_street_mirror', {title:'雾镜',text:`雾中出现一面镜子。
 
 镜子很大，立在街道中央，镜框是朱红色的，刻着龙凤。你走近，发现镜子里映出的不是你，而是秀兰。
 
@@ -17,14 +17,8 @@ export const scenes = {
 
 "那你告诉我，" 她说，"我好看吗？"
 
-镜子里的她没有盖头，脸色苍白，但眉眼清秀。你忽然发现，如果她活着，应该是个很好看的姑娘。`,
-        effects: {"sanity":-5,"yin":2},
-        choices: [{"text":"说好看","next":"huimen_exp_street_mirror_praise","effects":{"sanity":3,"yin":-3}},{"text":"沉默","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
-    huimen_exp_street_mirror_praise: {
-        title: '镜笑',
-        text: `你说："好看。"
+镜子里的她没有盖头，脸色苍白，但眉眼清秀。你忽然发现，如果她活着，应该是个很好看的姑娘。`,effects:{"sanity":-5,"yin":2},choices:[createChoice({"text":"说好看","next":"huimen_exp_street_mirror_praise","effects":{"sanity":3,"yin":-3}}),createChoice({"text":"沉默","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_street_mirror_praise: createScene('huimen_exp_street_mirror_praise', {title:'镜笑',text:`你说："好看。"
 
 秀兰愣了一下，然后笑了。她笑得很浅，像是一朵刚开的花。
 
@@ -34,8 +28,5 @@ export const scenes = {
 
 "我会记得你的。" 她说，"你也别忘了我。"
 
-镜子"咔"地一声裂了，裂痕正好把你的脸和秀兰的脸分开。`,
-        effects: {"sanity":10,"yin":-8,"setFlag":"huimen_exp_praised_xiulan"},
-        choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
+镜子"咔"地一声裂了，裂痕正好把你的脸和秀兰的脸分开。`,effects:{"sanity":10,"yin":-8,"setFlag":"huimen_exp_praised_xiulan"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]})
 };

@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：notice
  */
 
 export const scenes = {
-    notice_parents: {
-        title: '回避',
-        text: `你强迫自己冷静，观察母亲的表情。
+  notice_parents: createScene('notice_parents', {
+    title: '回避',
+    text: `你强迫自己冷静，观察母亲的表情。
 
 她说话时，目光一直躲闪，不敢直视你的眼睛。她的手在围裙上反复擦着同一个位置——那是她紧张时才会有的动作。
 
@@ -22,20 +23,17 @@ export const scenes = {
 "纸人用的是我的八字。" 你说，"它替我承受的灾病，是不是转嫁到爸身上了？"
 
 母亲的脸色瞬间惨白。她没有否认。`,
-        effects: {
-            sanity: -5,
-            yin: 5,
-            setFlag: 'noticedParentsStrange'
-        },
-        choices: [
-            {
-                text: '追问真相',
-                next: 'ask_how_long'
-            },
-            {
-                text: '进屋直接问父亲',
-                next: 'see_father'
-            }
-        ]
-    }
+    effects: {
+      sanity: -5,
+      yin: 5,
+      setFlag: 'noticedParentsStrange'
+    },
+    choices: [createChoice({
+      text: '追问真相',
+      next: 'ask_how_long'
+    }), createChoice({
+      text: '进屋直接问父亲',
+      next: 'see_father'
+    })]
+  })
 };

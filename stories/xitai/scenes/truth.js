@@ -1,11 +1,12 @@
+import { createScene } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：truth
  */
 
 export const scenes = {
-    truth_for_yunxiu: {
-        title: '云袖的真相',
-        text: `你走到台前，云袖正在等。
+  truth_for_yunxiu: createScene('truth_for_yunxiu', {
+    title: '云袖的真相',
+    text: `你走到台前，云袖正在等。
 
 "我知道真相了。" 你说，"放火的是刘掌柜，不是周生。周生想救你，但他没能做到。"
 
@@ -26,11 +27,11 @@ export const scenes = {
 [red]原来她等的，从不是复仇，是这句道歉。[/red]
 
 戏台上的红灯笼全部熄灭。当晨光再次照进戏台时，你看见戏台废墟上，一对穿戏服的身影手牵着手，慢慢走远。`,
-        effects: {
-            sanity: 20,
-            yin: -30,
-            setFlag: 'yunxiuForgiven'
-        },
-        ending: 'hidden_trueWord'
-    }
+    effects: {
+      sanity: 20,
+      yin: -30,
+      setFlag: 'yunxiuForgiven'
+    },
+    ending: 'hidden_trueWord'
+  })
 };

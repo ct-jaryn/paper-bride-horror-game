@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：forgetting
  */
 
 export const scenes = {
-    forgetting_self: {
-        title: '忘我',
-        text: `你和纸人的记忆混在一起，像两杯水倒进同一个碗。
+  forgetting_self: createScene('forgetting_self', {
+    title: '忘我',
+    text: `你和纸人的记忆混在一起，像两杯水倒进同一个碗。
 
 你想起小时候父亲教你放风筝，却记不清放风筝的人是你，还是站在院子里看的那个"你"。
 
@@ -18,23 +19,20 @@ export const scenes = {
 你望向窗玻璃，那里面映出的不是你的脸，而是纸人的脸。
 
 它正在对你笑。`,
-        effects: {
-            sanity: -25,
-            yin: 20
-        },
-        choices: [
-            {
-                text: '大喊自己的真名',
-                next: '',
-                ending: 'hidden_trueName'
-            },
-            {
-                text: '放弃辨认，任由纸壳覆盖全身',
-                next: '',
-                ending: 'hidden_whoAmI'
-            }
-        ]
+    effects: {
+      sanity: -25,
+      yin: 20
     },
+    choices: [createChoice({
+      text: '大喊自己的真名',
+      next: '',
+      ending: 'hidden_trueName'
+    }), createChoice({
+      text: '放弃辨认，任由纸壳覆盖全身',
+      next: '',
+      ending: 'hidden_whoAmI'
+    })]
+  })
 
-    // 青石镇周氏纸扎铺分支
+  // 青石镇周氏纸扎铺分支
 };

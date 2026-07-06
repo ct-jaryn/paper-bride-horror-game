@@ -34,5 +34,8 @@ jobs:
       - name: Test scene factory
         run: node tools/test_scene_factory.mjs
 
+      - name: Test effect engine
+        run: node tools/test_effect_engine.mjs
+
       - name: Browser DOM smoke test
         run: NODE_PATH=$(npm root -g) node tools/test_browser_boot.cjs

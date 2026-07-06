@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《heniang》场景模块：look
  */
 
 export const scenes = {
-    look_old_photos: {
-        title: '翻看老照片',
-        text: `你回到老屋，翻母亲的遗物。
+  look_old_photos: createScene('look_old_photos', {
+    title: '翻看老照片',
+    text: `你回到老屋，翻母亲的遗物。
 
 在一个铁盒里，你找到一叠老照片。照片里，年轻时的母亲和一个穿红衣服的姑娘站在一起。姑娘梳着两条辫子，笑得很甜。
 
@@ -18,15 +19,13 @@ export const scenes = {
 [faded]"莲姐，我要走了。这世上的苦，我受够了。河娘说水底下暖和，我去了。你要好好活着，把孩子养大。"[/faded]
 
 [red]原来秀姑是主动成为河娘的。[/red]`,
-        effects: {
-            sanity: -10,
-            setFlag: 'foundLetter'
-        },
-        choices: [
-            {
-                text: '带着信去河边',
-                next: 'walk_riverbank'
-            }
-        ]
-    }
+    effects: {
+      sanity: -10,
+      setFlag: 'foundLetter'
+    },
+    choices: [createChoice({
+      text: '带着信去河边',
+      next: 'walk_riverbank'
+    })]
+  })
 };

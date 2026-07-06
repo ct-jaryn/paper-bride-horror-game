@@ -18,10 +18,12 @@
  * @param {Function} [options.onEnter] - 进入场景时执行的副作用
  * @returns {object} 场景对象
  */
-export function createScene(id, { title, text, effects, choices, cg, onEnter, ending }) {
+export function createScene(id, { title, text, effects, choices, condition, hallucination, cg, onEnter, ending }) {
     const scene = { id, title, text };
     if (effects) scene.effects = effects;
     if (choices) scene.choices = choices;
+    if (condition) scene.condition = condition;
+    if (hallucination) scene.hallucination = hallucination;
     if (cg) scene.cg = cg;
     if (onEnter) scene.onEnter = onEnter;
     if (ending) scene.ending = ending;
@@ -43,6 +45,8 @@ export function createScene(id, { title, text, effects, choices, cg, onEnter, en
  * @param {Function} [options.hideIf] - 隐藏条件
  * @param {string} [options.npc] - 进入的 NPC 对话 id
  * @param {string} [options.npcNode] - NPC 对话节点
+ * @param {boolean} [options.danger] - 是否为危险选项
+ * @param {boolean} [options.exit] - 是否为退出选项
  * @returns {object} 选择对象
  */
 export function createChoice({
@@ -58,7 +62,9 @@ export function createChoice({
     hidden,
     npc,
     npcNode,
-    custom
+    custom,
+    danger,
+    exit
 }) {
     const choice = { text };
     if (next) choice.next = next;
@@ -73,5 +79,7 @@ export function createChoice({
     if (npc) choice.npc = npc;
     if (npcNode) choice.npcNode = npcNode;
     if (custom !== undefined) choice.custom = custom;
+    if (danger !== undefined) choice.danger = danger;
+    if (exit) choice.exit = exit;
     return choice;
 }

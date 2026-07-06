@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：memory
  */
 
 export const scenes = {
-    memory_exchange: {
-        title: '换忆',
-        text: `你伸出手，按在纸人胸口的黄符上。
+  memory_exchange: createScene('memory_exchange', {
+    title: '换忆',
+    text: `你伸出手，按在纸人胸口的黄符上。
 
 "你想感受我？"它问。
 
@@ -20,21 +21,18 @@ export const scenes = {
 "原来你这么难过。"它说。
 
 [whisper]你忽然分不清，流泪的到底是谁。[/whisper]`,
-        effects: {
-            sanity: -15,
-            yin: 10
-        },
-        choices: [
-            {
-                text: '继续握着不放，让记忆流尽',
-                next: 'forgetting_self'
-            },
-            {
-                text: '用打火机点燃黄符',
-                next: '',
-                ending: 'hidden_phoenixDoll',
-                danger: true
-            }
-        ]
-    }
+    effects: {
+      sanity: -15,
+      yin: 10
+    },
+    choices: [createChoice({
+      text: '继续握着不放，让记忆流尽',
+      next: 'forgetting_self'
+    }), createChoice({
+      text: '用打火机点燃黄符',
+      next: '',
+      ending: 'hidden_phoenixDoll',
+      danger: true
+    })]
+  })
 };

@@ -15,6 +15,8 @@ const scene = createScene('test_scene', {
     text: '这是测试文本',
     effects: { sanity: -5 },
     choices: [{ text: '选择', next: 'next_scene' }],
+    condition: { hasItem: 'coin' },
+    hallucination: '幻觉文本',
     cg: 'test_cg'
 });
 assertEqual(scene.id, 'test_scene', 'scene should have id');
@@ -22,6 +24,8 @@ assertEqual(scene.title, '测试场景', 'scene should have title');
 assertEqual(scene.text, '这是测试文本', 'scene should have text');
 assertEqual(scene.effects, { sanity: -5 }, 'scene should have effects');
 assertEqual(scene.choices.length, 1, 'scene should have choices');
+assertEqual(scene.condition, { hasItem: 'coin' }, 'scene should have condition');
+assertEqual(scene.hallucination, '幻觉文本', 'scene should have hallucination');
 assertEqual(scene.cg, 'test_cg', 'scene should have cg');
 assertEqual(scene.onEnter, undefined, 'scene should not have onEnter if not provided');
 
@@ -47,7 +51,9 @@ const choice = createChoice({
     npc: 'npc_id',
     npcNode: 'start',
     custom: true,
-    hidden: true
+    hidden: true,
+    danger: true,
+    exit: true
 });
 assertEqual(choice.text, '测试选择', 'choice should have text');
 assertEqual(choice.next, 'next', 'choice should have next');
@@ -57,6 +63,8 @@ assertEqual(choice.npc, 'npc_id', 'choice should have npc');
 assertEqual(choice.npcNode, 'start', 'choice should have npcNode');
 assertEqual(choice.custom, true, 'choice should have custom');
 assertEqual(choice.hidden, true, 'choice should have hidden');
+assertEqual(choice.danger, true, 'choice should have danger');
+assertEqual(choice.exit, true, 'choice should have exit');
 assertEqual(choice.ending, undefined, 'choice should not have ending if not provided');
 
 console.log('sceneFactory tests passed');

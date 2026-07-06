@@ -1,11 +1,12 @@
+import { createScene } from '../../../js/engine/sceneFactory.js';
 /**
  * 《heniang》场景模块：agree
  */
 
 export const scenes = {
-    agree_sing_thirty: {
-        title: '答应唱三十年',
-        text: `"好，我答应你。" 你说，"每年七月半，我来给你唱歌。唱三十年。"
+  agree_sing_thirty: createScene('agree_sing_thirty', {
+    title: '答应唱三十年',
+    text: `"好，我答应你。" 你说，"每年七月半，我来给你唱歌。唱三十年。"
 
 秀姑想了想："我要听那支曲子。水底下常有一个穿红戏服的女子唱，我听了一遍就忘不掉。"她轻轻哼了两句，调子婉转凄切——
 
@@ -26,10 +27,10 @@ export const scenes = {
 [red]你哭了。[/red]
 
 秀姑牵着母亲的手，慢慢沉入水底。河水恢复了平静。`,
-        effects: {
-            sanity: -15,
-            yin: -10
-        },
-        ending: 'thirtyYearsSong'
-    }
+    effects: {
+      sanity: -15,
+      yin: -10
+    },
+    ending: 'thirtyYearsSong'
+  })
 };

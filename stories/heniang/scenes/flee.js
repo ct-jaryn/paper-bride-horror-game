@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《heniang》场景模块：flee
  */
 
 export const scenes = {
-    flee_river: {
-        title: '逃离河边',
-        text: `你转身就跑。
+  flee_river: createScene('flee_river', {
+    title: '逃离河边',
+    text: `你转身就跑。
 
 但河水像是有意识一样，突然涨了起来，漫过你的脚踝。你感到有无数只冰冷的手在抓你的脚。
 
@@ -14,16 +15,14 @@ export const scenes = {
 [red]这个季节，河里根本没有花。[/red]
 
 你瘫坐在地上，大口喘气。`,
-        effects: {
-            sanity: -20,
-            yin: 15,
-            visual: 'shake'
-        },
-        choices: [
-            {
-                text: '去找神婆想办法',
-                next: 'find_shenpo'
-            }
-        ]
-    }
+    effects: {
+      sanity: -20,
+      yin: 15,
+      visual: 'shake'
+    },
+    choices: [createChoice({
+      text: '去找神婆想办法',
+      next: 'find_shenpo'
+    })]
+  })
 };

@@ -2,10 +2,10 @@
  * 《回门》场景模块：main_confront
  */
 
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
 export const scenes = {
-    shadow_in_corner: {
-        title: '暗角之人',
-        text: `你强迫自己冷静，目光扫过堂屋每一个角落。
+    shadow_in_corner: createScene('shadow_in_corner', {title:'暗角之人',text:`你强迫自己冷静，目光扫过堂屋每一个角落。
 
 烛火把跪在棺材前的叔伯婶娘的影子投在墙上，像一群弯曲的问号。但你发现，在棺材左侧的暗角里，还有一团影子。
 
@@ -17,14 +17,8 @@ export const scenes = {
 
 你不敢回答。你想起母亲说过的话：在山里，有些问题一旦回答，就再也走不掉了。
 
-那团影子见你不答，慢慢地、慢慢地沉进了地板缝里，只留下一缕潮湿的、像是从井底带上来的腥气。`,
-        effects: {"sanity":-10,"yin":5,"setFlag":"saw_corner_shadow"},
-        choices: [{"text":"告诉亲戚们角落里有人","next":"ask_coffin","effects":{"sanity":-10}},{"text":"假装没看见，继续观察棺材","next":"approach_coffin"}],
-    }
-,
-    ask_who_are_you: {
-        title: '你是谁',
-        text: `水里的女子沉默了很久。
+那团影子见你不答，慢慢地、慢慢地沉进了地板缝里，只留下一缕潮湿的、像是从井底带上来的腥气。`,effects:{"sanity":-10,"yin":5,"setFlag":"saw_corner_shadow"},choices:[createChoice({"text":"告诉亲戚们角落里有人","next":"ask_coffin","effects":{"sanity":-10}}),createChoice({"text":"假装没看见，继续观察棺材","next":"approach_coffin"})]}),
+    ask_who_are_you: createScene('ask_who_are_you', {title:'你是谁',text:`水里的女子沉默了很久。
 
 "我？" 她终于开口，声音像是从很远的地方传来，"我是秀兰。是你周家欠了三十年的一条命。也是……你今晚会变成的样子。"
 
@@ -34,14 +28,8 @@ export const scenes = {
 
 你忽然想起小时候祖母说过的话："周家男丁心口都有痣，那是祖上留下的印记。"
 
-[red]原来，从你一出生，他们就知道你会回来。[/red]`,
-        effects: {"sanity":-25,"yin":10},
-        choices: [{"text":"用井水泼向铜镜","next":"mirror_well"}],
-    }
-,
-    ask_really_me: {
-        title: '真的是我',
-        text: `四婶摇摇头，不再说话。
+[red]原来，从你一出生，他们就知道你会回来。[/red]`,effects:{"sanity":-25,"yin":10},choices:[createChoice({"text":"用井水泼向铜镜","next":"mirror_well"})]}),
+    ask_really_me: createScene('ask_really_me', {title:'真的是我',text:`四婶摇摇头，不再说话。
 
 她把你带到一间偏房，锁上了门。
 
@@ -49,14 +37,8 @@ export const scenes = {
 
 你听见门外传来唢呐声，凄厉婉转，不像喜乐，更像丧乐。
 
-窗缝里塞进一张红纸，上面是你的生辰八字。`,
-        effects: {"time":60,"yin":5},
-        choices: [{"text":"翻窗逃走","next":"break_window"},{"text":"等待机会","next":"wait_chance"}],
-    }
-,
-    wait_chance: {
-        title: '等到子时',
-        text: `你等到了子时。
+窗缝里塞进一张红纸，上面是你的生辰八字。`,effects:{"time":60,"yin":5},choices:[createChoice({"text":"翻窗逃走","next":"break_window"}),createChoice({"text":"等待机会","next":"wait_chance"})]}),
+    wait_chance: createScene('wait_chance', {title:'等到子时',text:`你等到了子时。
 
 门外传来脚步声，还有重物拖过地面的声音。
 
@@ -64,14 +46,8 @@ export const scenes = {
 
 "新郎官，上轿吧。" 二叔说。
 
-你注意到，他的手腕上，红绳已经勒进了骨头里。`,
-        effects: {"yin":15,"time":120},
-        choices: [{"text":"反抗","next":"resist_marriage","ending":"sacrificed"},{"text":"顺从","next":"pretend_marry"}],
-    }
-,
-    pretend_marry: {
-        title: '拜堂',
-        text: `你穿上了红嫁衣。
+你注意到，他的手腕上，红绳已经勒进了骨头里。`,effects:{"yin":15,"time":120},choices:[createChoice({"text":"反抗","next":"resist_marriage","ending":"sacrificed"}),createChoice({"text":"顺从","next":"pretend_marry"})]}),
+    pretend_marry: createScene('pretend_marry', {title:'拜堂',text:`你穿上了红嫁衣。
 
 不，不对。给你穿的是新郎服，但刺绣的龙凤位置却是反的——龙在右，凤在左，像是给死人穿的寿衣。
 
@@ -87,14 +63,8 @@ export const scenes = {
 
 "夫妻对拜——"
 
-秀兰的盖头飘了起来。`,
-        effects: {"sanity":-30,"yin":15,"visual":"shake"},
-        choices: [{"text":"掀翻供桌逃跑","next":"run_away_coffin","condition":{"noFlag":"xiulanMercy"}},{"text":"喊出秀兰的名字，求她放过你","next":"beg_xiulan","condition":{"flag":"xiulanMercy"}}],
-    }
-,
-    pull_nails_barehand: {
-        title: '徒手拔钉',
-        text: `你一根一根拔出桃木钉。
+秀兰的盖头飘了起来。`,effects:{"sanity":-30,"yin":15,"visual":"shake"},choices:[createChoice({"text":"掀翻供桌逃跑","next":"run_away_coffin","condition":{"noFlag":"xiulanMercy"}}),createChoice({"text":"喊出秀兰的名字，求她放过你","next":"beg_xiulan","condition":{"flag":"xiulanMercy"}})]}),
+    pull_nails_barehand: createScene('pull_nails_barehand', {title:'徒手拔钉',text:`你一根一根拔出桃木钉。
 
 每拔一根，井底就传来一声凄厉的哭喊。你的手掌被钉上的符咒灼伤，皮肉翻开，露出森森白骨。
 
@@ -106,14 +76,8 @@ export const scenes = {
 
 照片上，是年轻的祖父和一个穿学生装的女子。女子笑得很甜。
 
-[red]那不是祖母。[/red]`,
-        effects: {"sanity":-20,"yin":5,"setFlag":"foundBones"},
-        choices: [{"text":"取出照片和嫁衣","next":"give_letter"},{"text":"她已经原谅你了，准备安葬","next":"huimen_xiulan_forgiveness","condition":{"flag":"xiulanMercy"},"effects":{"yin":1}}],
-    }
-,
-    corpse_bride_link: {
-        title: '同命新娘',
-        text: `你盯着那些从皮肉里长出来的红绳，忽然想起赶尸匠田小七说过的话。
+[red]那不是祖母。[/red]`,effects:{"sanity":-20,"yin":5,"setFlag":"foundBones"},choices:[createChoice({"text":"取出照片和嫁衣","next":"give_letter"}),createChoice({"text":"她已经原谅你了，准备安葬","next":"huimen_xiulan_forgiveness","condition":{"flag":"xiulanMercy"},"effects":{"yin":1}})]}),
+    corpse_bride_link: createScene('corpse_bride_link', {title:'同命新娘',text:`你盯着那些从皮肉里长出来的红绳，忽然想起赶尸匠田小七说过的话。
 
 他在雨夜山路上遇见过一具女尸，穿着大红嫁衣，被当成第四具尸体送来。那女尸手腕系着红绳，嘴里念叨着要回青石镇。
 
@@ -131,8 +95,5 @@ export const scenes = {
 
 [faded]"柳红，青石镇人，年十九，被活埋配冥婚。与我同命，愿同归土。"[/faded]
 
-你把两件嫁衣紧紧抱在怀里。周家的罪孽，比你想的更深、更广。`,
-        effects: {"sanity":-10,"yin":7,"addItem":"柳红的嫁衣"},
-        ending: 'hidden_brideLink',
-    }
+你把两件嫁衣紧紧抱在怀里。周家的罪孽，比你想的更深、更广。`,effects:{"sanity":-10,"yin":7,"addItem":"柳红的嫁衣"},ending:'hidden_brideLink'})
 };

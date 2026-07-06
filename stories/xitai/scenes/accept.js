@@ -1,11 +1,12 @@
+import { createScene } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：accept
  */
 
 export const scenes = {
-    accept_yunxiu: {
-        title: '接受云袖',
-        text: `你放下所有防备，看着云袖的眼睛。
+  accept_yunxiu: createScene('accept_yunxiu', {
+    title: '接受云袖',
+    text: `你放下所有防备，看着云袖的眼睛。
 
 她的眼睛很美，像两潭深不见底的井水。
 
@@ -22,6 +23,6 @@ export const scenes = {
 没人知道他们唱了多少年。
 
 只知道那出戏，永远不会散场。`,
-        ending: 'eternalDuet'
-    }
+    ending: 'eternalDuet'
+  })
 };

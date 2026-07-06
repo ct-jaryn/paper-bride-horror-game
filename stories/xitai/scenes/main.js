@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：main
  */
 
 export const scenes = {
-    backstage: {
-        title: '后台',
-        text: `你掀开后台的布帘。
+  backstage: createScene('backstage', {
+    title: '后台',
+    text: `你掀开后台的布帘。
 
 后台很小，摆着几面破旧的镜子和一张化妆台。化妆台上放着一个打开的脸谱盒，里面的油彩还是湿的。你顺手拉开抽屉，里面散落着几张戏票和一把断了齿的木梳。最底下压着一张泛黄的纸条，上面用工整的小楷写着几句词：
 
@@ -27,26 +28,22 @@ export const scenes = {
 镜子突然亮了一下。你看见镜子里，一个穿小生戏服的男人站在你身后，正把脸贴在你肩上。
 
 [red]他没有脸。[/red]`,
-        effects: {
-            sanity: -25,
-            yin: 20,
-            visual: 'flicker'
-        },
-        choices: [
-            {
-                text: '问他是谁',
-                next: 'ask_ghost_actor'
-            },
-            {
-                text: '用相机拍镜子',
-                next: 'mirror_photo'
-            },
-            {
-                text: '头也不回跑出后台',
-                next: 'run_from_backstage'
-            }
-        ]
+    effects: {
+      sanity: -25,
+      yin: 20,
+      visual: 'flicker'
     },
+    choices: [createChoice({
+      text: '问他是谁',
+      next: 'ask_ghost_actor'
+    }), createChoice({
+      text: '用相机拍镜子',
+      next: 'mirror_photo'
+    }), createChoice({
+      text: '头也不回跑出后台',
+      next: 'run_from_backstage'
+    })]
+  })
 
-    // 镜中留影（新增场景，补全引用）
+  // 镜中留影（新增场景，补全引用）
 };

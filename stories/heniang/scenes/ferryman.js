@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《heniang》场景模块：ferryman
  */
 
 export const scenes = {
-    ferryman_path: {
-        title: '渡河人',
-        text: `你跪在河边，看着母亲和秀姑。
+  ferryman_path: createScene('ferryman_path', {
+    title: '渡河人',
+    text: `你跪在河边，看着母亲和秀姑。
 
 "你们不是不想上岸。" 你说，"你们是没人渡。超度、正名、道歉，都是活人的规矩。你们要的，只是有人把你们从这边，送到那边。"
 
@@ -22,23 +23,20 @@ export const scenes = {
 "真的可以走吗？" 一个年轻女子的声音问。
 
 "可以。" 你说，"一个一个来。我渡你们。"`,
-        effects: {
-            sanity: -10,
-            yin: -20,
-            setFlag: 'becameFerryman'
-        },
-        choices: [
-            {
-                text: '摇动船桨，送她们过河',
-                next: 'ferryman_ending',
-                ending: 'hidden_ferryman'
-            }
-        ]
+    effects: {
+      sanity: -10,
+      yin: -20,
+      setFlag: 'becameFerryman'
     },
-
-    ferryman_ending: {
-        title: '彼岸',
-        text: `你摇着船，在河上往返了一夜。
+    choices: [createChoice({
+      text: '摇动船桨，送她们过河',
+      next: 'ferryman_ending',
+      ending: 'hidden_ferryman'
+    })]
+  }),
+  ferryman_ending: createScene('ferryman_ending', {
+    title: '彼岸',
+    text: `你摇着船，在河上往返了一夜。
 
 每渡一个河娘，河水就清澈一分。到天亮时，河底的鹅卵石都看得清清楚楚。
 
@@ -53,16 +51,14 @@ export const scenes = {
 "好好活着。" 她说，"别像我，太孤单。"
 
 她的身影随着晨光消散。河面上只剩下一艘空船，和一支燃尽的白蜡烛。`,
-        effects: {
-            sanity: 10,
-            yin: -30
-        },
-        choices: [
-            {
-                text: '靠岸，看着河水恢复清澈',
-                next: '',
-                ending: 'hidden_ferryman'
-            }
-        ]
-    }
+    effects: {
+      sanity: 10,
+      yin: -30
+    },
+    choices: [createChoice({
+      text: '靠岸，看着河水恢复清澈',
+      next: '',
+      ending: 'hidden_ferryman'
+    })]
+  })
 };

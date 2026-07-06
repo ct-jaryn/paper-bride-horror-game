@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《heniang》场景模块：prologue
  */
 
 export const scenes = {
-    prologue: {
-        title: '河娘',
-        text: `你母亲的葬礼在雨天举行。
+  prologue: createScene('prologue', {
+    title: '河娘',
+    text: `你母亲的葬礼在雨天举行。
 
 不是生病，不是意外。她是自己走进河里的。
 
@@ -24,32 +25,32 @@ export const scenes = {
 葬礼结束后，你独自来到河边。河水浑浊，看不清底。但你总觉得，水下有人在看着你。
 
 河面上漂着一些上游冲下来的杂物：断绳、枯叶、还有一片巴掌大的红色绸布。绸布的质地不像寻常衣服，倒像是戏服上撕下来的水袖。你捡起来看了看，发现上面绣着半朵残破的牡丹。`,
-        effects: {
-            sanity: -10,
-            yin: 10
-        },
-        choices: [
-            {
-                text: '在河边喊母亲',
-                next: 'call_mother'
-            },
-            {
-                text: '找村里的神婆问清楚',
-                next: 'find_shenpo'
-            },
-            {
-                text: '沿着河边走走，看有没有线索',
-                next: 'walk_riverbank'
-            },
-            {
-                text: '你阴气太重，听见水下传来隐约的合唱',
-                next: 'underwater_chorus',
-                condition: { yinAbove: 15 },
-                hidden: true,
-                effects: { sanity: -5, yin: 10 }
-            }
-        ]
+    effects: {
+      sanity: -10,
+      yin: 10
     },
+    choices: [createChoice({
+      text: '在河边喊母亲',
+      next: 'call_mother'
+    }), createChoice({
+      text: '找村里的神婆问清楚',
+      next: 'find_shenpo'
+    }), createChoice({
+      text: '沿着河边走走，看有没有线索',
+      next: 'walk_riverbank'
+    }), createChoice({
+      text: '你阴气太重，听见水下传来隐约的合唱',
+      next: 'underwater_chorus',
+      condition: {
+        yinAbove: 15
+      },
+      hidden: true,
+      effects: {
+        sanity: -5,
+        yin: 10
+      }
+    })]
+  })
 
-    // 水下合唱（新增隐藏分支）
+  // 水下合唱（新增隐藏分支）
 };

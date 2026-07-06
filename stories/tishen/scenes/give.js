@@ -1,11 +1,12 @@
+import { createScene } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：give
  */
 
 export const scenes = {
-    give_doll_name: {
-        title: '给纸人取名',
-        text: `你深吸一口气："你不是我。你是周安。平安的安。"
+  give_doll_name: createScene('give_doll_name', {
+    title: '给纸人取名',
+    text: `你深吸一口气："你不是我。你是周安。平安的安。"
 
 纸人愣住了。它的身体开始发光，不是火光，是一种柔和的、温暖的黄光。
 
@@ -18,11 +19,11 @@ export const scenes = {
 院子里只剩下一套旧校服，和一张写着"周安"二字的黄纸。
 
 母亲从屋里出来，看见这一幕，眼泪夺眶而出："你救了它，也救了你爸。"`,
-        effects: {
-            sanity: 20,
-            yin: -30,
-            setFlag: 'gaveName'
-        },
-        ending: 'namedAndFree'
-    }
+    effects: {
+      sanity: 20,
+      yin: -30,
+      setFlag: 'gaveName'
+    },
+    ending: 'namedAndFree'
+  })
 };

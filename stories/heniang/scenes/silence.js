@@ -1,11 +1,12 @@
+import { createScene } from '../../../js/engine/sceneFactory.js';
 /**
  * 《heniang》场景模块：silence
  */
 
 export const scenes = {
-    silence_by_river: {
-        title: '河边沉默',
-        text: `你沉默了。
+  silence_by_river: createScene('silence_by_river', {
+    title: '河边沉默',
+    text: `你沉默了。
 
 秀姑和母亲对视一眼，然后一起沉了下去。水面恢复平静，像是什么都没发生过。
 
@@ -18,10 +19,10 @@ export const scenes = {
 [red]如果母亲不想走，那就让我来陪她。[/red]
 
 水下，母亲和秀姑一起伸手接住了你。`,
-        effects: {
-            sanity: -30,
-            yin: 30
-        },
-        ending: 'joinMother'
-    }
+    effects: {
+      sanity: -30,
+      yin: 30
+    },
+    ending: 'joinMother'
+  })
 };

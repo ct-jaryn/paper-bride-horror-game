@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：paper
  */
 
 export const scenes = {
-    paper_wedding_proposal: {
-        title: '冥婚',
-        text: `你忽然想起村里老人说过的话：没有名字的孤魂野鬼，若是与人拜了堂，就能在阴间落了户，不再纠缠阳间的亲人。
+  paper_wedding_proposal: createScene('paper_wedding_proposal', {
+    title: '冥婚',
+    text: `你忽然想起村里老人说过的话：没有名字的孤魂野鬼，若是与人拜了堂，就能在阴间落了户，不再纠缠阳间的亲人。
 
 "如果我用冥婚给你一个名分，"你对纸人说，"你愿意放过我爸吗？"
 
@@ -20,26 +21,22 @@ export const scenes = {
 "我没有嫁妆，也没有婚书。"它说，"只有这根红绳。"
 
 [red]红绳上系着你的命。[/red]`,
-        effects: {
-            sanity: -10,
-            yin: 15
-        },
-        choices: [
-            {
-                text: '答应与它拜堂',
-                next: 'paper_wedding_ceremony'
-            },
-            {
-                text: '夺过红绳烧掉',
-                next: '',
-                ending: 'hidden_redThread'
-            }
-        ]
+    effects: {
+      sanity: -10,
+      yin: 15
     },
-
-    paper_wedding_ceremony: {
-        title: '纸嫁',
-        text: `院子里的香案是纸人自己摆的。它不知从哪翻出一套大红的纸嫁衣，穿在身上，盖着红盖头，站在槐树下等你。
+    choices: [createChoice({
+      text: '答应与它拜堂',
+      next: 'paper_wedding_ceremony'
+    }), createChoice({
+      text: '夺过红绳烧掉',
+      next: '',
+      ending: 'hidden_redThread'
+    })]
+  }),
+  paper_wedding_ceremony: createScene('paper_wedding_ceremony', {
+    title: '纸嫁',
+    text: `院子里的香案是纸人自己摆的。它不知从哪翻出一套大红的纸嫁衣，穿在身上，盖着红盖头，站在槐树下等你。
 
 母亲想阻拦，被它一挥手推回了屋里。你这才意识到，它早就不是父亲能控制的东西了。
 
@@ -52,19 +49,17 @@ export const scenes = {
 纸人掀起盖头。那张脸完完全全是你，却画着新娘的妆。
 
 "从今以后，"它说，"你替我站在院子里，我替你活。"`,
-        effects: {
-            sanity: -40,
-            yin: 30,
-            visual: 'blood'
-        },
-        choices: [
-            {
-                text: '你已无法挣脱',
-                next: '',
-                ending: 'hidden_paperGroom'
-            }
-        ]
+    effects: {
+      sanity: -40,
+      yin: 30,
+      visual: 'blood'
     },
+    choices: [createChoice({
+      text: '你已无法挣脱',
+      next: '',
+      ending: 'hidden_paperGroom'
+    })]
+  })
 
-    // 记忆交换分支
+  // 记忆交换分支
 };

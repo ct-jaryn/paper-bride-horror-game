@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《heniang》场景模块：sane
  */
 
 export const scenes = {
-    sane_promise: {
-        title: '清醒',
-        text: `你强迫自己冷静。
+  sane_promise: createScene('sane_promise', {
+    title: '清醒',
+    text: `你强迫自己冷静。
 
 水下的哭声是母亲的，但那个笑声不是。那是另一个女人——秀姑。她在利用母亲的哭声引你下去。
 
@@ -22,20 +23,17 @@ export const scenes = {
 "儿子……" 她说，"妈是太孤单了。不是秀姑骗我。"
 
 "我知道。" 你说，"所以我来接你。但不是下来陪你，是接你上去。"`,
-        effects: {
-            sanity: 10,
-            yin: -10,
-            setFlag: 'sanePromiseMade'
-        },
-        choices: [
-            {
-                text: '去找神婆想办法',
-                next: 'find_shenpo'
-            },
-            {
-                text: '和秀姑谈判',
-                next: 'negotiate_xiugu'
-            }
-        ]
-    }
+    effects: {
+      sanity: 10,
+      yin: -10,
+      setFlag: 'sanePromiseMade'
+    },
+    choices: [createChoice({
+      text: '去找神婆想办法',
+      next: 'find_shenpo'
+    }), createChoice({
+      text: '和秀姑谈判',
+      next: 'negotiate_xiugu'
+    })]
+  })
 };

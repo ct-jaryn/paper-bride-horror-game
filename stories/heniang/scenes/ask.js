@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《heniang》场景模块：ask
  */
 
 export const scenes = {
-    ask_previous_heniang: {
-        title: '问上一任河娘',
-        text: `"上一任河娘是谁？" 你问。
+  ask_previous_heniang: createScene('ask_previous_heniang', {
+    title: '问上一任河娘',
+    text: `"上一任河娘是谁？" 你问。
 
 神婆抽了一口旱烟："秀姑。你妈最好的姐妹。"
 
@@ -20,21 +21,18 @@ export const scenes = {
 你愣住了："秀姑救了我妈？"
 
 "算是吧。" 神婆说，"所以她成了河娘后，一直没有害你妈。可现在你妈也成了河娘，秀姑就管不住了。"`,
-        effects: {
-            sanity: -5,
-            setFlag: 'knowsXiuguStory'
-        },
-        choices: [
-            {
-                text: '问怎么让秀姑替母亲',
-                next: 'ask_how_substitute'
-            }
-        ]
+    effects: {
+      sanity: -5,
+      setFlag: 'knowsXiuguStory'
     },
-
-    ask_underwater_woman: {
-        title: '问水下女子',
-        text: `"你是谁？" 你对着河水喊。
+    choices: [createChoice({
+      text: '问怎么让秀姑替母亲',
+      next: 'ask_how_substitute'
+    })]
+  }),
+  ask_underwater_woman: createScene('ask_underwater_woman', {
+    title: '问水下女子',
+    text: `"你是谁？" 你对着河水喊。
 
 水面泛起涟漪，另一张脸浮现出来。那是一个年轻女人，比母亲年轻很多，穿着大红嫁衣。
 
@@ -51,26 +49,24 @@ export const scenes = {
 秀姑的笑容僵了一下："那你想怎样？"
 
 "我带她走。" 你说。`,
-        effects: {
-            sanity: -10,
-            yin: 10
-        },
-        choices: [
-            {
-                text: '和秀姑谈判',
-                next: 'negotiate_xiugu'
-            },
-            {
-                text: '威胁要毁掉她的尸骨',
-                next: 'threaten_xiugu',
-                effects: { yin: 10 }
-            }
-        ]
+    effects: {
+      sanity: -10,
+      yin: 10
     },
-
-    ask_how_substitute: {
-        title: '问如何替人',
-        text: `"怎么让秀姑替我妈？" 你问。
+    choices: [createChoice({
+      text: '和秀姑谈判',
+      next: 'negotiate_xiugu'
+    }), createChoice({
+      text: '威胁要毁掉她的尸骨',
+      next: 'threaten_xiugu',
+      effects: {
+        yin: 10
+      }
+    })]
+  }),
+  ask_how_substitute: createScene('ask_how_substitute', {
+    title: '问如何替人',
+    text: `"怎么让秀姑替我妈？" 你问。
 
 神婆从床底下拖出一个木盒，盒子里放着几根白骨和一段红布。
 
@@ -85,26 +81,24 @@ export const scenes = {
 神婆看着你："你想救你妈，还是想做善人？"
 
 你沉默了。`,
-        effects: {
-            yin: 5,
-            setFlag: 'knowsRitual'
-        },
-        choices: [
-            {
-                text: '决定按神婆说的做',
-                next: 'plan_ritual'
-            },
-            {
-                text: '拒绝欺骗秀姑',
-                next: 'refuse_deceive',
-                effects: { setFlag: 'honestApproach' }
-            }
-        ]
+    effects: {
+      yin: 5,
+      setFlag: 'knowsRitual'
     },
-
-    ask_mother_promise: {
-        title: '问母亲承诺',
-        text: `"我妈答应过你什么？" 你问。
+    choices: [createChoice({
+      text: '决定按神婆说的做',
+      next: 'plan_ritual'
+    }), createChoice({
+      text: '拒绝欺骗秀姑',
+      next: 'refuse_deceive',
+      effects: {
+        setFlag: 'honestApproach'
+      }
+    })]
+  }),
+  ask_mother_promise: createScene('ask_mother_promise', {
+    title: '问母亲承诺',
+    text: `"我妈答应过你什么？" 你问。
 
 秀姑的眼神变得恍惚，像是在回忆很久远的事。
 
@@ -117,26 +111,22 @@ export const scenes = {
 你感到一阵心痛。原来母亲和秀姑之间，有过这样的约定。
 
 [red]一个关于死亡的约定。[/red]`,
-        effects: {
-            sanity: -10,
-            yin: 5,
-            setFlag: 'knowsPromise'
-        },
-        choices: [
-            {
-                text: '说母亲还有你',
-                next: 'tell_mother_has_you'
-            },
-            {
-                text: '沉默',
-                next: 'silence_by_river'
-            }
-        ]
+    effects: {
+      sanity: -10,
+      yin: 5,
+      setFlag: 'knowsPromise'
     },
-
-    ask_how_cruel: {
-        title: '问如何断根',
-        text: `"比她更狠，就是断了她的根。" 神婆说。
+    choices: [createChoice({
+      text: '说母亲还有你',
+      next: 'tell_mother_has_you'
+    }), createChoice({
+      text: '沉默',
+      next: 'silence_by_river'
+    })]
+  }),
+  ask_how_cruel: createScene('ask_how_cruel', {
+    title: '问如何断根',
+    text: `"比她更狠，就是断了她的根。" 神婆说。
 
 "什么意思？"
 
@@ -145,15 +135,13 @@ export const scenes = {
 "可那男人早就死了。"
 
 "后人还在。" 神婆说，"他们继承了秀姑的仇人血脉。他们的道歉，比任何法事都管用。"`,
-        effects: {
-            yin: 10,
-            setFlag: 'knowsCruelWay'
-        },
-        choices: [
-            {
-                text: '去找负心汉的后人',
-                next: 'find_traitor_descendants'
-            }
-        ]
-    }
+    effects: {
+      yin: 10,
+      setFlag: 'knowsCruelWay'
+    },
+    choices: [createChoice({
+      text: '去找负心汉的后人',
+      next: 'find_traitor_descendants'
+    })]
+  })
 };

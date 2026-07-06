@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《heniang》场景模块：rebury
  */
 
 export const scenes = {
-    rebury_bones: {
-        title: '迁葬尸骨',
-        text: `你把秀姑的尸骨重新埋好，还在坟头插了三炷香。
+  rebury_bones: createScene('rebury_bones', {
+    title: '迁葬尸骨',
+    text: `你把秀姑的尸骨重新埋好，还在坟头插了三炷香。
 
 "秀姑，我替我娘给你赔不是。" 你说，"你要是怨，就怨我，别怨我娘。"
 
@@ -18,20 +19,17 @@ export const scenes = {
 "那你想怎样？"
 
 "我要你娘陪我。" 秀姑说，"她答应过我的。"`,
-        effects: {
-            yin: 5
-        },
-        choices: [
-            {
-                text: '问她母亲答应过什么',
-                next: 'ask_mother_promise'
-            }
-        ]
+    effects: {
+      yin: 5
     },
-
-    rebury_both: {
-        title: '合葬二人',
-        text: `你把秀姑的尸骨重新安葬在河岸上，又在旁边为母亲立了一个衣冠冢。
+    choices: [createChoice({
+      text: '问她母亲答应过什么',
+      next: 'ask_mother_promise'
+    })]
+  }),
+  rebury_both: createScene('rebury_both', {
+    title: '合葬二人',
+    text: `你把秀姑的尸骨重新安葬在河岸上，又在旁边为母亲立了一个衣冠冢。
 
 下葬那天，你请来道士做法事。道士说，只要秀姑解脱了，母亲就能跟着走。
 
@@ -42,10 +40,10 @@ export const scenes = {
 母亲看着你，眼里满是不舍："妈对不起你。"
 
 "妈，你安心走。" 你说，"我会好好的。"`,
-        effects: {
-            sanity: 5,
-            yin: -30
-        },
-        ending: 'honestReburial'
-    }
+    effects: {
+      sanity: 5,
+      yin: -30
+    },
+    ending: 'honestReburial'
+  })
 };

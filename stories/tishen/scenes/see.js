@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：see
  */
 
 export const scenes = {
-    see_father: {
-        title: '父亲',
-        text: `你走进里屋。
+  see_father: createScene('see_father', {
+    title: '父亲',
+    text: `你走进里屋。
 
 父亲躺在床上，盖着厚厚的棉被。屋里没有开灯，只有窗外透进来的昏暗光线。你走到床边，发现父亲的脸色蜡黄，眼窝深陷。
 
@@ -26,23 +27,19 @@ export const scenes = {
 父亲把手抽回去，塞进被子里："别乱想。睡觉吧，明天还要早起。"
 
 你退出里屋，心里越来越不安。`,
-        effects: {
-            sanity: -15,
-            yin: 10
-        },
-        choices: [
-            {
-                text: '夜里偷偷检查父亲的身体',
-                next: 'check_father_night'
-            },
-            {
-                text: '去院子再看纸人',
-                next: 'inspect_doll_night'
-            },
-            {
-                text: '回自己房间睡觉',
-                next: 'sleep_first_night'
-            }
-        ]
-    }
+    effects: {
+      sanity: -15,
+      yin: 10
+    },
+    choices: [createChoice({
+      text: '夜里偷偷检查父亲的身体',
+      next: 'check_father_night'
+    }), createChoice({
+      text: '去院子再看纸人',
+      next: 'inspect_doll_night'
+    }), createChoice({
+      text: '回自己房间睡觉',
+      next: 'sleep_first_night'
+    })]
+  })
 };

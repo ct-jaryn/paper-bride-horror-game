@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：ask
  */
 
 export const scenes = {
-    ask_villagers: {
-        title: '询问村民',
-        text: `你回到镇上，找到一家小卖部。
+  ask_villagers: createScene('ask_villagers', {
+    title: '询问村民',
+    text: `你回到镇上，找到一家小卖部。
 
 店老板是个六十多岁的老头，听说你要去老戏台，脸色当时就变了。
 
@@ -22,25 +23,21 @@ export const scenes = {
 他递给你一支烟："你要去也行，记住一句话——戏不散，人莫近。要是听见戏停了，马上跑。"
 
 你接过烟，目光落在柜台后一堆没卖完的纸扎上。那些纸人纸马糊得精致，每个纸人胸口都贴着一张小小的黄签，签上印着"周氏纸扎铺"几个字。你问老头这铺子在哪里，老头摆摆手："青石镇东头，早没人了。"`,
-        effects: {
-            sanity: -5,
-            setFlag: 'knowsArson'
-        },
-        choices: [
-            {
-                text: '问谁可能知道真相',
-                next: 'ask_suspects'
-            },
-            {
-                text: '返回戏台',
-                next: 'return_to_stage'
-            }
-        ]
+    effects: {
+      sanity: -5,
+      setFlag: 'knowsArson'
     },
-
-    ask_suspects: {
-        title: '询问嫌疑人',
-        text: `老头想了想："当年和春香班有过节的，只有两个人。一个是镇上开绸缎庄的刘掌柜，他女儿想进春香班当学徒，被班主拒了。另一个是……"
+    choices: [createChoice({
+      text: '问谁可能知道真相',
+      next: 'ask_suspects'
+    }), createChoice({
+      text: '返回戏台',
+      next: 'return_to_stage'
+    })]
+  }),
+  ask_suspects: createScene('ask_suspects', {
+    title: '询问嫌疑人',
+    text: `老头想了想："当年和春香班有过节的，只有两个人。一个是镇上开绸缎庄的刘掌柜，他女儿想进春香班当学徒，被班主拒了。另一个是……"
 
 老头压低声音："云袖的未婚夫，周生。"
 
@@ -51,25 +48,21 @@ export const scenes = {
 你想起戏单上被划掉的"柳梦梅 — 周生"。
 
 那个角色，是不是 cloud sleeve 亲手划掉的？`,
-        effects: {
-            sanity: -5,
-            setFlag: 'knowsSuspects'
-        },
-        choices: [
-            {
-                text: '去查刘掌柜后人',
-                next: 'liu_descendants'
-            },
-            {
-                text: '去查周生后人',
-                next: 'zhou_descendants'
-            }
-        ]
+    effects: {
+      sanity: -5,
+      setFlag: 'knowsSuspects'
     },
-
-    ask_ghost_actor: {
-        title: '无脸小生',
-        text: `你举起相机对准镜子。
+    choices: [createChoice({
+      text: '去查刘掌柜后人',
+      next: 'liu_descendants'
+    }), createChoice({
+      text: '去查周生后人',
+      next: 'zhou_descendants'
+    })]
+  }),
+  ask_ghost_actor: createScene('ask_ghost_actor', {
+    title: '无脸小生',
+    text: `你举起相机对准镜子。
 
 闪光灯亮起的瞬间，镜子里的小生发出一声惨叫。他的脸像玻璃一样碎裂，碎片落在地上，变成一滩黑水。
 
@@ -82,29 +75,26 @@ export const scenes = {
 [whisper]"我不怪你。"[/whisper]
 
 黑水慢慢渗入地板，消失不见。`,
-        effects: {
-            sanity: -10,
-            yin: 5,
-            setFlag: 'knowsTruth'
-        },
-        choices: [
-            {
-                text: '去台前找云袖',
-                next: 'find_yunxiu'
-            },
-            {
-                text: '你想起秀兰要的不过是一句道歉，云袖也许也一样',
-                next: 'truth_for_yunxiu',
-                condition: { flag: 'knowsTruth' }
-            },
-            {
-                text: '我替她唱完',
-                next: 'agree_to_perform'
-            },
-            {
-                text: '你害死了她，还想让我替你赎罪？',
-                next: 'condemn_zhou'
-            }
-        ]
-    }
+    effects: {
+      sanity: -10,
+      yin: 5,
+      setFlag: 'knowsTruth'
+    },
+    choices: [createChoice({
+      text: '去台前找云袖',
+      next: 'find_yunxiu'
+    }), createChoice({
+      text: '你想起秀兰要的不过是一句道歉，云袖也许也一样',
+      next: 'truth_for_yunxiu',
+      condition: {
+        flag: 'knowsTruth'
+      }
+    }), createChoice({
+      text: '我替她唱完',
+      next: 'agree_to_perform'
+    }), createChoice({
+      text: '你害死了她，还想让我替你赎罪？',
+      next: 'condemn_zhou'
+    })]
+  })
 };

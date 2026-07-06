@@ -2,10 +2,10 @@
  * 《回门》场景模块：exp_xiulan
  */
 
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
 export const scenes = {
-    huimen_exp_show_xiulan_photo: {
-        title: '给秀兰看旧照',
-        text: `你拿出照片，对着空气说："秀兰，这是你的照片。"
+    huimen_exp_show_xiulan_photo: createScene('huimen_exp_show_xiulan_photo', {title:'给秀兰看旧照',text:`你拿出照片，对着空气说："秀兰，这是你的照片。"
 
 一阵风吹过，照片从你手里飞出去，悬在半空中。照片里的秀兰开始动，她眨了眨眼，然后笑了。
 
@@ -15,14 +15,8 @@ export const scenes = {
 
 [faded]"愿来生，生于寻常人家。"[/faded]
 
-你感到照片上的温度，像是一个人的体温。`,
-        effects: {"sanity":10,"yin":-10,"removeItem":"秀兰旧照片","setFlag":"huimen_exp_showed_photo"},
-        choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
-    huimen_exp_xiulan_forgive: {
-        title: '原谅',
-        text: `你对着黑暗说："秀兰，对不起。周家对不起你。我会让所有人知道你的事。"
+你感到照片上的温度，像是一个人的体温。`,effects:{"sanity":10,"yin":-10,"removeItem":"秀兰旧照片","setFlag":"huimen_exp_showed_photo"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_xiulan_forgive: createScene('huimen_exp_xiulan_forgive', {title:'原谅',text:`你对着黑暗说："秀兰，对不起。周家对不起你。我会让所有人知道你的事。"
 
 黑暗里亮起一点光。秀兰的身影出现在光里，她没有盖头，没有血泪，只是一个疲惫的姑娘。
 
@@ -34,8 +28,5 @@ export const scenes = {
 
 "你和他很像。" 她说，"但你比他勇敢。"
 
-光灭了。你发现自己站在村街上，天边的月亮似乎亮了一些。`,
-        effects: {"sanity":10,"yin":-10,"setFlag":"xiulanMercy"},
-        choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
+光灭了。你发现自己站在村街上，天边的月亮似乎亮了一些。`,effects:{"sanity":10,"yin":-10,"setFlag":"xiulanMercy"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]})
 };

@@ -1,11 +1,12 @@
+import { createScene } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：take
  */
 
 export const scenes = {
-    take_doll_away: {
-        title: '带走纸人',
-        text: `你抱起纸人，走出院门。
+  take_doll_away: createScene('take_doll_away', {
+    title: '带走纸人',
+    text: `你抱起纸人，走出院门。
 
 纸人的身体很轻，比想象中轻得多。你抱着它，一路走到村口的大槐树下。
 
@@ -24,10 +25,10 @@ export const scenes = {
 纸人笑了笑，转身走进晨雾里。它没有往镇上的方向走，而是朝着西边青山的方向——那里隔着几座山，据说有一座叫青石镇的老镇，还有一座叫青丘的山。
 
 它的背影越来越淡，最后消失不见。`,
-        effects: {
-            sanity: 10,
-            yin: -20
-        },
-        ending: 'setFree'
-    }
+    effects: {
+      sanity: 10,
+      yin: -20
+    },
+    ending: 'setFree'
+  })
 };

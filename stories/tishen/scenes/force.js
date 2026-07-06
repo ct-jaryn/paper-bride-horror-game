@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：force
  */
 
 export const scenes = {
-    force_reveal: {
-        title: '原形',
-        text: `你举起铜镜碎片，继续照向纸人。
+  force_reveal: createScene('force_reveal', {
+    title: '原形',
+    text: `你举起铜镜碎片，继续照向纸人。
 
 光芒越来越强，纸人的皮肤开始冒烟。它痛苦地蜷缩起来，纸壳一层一层剥落。
 
@@ -22,16 +23,14 @@ export const scenes = {
 "我不是你的替身。" 她说，"我是被周家纸扎铺子抓来的魂。他们把我的魂塞进纸人里，替人挡灾。"
 
 她的身影越来越淡："谢谢你……让我想起来……"`,
-        effects: {
-            sanity: -15,
-            yin: -20,
-            setFlag: 'dollIsYunxiu'
-        },
-        choices: [
-            {
-                text: '问她怎么才能解脱',
-                next: 'ask_doll_meaning'
-            }
-        ]
-    }
+    effects: {
+      sanity: -15,
+      yin: -20,
+      setFlag: 'dollIsYunxiu'
+    },
+    choices: [createChoice({
+      text: '问她怎么才能解脱',
+      next: 'ask_doll_meaning'
+    })]
+  })
 };

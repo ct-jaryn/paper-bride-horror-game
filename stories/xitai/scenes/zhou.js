@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：zhou
  */
 
 export const scenes = {
-    zhou_descendants: {
-        title: '周生后人',
-        text: `你找到周生的后人，一个退休教师。
+  zhou_descendants: createScene('zhou_descendants', {
+    title: '周生后人',
+    text: `你找到周生的后人，一个退休教师。
 
 老人听说你问周生，沉默了很久："我爷爷那辈子，只做错了一件事。"
 
@@ -18,15 +19,13 @@ export const scenes = {
 "那是他自己划的。" 老人说，"他说自己不配演柳梦梅。"
 
 你想起镜子里那个没有脸的小生。原来他一直困在后台，不是在害人，是在赎罪。`,
-        effects: {
-            sanity: -5,
-            setFlag: 'knowsZhouInnocent'
-        },
-        choices: [
-            {
-                text: '回戏台告诉云袖真相',
-                next: 'return_to_stage'
-            }
-        ]
-    }
+    effects: {
+      sanity: -5,
+      setFlag: 'knowsZhouInnocent'
+    },
+    choices: [createChoice({
+      text: '回戏台告诉云袖真相',
+      next: 'return_to_stage'
+    })]
+  })
 };

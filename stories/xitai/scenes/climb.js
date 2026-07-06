@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：climb
  */
 
 export const scenes = {
-    climb_stage: {
-        title: '登台',
-        text: `你踩上戏台的木板。
+  climb_stage: createScene('climb_stage', {
+    title: '登台',
+    text: `你踩上戏台的木板。
 
 木板发出"吱呀"一声，但承受住了你的重量。你走到台中央，脚下的位置有一块颜色更深的木板。
 
@@ -20,20 +21,17 @@ export const scenes = {
 [scream]"锵——"[/scream]
 
 你吓得一屁股坐在地上。`,
-        effects: {
-            sanity: -15,
-            yin: 20,
-            visual: 'shake'
-        },
-        choices: [
-            {
-                text: '查看烧痕周围的木板',
-                next: 'inspect_burn_mark'
-            },
-            {
-                text: '马上跳下戏台',
-                next: 'jump_off_stage'
-            }
-        ]
-    }
+    effects: {
+      sanity: -15,
+      yin: 20,
+      visual: 'shake'
+    },
+    choices: [createChoice({
+      text: '查看烧痕周围的木板',
+      next: 'inspect_burn_mark'
+    }), createChoice({
+      text: '马上跳下戏台',
+      next: 'jump_off_stage'
+    })]
+  })
 };

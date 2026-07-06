@@ -2,10 +2,10 @@
  * 《回门》场景模块：exp_paper_doll
  */
 
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
 export const scenes = {
-    huimen_exp_paper_doll_craftsman: {
-        title: '扎纸匠',
-        text: `你问老人："你为什么扎我的脸？"
+    huimen_exp_paper_doll_craftsman: createScene('huimen_exp_paper_doll_craftsman', {title:'扎纸匠',text:`你问老人："你为什么扎我的脸？"
 
 老人终于抬起头。他的眼眶里没有眼珠，只有两团干涸的墨渍。"不是我要扎。是周家要扎。"
 
@@ -15,14 +15,8 @@ export const scenes = {
 
 [red]你这才看清，那些纸人的下巴都有一颗痣。[/red]
 
-"秀兰等的不是你。" 老人说，"她等的是替身。等一个和她一样，被活埋在纸里的魂。"`,
-        effects: {"sanity":-15,"yin":5,"setFlag":"huimen_exp_learned_doll_substitute"},
-        choices: [{"text":"烧掉铺子里所有纸人","next":"huimen_exp_burn_all_dolls","effects":{"sanity":-10,"yin":5}},{"text":"拒绝扎替身，离开铺子","next":"huimen_exp_village_street","effects":{"sanity":3,"yin":-5}},{"text":"答应扎一个替身","ending":"huimen_exp_paper_doll","effects":{"sanity":-20,"yin":10}}],
-    }
-,
-    huimen_exp_paper_doll_chase: {
-        title: '纸人追',
-        text: `你转身想跑，可铺子里的纸人全都动了。
+"秀兰等的不是你。" 老人说，"她等的是替身。等一个和她一样，被活埋在纸里的魂。"`,effects:{"sanity":-15,"yin":5,"setFlag":"huimen_exp_learned_doll_substitute"},choices:[createChoice({"text":"烧掉铺子里所有纸人","next":"huimen_exp_burn_all_dolls","effects":{"sanity":-10,"yin":5}}),createChoice({"text":"拒绝扎替身，离开铺子","next":"huimen_exp_village_street","effects":{"sanity":3,"yin":-5}}),createChoice({"text":"答应扎一个替身","ending":"huimen_exp_paper_doll","effects":{"sanity":-20,"yin":10}})]}),
+    huimen_exp_paper_doll_chase: createScene('huimen_exp_paper_doll_chase', {title:'纸人追',text:`你转身想跑，可铺子里的纸人全都动了。
 
 它们的关节发出"咯吱咯吱"的声响，像是一群刚学会走路的傀儡。它们没有追你，而是先围住了门口，把出去的路堵死了。
 
@@ -34,14 +28,8 @@ export const scenes = {
 
 [red]每一张纸脸都变成了你的样子。[/red]
 
-你趁机从窗户口翻了出去。`,
-        effects: {"sanity":-10,"yin":3,"visual":"paper-doll","visualDuration":3000},
-        choices: [{"text":"拼命跑回村街","next":"huimen_exp_village_street","effects":{"yin":2}},{"text":"躲进旁边的巷子","next":"huimen_exp_village_street","effects":{"sanity":-3,"yin":2}},{"text":"追上那个纸人，把它和同伴一起烧了","next":"huimen_exp_burn_dolls_alt"}],
-    }
-,
-    huimen_exp_burn_paper_face: {
-        title: '焚面',
-        text: `你摸出打火机，点燃了秀兰的纸脸。
+你趁机从窗户口翻了出去。`,effects:{"sanity":-10,"yin":3,"visual":"paper-doll","visualDuration":3000},choices:[createChoice({"text":"拼命跑回村街","next":"huimen_exp_village_street","effects":{"yin":2}}),createChoice({"text":"躲进旁边的巷子","next":"huimen_exp_village_street","effects":{"sanity":-3,"yin":2}}),createChoice({"text":"追上那个纸人，把它和同伴一起烧了","next":"huimen_exp_burn_dolls_alt"})]}),
+    huimen_exp_burn_paper_face: createScene('huimen_exp_burn_paper_face', {title:'焚面',text:`你摸出打火机，点燃了秀兰的纸脸。
 
 火苗舔上纸面的瞬间，纸脸发出一声凄厉的尖叫。那声音不是秀兰的，而是无数女子叠加在一起的哭声。
 
@@ -51,14 +39,8 @@ export const scenes = {
 
 [red]一起跪下了。[/red]
 
-老人在柜台后面叹了口气："你烧了她们的脸，她们就自由了。可周家，不会放过你。"`,
-        effects: {"sanity":5,"yin":-10,"removeItem":"秀兰的纸脸","setFlag":"huimen_exp_burned_paper_faces"},
-        choices: [{"text":"离开纸扎铺","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
-    huimen_exp_burn_all_dolls: {
-        title: '焚铺',
-        text: `你点燃了铺子里的纸人。
+老人在柜台后面叹了口气："你烧了她们的脸，她们就自由了。可周家，不会放过你。"`,effects:{"sanity":5,"yin":-10,"removeItem":"秀兰的纸脸","setFlag":"huimen_exp_burned_paper_faces"},choices:[createChoice({"text":"离开纸扎铺","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_burn_all_dolls: createScene('huimen_exp_burn_all_dolls', {title:'焚铺',text:`你点燃了铺子里的纸人。
 
 火势蔓延得很快。纸马、纸轿、纸房子，还有那一排排长着你的脸的纸人，都在火中扭曲、尖叫、化为灰烬。
 
@@ -68,14 +50,8 @@ export const scenes = {
 
 你低头一看，发现自己的手正在变纸，变脆，变白。火焰顺着你的指尖往上爬，却不烫，只让你觉得轻。
 
-你明白得太晚了。`,
-        effects: {"sanity":-20,"yin":10},
-        ending: 'huimen_exp_paper_doll',
-    }
-,
-    huimen_exp_paper_doll_alt: {
-        title: '纸人堂',
-        text: `你走近那排纸人，发现其中一个空位。纸扎匠正在往那个空位上贴一张新的脸——眉眼分明，神情木然。
+你明白得太晚了。`,effects:{"sanity":-20,"yin":10},ending:'huimen_exp_paper_doll'}),
+    huimen_exp_paper_doll_alt: createScene('huimen_exp_paper_doll_alt', {title:'纸人堂',text:`你走近那排纸人，发现其中一个空位。纸扎匠正在往那个空位上贴一张新的脸——眉眼分明，神情木然。
 
 那是你的脸。
 
@@ -85,7 +61,5 @@ export const scenes = {
 
 李婆笑着对孩子们说："看，新郎官来了。"
 
-你也跟着笑。纸人是不会哭的。`,
-        choices: [{"text":"成为纸人","ending":"paperDoll"}],
-    }
+你也跟着笑。纸人是不会哭的。`,choices:[createChoice({"text":"成为纸人","ending":"paperDoll"})]})
 };

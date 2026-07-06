@@ -2,10 +2,10 @@
  * 《回门》场景模块：exp_xiulan_memory
  */
 
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
 export const scenes = {
-    huimen_exp_xiulan_memory_1: {
-        title: '秀兰的记忆 · 一',
-        text: `你眼前亮起一片光。
+    huimen_exp_xiulan_memory_1: createScene('huimen_exp_xiulan_memory_1', {title:'秀兰的记忆 · 一',text:`你眼前亮起一片光。
 
 你看见十六岁的秀兰，穿着粗布衣裳，在河边洗衣。她一边洗衣一边唱歌，歌声清亮，像山涧的泉水。
 
@@ -21,14 +21,8 @@ export const scenes = {
 
 [red]那就是你的祖父。[/red]
 
-画面 fade 了。你听见秀兰在你耳边说："那时候，我是真的喜欢他。"`,
-        effects: {"sanity":-3,"yin":1},
-        choices: [{"text":"继续看","next":"huimen_exp_xiulan_memory_2","effects":{"yin":1}},{"text":"退出记忆","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
-    huimen_exp_xiulan_memory_2: {
-        title: '秀兰的记忆 · 二',
-        text: `画面变了。
+画面 fade 了。你听见秀兰在你耳边说："那时候，我是真的喜欢他。"`,effects:{"sanity":-3,"yin":1},choices:[createChoice({"text":"继续看","next":"huimen_exp_xiulan_memory_2","effects":{"yin":1}}),createChoice({"text":"退出记忆","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_xiulan_memory_2: createScene('huimen_exp_xiulan_memory_2', {title:'秀兰的记忆 · 二',text:`画面变了。
 
 秀兰坐在一间小屋里，怀里抱着一件小衣服。她正在绣花样，针脚很细。
 
@@ -44,14 +38,8 @@ export const scenes = {
 
 可画面一转，秀兰被几个人拖走。周文被关在东厢房，他砸门，哭喊，最后瘫倒在地。
 
-[red]誓言在现实面前，轻得像一张纸。[/red]`,
-        effects: {"sanity":-8,"yin":2},
-        choices: [{"text":"继续看","next":"huimen_exp_xiulan_memory_3","effects":{"yin":1}},{"text":"退出记忆","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
-    huimen_exp_xiulan_memory_3: {
-        title: '秀兰的记忆 · 三',
-        text: `画面来到井边。
+[red]誓言在现实面前，轻得像一张纸。[/red]`,effects:{"sanity":-8,"yin":2},choices:[createChoice({"text":"继续看","next":"huimen_exp_xiulan_memory_3","effects":{"yin":1}}),createChoice({"text":"退出记忆","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_xiulan_memory_3: createScene('huimen_exp_xiulan_memory_3', {title:'秀兰的记忆 · 三',text:`画面来到井边。
 
 秀兰被绑着，嘴上塞着布。她的眼睛里没有泪，只有绝望。
 
@@ -65,14 +53,8 @@ export const scenes = {
 
 [scream]矛盾的两个字，被她的血混在一起。[/scream]
 
-画面消失了。你跪在黑暗中，泪流满面。`,
-        effects: {"sanity":-15,"yin":3,"setFlag":"huimen_exp_saw_xiulan_death"},
-        choices: [{"text":"对她说对不起","next":"huimen_exp_xiulan_forgive","effects":{"sanity":5,"yin":-5}},{"text":"退出记忆","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
-    huimen_exp_xiulan_dream: {
-        title: '托梦',
-        text: `秀兰问你："你出去之后，会梦见我吗？"
+画面消失了。你跪在黑暗中，泪流满面。`,effects:{"sanity":-15,"yin":3,"setFlag":"huimen_exp_saw_xiulan_death"},choices:[createChoice({"text":"对她说对不起","next":"huimen_exp_xiulan_forgive","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"退出记忆","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_xiulan_dream: createScene('huimen_exp_xiulan_dream', {title:'托梦',text:`秀兰问你："你出去之后，会梦见我吗？"
 
 "会。" 你说。
 
@@ -82,14 +64,8 @@ export const scenes = {
 
 秀兰笑了，那笑容里有一种释然。
 
-"还有，" 她说，"告诉周文，我等过他。不恨他，只是等累了。"`,
-        effects: {"sanity":5,"yin":-5,"setFlag":"huimen_exp_promised_dream"},
-        choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
-    huimen_exp_xiulan_apology: {
-        title: '道歉',
-        text: `你对着井水说："秀兰，我替周家向你道歉。"
+"还有，" 她说，"告诉周文，我等过他。不恨他，只是等累了。"`,effects:{"sanity":5,"yin":-5,"setFlag":"huimen_exp_promised_dream"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_xiulan_apology: createScene('huimen_exp_xiulan_apology', {title:'道歉',text:`你对着井水说："秀兰，我替周家向你道歉。"
 
 秀兰浮出来，看着你，眼神复杂。
 
@@ -101,14 +77,8 @@ export const scenes = {
 
 "我会让周家承认你。" 你说，"不是作为不祥女，而是作为周秀兰。"
 
-她点点头，眼眶里的红色又淡了一些。`,
-        effects: {"sanity":10,"yin":-10,"setFlag":"huimen_exp_apologized_to_xiulan"},
-        choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}},{"text":"跪下，正式向秀兰道歉","ending":"huimen_exp_ending_apology","effects":{"yin":-5}}],
-    }
-,
-    huimen_exp_xiulan_thanks: {
-        title: '道谢',
-        text: `秀兰忽然说："谢谢你。"
+她点点头，眼眶里的红色又淡了一些。`,effects:{"sanity":10,"yin":-10,"setFlag":"huimen_exp_apologized_to_xiulan"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"跪下，正式向秀兰道歉","ending":"huimen_exp_ending_apology","effects":{"yin":-5}})]}),
+    huimen_exp_xiulan_thanks: createScene('huimen_exp_xiulan_thanks', {title:'道谢',text:`秀兰忽然说："谢谢你。"
 
 你愣了一下："谢我什么？"
 
@@ -120,14 +90,8 @@ export const scenes = {
 
 "我记住了。" 你说，"周秀兰，十六岁会唱《兰花花》，十八岁会绣鸳鸯，喜欢桂花糕，梦想当老师。"
 
-秀兰笑了，那笑容里没有鬼气，只有少女的羞涩。`,
-        effects: {"sanity":10,"yin":-10},
-        choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
-,
-    huimen_exp_xiulan_goodbye: {
-        title: '道别',
-        text: `你坐在井边，秀兰也"坐"在旁边。
+秀兰笑了，那笑容里没有鬼气，只有少女的羞涩。`,effects:{"sanity":10,"yin":-10},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_xiulan_goodbye: createScene('huimen_exp_xiulan_goodbye', {title:'道别',text:`你坐在井边，秀兰也"坐"在旁边。
 
 你们聊了很久，从她的童年聊到她的死，从她的恨聊到她的愿。月亮西斜，天边泛起灰白。
 
@@ -141,8 +105,5 @@ export const scenes = {
 
 "再见。" 你说。
 
-"再见。" 秀兰说，"不是永别。是下次再见。"`,
-        effects: {"sanity":10,"yin":-10,"setFlag":"huimen_exp_said_goodbye_to_xiulan"},
-        choices: [{"text":"离开村子","ending":"huimen_exp_ending_farewell","effects":{"yin":-5}},{"text":"再陪她一会儿","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
+"再见。" 秀兰说，"不是永别。是下次再见。"`,effects:{"sanity":10,"yin":-10,"setFlag":"huimen_exp_said_goodbye_to_xiulan"},choices:[createChoice({"text":"离开村子","ending":"huimen_exp_ending_farewell","effects":{"yin":-5}}),createChoice({"text":"再陪她一会儿","next":"huimen_exp_village_street","effects":{"yin":1}})]})
 };

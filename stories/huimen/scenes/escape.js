@@ -2,10 +2,10 @@
  * 《回门》场景模块：escape
  */
 
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
 export const scenes = {
-    run_to_mountain: {
-        title: '后山孤坟',
-        text: `你拼命往后山跑。
+    run_to_mountain: createScene('run_to_mountain', {title:'后山孤坟',text:`你拼命往后山跑。
 
 纸人的脚步声在身后时远时近。你不敢回头，只听见纸钱擦过耳边的声音，像无数只手在抓你。
 
@@ -19,14 +19,8 @@ export const scenes = {
 
 [red]墓碑后面，伸出一只苍白的手，搭在了你肩上。[/red]
 
-那只手的无名指上，戴着祖母的金戒指。`,
-        effects: {"sanity":-30,"yin":15,"time":60},
-        choices: [{"text":"屏住呼吸，一动不动","next":"hold_breath"},{"text":"转身看身后是谁","next":"turn_around","ending":"possessed"}],
-    }
-,
-    huimen_exp_escape_aftermath: {
-        title: '归城',
-        text: `你翻过后山，沿着山路跑了一夜。天亮时，你看见了县城的轮廓。
+那只手的无名指上，戴着祖母的金戒指。`,effects:{"sanity":-30,"yin":15,"time":60},choices:[createChoice({"text":"屏住呼吸，一动不动","next":"hold_breath"}),createChoice({"text":"转身看身后是谁","next":"turn_around","ending":"possessed"})]}),
+    huimen_exp_escape_aftermath: createScene('huimen_exp_escape_aftermath', {title:'归城',text:`你翻过后山，沿着山路跑了一夜。天亮时，你看见了县城的轮廓。
 
 你买了最早的一班汽车票，回到城市。
 
@@ -34,7 +28,5 @@ export const scenes = {
 
 某个深夜，你打开衣柜，发现一套叠得整整齐齐的大红喜服。喜服上别着你的照片，照片里的你，嘴角咧到耳根。
 
-[whisper]你跑出山村的那个身体，从来就不是你的。[/whisper]`,
-        choices: [{"text":"是时候回门了","ending":"escapedButNot"}],
-    }
+[whisper]你跑出山村的那个身体，从来就不是你的。[/whisper]`,choices:[createChoice({"text":"是时候回门了","ending":"escapedButNot"})]})
 };

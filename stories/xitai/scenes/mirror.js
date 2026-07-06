@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：mirror
  */
 
 export const scenes = {
-    mirror_photo: {
-        title: '镜中留影',
-        text: `你举起相机，对准那面镜子。
+  mirror_photo: createScene('mirror_photo', {
+    title: '镜中留影',
+    text: `你举起相机，对准那面镜子。
 
 闪光灯亮起的瞬间，镜子里的小生戏服男人猛地抬起头。他没有五官的脸正对着镜头，像是在笑。
 
@@ -20,23 +21,23 @@ export const scenes = {
 [faded]"民国二十三年，青石镇大戏台。云袖殁，周生殉。戏不散，魂不归。"[/faded]
 
 你忽然明白，这戏台不是荒废了二十年。它是被封印了二十年。`,
-        effects: {
-            sanity: -15,
-            yin: 10,
-            setFlag: 'knowsStageTruth'
-        },
-        choices: [
-            {
-                text: '把照片收好，继续调查',
-                next: 'ask_villagers'
-            },
-            {
-                text: '烧了这张照片',
-                next: 'burn_photo',
-                effects: { sanity: 5, yin: -5 }
-            }
-        ]
+    effects: {
+      sanity: -15,
+      yin: 10,
+      setFlag: 'knowsStageTruth'
     },
+    choices: [createChoice({
+      text: '把照片收好，继续调查',
+      next: 'ask_villagers'
+    }), createChoice({
+      text: '烧了这张照片',
+      next: 'burn_photo',
+      effects: {
+        sanity: 5,
+        yin: -5
+      }
+    })]
+  })
 
-    // 烧照片（新增场景）
+  // 烧照片（新增场景）
 };

@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：deny
  */
 
 export const scenes = {
-    deny_truth: {
-        title: '否认真相',
-        text: `"不可能！这不可能！" 你大喊。
+  deny_truth: createScene('deny_truth', {
+    title: '否认真相',
+    text: `"不可能！这不可能！" 你大喊。
 
 母亲走过来，抱住你："小声点，别吵醒你爸。"
 
@@ -24,26 +25,24 @@ export const scenes = {
 "你是谁？"
 
 "我是你。" 纸人笑了，"或者说，我是那个替你活着的人。"`,
-        effects: {
-            sanity: -20,
-            yin: 15
-        },
-        choices: [
-            {
-                text: '砸了纸人',
-                next: 'smash_doll',
-                effects: { sanity: -10 }
-            },
-            {
-                text: '问它怎么才能放过父亲',
-                next: 'ask_doll_meaning'
-            }
-        ]
+    effects: {
+      sanity: -20,
+      yin: 15
     },
-
-    deny_doll_identity: {
-        title: '否认它是你',
-        text: `"你只是纸。" 你说，"纸就是纸，永远不是人。"
+    choices: [createChoice({
+      text: '砸了纸人',
+      next: 'smash_doll',
+      effects: {
+        sanity: -10
+      }
+    }), createChoice({
+      text: '问它怎么才能放过父亲',
+      next: 'ask_doll_meaning'
+    })]
+  }),
+  deny_doll_identity: createScene('deny_doll_identity', {
+    title: '否认它是你',
+    text: `"你只是纸。" 你说，"纸就是纸，永远不是人。"
 
 纸人的眼神变了。原本的渴望变成了怨恨。
 
@@ -56,10 +55,10 @@ export const scenes = {
 纸人拍拍你，满意地点点头。然后它把你立在院子里，自己走进屋里。
 
 第二天早上，母亲出来给"你"送早饭。`,
-        effects: {
-            sanity: -50,
-            yin: 40
-        },
-        ending: 'wrappedInPaper'
-    }
+    effects: {
+      sanity: -50,
+      yin: 40
+    },
+    ending: 'wrappedInPaper'
+  })
 };

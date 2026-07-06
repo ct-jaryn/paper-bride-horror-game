@@ -1,11 +1,12 @@
+import { createScene } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：retreat
  */
 
 export const scenes = {
-    retreat_slowly: {
-        title: '慢慢后退',
-        text: `你慢慢后退，想趁刘掌柜不注意溜走。
+  retreat_slowly: createScene('retreat_slowly', {
+    title: '慢慢后退',
+    text: `你慢慢后退，想趁刘掌柜不注意溜走。
 
 但你的脚踩到了一根木棍。刘掌柜猛地转头，眼中燃起鬼火。
 
@@ -14,6 +15,6 @@ export const scenes = {
 你转身就跑，但戏台四周突然升起火墙。这不是真正的火，是三十年前的怨火，烧不死肉体，却能焚毁灵魂。
 
 你被火墙吞没。`,
-        ending: 'soulBurned'
-    }
+    ending: 'soulBurned'
+  })
 };

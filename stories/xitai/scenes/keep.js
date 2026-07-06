@@ -1,11 +1,12 @@
+import { createScene } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：keep
  */
 
 export const scenes = {
-    keep_running: {
-        title: '继续奔跑',
-        text: `你拼命跑。
+  keep_running: createScene('keep_running', {
+    title: '继续奔跑',
+    text: `你拼命跑。
 
 雾气越来越浓，你分不清方向。戏台上的锣鼓声忽远忽近，像是有无数戏班子在雾中跟着你。
 
@@ -18,6 +19,6 @@ export const scenes = {
 台上，戏子们齐声唱道：
 
 [whisper]"戏不散，人莫近。人既近，戏不散。"[/whisper]`,
-        ending: 'lostInFog'
-    }
+    ending: 'lostInFog'
+  })
 };

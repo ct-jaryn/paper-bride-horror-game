@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：prologue
  */
 
 export const scenes = {
-    prologue: {
-        title: '青石戏台',
-        text: `青石镇往东三里，有一座老戏台。
+  prologue: createScene('prologue', {
+    title: '青石戏台',
+    text: `青石镇往东三里，有一座老戏台。
 
 二十年前，春香班在这里演出《牡丹亭》，戏台突然坍塌，烧死了十七个人。从那以后，镇上的人把这里封了，说是"鬼台"。
 
@@ -22,32 +23,32 @@ export const scenes = {
 你猛地放下相机。戏台上空无一人。
 
 再看取景框，那些人还在。他们背对着你，正在化妆。`,
-        effects: {
-            sanity: -10,
-            yin: 10
-        },
-        choices: [
-            {
-                text: '拍照记录',
-                next: 'take_photo'
-            },
-            {
-                text: '爬上戏台查看',
-                next: 'climb_stage'
-            },
-            {
-                text: '先找村里老人打听',
-                next: 'ask_villagers'
-            },
-            {
-                text: '你阴气太重，看见后台真正的戏班正在上妆',
-                next: 'true_backstage',
-                condition: { yinAbove: 15 },
-                hidden: true,
-                effects: { sanity: -5, yin: 10 }
-            }
-        ]
+    effects: {
+      sanity: -10,
+      yin: 10
     },
+    choices: [createChoice({
+      text: '拍照记录',
+      next: 'take_photo'
+    }), createChoice({
+      text: '爬上戏台查看',
+      next: 'climb_stage'
+    }), createChoice({
+      text: '先找村里老人打听',
+      next: 'ask_villagers'
+    }), createChoice({
+      text: '你阴气太重，看见后台真正的戏班正在上妆',
+      next: 'true_backstage',
+      condition: {
+        yinAbove: 15
+      },
+      hidden: true,
+      effects: {
+        sanity: -5,
+        yin: 10
+      }
+    })]
+  })
 
-    // 真正的后台（新增隐藏分支）
+  // 真正的后台（新增隐藏分支）
 };

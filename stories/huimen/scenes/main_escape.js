@@ -2,10 +2,10 @@
  * 《回门》场景模块：main_escape
  */
 
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
 export const scenes = {
-    chase_li_po: {
-        title: '追李婆',
-        text: `你追上去，想拉住李婆。
+    chase_li_po: createScene('chase_li_po', {title:'追李婆',text:`你追上去，想拉住李婆。
 
 可你的手刚碰到她的肩膀，就像碰到了一团冰冷的纸。
 
@@ -17,14 +17,8 @@ export const scenes = {
 
 你想后退，却发现双脚像是被什么东西抓住了。低头一看，地上的纸钱全都贴在了你的鞋面上，一张张脸从纸钱上浮出来，无声地笑着。
 
-[red]你的阴气太重了。[/red]`,
-        effects: {"sanity":-25,"yin":15,"visual":"paper-doll","visualDuration":3000},
-        choices: [{"text":"拼命挣扎，甩开纸钱","next":"break_free","effects":{"sanity":-10}},{"text":"从兜里掏出打火机烧纸钱","next":"burn_paper_money","effects":{"yin":-10}}],
-    }
-,
-    break_free: {
-        title: '挣脱',
-        text: `你发疯似的跺脚，那些纸钱却越贴越紧。
+[red]你的阴气太重了。[/red]`,effects:{"sanity":-25,"yin":15,"visual":"paper-doll","visualDuration":3000},choices:[createChoice({"text":"拼命挣扎，甩开纸钱","next":"break_free","effects":{"sanity":-10}}),createChoice({"text":"从兜里掏出打火机烧纸钱","next":"burn_paper_money","effects":{"yin":-10}})]}),
+    break_free: createScene('break_free', {title:'挣脱',text:`你发疯似的跺脚，那些纸钱却越贴越紧。
 
 忽然，一阵清脆的铃声从老宅方向传来。纸钱像是被烫到一样，"嘶"地一声从你脚上脱落，在地上打着旋儿。
 
@@ -32,14 +26,8 @@ export const scenes = {
 
 你不敢再停留，跌跌撞撞地向老宅跑去。
 
-身后，风声呜咽，像是在笑。`,
-        effects: {"yin":7,"time":30},
-        choices: [{"text":"冲进老宅","next":"huimen_paper_doll_warning"}],
-    }
-,
-    refuse_wine_plan: {
-        title: '破局之策',
-        text: `你想起纸人那句"别喝交杯酒"。
+身后，风声呜咽，像是在笑。`,effects:{"yin":7,"time":30},choices:[createChoice({"text":"冲进老宅","next":"huimen_paper_doll_warning"})]}),
+    refuse_wine_plan: createScene('refuse_wine_plan', {title:'破局之策',text:`你想起纸人那句"别喝交杯酒"。
 
 秀兰要的不是你的人，而是周家欠她的那场名分。交杯酒是契约，一旦喝下，你就真的成了她的鬼新郎。
 
@@ -49,14 +37,8 @@ export const scenes = {
 
 二叔和三姑对视一眼。三姑慢慢点头："……有道理。"
 
-他们松开了你的手腕。`,
-        effects: {"sanity":-5,"yin":2,"setFlag":"knows_ritual_loophole"},
-        choices: [{"text":"趁他们松懈，跑向小门","next":"small_door"},{"text":"真的去找族谱","next":"find_family_tree","effects":{"time":30}}],
-    }
-,
-    pretend_comply: {
-        title: '假装顺从',
-        text: `你垂下眼睛，不再反抗。
+他们松开了你的手腕。`,effects:{"sanity":-5,"yin":2,"setFlag":"knows_ritual_loophole"},choices:[createChoice({"text":"趁他们松懈，跑向小门","next":"small_door"}),createChoice({"text":"真的去找族谱","next":"find_family_tree","effects":{"time":30}})]}),
+    pretend_comply: createScene('pretend_comply', {title:'假装顺从',text:`你垂下眼睛，不再反抗。
 
 二叔满意地点点头："好孩子。你去后院洗把脸，换身衣服。吉时要到了。"
 
@@ -70,14 +52,8 @@ export const scenes = {
 
 "你来了。" 水里的女子说。
 
-你想松手，却发现自己的手被水面吸住了。`,
-        effects: {"sanity":-20,"yin":10,"visual":"whisper"},
-        choices: [{"text":"用铜镜照井水","next":"mirror_well","condition":{"lacksItem":"铜镜"}},{"text":"用力抽回手","next":"pull_back_hand","effects":{"sanity":-10}},{"text":"问她是谁","next":"ask_who_are_you"}],
-    }
-,
-    break_window: {
-        title: '破窗',
-        text: `你用肩膀撞破木窗，碎玻璃划破了手臂。
+你想松手，却发现自己的手被水面吸住了。`,effects:{"sanity":-20,"yin":10,"visual":"whisper"},choices:[createChoice({"text":"用铜镜照井水","next":"mirror_well","condition":{"lacksItem":"铜镜"}}),createChoice({"text":"用力抽回手","next":"pull_back_hand","effects":{"sanity":-10}}),createChoice({"text":"问她是谁","next":"ask_who_are_you"})]}),
+    break_window: createScene('break_window', {title:'破窗',text:`你用肩膀撞破木窗，碎玻璃划破了手臂。
 
 顾不上疼痛，你滚落在屋外的泥地里。雨还在下，但天上的月亮不知什么时候出来了，惨白地照着院子。
 
@@ -99,14 +75,8 @@ export const scenes = {
 
 它们向你走来，脚步轻盈，像是踩在棉花上。
 
-"新郎官，" 它们一起说，"吉时到了。"`,
-        effects: {"sanity":-35,"yin":12,"visual":"paper-doll","visualDuration":4000},
-        choices: [{"text":"向后山狂奔","next":"run_to_mountain"},{"text":"躲进柴房","next":"hide_in_woodshed"}],
-    }
-,
-    hold_breath: {
-        title: '无字碑',
-        text: `你死死咬住嘴唇，不敢出气。
+"新郎官，" 它们一起说，"吉时到了。"`,effects:{"sanity":-35,"yin":12,"visual":"paper-doll","visualDuration":4000},choices:[createChoice({"text":"向后山狂奔","next":"run_to_mountain"}),createChoice({"text":"躲进柴房","next":"hide_in_woodshed"})]}),
+    hold_breath: createScene('hold_breath', {title:'无字碑',text:`你死死咬住嘴唇，不敢出气。
 
 肩上的手停了一会儿，慢慢缩了回去。纸人们的脚步声也渐渐远去，像是退回了村子里。
 
@@ -120,15 +90,8 @@ export const scenes = {
 
 [red]秀兰不是病死的。她是被周家活埋的。[/red]
 
-而那个周家少爷，正是你的祖父。`,
-        effects: {"sanity":-15,"yin":5,"setFlag":"knowsTruth"},
-        choices: [{"text":"回村找秀兰的尸骨","next":"huimen_red_coffin_discovery"},{"text":"去老宅找族谱证据","next":"huimen_seek_evidence","effects":{"yin":1}},{"text":"在坟前发誓为她正名","next":"swear_justice","effects":{"setFlag":"xiulanMercy"}},{"text":"想起狐嫁女也提过周家血脉……","next":"zhou_bloodline_revelation","condition":{"flag":"hujia_to_zhou"}},{"text":"无字碑后有条小路，似乎通向村子深处","next":"huimen_exp_village_loop_entry","condition":{"flag":"knowsTruth"},"effects":{"yin":2}}],
-        hallucination: '[whisper]你摸了摸自己的下巴，那里有一颗痣，和秀兰一模一样。[/whisper]',
-    }
-,
-    hide_in_woodshed: {
-        title: '柴房',
-        text: `你钻进柴房，缩在一堆干草后面。
+而那个周家少爷，正是你的祖父。`,effects:{"sanity":-15,"yin":5,"setFlag":"knowsTruth"},choices:[createChoice({"text":"回村找秀兰的尸骨","next":"huimen_red_coffin_discovery"}),createChoice({"text":"去老宅找族谱证据","next":"huimen_seek_evidence","effects":{"yin":1}}),createChoice({"text":"在坟前发誓为她正名","next":"swear_justice","effects":{"setFlag":"xiulanMercy"}}),createChoice({"text":"想起狐嫁女也提过周家血脉……","next":"zhou_bloodline_revelation","condition":{"flag":"hujia_to_zhou"}}),createChoice({"text":"无字碑后有条小路，似乎通向村子深处","next":"huimen_exp_village_loop_entry","condition":{"flag":"knowsTruth"},"effects":{"yin":2}})],hallucination:'[whisper]你摸了摸自己的下巴，那里有一颗痣，和秀兰一模一样。[/whisper]'}),
+    hide_in_woodshed: createScene('hide_in_woodshed', {title:'柴房',text:`你钻进柴房，缩在一堆干草后面。
 
 纸人的脚步声在院子里转了几圈，渐渐远去。你刚松一口气，就听见身后传来"沙沙"声。
 
@@ -138,14 +101,8 @@ export const scenes = {
 
 你猛地回头。柴房的角落里，堆着十几个纸扎人，刚才它们还背对着你，现在全都转了过来。
 
-它们的脸，和你一模一样。`,
-        effects: {"sanity":-30,"yin":10,"visual":"paper-doll"},
-        choices: [{"text":"点燃柴火","next":"burn_woodshed","condition":{"hasItem":"打火机"}},{"text":"冲出柴房","next":"run_to_mountain"}],
-    }
-,
-    burn_woodshed: {
-        title: '焚柴房',
-        text: `你掏出打火机，点燃了一把干草。
+它们的脸，和你一模一样。`,effects:{"sanity":-30,"yin":10,"visual":"paper-doll"},choices:[createChoice({"text":"点燃柴火","next":"burn_woodshed","condition":{"hasItem":"打火机"}}),createChoice({"text":"冲出柴房","next":"run_to_mountain"})]}),
+    burn_woodshed: createScene('burn_woodshed', {title:'焚柴房',text:`你掏出打火机，点燃了一把干草。
 
 火苗迅速蔓延，纸人们发出尖叫。那声音不像是纸燃烧的声音，更像是人的惨叫。
 
@@ -153,14 +110,8 @@ export const scenes = {
 
 可当你跑到村口时，发现全村的人都站在那里。他们低着头，手里提着白灯笼。
 
-"你烧了秀兰的嫁妆。" 二叔说，"她会更生气的。"`,
-        effects: {"sanity":-15,"yin":10,"time":60},
-        choices: [{"text":"硬闯村口","next":"charge_exit","ending":"sacrificed"},{"text":"退回后山","next":"run_to_mountain"}],
-    }
-,
-    sneak_back_yard: {
-        title: '潜回后院',
-        text: `你悄悄潜回老宅后院。
+"你烧了秀兰的嫁妆。" 二叔说，"她会更生气的。"`,effects:{"sanity":-15,"yin":10,"time":60},choices:[createChoice({"text":"硬闯村口","next":"charge_exit","ending":"sacrificed"}),createChoice({"text":"退回后山","next":"run_to_mountain"})]}),
+    sneak_back_yard: createScene('sneak_back_yard', {title:'潜回后院',text:`你悄悄潜回老宅后院。
 
 井边的铜镜碎片在月光下泛着冷光。你注意到井绳垂在井里，还在微微晃动——像是刚有人下去过。
 
@@ -168,14 +119,8 @@ export const scenes = {
 
 秀兰坐在棺材边，手里捧着那张祖父的字条。她抬头看你，眼神不再怨毒。
 
-"你来了。" 她说，"我知道你会来。"`,
-        effects: {"yin":-10},
-        choices: [{"text":"递上字条","next":"give_letter"},{"text":"她已经原谅你了，准备安葬","next":"huimen_xiulan_forgiveness","condition":{"flag":"xiulanMercy"},"effects":{"yin":1}}],
-    }
-,
-    charge_exit: {
-        title: '硬闯村口',
-        text: `你冲向村口。
+"你来了。" 她说，"我知道你会来。"`,effects:{"yin":-10},choices:[createChoice({"text":"递上字条","next":"give_letter"}),createChoice({"text":"她已经原谅你了，准备安葬","next":"huimen_xiulan_forgiveness","condition":{"flag":"xiulanMercy"},"effects":{"yin":1}})]}),
+    charge_exit: createScene('charge_exit', {title:'硬闯村口',text:`你冲向村口。
 
 村民们没有拦你，只是默默让开一条路。你跑出村口，跑出山路，一直跑到天亮。
 
@@ -189,13 +134,8 @@ export const scenes = {
 
 你低头看向自己的身体。皮肤苍白，四肢僵硬，胸口贴着一张黄符，上面写着你的生辰八字。
 
-原来，你从来没有逃出那个村子。`,
-        ending: 'escapedButNot',
-    }
-,
-    paralyzed: {
-        title: '动不了',
-        text: `你想跑，但双腿像灌了铅。
+原来，你从来没有逃出那个村子。`,ending:'escapedButNot'}),
+    paralyzed: createScene('paralyzed', {title:'动不了',text:`你想跑，但双腿像灌了铅。
 
 秀兰从棺材里坐起来，红盖头滑落到肩上。她的脸和你一模一样，只是没有血色。
 
@@ -211,13 +151,8 @@ export const scenes = {
 
 [red]你的名字。[/red]
 
-从此，山村多了一对恩爱的鬼夫妻。每年七月半，都能听见他们的笑声。`,
-        ending: 'ghostMarriage',
-    }
-,
-    turn_around: {
-        title: '回头',
-        text: `你转过身。
+从此，山村多了一对恩爱的鬼夫妻。每年七月半，都能听见他们的笑声。`,ending:'ghostMarriage'}),
+    turn_around: createScene('turn_around', {title:'回头',text:`你转过身。
 
 秀兰的脸几乎贴在你的脸上。她的眼睛没有瞳孔，只有两团漆黑的墨点。
 
@@ -231,7 +166,5 @@ export const scenes = {
 
 [red]你变成了秀兰。[/red]
 
-而秀兰，穿着你的衣服，走向了天亮。`,
-        ending: 'possessed',
-    }
+而秀兰，穿着你的衣服，走向了天亮。`,ending:'possessed'})
 };

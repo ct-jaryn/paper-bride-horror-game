@@ -2,10 +2,10 @@
  * 《回门》场景模块：paper
  */
 
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
 export const scenes = {
-    paper_whisper: {
-        title: '纸人低语',
-        text: `你屏住呼吸，把耳朵贴近女纸人。
+    paper_whisper: createScene('paper_whisper', {title:'纸人低语',text:`你屏住呼吸，把耳朵贴近女纸人。
 
 风里传来极细极细的声音，像是从纸壳里透出来的：
 
@@ -17,14 +17,8 @@ export const scenes = {
 
 这不是纸扎。这是某种东西的壳。
 
-你忽然明白了：秀兰不只在井底。她还在这些纸人里，在每一张纸钱上，在每一根红绳里。`,
-        effects: {"sanity":-10,"yin":7,"setFlag":"heard_paper_whisper"},
-        choices: [{"text":"顺着红绳的方向走去","next":"to_old_house"},{"text":"追问李婆纸人说了什么","next":"ask_xiulan","effects":{"sanity":-5}}],
-    }
-,
-    burn_paper_money: {
-        title: '烧纸钱',
-        text: `你摸出随身带的打火机，"嚓"地一声，火苗舔上纸钱。
+你忽然明白了：秀兰不只在井底。她还在这些纸人里，在每一张纸钱上，在每一根红绳里。`,effects:{"sanity":-10,"yin":7,"setFlag":"heard_paper_whisper"},choices:[createChoice({"text":"顺着红绳的方向走去","next":"to_old_house"}),createChoice({"text":"追问李婆纸人说了什么","next":"ask_xiulan","effects":{"sanity":-5}})]}),
+    burn_paper_money: createScene('burn_paper_money', {title:'烧纸钱',text:`你摸出随身带的打火机，"嚓"地一声，火苗舔上纸钱。
 
 纸钱没有燃烧，而是发出一声凄厉的尖叫，像活物一样蜷缩起来，化为一缕黑烟消散。
 
@@ -34,14 +28,8 @@ export const scenes = {
 
 你的打火机也在这时熄灭了。你低头一看，打火机的金属外壳上，竟然结了一层薄薄的白霜。
 
-你甩了甩打火机，把它塞回口袋，向老宅跑去。`,
-        effects: {"sanity":-5,"time":30},
-        choices: [{"text":"冲进老宅","next":"huimen_paper_doll_warning"}],
-    }
-,
-    inspect_paper_dolls: {
-        title: '纸人新娘',
-        text: `你走近那两个纸人。
+你甩了甩打火机，把它塞回口袋，向老宅跑去。`,effects:{"sanity":-5,"time":30},choices:[createChoice({"text":"冲进老宅","next":"huimen_paper_doll_warning"})]}),
+    inspect_paper_dolls: createScene('inspect_paper_dolls', {title:'纸人新娘',text:`你走近那两个纸人。
 
 男纸人穿着长袍马褂，胸前别着一朵大红绸花。女纸人盖着红盖头，只露出尖尖的下巴。他们的脸是用黄纸糊的，再画上眉眼唇红。
 
@@ -61,8 +49,5 @@ export const scenes = {
 
 你猛地抬头："可我祖父已经死了三十年了！"
 
-李婆笑了："[whisper]血脉里的债，总得有人还。你今晚上了轿，就是她的新郎了。[/whisper]"`,
-        effects: {"sanity":-12,"yin":4},
-        choices: [{"text":"质问李婆什么意思","next":"ask_meaning"},{"text":"强忍恐惧，走向老宅","next":"huimen_paper_doll_warning"},{"text":"那个空位上的纸人，脸画得很像自己","next":"huimen_exp_paper_doll_alt"},{"text":"拆开纸人，检查里面藏着什么","next":"investigate_paper_dolls"},{"text":"摸出护身符挡在纸人面前","next":"use_talisman_ghost","condition":{"hasItem":"护身符"},"hidden":true}],
-    }
+李婆笑了："[whisper]血脉里的债，总得有人还。你今晚上了轿，就是她的新郎了。[/whisper]"`,effects:{"sanity":-12,"yin":4},choices:[createChoice({"text":"质问李婆什么意思","next":"ask_meaning"}),createChoice({"text":"强忍恐惧，走向老宅","next":"huimen_paper_doll_warning"}),createChoice({"text":"那个空位上的纸人，脸画得很像自己","next":"huimen_exp_paper_doll_alt"}),createChoice({"text":"拆开纸人，检查里面藏着什么","next":"investigate_paper_dolls"}),createChoice({"text":"摸出护身符挡在纸人面前","next":"use_talisman_ghost","condition":{"hasItem":"护身符"},"hidden":true})]})
 };

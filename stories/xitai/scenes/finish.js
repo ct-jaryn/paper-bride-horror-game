@@ -1,11 +1,12 @@
+import { createScene } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：finish
  */
 
 export const scenes = {
-    finish_opera: {
-        title: '曲终',
-        text: `你闭上眼睛，用尽最后的力气唱完最后一句：
+  finish_opera: createScene('finish_opera', {
+    title: '曲终',
+    text: `你闭上眼睛，用尽最后的力气唱完最后一句：
 
 [whisper]"则为你如花美眷，似水流年，是答儿闲寻遍……"[/whisper]
 
@@ -22,12 +23,12 @@ export const scenes = {
 但你知道，你替他们唱完了。
 
 你走出青石镇，再也没有回去。`,
-        effects: {
-            sanity: -10,
-            yin: -20
-        },
-        ending: 'finalCurtain'
+    effects: {
+      sanity: -10,
+      yin: -20
     },
+    ending: 'finalCurtain'
+  })
 
-    // 曲终人散前置（新增分支）
+  // 曲终人散前置（新增分支）
 };

@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《heniang》场景模块：mother
  */
 
 export const scenes = {
-    mother_as_heniang: {
-        title: '错认',
-        text: `你的理智像一根绷得太紧的弦，"啪"地一声断了。
+  mother_as_heniang: createScene('mother_as_heniang', {
+    title: '错认',
+    text: `你的理智像一根绷得太紧的弦，"啪"地一声断了。
 
 河边的石头上坐着的，不是秀姑，而是母亲。她穿着那件葬礼上的黑衣服，背对着你，正在梳头。
 
@@ -24,21 +25,22 @@ export const scenes = {
 [red]你猛地清醒过来。[/red]
 
 眼前哪有什么母亲，只有一个穿红嫁衣的女人，正拉着你的手往深处走。`,
-        effects: {
-            sanity: -20,
-            yin: 20
-        },
-        choices: [
-            {
-                text: '撒香灰逼退她',
-                next: 'use_incense_ash',
-                condition: { hasItem: '香灰和朱砂' }
-            },
-            {
-                text: '拼命往岸上跑',
-                next: 'flee_river',
-                effects: { sanity: -10 }
-            }
-        ]
-    }
+    effects: {
+      sanity: -20,
+      yin: 20
+    },
+    choices: [createChoice({
+      text: '撒香灰逼退她',
+      next: 'use_incense_ash',
+      condition: {
+        hasItem: '香灰和朱砂'
+      }
+    }), createChoice({
+      text: '拼命往岸上跑',
+      next: 'flee_river',
+      effects: {
+        sanity: -10
+      }
+    })]
+  })
 };

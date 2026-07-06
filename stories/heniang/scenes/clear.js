@@ -1,11 +1,12 @@
+import { createScene } from '../../../js/engine/sceneFactory.js';
 /**
  * 《heniang》场景模块：clear
  */
 
 export const scenes = {
-    clear_shen_name: {
-        title: '为沈氏正名',
-        text: `你跪在沈氏的碑前，大声说："沈氏没有错。错的是那些污蔑她、沉她塘的人。我替她正名。"
+  clear_shen_name: createScene('clear_shen_name', {
+    title: '为沈氏正名',
+    text: `你跪在沈氏的碑前，大声说："沈氏没有错。错的是那些污蔑她、沉她塘的人。我替她正名。"
 
 话音刚落，天空乌云密布，河水倒流。
 
@@ -20,10 +21,10 @@ export const scenes = {
 "那些害你的人有错。" 你说，"但他们已经死了。你的怨气，不该再害后来的人。"
 
 沈氏沉默了很久。最后她叹了口气："三百年了，终于有人说我没错。"`,
-        effects: {
-            sanity: -10,
-            yin: -20
-        },
-        ending: 'sourceRedeemed'
-    }
+    effects: {
+      sanity: -10,
+      yin: -20
+    },
+    ending: 'sourceRedeemed'
+  })
 };

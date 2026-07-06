@@ -2,10 +2,10 @@
  * 《回门》场景模块：xiulan
  */
 
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
 export const scenes = {
-    ask_xiulan: {
-        title: '李婆的秘密',
-        text: `李婆的笑容僵住了。
+    ask_xiulan: createScene('ask_xiulan', {title:'李婆的秘密',text:`李婆的笑容僵住了。
 
 "秀兰？" 她的声音忽然变得很轻，像是怕什么人听见，"秀兰是你祖父未过门的媳妇。三十年前，她和你祖父有了私情，还怀了孩子。周家嫌她败坏门风，把她活埋在井底，对外只说得了急病。"
 
@@ -19,14 +19,8 @@ export const scenes = {
 
 她说完，提着灯笼转身走了。灯笼光照在地上，投下的影子却不是一个人的形状——
 
-[whisper]那影子有三个头。[/whisper]`,
-        effects: {"sanity":-10,"yin":5},
-        choices: [{"text":"追上去继续问","next":"chase_li_po","danger":true},{"text":"快步走向老宅","next":"huimen_after_li_po"}],
-    }
-,
-    bury_xiulan: {
-        title: '安葬秀兰',
-        text: `你抱着秀兰的嫁衣和孩子的骸骨，向后山走去。
+[whisper]那影子有三个头。[/whisper]`,effects:{"sanity":-10,"yin":5},choices:[createChoice({"text":"追上去继续问","next":"chase_li_po","danger":true}),createChoice({"text":"快步走向老宅","next":"huimen_after_li_po"})]}),
+    bury_xiulan: createScene('bury_xiulan', {title:'安葬秀兰',text:`你抱着秀兰的嫁衣和孩子的骸骨，向后山走去。
 
 天边已经泛起鱼肚白。纸人们站在村口，没有追来。
 
@@ -42,13 +36,8 @@ export const scenes = {
 
 你终于走出了山村。
 
-但你知道，这个村子的罪，还没有还完。`,
-        choices: [{"text":"离开山村","next":"","ending":"redemption"},{"text":"你想起族谱上的正名，把族谱也埋在墓旁","next":"","ending":"hidden_perfect_redemption","condition":{"flag":"restored_xiulan_name"},"hidden":true}],
-    }
-,
-    beg_xiulan: {
-        title: '求她',
-        text: `"秀兰！" 你大喊，"我知道真相了！周家对不起你！我带你走，我给你正名！"
+但你知道，这个村子的罪，还没有还完。`,choices:[createChoice({"text":"离开山村","next":"","ending":"redemption"}),createChoice({"text":"你想起族谱上的正名，把族谱也埋在墓旁","next":"","ending":"hidden_perfect_redemption","condition":{"flag":"restored_xiulan_name"},"hidden":true})]}),
+    beg_xiulan: createScene('beg_xiulan', {title:'求她',text:`"秀兰！" 你大喊，"我知道真相了！周家对不起你！我带你走，我给你正名！"
 
 秀兰的动作停住了。
 
@@ -62,14 +51,8 @@ export const scenes = {
 
 秀兰伸出手，那只苍白的手穿过了你的身体。你没有感到冷，反而感到一阵暖意。
 
-"那好，" 她说，"我跟你走。"`,
-        effects: {"sanity":10,"yin":-20,"addItem":"秀兰的嫁衣"},
-        choices: [{"text":"向她承诺正名与安葬","next":"huimen_xiulan_forgiveness","effects":{"yin":1}}],
-    }
-,
-    huimen_exp_sit_with_xiulan: {
-        title: '静坐',
-        text: `你坐在井边，一句话也不说。
+"那好，" 她说，"我跟你走。"`,effects:{"sanity":10,"yin":-20,"addItem":"秀兰的嫁衣"},choices:[createChoice({"text":"向她承诺正名与安葬","next":"huimen_xiulan_forgiveness","effects":{"yin":1}})]}),
+    huimen_exp_sit_with_xiulan: createScene('huimen_exp_sit_with_xiulan', {title:'静坐',text:`你坐在井边，一句话也不说。
 
 井水开始翻涌，一个女子的身影浮出来。她趴在井沿上，看着你，眼神里满是疲惫。
 
@@ -81,14 +64,8 @@ export const scenes = {
 
 秀兰的眼泪落进井里，却没有让井水变红，而是化作一圈圈涟漪，慢慢散开。
 
-"三十年，" 她说，"你是第一个愿意坐下来的人。"`,
-        effects: {"sanity":15,"yin":-15,"setFlag":"huimen_exp_sat_with_xiulan"},
-        choices: [{"text":"问她愿不愿意离开","next":"huimen_exp_ask_leave","effects":{"yin":1}},{"text":"继续坐着","next":"huimen_exp_well_whisper_truth","effects":{"sanity":5,"yin":-5}}],
-    }
-,
-    huimen_exp_return_bury_xiulan: {
-        title: '去安葬',
-        text: `你抱着秀兰的嫁衣，向后山走去。
+"三十年，" 她说，"你是第一个愿意坐下来的人。"`,effects:{"sanity":15,"yin":-15,"setFlag":"huimen_exp_sat_with_xiulan"},choices:[createChoice({"text":"问她愿不愿意离开","next":"huimen_exp_ask_leave","effects":{"yin":1}}),createChoice({"text":"继续坐着","next":"huimen_exp_well_whisper_truth","effects":{"sanity":5,"yin":-5}})]}),
+    huimen_exp_return_bury_xiulan: createScene('huimen_exp_return_bury_xiulan', {title:'去安葬',text:`你抱着秀兰的嫁衣，向后山走去。
 
 天边的鱼肚白越来越亮。纸人们站在村口，没有追来。秀兰跟在你身后，脚步轻得像风。
 
@@ -98,8 +75,5 @@ export const scenes = {
 
 你们来到无字碑前。你把嫁衣放进土坑，用手一捧一捧地埋上土。
 
-[red]这一刻，你回到了主线最温柔的结局。[/red]`,
-        effects: {"sanity":10,"yin":-10},
-        choices: [{"text":"继续主线","next":"huimen_prepare_burial","effects":{"yin":-5}}],
-    }
+[red]这一刻，你回到了主线最温柔的结局。[/red]`,effects:{"sanity":10,"yin":-10},choices:[createChoice({"text":"继续主线","next":"huimen_prepare_burial","effects":{"yin":-5}})]})
 };

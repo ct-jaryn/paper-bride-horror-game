@@ -3,10 +3,10 @@
  * 秀兰的愤怒与释放
  */
 
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
 export const scenes = {
-    huimen_exp_xiulan_angry: {
-        title: '秀兰的怒',
-        text: `你问秀兰："你恨周家吗？"
+    huimen_exp_xiulan_angry: createScene('huimen_exp_xiulan_angry', {title:'秀兰的怒',text:`你问秀兰："你恨周家吗？"
 
 秀兰的脸色变了。井里的水开始翻涌，像一锅沸腾的血。
 
@@ -20,13 +20,8 @@ export const scenes = {
 
 "你想让我不恨吗？" 她问。
 
-"不。" 你说，"你有权利恨。但别让恨把你永远困在这里。"`,
-        effects: {"sanity":-5,"yin":3},
-        choices: [{"text":"帮她发泄愤怒","next":"huimen_exp_xiulan_angry_release","effects":{"sanity":-5,"yin":-5}},{"text":"安静地陪她","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    },
-    huimen_exp_xiulan_angry_release: {
-        title: '泄愤',
-        text: `你捡起一块石头，递给秀兰。
+"不。" 你说，"你有权利恨。但别让恨把你永远困在这里。"`,effects:{"sanity":-5,"yin":3},choices:[createChoice({"text":"帮她发泄愤怒","next":"huimen_exp_xiulan_angry_release","effects":{"sanity":-5,"yin":-5}}),createChoice({"text":"安静地陪她","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_xiulan_angry_release: createScene('huimen_exp_xiulan_angry_release', {title:'泄愤',text:`你捡起一块石头，递给秀兰。
 
 "砸吧。" 你说，"把井壁砸碎，把恨都砸出来。"
 
@@ -38,8 +33,5 @@ export const scenes = {
 
 "够了。" 她说，"我不想再砸了。"
 
-你坐在井沿，陪着她。天边的月亮，似乎亮了一些。`,
-        effects: {"sanity":5,"yin":-10,"setFlag":"huimen_exp_xiulan_anger_released"},
-        choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
+你坐在井沿，陪着她。天边的月亮，似乎亮了一些。`,effects:{"sanity":5,"yin":-10,"setFlag":"huimen_exp_xiulan_anger_released"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]})
 };

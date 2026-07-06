@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：prologue
  */
 
 export const scenes = {
-    prologue: {
-        title: '替身',
-        text: `你已经有五年没回过老家。
+  prologue: createScene('prologue', {
+    title: '替身',
+    text: `你已经有五年没回过老家。
 
 这次回来，是因为母亲打电话说父亲病重。你请了假，坐了六个小时高铁，又转了两趟大巴，终于在傍晚时分站在了老屋门前。
 
@@ -28,38 +29,38 @@ export const scenes = {
 "纸人替你病，你就不会病了。" 母亲说，"你爸这两年身子不好，全怪这个纸人没扎好。"
 
 你再看那纸人。它的眼睛似乎转动了一下，看向你。`,
-        effects: {
-            sanity: -10,
-            yin: 10
-        },
-        choices: [
-            {
-                text: '质问母亲这纸人扎了多久',
-                next: 'ask_how_long'
-            },
-            {
-                text: '进屋看父亲',
-                next: 'see_father'
-            },
-            {
-                text: '把纸人脸上的红布重新盖上',
-                next: 'cover_doll',
-                effects: { yin: -5 }
-            },
-            {
-                text: '你保持清醒，注意到母亲的眼神在回避你',
-                next: 'notice_parents',
-                condition: { sanityAbove: 80 },
-                hidden: true,
-                effects: { sanity: -5 }
-            },
-            {
-                text: '转向槐树，似乎听见树影里有人叹息',
-                npc: 'locust_tree_spirit',
-                npcNode: 'start'
-            }
-        ]
+    effects: {
+      sanity: -10,
+      yin: 10
     },
+    choices: [createChoice({
+      text: '质问母亲这纸人扎了多久',
+      next: 'ask_how_long'
+    }), createChoice({
+      text: '进屋看父亲',
+      next: 'see_father'
+    }), createChoice({
+      text: '把纸人脸上的红布重新盖上',
+      next: 'cover_doll',
+      effects: {
+        yin: -5
+      }
+    }), createChoice({
+      text: '你保持清醒，注意到母亲的眼神在回避你',
+      next: 'notice_parents',
+      condition: {
+        sanityAbove: 80
+      },
+      hidden: true,
+      effects: {
+        sanity: -5
+      }
+    }), createChoice({
+      text: '转向槐树，似乎听见树影里有人叹息',
+      npc: 'locust_tree_spirit',
+      npcNode: 'start'
+    })]
+  })
 
-    // 父母异样（新增分支）
+  // 父母异样（新增分支）
 };

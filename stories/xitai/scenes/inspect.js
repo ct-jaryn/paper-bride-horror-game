@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：inspect
  */
 
 export const scenes = {
-    inspect_burn_mark: {
-        title: '检查焦痕',
-        text: `你仔细查看那块烧焦的人形痕迹。
+  inspect_burn_mark: createScene('inspect_burn_mark', {
+    title: '检查焦痕',
+    text: `你仔细查看那块烧焦的人形痕迹。
 
 痕迹的边缘很整齐，不像是火烧出来的，更像是有人被固定在这里烧。痕迹的头部位置，嵌着一枚发黑的银钗。
 
@@ -18,22 +19,23 @@ export const scenes = {
 [red]这是一场谋杀。[/red]
 
 远处传来锣鼓声，戏台上的幕布无风自动。`,
-        effects: {
-            sanity: -15,
-            yin: 10,
-            addItem: '云袖的银钗'
-        },
-        choices: [
-            {
-                text: '把银钗放回原处',
-                next: 'return_hairpin',
-                effects: { yin: -5 }
-            },
-            {
-                text: '带走银钗作为证据',
-                next: 'take_hairpin',
-                effects: { yin: 10 }
-            }
-        ]
-    }
+    effects: {
+      sanity: -15,
+      yin: 10,
+      addItem: '云袖的银钗'
+    },
+    choices: [createChoice({
+      text: '把银钗放回原处',
+      next: 'return_hairpin',
+      effects: {
+        yin: -5
+      }
+    }), createChoice({
+      text: '带走银钗作为证据',
+      next: 'take_hairpin',
+      effects: {
+        yin: 10
+      }
+    })]
+  })
 };

@@ -1,15 +1,21 @@
 /**
- * 《守夜》结局聚合
+ * 结局聚合
  */
 
-import { HiddenEndings } from './hidden.js';
-import { DeathEndings } from './death.js';
-import { NormalEndings } from './normal.js';
+import { Endings as hidden_trueEndings } from './hidden_true.js';
+import { Endings as hidden_publicEndings } from './hidden_public.js';
+import { Endings as hidden_actsEndings } from './hidden_acts.js';
+import { Endings as hidden_peopleEndings } from './hidden_people.js';
+import { Endings as deathEndings } from '././death.js';
+import { Endings as normalEndings } from '././normal.js';
 
 export const Endings = {
-    ...HiddenEndings,
-    ...DeathEndings,
-    ...NormalEndings
+    ...hidden_trueEndings,
+    ...hidden_publicEndings,
+    ...hidden_actsEndings,
+    ...hidden_peopleEndings,
+    ...deathEndings,
+    ...normalEndings
 };
 
 export default Endings;

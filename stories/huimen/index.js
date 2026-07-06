@@ -39,20 +39,32 @@ import { scenes as exp2_xiulan_memoryScenes } from './scenes/exp2_xiulan_memory.
 import { scenes as exp3_carpenter_liScenes } from './scenes/exp3_carpenter_li.js';
 import { scenes as exp3_clan_headScenes } from './scenes/exp3_clan_head.js';
 import { scenes as exp3_granny_wangScenes } from './scenes/exp3_granny_wang.js';
-import { scenes as exp3_loopScenes } from './scenes/exp3_loop.js';
-import { scenes as exp3_mainScenes } from './scenes/exp3_main.js';
+import { scenes as exp3_loopStoneScenes } from './scenes/exp3_loop_stone.js';
+import { scenes as exp3_loopPathsScenes } from './scenes/exp3_loop_paths.js';
+import { scenes as exp3_loopResolutionScenes } from './scenes/exp3_loop_resolution.js';
+import { scenes as exp3_main_paper_shopScenes } from './scenes/exp3_main_paper_shop.js';
+import { scenes as exp3_main_wellScenes } from './scenes/exp3_main_well.js';
+import { scenes as exp3_main_endingsScenes } from './scenes/exp3_main_endings.js';
 import { scenes as exp3_xiulanScenes } from './scenes/exp3_xiulan.js';
 import { scenes as exp3_xiulan_memoryScenes } from './scenes/exp3_xiulan_memory.js';
 import { scenes as exp3_zhou_mansionCellarScenes } from './scenes/exp3_zhou_mansion_cellar.js';
 import { scenes as exp3_zhou_mansionCourtyardScenes } from './scenes/exp3_zhou_mansion_courtyard.js';
 import { scenes as exp3_zhou_mansionEntryScenes } from './scenes/exp3_zhou_mansion_entry.js';
-import { scenes as exp_ancestralScenes } from './scenes/exp_ancestral.js';
-import { scenes as exp_coffinScenes } from './scenes/exp_coffin.js';
+import { scenes as exp_ancestral_hallScenes } from './scenes/exp_ancestral_hall.js';
+import { scenes as exp_ancestral_spiritsScenes } from './scenes/exp_ancestral_spirits.js';
+import { scenes as exp_ancestral_secretsScenes } from './scenes/exp_ancestral_secrets.js';
+import { scenes as exp_coffin_stringsScenes } from './scenes/exp_coffin_strings.js';
+import { scenes as exp_coffin_lanternScenes } from './scenes/exp_coffin_lantern.js';
+import { scenes as exp_coffin_closureScenes } from './scenes/exp_coffin_closure.js';
 import { scenes as exp_creatureScenes } from './scenes/exp_creature.js';
 import { scenes as exp_familyScenes } from './scenes/exp_family.js';
 import { scenes as exp_finalScenes } from './scenes/exp_final.js';
-import { scenes as exp_moonScenes } from './scenes/exp_moon.js';
-import { scenes as exp_mulberryScenes } from './scenes/exp_mulberry.js';
+import { scenes as exp_moon_entranceScenes } from './scenes/exp_moon_entrance.js';
+import { scenes as exp_moon_journeyScenes } from './scenes/exp_moon_journey.js';
+import { scenes as exp_moon_memoryScenes } from './scenes/exp_moon_memory.js';
+import { scenes as exp_mulberryMiscScenes } from './scenes/exp_mulberry_misc.js';
+import { scenes as exp_mulberryReleaseScenes } from './scenes/exp_mulberry_release.js';
+import { scenes as exp_mulberryTreeScenes } from './scenes/exp_mulberry_tree.js';
 import { scenes as exp_paperScenes } from './scenes/exp_paper.js';
 import { scenes as exp_paper_dollScenes } from './scenes/exp_paper_doll.js';
 import { scenes as exp_paper_offeringScenes } from './scenes/exp_paper_offering.js';
@@ -71,9 +83,12 @@ import { scenes as exp_useScenes } from './scenes/exp_use.js';
 import { scenes as exp_villageScenes } from './scenes/exp_village.js';
 import { scenes as exp_village_street_coreScenes } from './scenes/exp_village_street_core.js';
 import { scenes as exp_village_street_districts_hubScenes } from './scenes/exp_village_street_districts_hub.js';
-import { scenes as exp_village_street_eventsScenes } from './scenes/exp_village_street_events.js';
+import { scenes as exp_village_street_events_voicesScenes } from './scenes/exp_village_street_events_voices.js';
+import { scenes as exp_village_street_events_visionsScenes } from './scenes/exp_village_street_events_visions.js';
 import { scenes as exp_village_street_events_hubScenes } from './scenes/exp_village_street_events_hub.js';
-import { scenes as exp_village_street_keepsakesScenes } from './scenes/exp_village_street_keepsakes.js';
+import { scenes as exp_village_street_keepsakes_guardiansScenes } from './scenes/exp_village_street_keepsakes_guardians.js';
+import { scenes as exp_village_street_keepsakes_giftsScenes } from './scenes/exp_village_street_keepsakes_gifts.js';
+import { scenes as exp_village_street_keepsakes_mementosScenes } from './scenes/exp_village_street_keepsakes_mementos.js';
 import { scenes as exp_village_street_offeringsScenes } from './scenes/exp_village_street_offerings.js';
 import { scenes as exp_village_street_spiritsScenes } from './scenes/exp_village_street_spirits.js';
 import { scenes as exp_village_street_toysScenes } from './scenes/exp_village_street_toys.js';
@@ -83,15 +98,22 @@ import { scenes as exp_weddingScenes } from './scenes/exp_wedding.js';
 import { scenes as exp_wellScenes } from './scenes/exp_well.js';
 import { scenes as exp_womenScenes } from './scenes/exp_women.js';
 import { scenes as exp_xiulanScenes } from './scenes/exp_xiulan.js';
-import { scenes as exp_xiulan_bondScenes } from './scenes/exp_xiulan_bond.js';
+import { scenes as exp_xiulan_bond_nameScenes } from './scenes/exp_xiulan_bond_name.js';
+import { scenes as exp_xiulan_bond_momentsScenes } from './scenes/exp_xiulan_bond_moments.js';
 import { scenes as exp_xiulan_angerScenes } from './scenes/exp_xiulan_anger.js';
-import { scenes as exp_xiulan_joyScenes } from './scenes/exp_xiulan_joy.js';
+import { scenes as exp_xiulan_joy_artsScenes } from './scenes/exp_xiulan_joy_arts.js';
+import { scenes as exp_xiulan_joy_dailyScenes } from './scenes/exp_xiulan_joy_daily.js';
 import { scenes as exp_xiulan_memoryScenes } from './scenes/exp_xiulan_memory.js';
 import { scenes as ghostScenes } from './scenes/ghost.js';
 import { scenes as mainScenes } from './scenes/main.js';
 import { scenes as main_confrontScenes } from './scenes/main_confront.js';
-import { scenes as main_escapeScenes } from './scenes/main_escape.js';
-import { scenes as main_extendedScenes } from './scenes/main_extended.js';
+import { scenes as main_escape_pursuitScenes } from './scenes/main_escape_pursuit.js';
+import { scenes as main_escape_flightScenes } from './scenes/main_escape_flight.js';
+import { scenes as main_escape_endsScenes } from './scenes/main_escape_ends.js';
+import { scenes as main_extendedArrivalScenes } from './scenes/main_extended_arrival.js';
+import { scenes as main_extendedBurialScenes } from './scenes/main_extended_burial.js';
+import { scenes as main_extendedHallScenes } from './scenes/main_extended_hall.js';
+import { scenes as main_extendedTruthScenes } from './scenes/main_extended_truth.js';
 import { scenes as main_investigationScenes } from './scenes/main_investigation.js';
 import { scenes as main_locksScenes } from './scenes/main_locks.js';
 import { scenes as main_ritualScenes } from './scenes/main_ritual.js';
@@ -143,20 +165,32 @@ export const StoryData = {
     ...exp3_carpenter_liScenes,
     ...exp3_clan_headScenes,
     ...exp3_granny_wangScenes,
-    ...exp3_loopScenes,
-    ...exp3_mainScenes,
+    ...exp3_loopStoneScenes,
+    ...exp3_loopPathsScenes,
+    ...exp3_loopResolutionScenes,
+    ...exp3_main_paper_shopScenes,
+    ...exp3_main_wellScenes,
+    ...exp3_main_endingsScenes,
     ...exp3_xiulanScenes,
     ...exp3_xiulan_memoryScenes,
     ...exp3_zhou_mansionCellarScenes,
     ...exp3_zhou_mansionCourtyardScenes,
     ...exp3_zhou_mansionEntryScenes,
-    ...exp_ancestralScenes,
-    ...exp_coffinScenes,
+    ...exp_ancestral_hallScenes,
+    ...exp_ancestral_spiritsScenes,
+    ...exp_ancestral_secretsScenes,
+    ...exp_coffin_stringsScenes,
+    ...exp_coffin_lanternScenes,
+    ...exp_coffin_closureScenes,
     ...exp_creatureScenes,
     ...exp_familyScenes,
     ...exp_finalScenes,
-    ...exp_moonScenes,
-    ...exp_mulberryScenes,
+    ...exp_moon_entranceScenes,
+    ...exp_moon_journeyScenes,
+    ...exp_moon_memoryScenes,
+    ...exp_mulberryTreeScenes,
+    ...exp_mulberryReleaseScenes,
+    ...exp_mulberryMiscScenes,
     ...exp_paperScenes,
     ...exp_paper_dollScenes,
     ...exp_paper_offeringScenes,
@@ -175,9 +209,12 @@ export const StoryData = {
     ...exp_villageScenes,
     ...exp_village_street_coreScenes,
     ...exp_village_street_districts_hubScenes,
-    ...exp_village_street_eventsScenes,
+    ...exp_village_street_events_voicesScenes,
+    ...exp_village_street_events_visionsScenes,
     ...exp_village_street_events_hubScenes,
-    ...exp_village_street_keepsakesScenes,
+    ...exp_village_street_keepsakes_guardiansScenes,
+    ...exp_village_street_keepsakes_giftsScenes,
+    ...exp_village_street_keepsakes_mementosScenes,
     ...exp_village_street_offeringsScenes,
     ...exp_village_street_spiritsScenes,
     ...exp_village_street_toysScenes,
@@ -187,15 +224,22 @@ export const StoryData = {
     ...exp_wellScenes,
     ...exp_womenScenes,
     ...exp_xiulanScenes,
-    ...exp_xiulan_bondScenes,
+    ...exp_xiulan_bond_nameScenes,
+    ...exp_xiulan_bond_momentsScenes,
     ...exp_xiulan_angerScenes,
-    ...exp_xiulan_joyScenes,
+    ...exp_xiulan_joy_artsScenes,
+    ...exp_xiulan_joy_dailyScenes,
     ...exp_xiulan_memoryScenes,
     ...ghostScenes,
     ...mainScenes,
     ...main_confrontScenes,
-    ...main_escapeScenes,
-    ...main_extendedScenes,
+    ...main_escape_pursuitScenes,
+    ...main_escape_flightScenes,
+    ...main_escape_endsScenes,
+    ...main_extendedArrivalScenes,
+    ...main_extendedBurialScenes,
+    ...main_extendedHallScenes,
+    ...main_extendedTruthScenes,
     ...main_investigationScenes,
     ...main_locksScenes,
     ...main_ritualScenes,

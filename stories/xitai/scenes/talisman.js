@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：talisman
  */
 
 export const scenes = {
-    talisman_resist: {
-        title: '符镇戏台',
-        text: `你掏出护身符，贴在戏台的一根柱子上。
+  talisman_resist: createScene('talisman_resist', {
+    title: '符镇戏台',
+    text: `你掏出护身符，贴在戏台的一根柱子上。
 
 黄符纸触到朱红柱子的瞬间，戏台上的锣鼓声猛地停了。那些没有五官的戏子像是被按了暂停键，保持着千奇百怪的姿势，僵在原地。
 
@@ -20,23 +21,20 @@ export const scenes = {
 你把戏服小心地叠好，带出戏台。
 
 天快亮了。`,
-        effects: {
-            sanity: 10,
-            yin: -20,
-            addItem: '云袖的戏服',
-            setFlag: 'talismanResistedOpera'
-        },
-        choices: [
-            {
-                text: '把戏服和银钗一起安葬',
-                next: 'bury_yunxiu_costume',
-                ending: 'hidden_songEnds'
-            },
-            {
-                text: '把戏服带回研究所',
-                next: '',
-                ending: 'peacefulDeparture'
-            }
-        ]
-    }
+    effects: {
+      sanity: 10,
+      yin: -20,
+      addItem: '云袖的戏服',
+      setFlag: 'talismanResistedOpera'
+    },
+    choices: [createChoice({
+      text: '把戏服和银钗一起安葬',
+      next: 'bury_yunxiu_costume',
+      ending: 'hidden_songEnds'
+    }), createChoice({
+      text: '把戏服带回研究所',
+      next: '',
+      ending: 'peacefulDeparture'
+    })]
+  })
 };

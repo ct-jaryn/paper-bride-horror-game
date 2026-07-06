@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《heniang》场景模块：lie
  */
 
 export const scenes = {
-    lie_about_ritual: {
-        title: '谎言超度',
-        text: `"秀姑阿姨，我找到你的尸骨了。" 你说，"我想超度你，让你离开这条河。"
+  lie_about_ritual: createScene('lie_about_ritual', {
+    title: '谎言超度',
+    text: `"秀姑阿姨，我找到你的尸骨了。" 你说，"我想超度你，让你离开这条河。"
 
 秀姑歪着头看你，眼神里有些怀疑："真的？"
 
@@ -22,16 +23,16 @@ export const scenes = {
 "我答应。" 你说，心里一阵刺痛。
 
 秀姑转过身，对着河水喊："莲姐，我要走了。你上来吧。"`,
-        effects: {
-            sanity: -15,
-            yin: 15
-        },
-        choices: [
-            {
-                text: '点燃尸骨',
-                next: 'burn_bones_ritual',
-                effects: { setFlag: 'burnedBones' }
-            }
-        ]
-    }
+    effects: {
+      sanity: -15,
+      yin: 15
+    },
+    choices: [createChoice({
+      text: '点燃尸骨',
+      next: 'burn_bones_ritual',
+      effects: {
+        setFlag: 'burnedBones'
+      }
+    })]
+  })
 };

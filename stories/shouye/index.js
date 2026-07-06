@@ -10,7 +10,9 @@ import { scenes as coffinScenes } from './scenes/coffin.js';
 import { scenes as discoveryScenes } from './scenes/discovery.js';
 import { scenes as entryScenes } from './scenes/entry.js';
 import { scenes as escapeScenes } from './scenes/escape.js';
-import { scenes as investigationScenes } from './scenes/investigation.js';
+import { scenes as investigationCluesScenes } from './scenes/investigation_clues.js';
+import { scenes as investigationIdentityScenes } from './scenes/investigation_identity.js';
+import { scenes as investigationReactionScenes } from './scenes/investigation_reaction.js';
 import { scenes as legacyScenes } from './scenes/legacy.js';
 import { scenes as lineageScenes } from './scenes/lineage.js';
 import { scenes as makeupScenes } from './scenes/makeup.js';
@@ -28,12 +30,18 @@ import { scenes as ritualScenes } from './scenes/ritual.js';
 import { scenes as riverScenes } from './scenes/river.js';
 import { scenes as stageScenes } from './scenes/stage.js';
 import { scenes as victimsDescendantsScenes } from './scenes/victims_descendants.js';
-import { scenes as victimsReleaseScenes } from './scenes/victims_release.js';
+import { scenes as victimsReleaseIntroScenes } from './scenes/victims_release_intro.js';
+import { scenes as victimsReleaseRiteScenes } from './scenes/victims_release_rite.js';
+import { scenes as victimsReleaseSoulsScenes } from './scenes/victims_release_souls.js';
 import { scenes as victimsResearchScenes } from './scenes/victims_research.js';
 import { scenes as villageScenes } from './scenes/village.js';
-import { scenes as watchersScenes } from './scenes/watchers.js';
+import { scenes as watchersCallIntroScenes } from './scenes/watchers_call_intro.js';
+import { scenes as watchersCallPromiseScenes } from './scenes/watchers_call_promise.js';
+import { scenes as watchersLineageScenes } from './scenes/watchers_lineage.js';
 import { scenes as yunxiuScenes } from './scenes/yunxiu.js';
-import { scenes as zhoushengScenes } from './scenes/zhousheng.js';
+import { scenes as zhoushengGraveScenes } from './scenes/zhousheng_grave.js';
+import { scenes as zhoushengRuinsScenes } from './scenes/zhousheng_ruins.js';
+import { scenes as zhoushengVisionScenes } from './scenes/zhousheng_vision.js';
 import { Endings } from './endings/index.js';
 import { NPCs } from './npcs/index.js';
 
@@ -45,7 +53,9 @@ export const StoryData = {
     ...discoveryScenes,
     ...entryScenes,
     ...escapeScenes,
-    ...investigationScenes,
+    ...investigationCluesScenes,
+    ...investigationIdentityScenes,
+    ...investigationReactionScenes,
     ...legacyScenes,
     ...lineageScenes,
     ...makeupScenes,
@@ -63,12 +73,18 @@ export const StoryData = {
     ...riverScenes,
     ...stageScenes,
     ...victimsDescendantsScenes,
-    ...victimsReleaseScenes,
+    ...victimsReleaseIntroScenes,
+    ...victimsReleaseRiteScenes,
+    ...victimsReleaseSoulsScenes,
     ...victimsResearchScenes,
     ...villageScenes,
-    ...watchersScenes,
+    ...watchersCallIntroScenes,
+    ...watchersCallPromiseScenes,
+    ...watchersLineageScenes,
     ...yunxiuScenes,
-    ...zhoushengScenes
+    ...zhoushengGraveScenes,
+    ...zhoushengRuinsScenes,
+    ...zhoushengVisionScenes
 };
 
 export { Endings, NPCs };

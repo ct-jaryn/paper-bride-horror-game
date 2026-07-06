@@ -1,12 +1,13 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《替身》场景模块：ask_doll
  * 与纸人直接对话的场景
  */
 
 export const scenes = {
-    ask_doll_meaning: {
-        title: '问纸人意义',
-        text: `"你到底想怎样？" 你问纸人。
+  ask_doll_meaning: createScene('ask_doll_meaning', {
+    title: '问纸人意义',
+    text: `"你到底想怎样？" 你问纸人。
 
 "我不想怎样。" 纸人说，"我只是想活。"
 
@@ -19,25 +20,21 @@ export const scenes = {
 [red]纸人的话让你浑身发冷。[/red]
 
 "我想变成你。" 纸人说，"不是取代你，是成为你。这样我就能光明正大地活，光明正大地喊他爸。"`,
-        effects: {
-            sanity: -20,
-            yin: 10
-        },
-        choices: [
-            {
-                text: '说你永远不会同意',
-                next: 'never_agree'
-            },
-            {
-                text: '问它如果同意会怎样',
-                next: 'ask_if_agree'
-            }
-        ]
+    effects: {
+      sanity: -20,
+      yin: 10
     },
-
-    ask_what_wants: {
-        title: '问它要什么',
-        text: `"你想干什么？" 你问。
+    choices: [createChoice({
+      text: '说你永远不会同意',
+      next: 'never_agree'
+    }), createChoice({
+      text: '问它如果同意会怎样',
+      next: 'ask_if_agree'
+    })]
+  }),
+  ask_what_wants: createScene('ask_what_wants', {
+    title: '问它要什么',
+    text: `"你想干什么？" 你问。
 
 "我想看看你的房间。" 门外的声音说，"我想看看真正的你住的地方。"
 
@@ -50,24 +47,20 @@ export const scenes = {
 "你保证只待一会儿？" 你问。
 
 "我保证。" 它说，"纸人不骗人。"`,
-        effects: {
-            yin: 5
-        },
-        choices: [
-            {
-                text: '开门让它进来',
-                next: 'let_doll_in'
-            },
-            {
-                text: '不开门',
-                next: 'stay_silent'
-            }
-        ]
+    effects: {
+      yin: 5
     },
-
-    ask_doll_leave: {
-        title: '问它离开',
-        text: `"你愿意离开吗？" 你问，"不再做我的替身。"
+    choices: [createChoice({
+      text: '开门让它进来',
+      next: 'let_doll_in'
+    }), createChoice({
+      text: '不开门',
+      next: 'stay_silent'
+    })]
+  }),
+  ask_doll_leave: createScene('ask_doll_leave', {
+    title: '问它离开',
+    text: `"你愿意离开吗？" 你问，"不再做我的替身。"
 
 纸人看着你，眼中第一次出现了类似人的犹豫。
 
@@ -78,23 +71,20 @@ export const scenes = {
 它沉默了很久，然后点点头："那你替我告诉父亲，我不是妖怪。"
 
 说完，它转身走向门外，身影慢慢融化在夜色里。`,
-        effects: {
-            sanity: 10,
-            yin: -10,
-            setFlag: 'doll_left_peacefully'
-            // 注意：这里没有 addItem 或 ending，继续主线
-        },
-        choices: [
-            {
-                text: '去告诉父亲',
-                next: 'see_father'
-            }
-        ]
+    effects: {
+      sanity: 10,
+      yin: -10,
+      setFlag: 'doll_left_peacefully'
+      // 注意：这里没有 addItem 或 ending，继续主线
     },
-
-    ask_if_agree: {
-        title: '问同意会怎样',
-        text: `"如果我同意，会怎样？" 你问。
+    choices: [createChoice({
+      text: '去告诉父亲',
+      next: 'see_father'
+    })]
+  }),
+  ask_if_agree: createScene('ask_if_agree', {
+    title: '问同意会怎样',
+    text: `"如果我同意，会怎样？" 你问。
 
 纸人的眼睛亮了起来："我会进入你的身体，你会进入我的身体。一天之后，我们再换回来。"
 
@@ -107,25 +97,23 @@ export const scenes = {
 但母亲的话回响在你耳边："纸人不骗人。"
 
 [red]纸人不骗人，但纸人也不会把话说全。[/red]`,
-        effects: {
-            yin: 5
-        },
-        choices: [
-            {
-                text: '同意换一天',
-                next: 'agree_one_day',
-                effects: { setFlag: 'agreedSwap' }
-            },
-            {
-                text: '拒绝',
-                next: 'never_agree'
-            }
-        ]
+    effects: {
+      yin: 5
     },
-
-    ask_doll_truth: {
-        title: '纸人真心',
-        text: `"你到底想要什么？" 你强迫自己镇定。
+    choices: [createChoice({
+      text: '同意换一天',
+      next: 'agree_one_day',
+      effects: {
+        setFlag: 'agreedSwap'
+      }
+    }), createChoice({
+      text: '拒绝',
+      next: 'never_agree'
+    })]
+  }),
+  ask_doll_truth: createScene('ask_doll_truth', {
+    title: '纸人真心',
+    text: `"你到底想要什么？" 你强迫自己镇定。
 
 纸人歪着头，像是在认真思考这个问题。
 
@@ -138,39 +126,44 @@ export const scenes = {
 你看着它。月光下，它的脸真的很像你，但眼神里有你没有的东西——
 
 [red]一种对"活着"的渴望。[/red]`,
-        effects: {
-            sanity: -5,
-            yin: 5
-        },
-        choices: [
-            {
-                text: '给它起名字，承认它',
-                next: 'give_doll_name',
-                effects: { setFlag: 'gaveName' }
-            },
-            {
-                text: '拒绝，说它只是纸',
-                next: 'deny_doll_identity',
-                effects: { yin: 15 }
-            },
-            {
-                text: '既然你这么想活，那我把身体让给你',
-                next: 'burn_my_remains',
-                condition: { flag: 'knowsExchange' },
-                hidden: true,
-                effects: { sanity: -10, yin: 20 }
-            },
-            {
-                text: '既然你没有名分，那我跟你拜堂成亲',
-                next: 'paper_wedding_proposal',
-                effects: { yin: 5 }
-            }
-        ]
+    effects: {
+      sanity: -5,
+      yin: 5
     },
-
-    ask_how_destroy: {
-        title: '问怎么消灭',
-        text: `"怎么才能彻底消灭你？" 你问。
+    choices: [createChoice({
+      text: '给它起名字，承认它',
+      next: 'give_doll_name',
+      effects: {
+        setFlag: 'gaveName'
+      }
+    }), createChoice({
+      text: '拒绝，说它只是纸',
+      next: 'deny_doll_identity',
+      effects: {
+        yin: 15
+      }
+    }), createChoice({
+      text: '既然你这么想活，那我把身体让给你',
+      next: 'burn_my_remains',
+      condition: {
+        flag: 'knowsExchange'
+      },
+      hidden: true,
+      effects: {
+        sanity: -10,
+        yin: 20
+      }
+    }), createChoice({
+      text: '既然你没有名分，那我跟你拜堂成亲',
+      next: 'paper_wedding_proposal',
+      effects: {
+        yin: 5
+      }
+    })]
+  }),
+  ask_how_destroy: createScene('ask_how_destroy', {
+    title: '问怎么消灭',
+    text: `"怎么才能彻底消灭你？" 你问。
 
 纸人指指自己的胸口："这里，有你爸写下的话。烧了它，我就没了。"
 
@@ -181,18 +174,15 @@ export const scenes = {
 "可我爸病成那样……"
 
 "所以你要救他，还是要消灭我？" 纸人笑了，"你选一个。"`,
-        effects: {
-            sanity: -10
-        },
-        choices: [
-            {
-                text: '选择救父亲',
-                next: 'reclaim_soul'
-            },
-            {
-                text: '选择消灭纸人',
-                ending: 'burnedTogether'
-            }
-        ]
-    }
+    effects: {
+      sanity: -10
+    },
+    choices: [createChoice({
+      text: '选择救父亲',
+      next: 'reclaim_soul'
+    }), createChoice({
+      text: '选择消灭纸人',
+      ending: 'burnedTogether'
+    })]
+  })
 };

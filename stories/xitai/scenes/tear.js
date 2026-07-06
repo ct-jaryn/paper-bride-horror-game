@@ -1,11 +1,12 @@
+import { createScene } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：tear
  */
 
 export const scenes = {
-    tear_costume: {
-        title: '撕裂戏服',
-        text: `你发疯似的撕扯戏服。
+  tear_costume: createScene('tear_costume', {
+    title: '撕裂戏服',
+    text: `你发疯似的撕扯戏服。
 
 戏服像长在你身上一样，越撕越紧。台下没有脸的观众开始鼓掌，像是在看一场好戏。
 
@@ -14,6 +15,6 @@ export const scenes = {
 你低头一看，戏服已经和你的皮肤长在一起。红色的绸缎下，是你自己的血肉。
 
 [red]你成了戏服的一部分。[/red]`,
-        ending: 'becomeCostume'
-    }
+    ending: 'becomeCostume'
+  })
 };

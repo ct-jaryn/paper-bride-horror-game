@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：true
  */
 
 export const scenes = {
-    true_backstage: {
-        title: '真正的后台',
-        text: `你放下相机，揉了揉眼睛。
+  true_backstage: createScene('true_backstage', {
+    title: '真正的后台',
+    text: `你放下相机，揉了揉眼睛。
 
 戏台并没有空。幕布后面，十几个穿戏服的人正在忙碌。有人对着镜子画脸，有人整理水袖，有人调弦试嗓。
 
@@ -22,20 +23,17 @@ export const scenes = {
 你正想走近，一阵冷风吹过，后台的景象像水波一样晃了晃，消失了。戏台又恢复了破败荒凉的样子。
 
 但你心里清楚，你刚才看见的，是二十年前火灾发生前的最后一刻。`,
-        effects: {
-            sanity: -10,
-            yin: 15,
-            setFlag: 'sawTrueBackstage'
-        },
-        choices: [
-            {
-                text: '去后台查看',
-                next: 'backstage'
-            },
-            {
-                text: '找镇上老人打听',
-                next: 'ask_villagers'
-            }
-        ]
-    }
+    effects: {
+      sanity: -10,
+      yin: 15,
+      setFlag: 'sawTrueBackstage'
+    },
+    choices: [createChoice({
+      text: '去后台查看',
+      next: 'backstage'
+    }), createChoice({
+      text: '找镇上老人打听',
+      next: 'ask_villagers'
+    })]
+  })
 };

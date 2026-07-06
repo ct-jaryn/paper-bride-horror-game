@@ -2,10 +2,10 @@
  * 《回门》场景模块：well
  */
 
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
 export const scenes = {
-    mirror_well: {
-        title: '照魂镜',
-        text: `你抓起井沿上的铜镜，对准井水。
+    mirror_well: createScene('mirror_well', {title:'照魂镜',text:`你抓起井沿上的铜镜，对准井水。
 
 镜面裂痕中射出一道浑浊的光，井水"咕嘟咕嘟"沸腾起来。水里的女子发出一声尖啸，像是被烫伤一样缩回深处。
 
@@ -19,14 +19,8 @@ export const scenes = {
 
 她把铜镜碎片从你手里拿走，却又恭敬地放回井沿。
 
-"看来，真的是你。" 她喃喃道，"真的是你回来了。"`,
-        effects: {"addItem":"铜镜碎片","sanity":-5,"yin":-5},
-        choices: [{"text":"问她\"真的是我\"是什么意思","next":"ask_really_me"},{"text":"趁她恍惚，往后山跑","next":"run_to_mountain","danger":true},{"text":"铜镜碎片里映出的村子，似乎多了一条月光铺成的小路","next":"huimen_exp_village_loop_entry","condition":{"hasItem":"铜镜碎片"},"hidden":true,"effects":{"yin":2}}],
-    }
-,
-    struggle_in_well: {
-        title: '溺亡',
-        text: `黑发越缠越紧。
+"看来，真的是你。" 她喃喃道，"真的是你回来了。"`,effects:{"addItem":"铜镜碎片","sanity":-5,"yin":-5},choices:[createChoice({"text":"问她\"真的是我\"是什么意思","next":"ask_really_me"}),createChoice({"text":"趁她恍惚，往后山跑","next":"run_to_mountain","danger":true}),createChoice({"text":"铜镜碎片里映出的村子，似乎多了一条月光铺成的小路","next":"huimen_exp_village_loop_entry","condition":{"hasItem":"铜镜碎片"},"hidden":true,"effects":{"yin":2}})]}),
+    struggle_in_well: createScene('struggle_in_well', {title:'溺亡',text:`黑发越缠越紧。
 
 你感到自己的意识在被一点点抽离。秀兰的脸贴近你，她的眼眶里流出红色的泪。
 
@@ -38,7 +32,5 @@ export const scenes = {
 
 第二天，村里人在井里发现了一具男尸。他穿着新郎服，脸上带着诡异的微笑。
 
-他的手腕上，系着一根红绳。红绳的另一端，消失在井底深处。`,
-        ending: 'possessed',
-    }
+他的手腕上，系着一根红绳。红绳的另一端，消失在井底深处。`,ending:'possessed'})
 };

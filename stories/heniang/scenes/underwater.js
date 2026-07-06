@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《heniang》场景模块：underwater
  */
 
 export const scenes = {
-    underwater_chorus: {
-        title: '水下合唱',
-        text: `你屏住呼吸，把耳朵贴近水面。
+  underwater_chorus: createScene('underwater_chorus', {
+    title: '水下合唱',
+    text: `你屏住呼吸，把耳朵贴近水面。
 
 河水下面传来极细的歌声，不是一个人在唱，而是很多个声音叠在一起。她们唱的不是河娘引诱人的那首，而是一首更古老、更凄凉的歌：
 
@@ -20,20 +21,17 @@ export const scenes = {
 [red]她们在等一个能让她们上岸的人。[/red]
 
 你猛地后退一步。那些身影中，有一个特别熟悉——是母亲。她站在人群边缘，没有唱歌，只是看着你。`,
-        effects: {
-            sanity: -10,
-            yin: 15,
-            setFlag: 'heardUnderwaterChorus'
-        },
-        choices: [
-            {
-                text: '喊母亲',
-                next: 'call_mother'
-            },
-            {
-                text: '去找神婆',
-                next: 'find_shenpo'
-            }
-        ]
-    }
+    effects: {
+      sanity: -10,
+      yin: 15,
+      setFlag: 'heardUnderwaterChorus'
+    },
+    choices: [createChoice({
+      text: '喊母亲',
+      next: 'call_mother'
+    }), createChoice({
+      text: '去找神婆',
+      next: 'find_shenpo'
+    })]
+  })
 };

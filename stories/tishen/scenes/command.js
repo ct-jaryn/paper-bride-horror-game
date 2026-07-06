@@ -1,11 +1,12 @@
+import { createScene } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：command
  */
 
 export const scenes = {
-    command_leave_father: {
-        title: '命令离开父亲',
-        text: `"我命令你，离开我父亲的身。" 你说。
+  command_leave_father: createScene('command_leave_father', {
+    title: '命令离开父亲',
+    text: `"我命令你，离开我父亲的身。" 你说。
 
 纸人周安低下头："遵命，主人。"
 
@@ -20,16 +21,15 @@ export const scenes = {
 "谢谢你。" 你说。
 
 纸人笑了笑，那笑容和你一模一样："不用谢。我终于……有名字了。"`,
-        effects: {
-            sanity: 10,
-            yin: -20
-        },
-        ending: 'namedAndFree'
+    effects: {
+      sanity: 10,
+      yin: -20
     },
-
-    command_take_disaster: {
-        title: '命令替灾',
-        text: `"我命令你，继续替我承受所有灾病。" 你说。
+    ending: 'namedAndFree'
+  }),
+  command_take_disaster: createScene('command_take_disaster', {
+    title: '命令替灾',
+    text: `"我命令你，继续替我承受所有灾病。" 你说。
 
 纸人周安抬起头，眼神里闪过一丝失望，但很快低下头："遵命，主人。"
 
@@ -44,10 +44,10 @@ export const scenes = {
 你看着镜子里，发现它的脸已经和你分毫不差。
 
 [red]也许再过一段时间，就没人能分清你们了。[/red]`,
-        effects: {
-            sanity: -15,
-            yin: 20
-        },
-        ending: 'slowReplacement'
-    }
+    effects: {
+      sanity: -15,
+      yin: 20
+    },
+    ending: 'slowReplacement'
+  })
 };

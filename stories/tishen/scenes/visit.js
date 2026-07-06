@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：visit
  */
 
 export const scenes = {
-    visit_zhou_shop: {
-        title: '周氏纸扎铺',
-        text: `你决定不在院子里耗下去。青石镇，周氏纸扎铺——纸人后背上那方印章的出处。
+  visit_zhou_shop: createScene('visit_zhou_shop', {
+    title: '周氏纸扎铺',
+    text: `你决定不在院子里耗下去。青石镇，周氏纸扎铺——纸人后背上那方印章的出处。
 
 你坐了三个小时中巴，到镇口时天已经黑了。镇上只剩一盏白灯笼，挂在"周氏纸扎"的铺子门口。
 
@@ -20,26 +21,22 @@ export const scenes = {
 他顿了顿，声音压低：
 
 "但两个法子，都要你付出代价。"`,
-        effects: {
-            sanity: -10,
-            yin: 10
-        },
-        choices: [
-            {
-                text: '请老人写反替符',
-                next: '',
-                ending: 'hidden_inkWash'
-            },
-            {
-                text: '带走朱砂封窍',
-                next: '',
-                ending: 'hidden_artisansCurse'
-            },
-            {
-                text: '上前与周老攀谈，多问几句纸扎的事',
-                npc: 'zhou_lao',
-                npcNode: 'start'
-            }
-        ]
-    }
+    effects: {
+      sanity: -10,
+      yin: 10
+    },
+    choices: [createChoice({
+      text: '请老人写反替符',
+      next: '',
+      ending: 'hidden_inkWash'
+    }), createChoice({
+      text: '带走朱砂封窍',
+      next: '',
+      ending: 'hidden_artisansCurse'
+    }), createChoice({
+      text: '上前与周老攀谈，多问几句纸扎的事',
+      npc: 'zhou_lao',
+      npcNode: 'start'
+    })]
+  })
 };

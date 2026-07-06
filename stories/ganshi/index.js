@@ -4,7 +4,9 @@
 
 import { scenes as abandonScenes } from './scenes/abandon.js';
 import { scenes as apologizeScenes } from './scenes/apologize.js';
-import { scenes as askScenes } from './scenes/ask.js';
+import { scenes as askBrideScenes } from './scenes/ask_bride.js';
+import { scenes as askPoisonScenes } from './scenes/ask_poison.js';
+import { scenes as askTianScenes } from './scenes/ask_tian.js';
 import { scenes as atoneScenes } from './scenes/atone.js';
 import { scenes as bellScenes } from './scenes/bell.js';
 import { scenes as breakScenes } from './scenes/break.js';
@@ -46,7 +48,9 @@ import { NPCs } from './npcs/index.js';
 export const StoryData = {
     ...abandonScenes,
     ...apologizeScenes,
-    ...askScenes,
+    ...askBrideScenes,
+    ...askPoisonScenes,
+    ...askTianScenes,
     ...atoneScenes,
     ...bellScenes,
     ...breakScenes,

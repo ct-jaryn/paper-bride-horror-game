@@ -1,11 +1,12 @@
+import { createScene } from '../../../js/engine/sceneFactory.js';
 /**
  * 《heniang》场景模块：bargain
  */
 
 export const scenes = {
-    bargain_years: {
-        title: '讨价还价',
-        text: `"三十年太长了。" 你说，"十年行不行？"
+  bargain_years: createScene('bargain_years', {
+    title: '讨价还价',
+    text: `"三十年太长了。" 你说，"十年行不行？"
 
 秀姑的笑容消失了："你以为这是菜市场买菜？"
 
@@ -20,10 +21,10 @@ export const scenes = {
 "为什么？"
 
 "因为子时，河门开。" 秀姑说，"只有那个时候，我才能听见岸上的声音。"`,
-        effects: {
-            sanity: -10,
-            yin: 10
-        },
-        ending: 'thirtyYearsSong'
-    }
+    effects: {
+      sanity: -10,
+      yin: 10
+    },
+    ending: 'thirtyYearsSong'
+  })
 };

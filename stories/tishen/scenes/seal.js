@@ -1,11 +1,12 @@
+import { createScene } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：seal
  */
 
 export const scenes = {
-    seal_doll_in_yard: {
-        title: '院中封印',
-        text: `你找来黄符和朱砂，在院子四周贴满符咒。
+  seal_doll_in_yard: createScene('seal_doll_in_yard', {
+    title: '院中封印',
+    text: `你找来黄符和朱砂，在院子四周贴满符咒。
 
 纸人看着你的动作，没有反抗。它只是问："为什么？"
 
@@ -24,10 +25,10 @@ export const scenes = {
 那是它在用纸摩擦地面，练习怎么走路。
 
 等你下次回来，它也许就会走了。`,
-        effects: {
-            sanity: -10,
-            yin: 10
-        },
-        ending: 'sealedButWaiting'
-    }
+    effects: {
+      sanity: -10,
+      yin: 10
+    },
+    ending: 'sealedButWaiting'
+  })
 };

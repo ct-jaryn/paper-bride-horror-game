@@ -1,11 +1,12 @@
+import { createScene } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：find
  */
 
 export const scenes = {
-    find_yunxiu: {
-        title: '找到云袖',
-        text: `你走到台前。
+  find_yunxiu: createScene('find_yunxiu', {
+    title: '找到云袖',
+    text: `你走到台前。
 
 演杜丽娘的戏子正站在台中央，腰间系着红绳。她没有五官，但你知道她就是云袖。
 
@@ -26,10 +27,10 @@ export const scenes = {
 [red]然后，一起消失了。[/red]
 
 戏台上的红灯笼，一盏接一盏熄灭。`,
-        effects: {
-            sanity: 10,
-            yin: -30
-        },
-        ending: 'reunion'
-    }
+    effects: {
+      sanity: 10,
+      yin: -30
+    },
+    ending: 'reunion'
+  })
 };

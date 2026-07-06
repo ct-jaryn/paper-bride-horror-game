@@ -1,11 +1,12 @@
+import { createScene } from '../../../js/engine/sceneFactory.js';
 /**
  * 《heniang》场景模块：burn
  */
 
 export const scenes = {
-    burn_bones_anyway: {
-        title: '狠心焚骨',
-        text: `你狠下心，把火把扔到尸骨上。
+  burn_bones_anyway: createScene('burn_bones_anyway', {
+    title: '狠心焚骨',
+    text: `你狠下心，把火把扔到尸骨上。
 
 火焰"轰"地一声窜起。秀姑发出凄厉的惨叫，从水里冲出来，想要扑灭火焰。
 
@@ -24,17 +25,16 @@ export const scenes = {
 你伸手去拉她。但就在你们的手要碰到的时候，水面下伸出无数只手，把母亲拉了回去。
 
 [red]河里还有别的河娘。她们不会让母亲走。[/red]`,
-        effects: {
-            sanity: -40,
-            yin: 30,
-            visual: 'blood'
-        },
-        ending: 'otherHeniang'
+    effects: {
+      sanity: -40,
+      yin: 30,
+      visual: 'blood'
     },
-
-    burn_bones_ritual: {
-        title: '仪式焚骨',
-        text: `你点燃尸骨，念诵往生咒。
+    ending: 'otherHeniang'
+  }),
+  burn_bones_ritual: createScene('burn_bones_ritual', {
+    title: '仪式焚骨',
+    text: `你点燃尸骨，念诵往生咒。
 
 火焰中，秀姑的身影渐渐变淡。她看着母亲，眼里有不舍："莲姐，我要走了。"
 
@@ -49,10 +49,10 @@ export const scenes = {
 你伸手把她拉上岸。她的身体冰冷，但还有微弱的呼吸。
 
 你把她抱在怀里，大声喊她的名字。`,
-        effects: {
-            sanity: -10,
-            yin: -20
-        },
-        ending: 'deceivedSalvation'
-    }
+    effects: {
+      sanity: -10,
+      yin: -20
+    },
+    ending: 'deceivedSalvation'
+  })
 };

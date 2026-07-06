@@ -38,7 +38,7 @@ export function getShichen(time) {
 export function checkCondition(condition, stateOverride) {
     const state = stateOverride || Huimen.GameState;
 
-    if (!condition) return true;
+    if (!condition || Object.keys(condition).length === 0) return true;
     if (condition.hasItem) {
         return state.inventory.includes(condition.hasItem);
     }

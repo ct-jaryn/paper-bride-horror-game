@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：burn
  */
 
 export const scenes = {
-    burn_doll_now: {
-        title: '立刻焚烧',
-        text: `你点燃打火机，扔向纸人。
+  burn_doll_now: createScene('burn_doll_now', {
+    title: '立刻焚烧',
+    text: `你点燃打火机，扔向纸人。
 
 火苗"轰"地一声窜起，吞没了纸人。纸人在火中扭曲、尖叫，那声音不像是纸燃烧的声音，更像是一个人在惨叫。
 
@@ -24,17 +25,16 @@ export const scenes = {
 父亲笑了，然后闭上了眼睛。
 
 [red]再也没有睁开。[/red]`,
-        effects: {
-            sanity: -40,
-            yin: 30,
-            visual: 'blood'
-        },
-        ending: 'burnedTogether'
+    effects: {
+      sanity: -40,
+      yin: 30,
+      visual: 'blood'
     },
-
-    burn_my_remains: {
-        title: '焚我残躯',
-        text: `你看着纸人，忽然笑了。
+    ending: 'burnedTogether'
+  }),
+  burn_my_remains: createScene('burn_my_remains', {
+    title: '焚我残躯',
+    text: `你看着纸人，忽然笑了。
 
 "你不是想活吗？" 你说，"那我成全你。"
 
@@ -57,16 +57,14 @@ export const scenes = {
 [red]它终于明白了：活着，不是模仿一个人就够了。[/red]
 
 院子里，两堆灰烬混在一起，分不清哪个是你，哪个是纸人。`,
-        effects: {
-            sanity: -50,
-            yin: 40
-        },
-        choices: [
-            {
-                text: '一切归于灰烬',
-                next: '',
-                ending: 'hidden_burn_my_remains'
-            }
-        ]
-    }
+    effects: {
+      sanity: -50,
+      yin: 40
+    },
+    choices: [createChoice({
+      text: '一切归于灰烬',
+      next: '',
+      ending: 'hidden_burn_my_remains'
+    })]
+  })
 };

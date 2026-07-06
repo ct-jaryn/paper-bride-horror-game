@@ -2,7 +2,7 @@
  * 《守夜》普通结局
  */
 
-export const NormalEndings = {
+export const Endings = {
     normal_peacefulRest: {
         title: '普通结局 · 安息',
         text: `你的恭敬换来了云袖的安宁。

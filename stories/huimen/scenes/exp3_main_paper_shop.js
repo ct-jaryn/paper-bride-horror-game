@@ -1,0 +1,17 @@
+/**
+ * 《回门》场景模块：exp3_main_paper_shop
+ */
+
+
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
+export const scenes = {
+    huimen_exp3_paper_shop_basement: createScene('huimen_exp3_paper_shop_basement', {title:"三层纸扎铺地下室",text:"你掀开纸扎铺柜台后的布帘，发现一道向下的木梯。\n\n梯子上落满灰尘，却有一串新鲜的脚印。脚印很小，像是女子的脚。你顺着梯子下去，地下室里堆满了未完工的纸人，有的有脸，有的没有。",effects:{"sanity":-3,"yin":3},choices:[createChoice({"text":"查看没有脸的纸人","next":"huimen_exp3_paper_shop_faceless","effects":{"yin":2}}),createChoice({"text":"找扎纸匠问问","next":"huimen_exp_paper_doll_craftsman","effects":{"yin":1}}),createChoice({"text":"点燃一盏油灯","next":"huimen_exp3_paper_shop_basement_light","effects":{"yin":2}})]}),
+    huimen_exp3_paper_shop_faceless: createScene('huimen_exp3_paper_shop_faceless', {title:"无脸纸人",text:"没有脸的纸人一共有七个，排成一排，像是在等什么东西。\n\n你走近时，听见它们身上发出细微的沙沙声。仔细一看，纸人的胸口都贴着一张黄纸，写着女子的名字和生辰。\n\n最边上的那个，贴着\"秀兰\"。",effects:{"sanity":-5,"yin":4},choices:[createChoice({"text":"撕下秀兰的纸","next":"huimen_exp3_paper_shop_faceless_tear","effects":{"sanity":3,"yin":-2}}),createChoice({"text":"给它们画上脸","next":"huimen_exp3_paper_shop_faceless_draw","effects":{"yin":5}})]}),
+    huimen_exp3_paper_shop_faceless_tear: createScene('huimen_exp3_paper_shop_faceless_tear', {title:"撕名",text:"黄纸一撕，那个无脸纸人忽然软倒，像被抽掉了骨头。\n\n其他的纸人开始颤抖，发出婴儿哭泣般的声响。你赶紧把黄纸折好收进口袋，后退到梯子口。\n\n纸人们慢慢平静下来，但它们的身体似乎比之前更瘦了。",effects:{"sanity":3,"yin":-3,"addItem":"纸人名纸"},choices:[createChoice({"text":"离开地下室","next":"huimen_exp_paper_shop","effects":{"yin":1}})]}),
+    huimen_exp3_paper_shop_faceless_draw: createScene('huimen_exp3_paper_shop_faceless_draw', {title:"画脸",text:"你蘸着朱砂，给纸人一一画上眉眼。\n\n画到第三个时，纸人忽然睁开眼睛。那眼睛里没有眼白，只有两团漆黑。它张开嘴，发出秀兰的声音：\"别画了。画脸就是借命。\"\n\n你吓得把笔一扔。纸人们齐声叹了口气，像是在惋惜。",effects:{"sanity":-8,"yin":8},choices:[createChoice({"text":"烧毁所有纸人","next":"huimen_exp3_paper_shop_faceless_burn","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"逃上梯子","next":"huimen_exp_paper_shop","effects":{"yin":2}})]}),
+    huimen_exp3_paper_shop_faceless_burn: createScene('huimen_exp3_paper_shop_faceless_burn', {title:"焚毁",text:"火从纸人脚下燃起，很快吞噬了整排无脸纸人。\n\n它们在火里没有尖叫，只是静静地燃烧，像是在等待这一刻已经很久。最后，灰烬里露出七枚小小的骨珠。\n\n你拾起骨珠，感觉它们在掌心里微微发温。",effects:{"sanity":5,"yin":-5,"addItem":"七枚骨珠"},choices:[createChoice({"text":"离开地下室","next":"huimen_exp_paper_shop","effects":{"yin":1}})]}),
+    huimen_exp3_paper_shop_basement_light: createScene('huimen_exp3_paper_shop_basement_light', {title:"地下室的光",text:"你点亮油灯，地下室里的阴影一下子退了很远。\n\n在灯光照不到的角落里，有一口小小的纸棺材。棺材盖半开着，里面躺着一个穿着红肚兜的纸娃娃。\n\n纸娃娃的脸上带着笑，手里攥着一张纸条：\"吾儿周安，满月夭折，以纸代之。\"",effects:{"sanity":-3,"yin":3},choices:[createChoice({"text":"把纸娃娃抱出来","next":"huimen_exp3_paper_shop_baby_doll","effects":{"yin":3}}),createChoice({"text":"盖上棺材盖","next":"huimen_exp3_paper_shop_baby_doll_close","effects":{"sanity":3,"yin":1}})]}),
+    huimen_exp3_paper_shop_baby_doll: createScene('huimen_exp3_paper_shop_baby_doll', {title:"纸娃娃",text:"纸娃娃很轻，轻得像一只空心的鸡蛋。\n\n你把它抱起来时，它忽然动了动，把纸条塞进你手里。纸条背面还有一行小字：\"娘亲秀兰，愿儿来世不姓周。\"\n\n你的眼眶忽然一酸。",effects:{"sanity":-5,"yin":4,"addItem":"纸娃娃"},choices:[createChoice({"text":"把娃娃带去给秀兰","next":"huimen_exp_well_night","effects":{"yin":1}}),createChoice({"text":"放回棺材","next":"huimen_exp3_paper_shop_baby_doll_close","effects":{"sanity":3,"yin":1}})]}),
+    huimen_exp3_paper_shop_baby_doll_close: createScene('huimen_exp3_paper_shop_baby_doll_close', {title:"盖棺",text:"你把棺材盖轻轻盖上。\n\n纸娃娃在盖合的瞬间发出一声细细的呜咽，随即安静下来。地下室里的阴气似乎也淡了一些。\n\n你在棺材盖上摸了摸，发现刻着一行小字：\"以纸代骨，以名代魂。\"",effects:{"sanity":3,"yin":1},choices:[createChoice({"text":"离开","next":"huimen_exp_paper_shop","effects":{"yin":1}})]})
+};

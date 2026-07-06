@@ -2,10 +2,10 @@
  * 《回门》村街：灵异常、路径与门神相关场景
  */
 
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
 export const scenes = {
-    huimen_exp_village_street_paper_bridge: {
-        title: '纸桥',
-        text: `你来到村边的小河，河上搭着一座纸桥。
+    huimen_exp_village_street_paper_bridge: createScene('huimen_exp_village_street_paper_bridge', {title:'纸桥',text:`你来到村边的小河，河上搭着一座纸桥。
 
 桥是用黄纸和竹篾扎的，很窄，只容一人通过。桥下没有水，只有一层厚厚的纸灰。
 
@@ -15,13 +15,8 @@ export const scenes = {
 
 你想了想，说："我小时候偷过祖母的钱，买了一块糖。"
 
-纸灰泛起涟漪，像是一个个微笑。`,
-        effects: {"sanity":-3,"yin":2},
-        choices: [{"text":"继续过桥","next":"huimen_exp_moonlit_path","effects":{"yin":1}},{"text":"退回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    },
-    huimen_exp_village_street_ghost_dog: {
-        title: '义犬',
-        text: `你看见一只黑狗跟在你身后。
+纸灰泛起涟漪，像是一个个微笑。`,effects:{"sanity":-3,"yin":2},choices:[createChoice({"text":"继续过桥","next":"huimen_exp_moonlit_path","effects":{"yin":1}}),createChoice({"text":"退回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_village_street_ghost_dog: createScene('huimen_exp_village_street_ghost_dog', {title:'义犬',text:`你看见一只黑狗跟在你身后。
 
 这只狗和之前那只不同，它的身体是半透明的，脖子上系着一根红绳。它看着你，眼神里没有凶光，只有哀求。
 
@@ -31,13 +26,8 @@ export const scenes = {
 
 你跟着它，来到一座矮坟前。坟前没有碑，只有一块木板，上面写着"义犬黑子之墓"。
 
-"这是秀兰生前养的狗。" 秀兰的声音说，"我死那晚，它想救我，被打死了。"`,
-        effects: {"sanity":-5,"yin":2,"setFlag":"huimen_exp_found_ghost_dog"},
-        choices: [{"text":"在坟前磕个头","next":"huimen_exp_village_street_ghost_dog_bow","effects":{"sanity":5,"yin":-5}},{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    },
-    huimen_exp_village_street_ghost_dog_bow: {
-        title: '义犬祭',
-        text: `你跪在狗坟前，磕了三个头。
+"这是秀兰生前养的狗。" 秀兰的声音说，"我死那晚，它想救我，被打死了。"`,effects:{"sanity":-5,"yin":2,"setFlag":"huimen_exp_found_ghost_dog"},choices:[createChoice({"text":"在坟前磕个头","next":"huimen_exp_village_street_ghost_dog_bow","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_village_street_ghost_dog_bow: createScene('huimen_exp_village_street_ghost_dog_bow', {title:'义犬祭',text:`你跪在狗坟前，磕了三个头。
 
 "黑子，谢谢你当年想救秀兰。" 你说，"她现在很好，我会带她走的。"
 
@@ -45,13 +35,8 @@ export const scenes = {
 
 "它会保护你。" 秀兰说，"就像当年想保护我一样。"
 
-你站起身，感到自己的影子重了一些。那不是负担，是一份忠诚。`,
-        effects: {"sanity":10,"yin":-10,"setFlag":"huimen_exp_ghost_dog_protection"},
-        choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    },
-    huimen_exp_village_street_paper_bird: {
-        title: '纸鸟',
-        text: `你看见一只纸折的鸟停在井沿。
+你站起身，感到自己的影子重了一些。那不是负担，是一份忠诚。`,effects:{"sanity":10,"yin":-10,"setFlag":"huimen_exp_ghost_dog_protection"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_village_street_paper_bird: createScene('huimen_exp_village_street_paper_bird', {title:'纸鸟',text:`你看见一只纸折的鸟停在井沿。
 
 纸鸟折得很精巧，翅膀还能动。你走近，它歪着头看你，黑豆一样的眼睛里没有光。
 
@@ -63,13 +48,8 @@ export const scenes = {
 
 [red]你把纸鸟举高，它忽然活了过来，从你手里飞走，飞向夜空。[/red]
 
-"它自由了。" 秀兰说。`,
-        effects: {"sanity":5,"yin":-3},
-        choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    },
-    huimen_exp_village_street_paper_door: {
-        title: '街门',
-        text: `你走到一户人家门前，发现门是纸糊的。
+"它自由了。" 秀兰说。`,effects:{"sanity":5,"yin":-3},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_village_street_paper_door: createScene('huimen_exp_village_street_paper_door', {title:'街门',text:`你走到一户人家门前，发现门是纸糊的。
 
 门上画着门神，可门神的眼睛被挖掉了，只剩下两个黑洞。你推开门，门后不是屋子，而是一片漆黑。
 
@@ -85,13 +65,8 @@ export const scenes = {
 
 [whisper]"下次，你会进来的。"[/whisper] 门后的声音说。
 
-你没有回答。你转身离开，但你知道，这扇门还会再出现。`,
-        effects: {"sanity":-5,"yin":2},
-        choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    },
-    huimen_exp_village_street_paper_door_god: {
-        title: '门神',
-        text: `你盯着纸门上的门神。
+你没有回答。你转身离开，但你知道，这扇门还会再出现。`,effects:{"sanity":-5,"yin":2},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_village_street_paper_door_god: createScene('huimen_exp_village_street_paper_door_god', {title:'门神',text:`你盯着纸门上的门神。
 
 门神的眼睛动了动，然后开口说话："年轻人，你不该来这里。"
 
@@ -103,8 +78,5 @@ export const scenes = {
 
 门神沉默了一会儿，然后说："把门上的红纸撕了，我能帮你一次。"
 
-你撕下门上的红纸，门神的身影消失了。你感到一阵轻松，像是某种阻碍被清除了。风吹过，红纸化作一只红色的蝴蝶，向村子外面飞去。`,
-        effects: {"sanity":5,"yin":-5,"setFlag":"huimen_exp_helped_by_door_god"},
-        choices: [{"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}],
-    }
+你撕下门上的红纸，门神的身影消失了。你感到一阵轻松，像是某种阻碍被清除了。风吹过，红纸化作一只红色的蝴蝶，向村子外面飞去。`,effects:{"sanity":5,"yin":-5,"setFlag":"huimen_exp_helped_by_door_god"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]})
 };

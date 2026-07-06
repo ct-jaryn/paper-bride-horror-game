@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：paper
  */
 
 export const scenes = {
-    paper_whisper_melody: {
-        title: '纸人余音',
-        text: `戏台上的唱腔让你愣了一下。
+  paper_whisper_melody: createScene('paper_whisper_melody', {
+    title: '纸人余音',
+    text: `戏台上的唱腔让你愣了一下。
 
 那不是普通的《牡丹亭》。在婉转的曲调里，你听见了一段更细、更凉的旋律——像是在某个山村老槐树下，从纸扎人身体里透出来的低语。
 
@@ -22,21 +23,20 @@ export const scenes = {
 "见过。" 你说，"她叫秀兰。她等了三十年的名分。"
 
 云袖沉默了很久。最后她说："我等的，不是名分。是一句对不起。"`,
-        effects: {
-            sanity: -10,
-            yin: 10,
-            setFlag: 'yunxiuLinkedToPaper'
-        },
-        choices: [
-            {
-                text: '去后台找周生',
-                next: 'truth_for_yunxiu',
-                condition: { flag: 'knowsTruth' }
-            },
-            {
-                text: '上台替她唱完',
-                next: 'perform_opera'
-            }
-        ]
-    }
+    effects: {
+      sanity: -10,
+      yin: 10,
+      setFlag: 'yunxiuLinkedToPaper'
+    },
+    choices: [createChoice({
+      text: '去后台找周生',
+      next: 'truth_for_yunxiu',
+      condition: {
+        flag: 'knowsTruth'
+      }
+    }), createChoice({
+      text: '上台替她唱完',
+      next: 'perform_opera'
+    })]
+  })
 };

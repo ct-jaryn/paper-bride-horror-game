@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《heniang》场景模块：xiulan
  */
 
 export const scenes = {
-    xiulan_dress_heniang: {
-        title: '嫁衣迟疑',
-        text: `你从背包里取出那件叠得整整齐齐的红嫁衣。
+  xiulan_dress_heniang: createScene('xiulan_dress_heniang', {
+    title: '嫁衣迟疑',
+    text: `你从背包里取出那件叠得整整齐齐的红嫁衣。
 
 嫁衣上绣着"周氏秀兰"四个字，已经被岁月洗得有些发白。但你展开它的瞬间，河面上的母亲猛地后退了一步。
 
@@ -22,23 +23,22 @@ export const scenes = {
 母亲沉默了。河水变得平静，像一面镜子。
 
 良久，她抬起头："把嫁衣收好。别让它再沾水了。"`,
-        effects: {
-            sanity: 5,
-            yin: -15,
-            setFlag: 'motherHesitated'
-        },
-        choices: [
-            {
-                text: '趁机问她怎么才能上来',
-                next: 'promise_save_mother'
-            },
-            {
-                text: '把嫁衣留在岸边',
-                next: 'leave_dress_by_river',
-                effects: { yin: -5 }
-            }
-        ]
+    effects: {
+      sanity: 5,
+      yin: -15,
+      setFlag: 'motherHesitated'
     },
+    choices: [createChoice({
+      text: '趁机问她怎么才能上来',
+      next: 'promise_save_mother'
+    }), createChoice({
+      text: '把嫁衣留在岸边',
+      next: 'leave_dress_by_river',
+      effects: {
+        yin: -5
+      }
+    })]
+  })
 
-    // 留衣岸边（新增分支）
+  // 留衣岸边（新增分支）
 };

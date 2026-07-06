@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：cover
  */
 
 export const scenes = {
-    cover_doll: {
-        title: '盖红布',
-        text: `你把红布重新盖在纸人头上。
+  cover_doll: createScene('cover_doll', {
+    title: '盖红布',
+    text: `你把红布重新盖在纸人头上。
 
 纸人的脸被遮住了，但你总觉得红布下面有什么东西在动。像是它在呼吸。
 
@@ -18,14 +19,12 @@ export const scenes = {
 她的话并没有让你安心。你跟着她进屋，但一路上都觉得后背发凉，好像有什么东西在盯着你。
 
 [whisper]你回头看了三次，纸人还在红布下，一动不动。[/whisper]`,
-        effects: {
-            sanity: -5
-        },
-        choices: [
-            {
-                text: '进屋看父亲',
-                next: 'see_father'
-            }
-        ]
-    }
+    effects: {
+      sanity: -5
+    },
+    choices: [createChoice({
+      text: '进屋看父亲',
+      next: 'see_father'
+    })]
+  })
 };

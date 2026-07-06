@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：negotiate
  */
 
 export const scenes = {
-    negotiate_doll: {
-        title: '与纸人谈判',
-        text: `"如果我不烧你，也不让你变成我，" 你说，"有没有第三条路？"
+  negotiate_doll: createScene('negotiate_doll', {
+    title: '与纸人谈判',
+    text: `"如果我不烧你，也不让你变成我，" 你说，"有没有第三条路？"
 
 纸人想了想："有。你带我走。"
 
@@ -16,19 +17,18 @@ export const scenes = {
 "然后你就自由了？"
 
 "也许吧。" 纸人说，"至少我能选择自己的结局。"`,
-        effects: {
-            yin: 5
-        },
-        choices: [
-            {
-                text: '答应带它走',
-                next: 'take_doll_away',
-                effects: { setFlag: 'takeDollAway' }
-            },
-            {
-                text: '拒绝，把它封在院子里',
-                next: 'seal_doll_in_yard'
-            }
-        ]
-    }
+    effects: {
+      yin: 5
+    },
+    choices: [createChoice({
+      text: '答应带它走',
+      next: 'take_doll_away',
+      effects: {
+        setFlag: 'takeDollAway'
+      }
+    }), createChoice({
+      text: '拒绝，把它封在院子里',
+      next: 'seal_doll_in_yard'
+    })]
+  })
 };

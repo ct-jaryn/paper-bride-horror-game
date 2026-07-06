@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：inspect
  */
 
 export const scenes = {
-    inspect_doll_night: {
-        title: '纸人夜话',
-        text: `夜里，你来到院子。
+  inspect_doll_night: createScene('inspect_doll_night', {
+    title: '纸人夜话',
+    text: `夜里，你来到院子。
 
 月光透过槐树叶，在地上投下斑驳的影子。纸人还站在小桌旁，红布盖着头。
 
@@ -20,35 +21,40 @@ export const scenes = {
 你的血液仿佛凝固了。
 
 "我替你病了五年，" 纸人说，"现在，该你替我还了。"`,
-        effects: {
-            sanity: -35,
-            yin: 25,
-            visual: 'paper-doll'
-        },
-        choices: [
-            {
-                text: '质问它什么意思',
-                next: 'ask_doll_meaning'
-            },
-            {
-                text: '转身就跑',
-                next: 'run_from_doll',
-                effects: { sanity: -10 }
-            },
-            {
-                text: '你摸到口袋里的铜镜碎片，对准纸人的脸',
-                next: 'mirror_reveal',
-                condition: { hasItem: '铜镜碎片' },
-                hidden: true,
-                effects: { sanity: -5, yin: -10 }
-            },
-            {
-                text: '把手按在它胸口，感受它的记忆',
-                next: 'memory_exchange',
-                effects: { sanity: -5, yin: 5 }
-            }
-        ]
+    effects: {
+      sanity: -35,
+      yin: 25,
+      visual: 'paper-doll'
     },
+    choices: [createChoice({
+      text: '质问它什么意思',
+      next: 'ask_doll_meaning'
+    }), createChoice({
+      text: '转身就跑',
+      next: 'run_from_doll',
+      effects: {
+        sanity: -10
+      }
+    }), createChoice({
+      text: '你摸到口袋里的铜镜碎片，对准纸人的脸',
+      next: 'mirror_reveal',
+      condition: {
+        hasItem: '铜镜碎片'
+      },
+      hidden: true,
+      effects: {
+        sanity: -5,
+        yin: -10
+      }
+    }), createChoice({
+      text: '把手按在它胸口，感受它的记忆',
+      next: 'memory_exchange',
+      effects: {
+        sanity: -5,
+        yin: 5
+      }
+    })]
+  })
 
-    // 铜镜照魂（新增分支）
+  // 铜镜照魂（新增分支）
 };

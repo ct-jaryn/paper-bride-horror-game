@@ -2,7 +2,7 @@
  * 《守夜》死亡结局
  */
 
-export const DeathEndings = {
+export const Endings = {
     death_drownedOnLand: {
         title: '死亡结局 · 陆沉',
         text: `你被黑水吞没，沉入了永恒的戏台之下。

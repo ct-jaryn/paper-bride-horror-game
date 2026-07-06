@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：tell
  */
 
 export const scenes = {
-    tell_life_is_hard: {
-        title: '活着很苦',
-        text: `"活着很苦。" 你说。
+  tell_life_is_hard: createScene('tell_life_is_hard', {
+    title: '活着很苦',
+    text: `"活着很苦。" 你说。
 
 纸人愣了一下，然后笑了。它的笑声像纸摩擦纸，沙沙的。
 
@@ -16,17 +17,15 @@ export const scenes = {
 "我不想替你死了。" 它说。
 
 然后它从窗户跳了出去。`,
-        effects: {
-            sanity: -10,
-            yin: 10
-        },
-        choices: [
-            {
-                text: '追出去',
-                next: 'break_window_doll'
-            }
-        ]
+    effects: {
+      sanity: -10,
+      yin: 10
     },
+    choices: [createChoice({
+      text: '追出去',
+      next: 'break_window_doll'
+    })]
+  })
 
-    // 问它愿不愿意离开
+  // 问它愿不愿意离开
 };

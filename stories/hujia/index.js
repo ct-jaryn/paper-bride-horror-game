@@ -3,7 +3,9 @@
  */
 
 import { scenes as agreeScenes } from './scenes/agree.js';
-import { scenes as askScenes } from './scenes/ask.js';
+import { scenes as askFoxScenes } from './scenes/ask_fox.js';
+import { scenes as askVillageScenes } from './scenes/ask_village.js';
+import { scenes as askThunderScenes } from './scenes/ask_thunder.js';
 import { scenes as chaseScenes } from './scenes/chase.js';
 import { scenes as escapeScenes } from './scenes/escape.js';
 import { scenes as foxScenes } from './scenes/fox.js';
@@ -35,7 +37,9 @@ import { NPCs } from './npcs/index.js';
 
 export const StoryData = {
     ...agreeScenes,
-    ...askScenes,
+    ...askFoxScenes,
+    ...askVillageScenes,
+    ...askThunderScenes,
     ...chaseScenes,
     ...escapeScenes,
     ...foxScenes,

@@ -2,26 +2,16 @@
  * 《ganshi》场景模块：cover
  */
 
+import { createScene } from '../../../js/engine/sceneFactory.js';
+
 export const scenes = {
-    cover_corpse_again: {
-        title: '重新盖尸',
-        text: `你把白布重新盖好，系紧。
-
-女尸的眼睛在白布下动了动，像是有光透出来。但你假装没看见。
-
-你继续赶路，铜铃声中似乎混进了一个微弱的女声，在跟着你唱赶尸咒。
-
-你不敢回头。
-
-天亮前，你到达了目的地。委托人来接尸体，看见女尸时脸色大变："这不是我们要送的人！"
-
-"什么？" 你愣住了。
-
-"我们要送的是三具男尸。" 委托人说，"这女的是谁？"`,
+    cover_corpse_again: createScene('cover_corpse_again', {
+        title: "重新盖尸",
+        text: "你把白布重新盖好，系紧。\n\n女尸的眼睛在白布下动了动，像是有光透出来。但你假装没看见。\n\n你继续赶路，铜铃声中似乎混进了一个微弱的女声，在跟着你唱赶尸咒。\n\n你不敢回头。\n\n天亮前，你到达了目的地。委托人来接尸体，看见女尸时脸色大变：\"这不是我们要送的人！\"\n\n\"什么？\" 你愣住了。\n\n\"我们要送的是三具男尸。\" 委托人说，\"这女的是谁？\"",
         effects: {
             sanity: -20,
-            yin: 15
+            yin: 15,
         },
-        ending: 'mysteryWoman'
-    }
+        ending: "mysteryWoman",
+    })
 };

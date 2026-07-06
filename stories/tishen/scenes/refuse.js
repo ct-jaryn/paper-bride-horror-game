@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：refuse
  */
 
 export const scenes = {
-    refuse_exchange: {
-        title: '拒绝交换',
-        text: `"我不换。" 你说。
+  refuse_exchange: createScene('refuse_exchange', {
+    title: '拒绝交换',
+    text: `"我不换。" 你说。
 
 母亲看着你，眼里全是失望："你爸白养你了。"
 
@@ -20,15 +21,13 @@ export const scenes = {
 你一个人站在院子里。纸人还站在那里，红布盖头。但这一次，你觉得红布下的脸，好像在笑。
 
 "你选对了。" 纸人说，"人都是自私的。我也是。"`,
-        effects: {
-            sanity: -20,
-            yin: 20
-        },
-        choices: [
-            {
-                text: '问它什么意思',
-                next: 'doll_takeover_plan'
-            }
-        ]
-    }
+    effects: {
+      sanity: -20,
+      yin: 20
+    },
+    choices: [createChoice({
+      text: '问它什么意思',
+      next: 'doll_takeover_plan'
+    })]
+  })
 };

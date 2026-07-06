@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：check
  */
 
 export const scenes = {
-    check_father_night: {
-        title: '夜探父亲',
-        text: `等到父母都睡下，你悄悄回到里屋。
+  check_father_night: createScene('check_father_night', {
+    title: '夜探父亲',
+    text: `等到父母都睡下，你悄悄回到里屋。
 
 父亲睡得很沉，呼吸声很轻。你轻轻掀开他的被子，然后捂住了嘴。
 
@@ -22,26 +23,22 @@ export const scenes = {
 "爸……爸他……"
 
 "纸人替你病，替你灾，" 母亲说，"你爸替纸人还。这是命。"`,
-        effects: {
-            sanity: -30,
-            yin: 20,
-            visual: 'shake'
-        },
-        choices: [
-            {
-                text: '大喊这不可能',
-                next: 'deny_truth'
-            },
-            {
-                text: '问母亲怎么救父亲',
-                next: 'ask_save_father'
-            }
-        ]
+    effects: {
+      sanity: -30,
+      yin: 20,
+      visual: 'shake'
     },
-
-    check_father_after: {
-        title: '查看父亲',
-        text: `你强忍剧痛，爬到父亲床边。
+    choices: [createChoice({
+      text: '大喊这不可能',
+      next: 'deny_truth'
+    }), createChoice({
+      text: '问母亲怎么救父亲',
+      next: 'ask_save_father'
+    })]
+  }),
+  check_father_after: createScene('check_father_after', {
+    title: '查看父亲',
+    text: `你强忍剧痛，爬到父亲床边。
 
 父亲的脸色在好转，呼吸也平稳了。他缓缓睁开眼睛，看见你，露出一个虚弱的笑："回来了？"
 
@@ -54,10 +51,10 @@ export const scenes = {
 院子里，纸人已经化为一堆普通的黄纸。风吹过，黄纸四散。
 
 你知道，从今以后，你要自己承担自己的命了。`,
-        effects: {
-            sanity: 10,
-            yin: -10
-        },
-        ending: 'reclaimSoul'
-    }
+    effects: {
+      sanity: 10,
+      yin: -10
+    },
+    ending: 'reclaimSoul'
+  })
 };

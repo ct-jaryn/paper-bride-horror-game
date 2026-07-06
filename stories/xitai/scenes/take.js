@@ -1,12 +1,13 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：take
  */
 
 export const scenes = {
-    take_photo: {
-        title: '鬼影',
-        title: '鬼影',
-        text: `你又按了几下快门。
+  take_photo: createScene('take_photo', {
+    title: '鬼影',
+    title: '鬼影',
+    text: `你又按了几下快门。
 
 每张照片里，戏台上的人都比前一张更多。他们从后台走出来，排队上妆，像是准备开演。
 
@@ -21,26 +22,22 @@ export const scenes = {
 你听见后台传来一声清嗓：
 
 [whisper]"开——戏——"[/whisper]`,
-        effects: {
-            sanity: -20,
-            yin: 15,
-            addItem: '烧焦的胶卷'
-        },
-        choices: [
-            {
-                text: '冲进后台',
-                next: 'backstage'
-            },
-            {
-                text: '转身离开戏台',
-                next: 'try_leave'
-            }
-        ]
+    effects: {
+      sanity: -20,
+      yin: 15,
+      addItem: '烧焦的胶卷'
     },
-
-    take_hairpin: {
-        title: '拿走银钗',
-        text: `你把银钗装进口袋，准备带回去研究。
+    choices: [createChoice({
+      text: '冲进后台',
+      next: 'backstage'
+    }), createChoice({
+      text: '转身离开戏台',
+      next: 'try_leave'
+    })]
+  }),
+  take_hairpin: createScene('take_hairpin', {
+    title: '拿走银钗',
+    text: `你把银钗装进口袋，准备带回去研究。
 
 刚走出戏台，天就黑了。不是正常的黑，是像有人把墨汁泼在了天上。
 
@@ -53,10 +50,10 @@ export const scenes = {
 最后，你看见镜子里的自己。
 
 你变成了云袖。`,
-        effects: {
-            sanity: -40,
-            yin: 30
-        },
-        ending: 'becomeYunxiu'
-    }
+    effects: {
+      sanity: -40,
+      yin: 30
+    },
+    ending: 'becomeYunxiu'
+  })
 };

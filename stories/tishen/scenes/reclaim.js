@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：reclaim
  */
 
 export const scenes = {
-    reclaim_soul: {
-        title: '招魂救父',
-        text: `你决定收回魂魄救父亲。
+  reclaim_soul: createScene('reclaim_soul', {
+    title: '招魂救父',
+    text: `你决定收回魂魄救父亲。
 
 母亲在院子里摆好香案，点燃三炷香。你跪在纸人面前，咬破手指，把血涂在纸人的眉心。
 
@@ -18,16 +19,14 @@ export const scenes = {
 你倒在地上，浑身抽搐。
 
 纸人最后看了你一眼，眼神里不是怨恨，是羡慕："你终于……愿意自己活了。"`,
-        effects: {
-            sanity: -10,
-            yin: -20,
-            setFlag: 'soulReclaimed'
-        },
-        choices: [
-            {
-                text: '强忍痛苦，看父亲是否好转',
-                next: 'check_father_after'
-            }
-        ]
-    }
+    effects: {
+      sanity: -10,
+      yin: -20,
+      setFlag: 'soulReclaimed'
+    },
+    choices: [createChoice({
+      text: '强忍痛苦，看父亲是否好转',
+      next: 'check_father_after'
+    })]
+  })
 };

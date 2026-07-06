@@ -2,10 +2,10 @@
  * 《回门》场景模块：prologue
  */
 
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
 export const scenes = {
-    prologue: {
-        title: '村口老槐',
-        text: `雨下了七天七夜。
+    prologue: createScene('prologue', {title:'村口老槐',text:`雨下了七天七夜。
 
 你站在山路的尽头，望着雾气中若隐若现的村落。三十年了，你从未回过这个出生的小山村。
 
@@ -39,9 +39,5 @@ export const scenes = {
 
 李婆不回答，只是笑。她的嘴咧得很开，露出没有牙齿的牙龈："快进村吧，[whisper]秀兰等了你三十年。[/whisper]"
 
-她的灯笼忽明忽暗，照得地上纸钱纷飞。`,
-        effects: {"sanity":-5,"yin":5,"visual":"flicker","visualDuration":2000},
-        choices: [{"text":"问她秀兰是谁","next":"ask_xiulan"},{"text":"不理她，径直往老宅走","next":"huimen_village_gate"},{"text":"仔细观察那两个纸人","next":"inspect_paper_dolls","effects":{"sanity":-8,"yin":2}},{"text":"侧耳倾听，纸人似乎在低语","next":"paper_whisper","condition":{"yinAbove":15},"hidden":true,"effects":{"sanity":-5,"yin":5}},{"text":"感觉时辰已晚，先在村口整理思绪","next":"shichen_hai_entry","condition":{"timeAfter":1200},"hidden":true,"effects":{"time":30}},{"text":"老宅大门似乎被什么东西封住了","next":"old_house_door_locked"}],
-        hallucination: '[whisper]你低头看自己的手，发现手腕上已经系了一根红绳。红绳的另一端，消失在夜色里。[/whisper]',
-    }
+她的灯笼忽明忽暗，照得地上纸钱纷飞。`,effects:{"sanity":-5,"yin":5,"visual":"flicker","visualDuration":2000},choices:[createChoice({"text":"问她秀兰是谁","next":"ask_xiulan"}),createChoice({"text":"不理她，径直往老宅走","next":"huimen_village_gate"}),createChoice({"text":"仔细观察那两个纸人","next":"inspect_paper_dolls","effects":{"sanity":-8,"yin":2}}),createChoice({"text":"侧耳倾听，纸人似乎在低语","next":"paper_whisper","condition":{"yinAbove":15},"hidden":true,"effects":{"sanity":-5,"yin":5}}),createChoice({"text":"感觉时辰已晚，先在村口整理思绪","next":"shichen_hai_entry","condition":{"timeAfter":1200},"hidden":true,"effects":{"time":30}}),createChoice({"text":"老宅大门似乎被什么东西封住了","next":"old_house_door_locked"})],hallucination:'[whisper]你低头看自己的手，发现手腕上已经系了一根红绳。红绳的另一端，消失在夜色里。[/whisper]'})
 };

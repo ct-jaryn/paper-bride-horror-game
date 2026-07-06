@@ -1,12 +1,13 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《heniang》场景模块：find
  */
 
 export const scenes = {
-    find_shenpo: {
-        title: '神婆',
-        title: '神婆',
-        text: `村里的神婆住在河下游的一间老屋里。她今年八十多岁，眼瞎了一只，但据说能看见"那边"的东西。
+  find_shenpo: createScene('find_shenpo', {
+    title: '神婆',
+    title: '神婆',
+    text: `村里的神婆住在河下游的一间老屋里。她今年八十多岁，眼瞎了一只，但据说能看见"那边"的东西。
 
 你说明来意，神婆用剩下的那只眼睛盯着你看了很久。
 
@@ -31,26 +32,22 @@ export const scenes = {
 "怎么救我妈？"
 
 神婆沉默了很久："找到上一任河娘的尸骨，让她替你妈。"`,
-        effects: {
-            sanity: -5,
-            yin: 5,
-            addItem: '香灰和朱砂'
-        },
-        choices: [
-            {
-                text: '问上一任河娘是谁',
-                next: 'ask_previous_heniang'
-            },
-            {
-                text: '回到河边找线索',
-                next: 'walk_riverbank'
-            }
-        ]
+    effects: {
+      sanity: -5,
+      yin: 5,
+      addItem: '香灰和朱砂'
     },
-
-    find_first_heniang: {
-        title: '找到初代河娘',
-        text: `你沿着河往上走，走了三天三夜，来到一个古老的村落。
+    choices: [createChoice({
+      text: '问上一任河娘是谁',
+      next: 'ask_previous_heniang'
+    }), createChoice({
+      text: '回到河边找线索',
+      next: 'walk_riverbank'
+    })]
+  }),
+  find_first_heniang: createScene('find_first_heniang', {
+    title: '找到初代河娘',
+    text: `你沿着河往上走，走了三天三夜，来到一个古老的村落。
 
 村口有一口古井，井边立着一块碑。碑上刻着：
 
@@ -59,27 +56,25 @@ export const scenes = {
 你向村里老人打听，得知沈氏是三百年前的人。她被诬陷与人私通，绑上石头沉了塘。从那以后，这条河就开始闹河娘。
 
 "要超度她，" 老人说，"得有人承认她没错。"`,
-        effects: {
-            sanity: -5,
-            yin: 10,
-            setFlag: 'foundSource'
-        },
-        choices: [
-            {
-                text: '在碑前为沈氏正名',
-                next: 'clear_shen_name',
-                effects: { setFlag: 'clearedName' }
-            },
-            {
-                text: '找到沈氏后人，让他们道歉',
-                next: 'find_shen_descendants'
-            }
-        ]
+    effects: {
+      sanity: -5,
+      yin: 10,
+      setFlag: 'foundSource'
     },
-
-    find_shen_descendants: {
-        title: '找到沈氏后人',
-        text: `你找到村里姓沈的人家，说明来意。
+    choices: [createChoice({
+      text: '在碑前为沈氏正名',
+      next: 'clear_shen_name',
+      effects: {
+        setFlag: 'clearedName'
+      }
+    }), createChoice({
+      text: '找到沈氏后人，让他们道歉',
+      next: 'find_shen_descendants'
+    })]
+  }),
+  find_shen_descendants: createScene('find_shen_descendants', {
+    title: '找到沈氏后人',
+    text: `你找到村里姓沈的人家，说明来意。
 
 老人们商量了很久，最后推出一个代表。那代表跪在河边，替祖先磕头道歉。
 
@@ -90,15 +85,14 @@ export const scenes = {
 沈氏的身影出现在水面，她的眼神不再怨毒，而是疲惫。
 
 "算了。" 她说，"都三百年了，算了。"`,
-        effects: {
-            yin: -15
-        },
-        ending: 'descendantsApologize'
+    effects: {
+      yin: -15
     },
-
-    find_traitor_descendants: {
-        title: '找到负心人后人',
-        text: `你打听到秀姑当年的未婚夫姓赵，后人在镇上开了一家理发店。
+    ending: 'descendantsApologize'
+  }),
+  find_traitor_descendants: createScene('find_traitor_descendants', {
+    title: '找到负心人后人',
+    text: `你打听到秀姑当年的未婚夫姓赵，后人在镇上开了一家理发店。
 
 你找到那家理发店，说明来意。赵老板一开始不信，但当你说出秀姑的名字时，他的脸色变了。
 
@@ -113,10 +107,10 @@ export const scenes = {
 "你长得真像他。" 她说。
 
 然后她转向母亲："莲姐，我放下了。你上去吧。"`,
-        effects: {
-            sanity: -5,
-            yin: -20
-        },
-        ending: 'apologyRedeems'
-    }
+    effects: {
+      sanity: -5,
+      yin: -20
+    },
+    ending: 'apologyRedeems'
+  })
 };

@@ -1,11 +1,12 @@
+import { createScene } from '../../../js/engine/sceneFactory.js';
 /**
  * 《tishen》场景模块：agree
  */
 
 export const scenes = {
-    agree_one_day: {
-        title: '答应一天',
-        text: `"好，就一天。" 你说。
+  agree_one_day: createScene('agree_one_day', {
+    title: '答应一天',
+    text: `"好，就一天。" 你说。
 
 纸人笑了。它伸出手，握住你的手。它的手是纸的，但触感却和你自己的手一样。
 
@@ -24,10 +25,10 @@ export const scenes = {
 一天过去了。两天过去了。三天过去了。
 
 "你"没有回来。`,
-        effects: {
-            sanity: -40,
-            yin: 30
-        },
-        ending: 'paperTrapped'
-    }
+    effects: {
+      sanity: -40,
+      yin: 30
+    },
+    ending: 'paperTrapped'
+  })
 };

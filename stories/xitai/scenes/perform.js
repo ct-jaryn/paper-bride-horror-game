@@ -1,11 +1,12 @@
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：perform
  */
 
 export const scenes = {
-    perform_opera: {
-        title: '入戏',
-        text: `你穿上小生戏服，走上戏台。
+  perform_opera: createScene('perform_opera', {
+    title: '入戏',
+    text: `你穿上小生戏服，走上戏台。
 
 台下坐满了没有脸的观众。云袖站在你面前，水袖轻扬。
 
@@ -22,30 +23,32 @@ export const scenes = {
 [red]面具下，是你的脸。[/red]
 
 "你才是我的柳梦梅。" 她说，"从一开始就是。"`,
-        effects: {
-            sanity: -40,
-            yin: 30
-        },
-        choices: [
-            {
-                text: '接受她',
-                next: 'accept_yunxiu',
-                ending: 'eternalDuet'
-            },
-            {
-                text: '推开她，唱完最后一句',
-                next: 'finish_opera',
-                effects: { sanity: -10 }
-            },
-            {
-                text: '你保持清醒，看穿这不过是幻术',
-                next: 'see_through_illusion',
-                condition: { sanityAbove: 80 },
-                hidden: true,
-                effects: { sanity: -5 }
-            }
-        ]
+    effects: {
+      sanity: -40,
+      yin: 30
     },
+    choices: [createChoice({
+      text: '接受她',
+      next: 'accept_yunxiu',
+      ending: 'eternalDuet'
+    }), createChoice({
+      text: '推开她，唱完最后一句',
+      next: 'finish_opera',
+      effects: {
+        sanity: -10
+      }
+    }), createChoice({
+      text: '你保持清醒，看穿这不过是幻术',
+      next: 'see_through_illusion',
+      condition: {
+        sanityAbove: 80
+      },
+      hidden: true,
+      effects: {
+        sanity: -5
+      }
+    })]
+  })
 
-    // 破幻（新增分支）
+  // 破幻（新增分支）
 };

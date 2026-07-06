@@ -1,11 +1,12 @@
+import { createScene } from '../../../js/engine/sceneFactory.js';
 /**
  * 《xitai》场景模块：xiulan
  */
 
 export const scenes = {
-    xiulan_wisdom: {
-        title: '秀兰的智慧',
-        text: `你没有上台。
+  xiulan_wisdom: createScene('xiulan_wisdom', {
+    title: '秀兰的智慧',
+    text: `你没有上台。
 
 你想起秀兰。那个被活埋在山村井底三十年的新娘，最后要的不过是一句道歉，一个名分。
 
@@ -26,13 +27,13 @@ export const scenes = {
 "够了。" 她说，"有人记得我，就够了。"
 
 她的身影随着最后一句唱腔消散。戏台外，天亮了。`,
-        effects: {
-            sanity: 15,
-            yin: -30,
-            setFlag: 'yunxiuMercy'
-        },
-        ending: 'hidden_operaOfMercy'
+    effects: {
+      sanity: 15,
+      yin: -30,
+      setFlag: 'yunxiuMercy'
     },
+    ending: 'hidden_operaOfMercy'
+  })
 
-    // 隐藏结局分支：真言
+  // 隐藏结局分支：真言
 };
