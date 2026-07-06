@@ -28,5 +28,10 @@ export function renderScreens() {
         console.error('renderScreens: #game-container 未找到');
         return;
     }
-    container.innerHTML = ALL_TEMPLATES.join('\n');
+    try {
+        container.innerHTML = ALL_TEMPLATES.join('\n');
+    } catch (e) {
+        console.error('renderScreens: 模板渲染失败', e);
+        container.innerHTML = '<div style="padding:20px;color:#c00;">界面渲染失败，请刷新页面重试。</div>';
+    }
 }

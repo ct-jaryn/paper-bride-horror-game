@@ -19,6 +19,9 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Install browser smoke test dependency
+        run: npm install -g jsdom
+
       - name: Validate story data
         run: node tools/validate_stories.mjs
 
@@ -27,3 +30,6 @@ jobs:
 
       - name: Test ending reachability
         run: node tools/test_all_endings_reachability.mjs
+
+      - name: Browser DOM smoke test
+        run: NODE_PATH=$(npm root -g) node tools/test_browser_boot.cjs
