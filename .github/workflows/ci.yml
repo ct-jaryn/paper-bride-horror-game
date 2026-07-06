@@ -52,6 +52,9 @@ jobs:
       - name: Validate choice conditions
         run: node tools/validate_choice_conditions.mjs
 
+      - name: Detect duplicate scene definitions
+        run: node tools/detect_duplicate_scenes.mjs
+
       - name: Detect dead scenes
         continue-on-error: true
         run: node tools/detect_dead_scenes.mjs

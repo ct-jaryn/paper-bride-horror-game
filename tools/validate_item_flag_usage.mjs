@@ -35,10 +35,8 @@ function getConditionRefs(condition) {
     const refs = { flags: [], items: [] };
     if (!condition || typeof condition !== 'object') return refs;
     if (condition.flag) refs.flags.push(condition.flag);
-    if (condition.noFlag) refs.flags.push(condition.noFlag);
     if (condition.flagValue && condition.flagValue.key) refs.flags.push(condition.flagValue.key);
     if (condition.hasItem) refs.items.push(condition.hasItem);
-    if (condition.lacksItem) refs.items.push(condition.lacksItem);
     return refs;
 }
 
@@ -49,10 +47,14 @@ const globalItems = new Set();
 for (const storyId of storyIds) {
     const module = await import(`/workspace/stories/${storyId}/index.js`);
     const StoryData = module.StoryData;
+    const StoryConfig = module.StoryConfig;
     for (const scene of Object.values(StoryData)) {
         const { flags, items } = collectEffects(scene);
         flags.forEach(f => globalFlags.add(f));
         items.forEach(i => globalItems.add(i));
+    }
+    if (StoryConfig && Array.isArray(StoryConfig.defaultItems)) {
+        StoryConfig.defaultItems.forEach(i => globalItems.add(i));
     }
 }
 

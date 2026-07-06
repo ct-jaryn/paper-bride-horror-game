@@ -146,6 +146,9 @@ export function resetState(storyId = null, keepGlobalFlags = true) {
             }
         });
     }
+    if (Huimen.StoryConfig && Array.isArray(Huimen.StoryConfig.defaultItems)) {
+        Huimen.GameState.inventory = [...new Set([...(Huimen.GameState.inventory || []), ...Huimen.StoryConfig.defaultItems])];
+    }
 }
 
 /**
