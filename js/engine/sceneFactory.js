@@ -18,12 +18,13 @@
  * @param {Function} [options.onEnter] - 进入场景时执行的副作用
  * @returns {object} 场景对象
  */
-export function createScene(id, { title, text, effects, choices, cg, onEnter }) {
+export function createScene(id, { title, text, effects, choices, cg, onEnter, ending }) {
     const scene = { id, title, text };
     if (effects) scene.effects = effects;
     if (choices) scene.choices = choices;
     if (cg) scene.cg = cg;
     if (onEnter) scene.onEnter = onEnter;
+    if (ending) scene.ending = ending;
     return scene;
 }
 
@@ -54,6 +55,7 @@ export function createChoice({
     consume,
     setFlag,
     hideIf,
+    hidden,
     npc,
     npcNode,
     custom
@@ -67,6 +69,7 @@ export function createChoice({
     if (consume) choice.consume = consume;
     if (setFlag) choice.setFlag = setFlag;
     if (hideIf) choice.hideIf = hideIf;
+    if (hidden) choice.hidden = hidden;
     if (npc) choice.npc = npc;
     if (npcNode) choice.npcNode = npcNode;
     if (custom !== undefined) choice.custom = custom;

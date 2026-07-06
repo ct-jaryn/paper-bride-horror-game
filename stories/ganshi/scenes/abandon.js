@@ -2,8 +2,10 @@
  * 《ganshi》场景模块：abandon
  */
 
+import { createScene } from '../../../js/engine/sceneFactory.js';
+
 export const scenes = {
-    abandon_corpses: {
+    abandon_corpses: createScene('abandon_corpses', {
         title: '弃尸而逃',
         text: `你放下铜铃，转身离开山洞。
 
@@ -27,5 +29,5 @@ export const scenes = {
             yin: 25
         },
         ending: 'hauntedByCorpses'
-    }
+    })
 };

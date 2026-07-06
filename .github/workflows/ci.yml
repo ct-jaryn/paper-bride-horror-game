@@ -31,5 +31,8 @@ jobs:
       - name: Test ending reachability
         run: node tools/test_all_endings_reachability.mjs
 
+      - name: Test scene factory
+        run: node tools/test_scene_factory.mjs
+
       - name: Browser DOM smoke test
         run: NODE_PATH=$(npm root -g) node tools/test_browser_boot.cjs

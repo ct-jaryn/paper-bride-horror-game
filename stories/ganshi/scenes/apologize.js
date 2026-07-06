@@ -2,8 +2,10 @@
  * 《ganshi》场景模块：apologize
  */
 
+import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
+
 export const scenes = {
-    apologize_for_master: {
+    apologize_for_master: createScene('apologize_for_master', {
         title: '替师父道歉',
         text: `你跪在石壁前："前辈，我师父若有对不起你的地方，我替他赔罪。但这些尸体是无辜的，求前辈放我们过去。"
 
@@ -21,15 +23,12 @@ export const scenes = {
             yin: 10
         },
         choices: [
-            {
-                text: '答应留下尸体',
-                next: 'abandon_corpses'
-            },
-            {
+            createChoice({ text: '答应留下尸体', next: 'abandon_corpses' }),
+            createChoice({
                 text: '拒绝，说要带它们走完最后一程',
                 next: 'refuse_abandon',
                 effects: { setFlag: 'loyalToCorpses' }
-            }
+            })
         ]
-    }
+    })
 };
