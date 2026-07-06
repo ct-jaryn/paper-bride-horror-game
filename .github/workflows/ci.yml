@@ -52,6 +52,9 @@ jobs:
       - name: Validate choice conditions
         run: node tools/validate_choice_conditions.mjs
 
+      - name: Validate NPC references
+        run: node tools/validate_npc_references.mjs
+
       - name: Detect duplicate scene definitions
         run: node tools/detect_duplicate_scenes.mjs
 
