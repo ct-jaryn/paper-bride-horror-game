@@ -3,6 +3,7 @@
  */
 
 import { yunxiuMoreDialogue } from './yunxiu_more.js';
+import { yunxiuMoreDialogue2 } from './yunxiu_more2.js';
 import { createDialogueChoice, createDialogueNode, createNPC } from '../../../js/engine/endingFactory.js';
 export const NPCs = {
   yunxiu: createNPC('yunxiu', {
@@ -166,7 +167,8 @@ export const NPCs = {
           }
         })]
       }),
-      ...yunxiuMoreDialogue
+      ...yunxiuMoreDialogue,
+      ...yunxiuMoreDialogue2
     }
   })
 };
