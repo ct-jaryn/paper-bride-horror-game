@@ -11,6 +11,7 @@ import { init as initSound } from '../sound.js';
 import { init as initCG } from '../cg.js';
 import { init as initCurrency } from '../currency.js';
 import { initGame } from './engine/game.js';
+import { renderScreens } from './templates/index.js';
 import './engine/endingManager.js';
 import './engine/endingGallery.js';
 import './engine/npcSystem.js';
@@ -33,12 +34,15 @@ function boot() {
             Huimen.AchievementEngine.init();
         }
 
-        // 3. 音效 / CG / 阴钱系统初始化
+        // 3. 渲染屏幕模板到 DOM（必须在音效/CG/货币系统之前）
+        renderScreens();
+
+        // 4. 音效 / CG / 阴钱系统初始化
         initSound();
         initCG();
         initCurrency();
 
-        // 4. 游戏引擎绑定 UI 并触发 gameInit 事件
+        // 5. 游戏引擎绑定 UI 并触发 gameInit 事件
         initGame();
     } catch (e) {
         const err = document.createElement('div');
