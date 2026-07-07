@@ -31,7 +31,7 @@ export const scenes = {
 
 你没有回头，一直往前走。你知道秀兰在看着你，但她的目光不再是冷的了。
 
-[whisper]"记得回来。"[/whisper]`,effects:{"sanity":10,"yin":-10},choices:[createChoice({"text":"独自离开","ending":"huimen_exp_moonlit_escape","effects":{"yin":-1}}),createChoice({"text":"带秀兰一起走","ending":"huimen_exp_ending_flower_rain","condition":{"flag":"xiulanMercy"},"effects":{"yin":-5}}),createChoice({"text":"逃回城市，假装一切没发生过","next":"huimen_exp_escape_aftermath"})]}),
+"记得回来。"`,effects:{"sanity":10,"yin":-10},choices:[createChoice({"text":"独自离开","ending":"huimen_exp_moonlit_escape","effects":{"yin":-1}}),createChoice({"text":"带秀兰一起走","ending":"huimen_exp_ending_flower_rain","condition":{"flag":"xiulanMercy"},"effects":{"yin":-5}}),createChoice({"text":"逃回城市，假装一切没发生过","next":"huimen_exp_escape_aftermath"})]}),
     huimen_exp_moonlit_grave: createScene('huimen_exp_moonlit_grave', {title:"月下孤坟",text:`你沿着月光小路走，来到一座孤坟前。
 
 坟没有碑，只有一块扁平的青石。石头上放着一束枯萎的桂花，花瓣发黑，卷成一团，散发着若有若无的甜香。
@@ -40,7 +40,7 @@ export const scenes = {
 
 [faded]"无名女子之墓。周家所害，无人祭奠。过路者若有余心，请献一花。"[/faded]
 
-[red]这不是秀兰的坟。这是另一个被遗忘的女子。[/red]
+这不是秀兰的坟。这是另一个被遗忘的女子。
 
 你把那束枯桂花扶正，又从路边摘了一朵沾着露水的小白花，轻轻放在上面。`,effects:{"sanity":3,"yin":-3},choices:[createChoice({"text":"在坟前磕个头","next":"huimen_exp_moonlit_grave_bow","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"继续往前走","next":"huimen_exp_moonlit_path_end","effects":{"yin":1}}),createChoice({"text":"在秀兰坟旁种一棵松树","next":"huimen_exp_little_pine_alt"})]}),
     huimen_exp_moonlit_grave_bow: createScene('huimen_exp_moonlit_grave_bow', {title:"无名祭",text:`你跪在坟前，恭恭敬敬磕了三个头。
@@ -71,7 +71,7 @@ export const scenes = {
 
 你拿起船上一支秃了头的毛笔，蘸了蘸船板上的墨，刚要写自己的名字，却停住了。
 
-[red]你把名字写在船上，岂不是把命交给了河？[/red]
+你把名字写在船上，岂不是把命交给了河？
 
 你转而写下"周氏秀兰"四个字。河水翻涌了一下，船却平稳地驶向对岸。`,effects:{"sanity":-5,"yin":2},choices:[createChoice({"text":"到对岸","next":"huimen_exp_moonlit_escape","effects":{"sanity":5,"yin":-5}})]})
 };

@@ -30,7 +30,7 @@ export const scenes = {
 
 你抓起一把黄纸朝它们扔去。纸人们停住了，开始争抢地上的黄纸，把它们往自己空白的脸上贴。
 
-[red]每一张纸脸贴上去，都变成了你的样子。[/red]
+每一张纸脸贴上去，都变成了你的样子。
 
 你趁机从窗户口翻了出去，身后传来纸人们满足的笑声。`,effects:{"sanity":-10,"yin":3,"visual":"paper-doll","visualDuration":3000},choices:[createChoice({"text":"拼命跑回村街","next":"huimen_exp_village_street","effects":{"yin":2}}),createChoice({"text":"躲进旁边的巷子","next":"huimen_exp_village_street","effects":{"sanity":-3,"yin":2}}),createChoice({"text":"追上那个纸人，把它和同伴一起烧了","next":"huimen_exp_burn_dolls_alt"})]}),
     huimen_exp_burn_paper_face: createScene('huimen_exp_burn_paper_face', {title:'焚面',text:`你摸出打火机，点燃了秀兰的纸脸。
@@ -41,7 +41,7 @@ export const scenes = {
 
 铺子里的纸人突然安静下来。它们放下手里的黄纸，齐刷刷地转向你，然后——
 
-[red]一起跪下了。[/red]
+一起跪下了。
 
 老人在柜台后面叹了口气："你烧了她们的脸，她们就自由了。可周家，不会放过你。"`,effects:{"sanity":5,"yin":-10,"removeItem":"秀兰的纸脸","setFlag":"huimen_exp_burned_paper_faces"},choices:[createChoice({"text":"离开纸扎铺","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp_burn_all_dolls: createScene('huimen_exp_burn_all_dolls', {title:'焚铺',text:`你点燃了铺子里的纸人。

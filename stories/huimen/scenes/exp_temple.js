@@ -22,11 +22,11 @@ export const scenes = {
 
 你走近一步，棺材里传来"咚咚"的声响，像是什么东西在里面敲门。
 
-[red]是心跳声。[/red]
+是心跳声。
 
 你屏住呼吸，凑近看，发现棺材板上刻着一行小字：
 
-[faded]"秀兰之魂，分而镇之。一镇于井，一镇于庙，一镇于桑。三魂归一，方得超脱。"[/faded]
+"秀兰之魂，分而镇之。一镇于井，一镇于庙，一镇于桑。三魂归一，方得超脱。"
 
 原来秀兰的魂被分成了三份，分别镇在井、庙、桑树。你要救她，必须解开这三处镇魂。`,effects:{"sanity":-10,"yin":3,"setFlag":"huimen_exp_knows_three_souls"},choices:[createChoice({"text":"撕掉棺材上的黄符","next":"huimen_exp_temple_release","effects":{"sanity":-10,"yin":5}}),createChoice({"text":"后退离开","next":"huimen_exp_temple_gate","effects":{"yin":1}}),createChoice({"text":"你已经知道解法，去桑树","next":"huimen_exp_mulberry_tree","condition":{"flag":"huimen_exp_knows_three_souls"},"effects":{"yin":1}}),createChoice({"text":"掀开内殿地面的石板","next":"huimen_exp_temple_underground","condition":{"flag":"huimen_exp_released_temple_soul"},"effects":{"yin":2}})]}),
     huimen_exp_temple_release: createScene('huimen_exp_temple_release', {title:'庙中开棺',text:`你一张一张撕下棺材上的黄符，符纸脆得像枯叶，一撕就碎。
@@ -50,7 +50,7 @@ export const scenes = {
 
 第七下时，供桌"轰"地塌了。半支安神香滚到你脚边，香灰撒了一地。
 
-[red]你看见香灰里有一行字："敲钟七下，魂归故里。"[/red]`,effects:{"sanity":-8,"yin":3,"removeItem":"半支安神香"},choices:[createChoice({"text":"把香灰收集起来","next":"huimen_exp_village_street","effects":{"yin":1,"addItem":"香灰"}}),createChoice({"text":"离开庙","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+你看见香灰里有一行字："敲钟七下，魂归故里。"`,effects:{"sanity":-8,"yin":3,"removeItem":"半支安神香"},choices:[createChoice({"text":"把香灰收集起来","next":"huimen_exp_village_street","effects":{"yin":1,"addItem":"香灰"}}),createChoice({"text":"离开庙","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp_temple_pray: createScene('huimen_exp_temple_pray', {title:'祈愿',text:`你跪在庙前的石阶上，双手合十。
 
 你不知道该求什么。求秀兰放过你？求周家祖先保佑你？还是求自己能活着走出这个村子？念头转了一圈又一圈。
@@ -59,7 +59,7 @@ export const scenes = {
 
 话音刚落，庙前的石阶上忽然长出一朵小花，"噗"地从石缝里钻出来。花是白色的，在月光下微微发亮。
 
-[red]这是秀兰最喜欢的桂花。[/red]
+这是秀兰最喜欢的桂花。
 
 你摘下花，放在鼻尖闻了闻，香气清淡，却让你安心。`,effects:{"sanity":5,"yin":-5,"addItem":"桂花"},choices:[createChoice({"text":"把花献给秀兰","next":"huimen_exp_xiulan_flower","effects":{"yin":-3}}),createChoice({"text":"收好，回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp_temple_donation: createScene('huimen_exp_temple_donation', {title:'捐香火',text:`你在庙里找到一个破旧的功德箱。
@@ -74,14 +74,14 @@ export const scenes = {
 
 [faded]"凡捐一文者，可减秀兰一日之苦。"[/faded]
 
-[red]原来这枚铜钱，是专门为秀兰准备的。[/red]`,effects:{"sanity":5,"yin":-5,"removeItem":"清代铜钱"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+原来这枚铜钱，是专门为秀兰准备的。`,effects:{"sanity":5,"yin":-5,"removeItem":"清代铜钱"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp_temple_underground: createScene('huimen_exp_temple_underground', {title:'庙下',text:`你在庙里发现一块松动的石板，石板比别处高出半寸。
 
 你掀开石板，下面是一条狭窄的通道，只容一人侧身而过。通道尽头是一间石室，石室正中放着一口石棺。
 
 石棺上刻着"周氏秀兰之遗蜕"。你深吸一口气，打开石棺——里面是一具小小的骸骨，蜷缩着，像是在保护什么，姿势像个熟睡的孩子。
 
-[red]这是秀兰真正的尸骨。[/red]
+这是秀兰真正的尸骨。
 
 你盯着那具骸骨，忽然想起井底也有一口红棺。阿欢说过，秀兰的魂被分成了三份。那么这里有的，也许不是她完整的身子，而是她的一份怨气凝结成的"影骨"——是魂太重，压成了骨的形状。
 

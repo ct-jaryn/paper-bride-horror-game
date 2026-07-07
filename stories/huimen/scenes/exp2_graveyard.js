@@ -24,7 +24,7 @@ export const scenes = {
 
 你蹲下身，搬开石头。石头下面压着一张纸，纸已经发黄发脆，一碰就掉渣：
 
-[faded]"秀兰之骨，分埋三处。此处仅有一缕头发。"[/faded]
+"秀兰之骨，分埋三处。此处仅有一缕头发。"
 
 [red]原来连她的坟，都是不完整的。她被分了尸，连死后都不得团圆。[/red]
 
@@ -83,7 +83,7 @@ export const scenes = {
 
 把"供养"凿平后，你用石头在每个名字后面刻上"安息"。刻得很慢，一笔一画，像是在替她们写家书。
 
-[red]安息。她们本该安息。[/red]
+安息。她们本该安息。
 
 刻完最后一个字，石碑"咔嚓"一声，从中间裂开。裂开的缝里是空的——碑里没有骨灰，没有牌位，什么都没有。周家列祖列宗的碑，原来只是一个空壳。`,effects:{"sanity":-10,"yin":5,"setFlag":"huimen_exp2_chiseled_ancestor_grave"},choices:[createChoice({"text":"决定留在坟地守墓","ending":"huimen_exp2_ending_graveyard_keeper","effects":{"yin":-5}}),createChoice({"text":"回祖坟地","next":"huimen_exp2_graveyard","effects":{"yin":1}})]}),
     huimen_exp2_ancestor_grave_burn: createScene('huimen_exp2_ancestor_grave_burn', {title:'祖坟焚纸',text:`你在秀兰的坟前点燃纸钱。
@@ -92,7 +92,7 @@ export const scenes = {
 
 坟头的石头开始发热，烫得你不敢碰。石头上不知何时多了四个字："周氏不祥女"。那四个字在热里扭曲、焦黑，最后化为灰烬，被风吹散。
 
-[red]你烧了周家给秀兰贴的标签。[/red]
+你烧了周家给秀兰贴的标签。
 
 灰烬落在地上，自己拼成一行新字，一笔一画地写出来：
 
@@ -105,7 +105,7 @@ export const scenes = {
 
 你挖了没多久，手指就碰到一个硬物。是一个陶罐，罐口用蜡封着。你抠开蜡，里面装着一截指骨。指骨很小，是女人的，指骨上套着一枚生锈的铜戒指。戒指是细的，刻着"百年好合"四个字。
 
-[red]那是秀兰的戒指。是周文送她的。[/red]
+那是秀兰的戒指。是周文送她的。
 
 你把戒指取出来，戒指一离开骨头，就感到一阵刺骨的寒意，从指尖一直窜到心口。骨头在罐里轻轻动了一下，像是松了一口气。`,effects:{"sanity":-8,"yin":3,"addItem":"秀兰的铜戒指"},choices:[createChoice({"text":"把戒指还给秀兰","next":"huimen_exp2_riverbank","condition":{"hasItem":"秀兰的铜戒指"},"effects":{"sanity":10,"yin":-10,"removeItem":"秀兰的铜戒指","setFlag":"huimen_exp2_returned_copper_ring"}}),createChoice({"text":"收好","next":"huimen_exp2_graveyard","effects":{"yin":1}})]})
 };

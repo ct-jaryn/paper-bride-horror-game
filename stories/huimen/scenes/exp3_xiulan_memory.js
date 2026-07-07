@@ -15,7 +15,7 @@ export const scenes = {
 
 那眉眼，分明是年幼的秀兰。黄狗摇了摇尾巴，像是在替她等你的回答。
 
-[whisper]你心里有什么东西"咯噔"一下，像是一根线被拨动了。[/whisper]`,effects:{"sanity":3,"yin":1},choices:[createChoice({"text":"蹲下来，陪她绣花","next":"huimen_exp3_xiulan_memory_childhood_sew","effects":{"sanity":2,"yin":0}}),createChoice({"text":"问她长大后想做什么","next":"huimen_exp3_xiulan_memory_childhood_dream","effects":{"sanity":2,"yin":1}}),createChoice({"text":"悄悄退出门外","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+你心里有什么东西"咯噔"一下，像是一根线被拨动了。`,effects:{"sanity":3,"yin":1},choices:[createChoice({"text":"蹲下来，陪她绣花","next":"huimen_exp3_xiulan_memory_childhood_sew","effects":{"sanity":2,"yin":0}}),createChoice({"text":"问她长大后想做什么","next":"huimen_exp3_xiulan_memory_childhood_dream","effects":{"sanity":2,"yin":1}}),createChoice({"text":"悄悄退出门外","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp3_xiulan_memory_childhood_sew: createScene('huimen_exp3_xiulan_memory_childhood_sew', {title:'秀兰记忆绣花',text:`你坐在门槛上，看她一针一针绣一朵并蒂莲。
 
 她的手很小，手指却很稳，针脚细密得像蚂蚁排队。她绣得很专注，眉头微微皱着，下唇被她咬出一道浅浅的牙印。
@@ -26,14 +26,14 @@ export const scenes = {
 
 一阵风吹过，粗布上的影子晃了晃。小女孩忽然长大了些许，变成少女的轮廓。她脚边的黄狗也老了些，毛色从黄变成了灰。
 
-[faded]时间在这里是软的，一吹就走。[/faded]`,effects:{"sanity":2,"yin":1},choices:[createChoice({"text":"说你会带她去看戏","next":"huimen_exp3_xiulan_memory_childhood_promise","effects":{"sanity":3,"yin":1,"setFlag":"huimen_exp3_promised_xiulan_opera"}}),createChoice({"text":"沉默地看着她","next":"huimen_exp3_xiulan_memory_childhood_fade","effects":{"sanity":-2,"yin":2}})]}),
+时间在这里是软的，一吹就走。`,effects:{"sanity":2,"yin":1},choices:[createChoice({"text":"说你会带她去看戏","next":"huimen_exp3_xiulan_memory_childhood_promise","effects":{"sanity":3,"yin":1,"setFlag":"huimen_exp3_promised_xiulan_opera"}}),createChoice({"text":"沉默地看着她","next":"huimen_exp3_xiulan_memory_childhood_fade","effects":{"sanity":-2,"yin":2}})]}),
     huimen_exp3_xiulan_memory_childhood_dream: createScene('huimen_exp3_xiulan_memory_childhood_dream', {title:'她的愿望',text:`"我想开一家绣庄。"她把绣花绷子抱在胸前，像抱着一个宝贝，"绣自己的花样，不用看婆婆脸色。"
 
 她说"不用看婆婆脸色"时，声音突然低了下去，像是已经预见到了自己未来的婆婆是什么样的人。她低下头，手指摩挲着绷子边缘，那是一种你从未在她身上见过的、属于成年人的疲惫。
 
 她话音刚落，院墙上的青苔忽然蔓延，像是要把这座院子吞回时光里。青苔爬得很快，一眨眼就爬满了半面墙，墙上的粗布也开始泛黄、变脆。
 
-[red]连记忆都开始老了。[/red]`,effects:{"sanity":2,"yin":1},choices:[createChoice({"text":"告诉她，她的绣品以后会被人记住","next":"huimen_exp3_xiulan_memory_childhood_promise","effects":{"sanity":3,"yin":1}}),createChoice({"text":"起身离开院子","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+连记忆都开始老了。`,effects:{"sanity":2,"yin":1},choices:[createChoice({"text":"告诉她，她的绣品以后会被人记住","next":"huimen_exp3_xiulan_memory_childhood_promise","effects":{"sanity":3,"yin":1}}),createChoice({"text":"起身离开院子","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp3_xiulan_memory_childhood_promise: createScene('huimen_exp3_xiulan_memory_childhood_promise', {title:'童言',text:`小女孩笑了，把绣了一半的并蒂莲塞进你手里。
 
 那并蒂莲还带着她的体温，针脚里还沾着她咬断线头时留的一点点湿。你握着它，像握着一只刚出窝的小鸟。
@@ -68,7 +68,7 @@ export const scenes = {
 
 最后一幅画面停在一只红嫁衣上。嫁衣的袖口绣着井。
 
-[faded]那井，是她一针一针绣上去的。[/faded]`,effects:{"sanity":-2,"yin":2},choices:[createChoice({"text":"伸手触摸嫁衣","next":"huimen_exp3_xiulan_memory_wedding_night","effects":{"yin":2}}),createChoice({"text":"烧掉嫁衣","next":"huimen_exp3_xiulan_memory_weaving_burn","effects":{"sanity":5,"yin":-3}})]}),
+那井，是她一针一针绣上去的。`,effects:{"sanity":-2,"yin":2},choices:[createChoice({"text":"伸手触摸嫁衣","next":"huimen_exp3_xiulan_memory_wedding_night","effects":{"yin":2}}),createChoice({"text":"烧掉嫁衣","next":"huimen_exp3_xiulan_memory_weaving_burn","effects":{"sanity":5,"yin":-3}})]}),
     huimen_exp3_xiulan_memory_weaving_burn: createScene('huimen_exp3_xiulan_memory_weaving_burn', {title:'焚衣',text:`火从嫁衣的袖口烧起，那口井在火焰里扭曲，变成一张哭脸。
 
 火是冷的，不像寻常的火。它烧起来没有热气，反而让堂屋里的温度降了几分。织布机"咔嗒"一声停了，像是被这突如其来的火吓了一跳。
@@ -118,7 +118,7 @@ export const scenes = {
 
 门缝里滑出一张红纸，上面写着她真正的生辰八字。字是她咬破手指写的，血字还湿着。
 
-[faded]这是她藏了一辈子的真名字。[/faded]`,effects:{"sanity":5,"yin":-2,"setFlag":"huimen_exp3_knows_xiulan_birth"},choices:[createChoice({"text":"收起红纸，离开","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+这是她藏了一辈子的真名字。`,effects:{"sanity":5,"yin":-2,"setFlag":"huimen_exp3_knows_xiulan_birth"},choices:[createChoice({"text":"收起红纸，离开","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp3_xiulan_memory_well_death: createScene('huimen_exp3_xiulan_memory_well_death', {title:'沉井',text:`你忽然站在井边。
 
 夜很黑，井水里映着一弯残月。残月弯弯的，像一只半闭的眼睛。
@@ -170,5 +170,5 @@ export const scenes = {
 
 秀兰的声音贴着你的耳垂响起，气息吹在你脖子上，激起一层鸡皮疙瘩："你不敢看，我不怪你。但你要记住这里。记住我。"
 
-[whisper]她的手收紧了一点，像是怕你跑掉。[/whisper]`,effects:{"sanity":2,"yin":3},choices:[createChoice({"text":"睁开眼睛","next":"huimen_exp3_xiulan_ask_save","effects":{"yin":1}})]})
+她的手收紧了一点，像是怕你跑掉。`,effects:{"sanity":2,"yin":3},choices:[createChoice({"text":"睁开眼睛","next":"huimen_exp3_xiulan_ask_save","effects":{"yin":1}})]})
 };
