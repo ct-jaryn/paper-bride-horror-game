@@ -148,5 +148,29 @@ for (const v of variants) {
 assert('有 flag 时追加变体文本', testText.includes('真相'));
 assert('有物品时追加变体文本', testText.includes('铜钥匙'));
 
+console.log('测试折叠阈值响应式');
+Huimen.StoryData = {
+    collapse_test: {
+        id: 'collapse_test',
+        title: '折叠测试',
+        text: '测试',
+        choices: Array.from({ length: 7 }, (_, i) => ({ text: `选项 ${i + 1}`, next: 'collapse_test' }))
+    }
+};
+
+// 直接测试 renderChoices，跳过异步 typeText
+const collapseChoices = Huimen.StoryData.collapse_test.choices;
+
+// 桌面宽度：阈值应为 8，7 个选项不折叠
+dom.window.innerWidth = 1200;
+renderChoices(collapseChoices);
+assert('桌面宽度 7 个选项不折叠', ui.choices.children.length === 7);
+
+// 移动宽度：阈值应为 5，7 个选项折叠为 5+toggle
+ui.choices.innerHTML = '';
+dom.window.innerWidth = 375;
+renderChoices(collapseChoices);
+assert('移动宽度 7 个选项折叠为 5+1', ui.choices.children.length === 6);
+
 console.log(`\n测试完成: 通过 ${passed}, 失败 ${failed}`);
 if (failed > 0) process.exit(1);

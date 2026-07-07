@@ -285,6 +285,15 @@ export function renderScene(sceneId) {
 }
 
 const CHOICE_COLLAPSE_THRESHOLD = 8;
+const MOBILE_COLLAPSE_THRESHOLD = 5;
+
+/**
+ * 根据当前视口宽度获取折叠阈值
+ */
+function getCollapseThreshold() {
+    if (typeof window === 'undefined') return CHOICE_COLLAPSE_THRESHOLD;
+    return window.innerWidth <= 768 ? MOBILE_COLLAPSE_THRESHOLD : CHOICE_COLLAPSE_THRESHOLD;
+}
 
 /**
  * 渲染选择按钮（支持折叠）
@@ -296,9 +305,10 @@ export function renderChoices(choices) {
         return !choice.condition || checkCondition(choice.condition);
     });
 
-    const shouldCollapse = visibleChoices.length > CHOICE_COLLAPSE_THRESHOLD;
-    const initialChoices = shouldCollapse ? visibleChoices.slice(0, CHOICE_COLLAPSE_THRESHOLD) : visibleChoices;
-    const remainingChoices = shouldCollapse ? visibleChoices.slice(CHOICE_COLLAPSE_THRESHOLD) : [];
+    const threshold = getCollapseThreshold();
+    const shouldCollapse = visibleChoices.length > threshold;
+    const initialChoices = shouldCollapse ? visibleChoices.slice(0, threshold) : visibleChoices;
+    const remainingChoices = shouldCollapse ? visibleChoices.slice(threshold) : [];
 
     function createButton(choice, index, order) {
         const btn = document.createElement('button');
