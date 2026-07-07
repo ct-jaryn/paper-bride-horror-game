@@ -116,9 +116,11 @@
     height: 160px;
     background-size: cover;
     background-position: center 40%;
+    background-color: #1a0f0f;
     border-bottom: 1px solid rgba(139, 0, 0, 0.35);
     position: relative;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .story-card-image::after {
