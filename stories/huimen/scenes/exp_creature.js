@@ -53,7 +53,7 @@ export const scenes = {
 [red]镜子里的村子正在燃烧，纸人在火中尖叫、起舞。[/red]
 
 "这是秀兰的怨念烧起来的样子。"狐狸说，"你出去，村子就烧。你留下，村子就还在。"`,effects:{"sanity":-8,"yin":3},choices:[createChoice({"text":"出去，让村子烧","next":"huimen_exp_fox_fire_escape","effects":{"sanity":-5,"yin":5}}),createChoice({"text":"留下，找别的办法","next":"huimen_exp_village_street","effects":{"sanity":5,"yin":-3}})]}),
-    huimen_exp_fox_fire_escape: createScene('huimen_exp_fox_fire_escape', {title:'狐火引路',text:`你一咬牙，踏进了铜镜。
+    huimen_exp_fox_fire_escape: createScene('huimen_exp_fox_fire_escape', {title:'狐火引路',text:`你没有回头，踩着燃烧的纸钱冲出村口。身后，秀兰的笑声像风一样追上来。你一头撞进铜镜里——这是唯一的出口。
 
 镜面像水一样包裹住你，冰凉黏腻。你感到自己在下坠，一直下坠，下坠了很久，久到你以为会永远这样落下去。
 

@@ -8,6 +8,8 @@ import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 export const scenes = {
     huimen_exp_village_street_districts_hub: createScene('huimen_exp_village_street_districts_hub', {title:'村外之路',text:`你沿着村街向更深处走去。
 
+脚下的青石板忽然变得平整宽阔，路两边的铺子也多了起来——学堂、药铺、裁缝铺，一间挨着一间。你怔了一下：这不是刚才那条窄窄的村街。这是三十年前的村子，是秀兰活着时见过的街。
+
 房屋越来越稀疏，墙根的草却越长越密，齐腰高，沾着露水。雾气越来越浓，浓得伸手不见五指，只能摸索着往前走。路边开始出现一些你不认识的建筑：没有门牌的药铺、挂着褪色红绸的裁缝铺、半塌的学堂、长满青苔的河神石。
 
 空气里飘着一股药草和腐木混合的气味，还有一种说不清的甜腥。每走一步，脚下都"沙沙"作响，像是踩着什么脆脆的东西。你低头看，石板缝里嵌满了烧剩半截的纸钱残片，一踩就碎，碎成黑灰沾在鞋底，怎么也蹭不掉。

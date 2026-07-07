@@ -32,7 +32,7 @@ export const scenes = {
 他抬起手，想握住秀兰的手，却只握住了一把空气。那空气里还带着一点桂花的香，是秀兰留给他的最后一点念想。
 
 [faded]"下辈子，"他哑着嗓子说，"我给你打一口最好的棺材。"[/faded]`,effects:{"sanity":5,"yin":-5},choices:[createChoice({"text":"离开","ending":"huimen_exp3_ending_carpenter_saw","effects":{"yin":0}})]}),
-    huimen_exp3_return_mainline: createScene('huimen_exp3_return_mainline', {title:`回归主线`,text:`你感觉到周围的雾气开始变薄。
+    huimen_exp3_return_mainline: createScene('huimen_exp3_return_mainline', {title:`回归主线`,text:`你推开堂屋的后窗，翻身跃出。青瓦在脚下碎了一块，落地的瞬间，你感觉到周围的雾气开始变薄。
 
 雾从你脚边退起，一寸一寸退，像退潮的水。退过的地方露出干净的青石板，石板上没有纸钱，没有脚印，只有昨夜的露水。
 

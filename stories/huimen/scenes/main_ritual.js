@@ -78,7 +78,7 @@ export const scenes = {
 终于，你的脚碰到了硬物。
 
 那是一口红漆棺材，棺盖上钉着九根桃木钉。`,effects:{"sanity":-20,"yin":12,"visual":"blood","visualDuration":3000},choices:[createChoice({"text":"继续探查红棺","next":"huimen_red_coffin_discovery","effects":{"yin":1}}),createChoice({"text":"拔出桃木钉，打开棺材","next":"open_red_coffin","condition":{"hasItem":"铜钥匙"},"effects":{"yin":2}}),createChoice({"text":"没有钥匙，只能徒手拔钉","next":"pull_nails_barehand","effects":{"sanity":-15,"yin":7}})]}),
-    give_letter: createScene('give_letter', {title:'递字条',text:`你转过身，把手中能证明真相的东西递向声音传来的方向——不管是字条、照片、虎头鞋，还是那一小截骸骨。
+    give_letter: createScene('give_letter', {title:'递字条',text:`你顺着井绳下到井底，在淤泥里捧出秀兰的骨殖。你把她包好，背在背上，然后转过身，把手中能证明真相的东西递向声音传来的方向——不管是字条、照片、虎头鞋，还是那一小截骸骨。
 
 手伸出去，伸进一片红光里。那红光是暖的，暖得你手指都松了一点。
 

@@ -7,6 +7,8 @@ import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 export const scenes = {
     huimen_exp2_tailor_shop: createScene('huimen_exp2_tailor_shop', {title:'裁缝铺',text:`你循着一股若有若无的樟脑味，来到一间裁缝铺前。
 
+这铺子新得不像废墟，又旧得不像这个时代的。你推门时，门轴发出三十年前的声响。你忽然明白，这不是你现在走的那个村子里的裁缝铺——是秀兰回忆里的那一间，是她被量体裁衣、准备嫁衣的那一间。
+
 铺子是木板的，门面已经发黑，招牌挂在门楣上，写着"周记裁缝"四个字，字是金漆写的，漆已经剥落大半。门是虚掩的，你一推就开。
 
 铺子里挂着许多嫁衣，每一件都红得刺眼。嫁衣是绸缎的，挂在木架上，像一排没有身体的红人。空气里弥漫着一股樟脑味，混着丝绸的腥气和陈年的灰尘味。

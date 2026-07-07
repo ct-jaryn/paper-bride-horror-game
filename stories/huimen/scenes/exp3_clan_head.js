@@ -97,7 +97,7 @@ export const scenes = {
 院里的水迹越来越多，汇成一条条细流，流向族长的脚边。他的绸鞋被水浸湿，水是凉的，凉得他打了个寒颤。他的脸色惨白，白得像墙。
 
 [faded]墙上渗出的水，是井里的水。井里的水，是那些女子的泪。[/faded]`,effects:{"sanity":-3,"yin":5},choices:[createChoice({"text":"逼他去祖祠认错","next":"huimen_exp3_clan_head_repent","effects":{"yin":3}})]}),
-    huimen_exp3_clan_head_repent: createScene('huimen_exp3_clan_head_repent', {title:'悔过',text:`族长沉默了很久，最后长叹一声。
+    huimen_exp3_clan_head_repent: createScene('huimen_exp3_clan_head_repent', {title:'悔过',text:`你押着族长往祖祠方向走了几步。他挣了一下，没挣开。族长沉默了很久，最后长叹一声。
 
 那一叹很长，长得像三十年。他叹完，肩膀就塌了，整个人像是被抽掉了骨头。
 

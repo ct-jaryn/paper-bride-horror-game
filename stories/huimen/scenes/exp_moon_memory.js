@@ -41,9 +41,7 @@ export const scenes = {
 [whisper]"走光明的路，你会忘记我。"[/whisper]秀兰说，"走黑暗的路，你会永远和我在一起。"[whisper][/whisper]
 
 [red]这不是选择路，是选择人生。[/red]`,effects:{"sanity":-5,"yin":2},choices:[createChoice({"text":"走光明的路","next":"huimen_exp_moonlit_escape","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"走黑暗的路","next":"huimen_exp_ending_village_memory_scene","effects":{"yin":3}})]}),
-    huimen_exp_moon_pact_alt: createScene('huimen_exp_moon_pact_alt', {title:"月约",text:`秀兰提出一个条件：她不要你娶她，只要你每年七月半，来陪她坐一夜。
-
-你答应了。
+    huimen_exp_moon_pact_alt: createScene('huimen_exp_moon_pact_alt', {title:"月约",text:`你答应了她。每年七月半，你都会回来，陪她坐在井边看一夜月亮。她不要你娶她，不要名分，只要你记得她。
 
 那一夜没有红嫁衣，没有纸人，只有你和秀兰坐在井边，看月亮从东山升到西山。风吹过桑树，叶子沙沙响，像是有人在低声说话。
 

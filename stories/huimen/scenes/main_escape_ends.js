@@ -35,7 +35,9 @@ export const scenes = {
 
 你低头看向自己的身体。皮肤苍白，四肢僵硬，胸口贴着一张黄符，上面写着你的生辰八字。
 
-原来，你从来没有逃出那个村子。`,effects:{"sanity":0,"yin":0},choices:[],ending:"escapedButNot"}),
+原来，你从来没有逃出那个村子。
+
+你低头看着自己的手，皮肤正在一点点变皱、变黄，像被水浸过的纸。窗外有车声，可那车声越来越远，越来越小，最后只剩一阵唢呐，贴着你的耳根吹。`,effects:{"sanity":0,"yin":0},choices:[],ending:"escapedButNot"}),
     paralyzed: createScene('paralyzed', {title:`动不了`,text:`你想跑，但双腿像灌了铅。
 
 你想抬腿，腿却不听你的，钉在地上纹丝不动。你低头看自己的脚，脚踝上不知什么时候缠了一圈红绳，红绳的另一端连着棺材。
@@ -54,7 +56,9 @@ export const scenes = {
 
 [red]你的名字。[/red]
 
-从此，山村多了一对恩爱的鬼夫妻。每年七月半，都能听见他们的笑声。`,effects:{"sanity":0,"yin":0},choices:[],ending:"ghostMarriage"}),
+从此，山村多了一对恩爱的鬼夫妻。每年七月半，都能听见他们的笑声。
+
+那笑声从很远的地方传来，混在夜风里，像一串纸铃铛。你坐在轿子里，想开口喊，喉咙里却塞满了纸灰。秀兰替你整了整红盖头，动作很轻，像新婚的妻子为丈夫理衣领。`,effects:{"sanity":0,"yin":0},choices:[],ending:"ghostMarriage"}),
     turn_around: createScene('turn_around', {title:`回头`,text:`你转过身。
 
 秀兰的脸几乎贴在你的脸上。她的脸很白，白得没有一丝血色，白得你能看见她皮肤底下的青筋，像一张蛛网。她的眼睛没有瞳孔，只有两团漆黑的墨点，墨点里映着你，映着这个村子，映着三十年的怨。
@@ -69,5 +73,7 @@ export const scenes = {
 
 [red]你变成了秀兰。[/red]
 
-而秀兰，穿着你的衣服，走向了天亮。`,effects:{"sanity":0,"yin":0},choices:[],ending:"possessed"})
+而秀兰，穿着你的衣服，走向了天亮。
+
+你沉进井底的黑暗，看着她披着你的外套，脚步轻快，像终于挣脱了三十年的井。井水在你耳边轻轻晃荡，一下，又一下，像谁在门后叹着气，慢慢地，把所有光都盖住了。`,effects:{"sanity":0,"yin":0},choices:[],ending:"possessed"})
 };

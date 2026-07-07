@@ -55,9 +55,7 @@ export const scenes = {
 
 第一缕阳光照在碑上时，你看见一个穿红嫁衣的女子站在阳光下，朝你福了一礼，盖头下的脸看不清，可你能感到她在笑。然后她化作点点红光，散进晨雾里，连那个一直蜷在她怀里的婴孩的影子，也跟着散了。
 
-你终于走出了山村。
-
-但你知道，这个村子的罪，还没有还完。`,choices:[createChoice({"text":"离开山村","next":"","ending":"redemption"}),createChoice({"text":"你想起族谱上的正名，把族谱也埋在墓旁","next":"","ending":"hidden_perfect_redemption","condition":{"flag":"restored_xiulan_name"},"hidden":true})]}),
+你终于走出了山村。晨雾沾在睫毛上，凉凉的。你低头看手腕，那根红绳不知何时松了，落在脚边，变成一截褪色的线。你弯腰拾起，放进口袋。这个村子的罪还没有还完，但秀兰，终于不用再等了。`,choices:[createChoice({"text":"离开山村","next":"","ending":"redemption"}),createChoice({"text":"你想起族谱上的正名，把族谱也埋在墓旁","next":"","ending":"hidden_perfect_redemption","condition":{"flag":"restored_xiulan_name"},"hidden":true})]}),
     beg_xiulan: createScene('beg_xiulan', {title:'求她',text:`"秀兰！" 你大喊，嗓子被烟熏得发哑，"我知道真相了！周家对不起你！我带你走，我给你正名！"
 
 秀兰的动作停住了。
