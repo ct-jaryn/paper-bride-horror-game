@@ -30,7 +30,7 @@ stories/
 | `{id}/config.js` | 故事级配置：默认状态、时辰阶段、特殊规则 |
 | `{id}/scenes/*.js` | 按主题/地点拆分的场景模块 |
 | `{id}/endings/index.js` | 结局字典 |
-| `{id}/npcs/index.js` | NPC 字典（NPC 较多时拆分为独立文件，再于 `index.js` 聚合，如 `huimen/npcs/{lao_zhou,xiao_fu,a_huan}.js`、`xitai/npcs/{lao_zhao,zhou_po,liu_niang}.js`） |
+| `{id}/npcs/index.js` | NPC 字典（NPC 较多时拆分为独立文件，再于 `index.js` 聚合，如 `huimen/npcs/{lao_zhou,xiao_fu,a_huan}.js`、`xitai/npcs/{lao_zhao,zhou_po,liu_niang}.js`、`tishen/npcs/{locust_tree_spirit,lao_zhang,zhou_lao}.js`、`heniang/npcs/{lao_zhang,shen_po,hong_xiu,a_cai}.js`、`shouye/npcs/yunxiu{,_more,_more2}.js` + `lin_shu{,_more}.js`） |
 
 ## 依赖
 
@@ -88,13 +88,16 @@ export const scenes = {
 
 **故事入口聚合**：
 
+场景数量较多时（如 `huimen` 有 120+ 个场景文件），可先按前缀分组成子聚合文件（`scenes/_base.js`、`scenes/_exp.js` 等），再于 `index.js` 中统一展开：
+
 ```javascript
-import { scenes as mainScenes } from './scenes/main.js';
+import { scenes as baseScenes } from './scenes/_base.js';
+import { scenes as expScenes } from './scenes/_exp.js';
 import { Endings } from './endings/index.js';
 import { NPCs } from './npcs/index.js';
 import { StoryConfig } from './config.js';
 
-export const StoryData = { ...mainScenes };
+export const StoryData = { ...baseScenes, ...expScenes };
 export { Endings, NPCs, StoryConfig };
 ```
 

@@ -193,6 +193,7 @@ export const Endings = {
 - 引擎：每个文件负责一个子系统，如 `state.js`、`renderer.js`
 - 故事：按主题/地点拆分为 `scenes/*.js`， endings 与 npcs 单独目录
 - 样式：通用样式在 `css/`，组件样式文件名与组件对应
+- **文件行数上限 200 行**：单个 `.js` 文件超过 200 行时必须拆分。NPC 文件按 NPC 拆为独立文件 + `index.js` 聚合；场景聚合文件按前缀分组为子聚合文件（如 `_base.js`、`_exp.js`）
 
 ### 命名
 
