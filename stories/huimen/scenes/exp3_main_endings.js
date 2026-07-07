@@ -31,16 +31,5 @@ export const scenes = {
 
 他抬起手，想握住秀兰的手，却只握住了一把空气。那空气里还带着一点桂花的香，是秀兰留给他的最后一点念想。
 
-[faded]"下辈子，"他哑着嗓子说，"我给你打一口最好的棺材。"[/faded]`,effects:{"sanity":5,"yin":-5},choices:[createChoice({"text":"离开","ending":"huimen_exp3_ending_carpenter_saw","effects":{"yin":0}})]}),
-    huimen_exp3_return_mainline: createScene('huimen_exp3_return_mainline', {title:`回归主线`,text:`你推开堂屋的后窗，翻身跃出。青瓦在脚下碎了一块，落地的瞬间，你感觉到周围的雾气开始变薄。
-
-雾从你脚边退起，一寸一寸退，像退潮的水。退过的地方露出干净的青石板，石板上没有纸钱，没有脚印，只有昨夜的露水。
-
-村口的方向，你隐约看见老宅的轮廓——不是山村周家，而是你最初回到的那座老宅。堂屋里还点着灯，灯光昏黄，像有人在等你回来。秀兰的红棺还在那里，棺盖合着，合得很轻，像只是睡着。
-
-你背着秀兰的骨殖，一步一步走回去。骨殖在背上轻轻晃着，像是一个趴在你背上睡着的人。
-
-[whisper]走到半路，你听见她在你耳边说："快到了。"[/whisper]
-
-路边的纸人一个个低下了头，像是在送行，也像是在道别。`,effects:{"yin":-5},choices:[createChoice({"text":"回到堂屋","next":"to_old_house","effects":{"yin":0}}),createChoice({"text":"先把骨殖安葬","next":"ask_coffin","effects":{"yin":0}}),createChoice({"text":"牵着秀兰的手，沿着月光小路走出山村","next":"huimen_exp_redemption_loop_alt","condition":{"hasItem":"秀兰的骨殖"},"hidden":true})]})
+[faded]"下辈子，"他哑着嗓子说，"我给你打一口最好的棺材。"[/faded]`,effects:{"sanity":5,"yin":-5},choices:[createChoice({"text":"老槐树倒了，但救赎还没完成，去井边","next":"huimen_exp_well_night","effects":{"yin":1}}),createChoice({"text":"去祖祠补全女子的名字","next":"huimen_exp_ancestral_hall","effects":{"yin":1}})]})
 };

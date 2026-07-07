@@ -52,11 +52,11 @@ export const scenes = {
 老宅的轮廓出现在雾气中，门口那盏红灯笼亮得刺眼。那红，红得像血，红得像嫁衣。`,effects:{"sanity":-5,"yin":3},choices:[createChoice({"text":"继续走向老宅","next":"huimen_paper_doll_warning","effects":{"yin":1}}),createChoice({"text":"绕到后院看看","next":"huimen_exp_village_street","effects":{"yin":2}}),createChoice({"text":"站在原地，等秀兰现身","next":"huimen_paper_doll_warning","condition":{"flag":"knowsTruth"},"effects":{"sanity":-5,"yin":3}})]}),
     huimen_old_house_gate: createScene('huimen_old_house_gate', {title:`老宅门前`,text:`纸人沉默片刻，墨点眼睛齐刷刷望向老宅方向。你顺着它们的目光，来到周家老宅门前。
 
-门没有关严，留着一条缝。缝里透出青白色的烛光，还有一股纸钱和檀香混合的味道。那味道浓得呛鼻，闻久了让人头晕。门板上贴着一张黄符，符上写着你的生辰八字——是你的，不是别人的。
+这是正门。门没有关严，留着一条缝。缝里透出青白色的烛光，还有一股纸钱和檀香混合的味道。那味道浓得呛鼻，闻久了让人头晕。门板上贴着一张黄符，符上写着你的生辰八字——是你的，不是别人的。
 
 你伸手推门，门却自己"吱呀"一声开了。那"吱呀"声很长，像一声叹息，又像是有人在门后等你等了很久，终于等不及了。
 
 堂屋里跪着一群人，听见门响，齐刷刷地转过头来。他们的嘴角弯着同样的弧度，像被同一阵风拨弄的稻草人。烛光在他们脸上晃，照得那些笑忽明忽暗。
 
-"回来啦。"他们说，齐声说，声音叠在一起，像一锅煮开的水。`,effects:{"sanity":-10,"yin":3},choices:[createChoice({"text":"迈进老宅","next":"to_old_house","effects":{"yin":1}}),createChoice({"text":"先在门外观察","next":"to_old_house","effects":{"sanity":-3,"yin":1}}),createChoice({"text":"转身离开","next":"huimen_exp_village_street","effects":{"sanity":-5,"yin":5}})]})
+"回来啦。"他们说，齐声说，声音叠在一起，像一锅煮开的水。`,effects:{"sanity":-10,"yin":3,"time":60},choices:[createChoice({"text":"迈进老宅","next":"to_old_house","effects":{"yin":1}}),createChoice({"text":"先在门外观察","next":"to_old_house","effects":{"sanity":-3,"yin":1}}),createChoice({"text":"转身离开","next":"huimen_exp_village_street","effects":{"sanity":-5,"yin":5}})]})
 };

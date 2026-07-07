@@ -63,7 +63,7 @@ export const scenes = {
 [faded]她活了这么多年，到最后求的，只是一个替她去道歉的人。[/faded]`,effects:{"sanity":2,"yin":1},choices:[createChoice({"text":"答应她","next":"huimen_exp3_granny_wang_redemption_path","effects":{"sanity":3,"yin":1,"setFlag":"huimen_exp3_granny_wang_sorry"}}),createChoice({"text":"说你要她自己说","next":"huimen_exp3_granny_wang_speak","effects":{"yin":2}})]}),
     huimen_exp3_granny_wang_rule: createScene('huimen_exp3_granny_wang_rule', {title:'规矩',text:`"规矩？"王婆冷笑，笑得很冷，冷得嘴角都抽了一下。
 
-"周家为了发财，编出来的规矩。每代娶一个外姓女子，回门那日沉井，换村子十年太平。"
+"周家为了发财，编出来的规矩。十年一届，每代娶一个外姓女子，回门那日沉井，换村子十年太平。说是十年，其实就是周家每一代都要一个外姓女子填井。"
 
 她指着墙上的年画，年画已经发黄，画上的送子娘娘笑得很甜，怀里抱着一个胖娃娃："那画上的送子娘娘，原型就是第一个被沉井的女子。人们拜她，是因为不敢记得她原本的名字。"
 
@@ -74,7 +74,7 @@ export const scenes = {
 
 油灯的火苗被她吹得一晃，照得她脸上皱纹更深了。她左看右看，确认没人偷听，才开口。
 
-"她叫阿沅。是周家第一代媳妇，也是第一个发现井里秘密的人。"
+"她叫阿沅。是周家第一代媳妇，也是第一个被沉井的女子。她还是当族长的亲姐姐。"
 
 "她发现什么秘密？"你问。
 
@@ -135,5 +135,5 @@ export const scenes = {
 
 她的身影一点一点被火吞掉，最后只剩一双烧焦的鞋模，和一缕青烟。
 
-秀兰站在青烟里，朝你轻轻点头。你知道，王婆终于安息了。`,effects:{"sanity":10,"yin":-8,"setFlag":"huimen_exp3_burned_red_shoes"},choices:[createChoice({"text":"离开","ending":"huimen_exp3_hidden_granny_wang_rest","effects":{"yin":0}})]})
+秀兰站在青烟里，朝你轻轻点头。你知道，王婆终于安息了。`,effects:{"sanity":10,"yin":-8,"setFlag":"huimen_exp3_burned_red_shoes"},choices:[createChoice({"text":"离开","ending":"huimen_exp3_hidden_granny_wang_rest","condition":{"flag":"huimen_exp3_freed_nine_women"},"effects":{"yin":0}}),createChoice({"text":"王婆安息了，但井底还有其他女子","next":"huimen_exp_well_night","condition":{"noFlag":"huimen_exp3_freed_nine_women"},"effects":{"yin":1}})]})
 };

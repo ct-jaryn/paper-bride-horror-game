@@ -52,7 +52,13 @@ export const scenes = {
 
 "新郎官，上轿吧。" 二叔说，声音很平，平得发冷。
 
-你注意到，他的手腕上，红绳已经勒进了骨头里。那红绳勒得很深，深得皮肉都翻出来了，红绳却还在收紧。`,effects:{"yin":15,"time":120},choices:[createChoice({"text":"反抗","next":"resist_marriage"}),createChoice({"text":"顺从","next":"pretend_marry"})]}),
+你注意到，他的手腕上，红绳已经勒进了骨头里。那红绳勒得很深，深得皮肉都翻出来了，红绳却还在收紧。
+
+门外，秀兰的声音忽然飘进来，像一缕纸灰落在耳畔：
+
+[whisper]"谁烧了我的婚礼，谁就要替我站成纸人。"[/whisper]
+
+那声音很轻，轻得像一声叹息，却让你后颈的汗毛一根根竖了起来。`,effects:{"yin":15,"time":120},choices:[createChoice({"text":"反抗","next":"resist_marriage"}),createChoice({"text":"顺从","next":"pretend_marry"})]}),
     pretend_marry: createScene('pretend_marry', {title:'拜堂',text:`你穿上了红嫁衣。
 
 不，不对。给你穿的是新郎服，但刺绣的龙凤位置却是反的——龙在右，凤在左，像是给死人穿的寿衣。你摸了摸那料子，料子是冰凉的，凉得像刚从水里捞出来。
@@ -69,7 +75,7 @@ export const scenes = {
 
 "夫妻对拜——"
 
-秀兰的盖头飘了起来。`,effects:{"sanity":-30,"yin":15,"visual":"shake"},choices:[createChoice({"text":"掀翻供桌逃跑","next":"run_away_coffin","condition":{"noFlag":"xiulanMercy"}}),createChoice({"text":"喊出秀兰的名字，求她放过你","next":"beg_xiulan","condition":{"flag":"xiulanMercy"}})]}),
+秀兰的盖头飘了起来。`,effects:{"sanity":-30,"yin":15,"visual":"shake"},choices:[createChoice({"text":"掀翻供桌逃跑","next":"run_away_coffin"})]}),
     pull_nails_barehand: createScene('pull_nails_barehand', {title:'徒手拔钉',text:`你一根一根拔出桃木钉。
 
 钉子钉得很深，每拔一根，都要用尽全力。钉子上有符，符是黄纸写的，朱砂的字。你的手掌被钉上的符咒灼伤，皮肉翻开，露出森森白骨。那白骨白得发亮，亮得不像活人的骨。

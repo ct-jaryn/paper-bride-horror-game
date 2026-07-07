@@ -16,7 +16,7 @@ export const scenes = {
 
 你看见墙上钉着无数黄纸，每张纸上都写着一个女子的生辰八字，朱砂写的字已经发黑，像凝住的血。最下面一行是"秀兰，癸丑年七月初七"。
 
-那八个字写得格外用力，纸都被笔尖戳穿了。`,effects:{"sanity":-3,"yin":4},choices:[createChoice({"text":"撕下秀兰的黄纸","next":"huimen_exp3_zhou_mansion_cellar_tear","effects":{"sanity":3,"yin":-2}}),createChoice({"text":"点燃墙上的油灯","next":"huimen_exp3_zhou_mansion_cellar_light","effects":{"yin":3}}),createChoice({"text":"继续往深处走","next":"huimen_exp3_zhou_mansion_cellar_deep","effects":{"yin":5}})]}),
+那八个字写得格外用力，纸都被笔尖戳穿了。`,effects:{"sanity":-3,"yin":4},textVariants:[{condition:{flag:'huimen_exp3_loop_count'},text:`你想起循环石碑上"入村者三，出村者一"那句话。地窖墙上的黄纸比石碑上的名字更旧，也许这里才是那些名字最初的来处。`}],choices:[createChoice({"text":"撕下秀兰的黄纸","next":"huimen_exp3_zhou_mansion_cellar_tear","effects":{"sanity":3,"yin":-2}}),createChoice({"text":"点燃墙上的油灯","next":"huimen_exp3_zhou_mansion_cellar_light","effects":{"yin":3}}),createChoice({"text":"继续往深处走","next":"huimen_exp3_zhou_mansion_cellar_deep","effects":{"yin":5}})]}),
     huimen_exp3_zhou_mansion_cellar_tear: createScene('huimen_exp3_zhou_mansion_cellar_tear', {title:'撕纸',text:`黄纸被撕下的瞬间，地窖里响起一声女人的尖叫。
 
 那尖叫又尖又长，像一根针从地窖这头扎到那头。你头皮一炸，手里的黄纸差点掉了。
@@ -143,5 +143,5 @@ export const scenes = {
 
 "你做到了。"她说，声音轻得像风，"现在，我可以跟你走了。"
 
-她伸出手，掌心里是一枚冰凉的骨片。那骨片上刻着一个"秀"字。`,effects:{"sanity":10,"yin":-10,"addItem":"秀兰骨片","setFlag":"huimen_exp3_freed_nine_women"},choices:[createChoice({"text":"握住她的手","next":"huimen_exp3_xiulan_hand","effects":{"sanity":5,"yin":-3}}),createChoice({"text":"石室深处有道裂口，像通往村子的另一头","next":"huimen_exp3_loop_stone","condition":{"yinAbove":8},"effects":{"yin":2}})]})
+她伸出手，掌心里是一枚冰凉的骨片。那骨片上刻着一个"秀"字。`,effects:{"sanity":10,"yin":-10,"addItem":"秀兰骨片","setFlag":"huimen_exp3_freed_nine_women"},choices:[createChoice({"text":"握住她的手","next":"huimen_exp3_xiulan_hand","effects":{"sanity":5,"yin":-3}}),createChoice({"text":"石室深处有道裂口，像通往村子的另一头","next":"huimen_exp3_loop_counter","condition":{"yinAbove":8},"effects":{"yin":2}})]})
 };

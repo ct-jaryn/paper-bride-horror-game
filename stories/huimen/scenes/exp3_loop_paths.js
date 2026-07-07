@@ -42,9 +42,11 @@ export const scenes = {
 
 那声音又轻又齐，像是一群纸人在风里翻动。
 
+[red]这里和现实中的周府废墟重叠，却比现实更破败。纸人脸上的笑不是画上去的，是刻出来的，每一笔都刻着周家的族徽。你脚下的瓦砾，一半是砖，一半是烧了一半的纸钱。[/red]
+
 你意识到这是循环的一部分——这条路你已经走过，这些纸人你已经见过，它们鞠的躬你也已经回过。
 
-[red]可它们还在鞠，还在说，像一台停不下来的戏。[/red]`,effects:{"sanity":-3,"yin":3},choices:[createChoice({"text":"继续走","next":"huimen_exp3_loop_mansion_deep","effects":{"yin":3}}),createChoice({"text":"退回石碑","next":"huimen_exp3_loop_stone","effects":{"yin":1}})]}),
+可它们还在鞠，还在说，像一台停不下来的戏。`,effects:{"sanity":-3,"yin":3},choices:[createChoice({"text":"继续走","next":"huimen_exp3_loop_mansion_deep","effects":{"yin":3}}),createChoice({"text":"退回石碑","next":"huimen_exp3_loop_counter","condition":{"noFlag":"huimen_exp3_loop_third"},"effects":{"yin":1}}),createChoice({"text":"第三次，你已退不回石碑","next":"huimen_exp3_loop_third_force","condition":{"flag":"huimen_exp3_loop_third"},"effects":{"yin":5}})]}),
     huimen_exp3_loop_well: createScene('huimen_exp3_loop_well', {title:'井边之路',text:`你走向井边方向。
 
 路越走越湿，脚下的石板渗出井水，每踩一步都"咕叽"一声，像踩在一块浸透的海绵上。水是凉的，凉得发黏，像有什么东西正顺着你的脚踝往上爬。
@@ -55,7 +57,7 @@ export const scenes = {
 
 井水里映出的不是你的脸，而是无数个你自己。它们有的在笑，有的在哭，有的嘴张得很大，像在喊什么，却发不出声。
 
-[whisper]它们齐齐对你伸出手。[/whisper]`,effects:{"sanity":-3,"yin":4},choices:[createChoice({"text":"看井水里的自己","next":"huimen_exp3_loop_well_reflection","effects":{"yin":3}}),createChoice({"text":"退回石碑","next":"huimen_exp3_loop_stone","effects":{"yin":1}})]}),
+[whisper]它们齐齐对你伸出手。[/whisper]`,effects:{"sanity":-3,"yin":4},choices:[createChoice({"text":"看井水里的自己","next":"huimen_exp3_loop_well_reflection","effects":{"yin":3}}),createChoice({"text":"退回石碑","next":"huimen_exp3_loop_counter","condition":{"noFlag":"huimen_exp3_loop_third"},"effects":{"yin":1}}),createChoice({"text":"第三次，你已退不回石碑","next":"huimen_exp3_loop_third_force","condition":{"flag":"huimen_exp3_loop_third"},"effects":{"yin":5}})]}),
     huimen_exp3_loop_paper: createScene('huimen_exp3_loop_paper', {title:'纸扎铺之路',text:`你走向纸扎铺方向。
 
 这条路最短，却也最静。静得你能听见自己的血在血管里流，"咕咚、咕咚"，像有人在井底敲鼓。
@@ -79,7 +81,7 @@ export const scenes = {
 
 她伸出一只手，那只手有六根手指，每根手指上都系着一根红绳。
 
-[red]红绳的另一端，连着你自己的手腕。[/red]`,effects:{"sanity":-5,"yin":5},choices:[createChoice({"text":"问她怎么走对","next":"huimen_exp3_loop_mansion_ask","effects":{"yin":1}}),createChoice({"text":"退回石碑","next":"huimen_exp3_loop_stone","effects":{"yin":1}})]}),
+[red]红绳的另一端，连着你自己的手腕。[/red]`,effects:{"sanity":-5,"yin":5},choices:[createChoice({"text":"问她怎么走对","next":"huimen_exp3_loop_mansion_ask","effects":{"yin":1}}),createChoice({"text":"退回石碑","next":"huimen_exp3_loop_counter","condition":{"noFlag":"huimen_exp3_loop_third"},"effects":{"yin":1}}),createChoice({"text":"第三次，你已退不回石碑","next":"huimen_exp3_loop_third_force","condition":{"flag":"huimen_exp3_loop_third"},"effects":{"yin":5}})]}),
     huimen_exp3_loop_well_reflection: createScene('huimen_exp3_loop_well_reflection', {title:'水中倒影',text:`井水里的无数个你同时开口："留下来，陪我们。"
 
 它们的声音叠在一起，像一锅煮沸的水。你感觉自己的意识在被拉扯，像是要分裂成很多份——每一份都被一个倒影认领，每一份都在井底过着一种你没活过的人生。
@@ -90,7 +92,7 @@ export const scenes = {
 
 那些倒影愣了一下，然后齐齐露出失望的神色。它们开始下沉，一个接一个沉入井底，像一排排按顺序落水的纸船。
 
-[whisper]最后一个沉下去时，回头看了你一眼。那眼神，分明是秀兰的。[/whisper]`,effects:{"sanity":-5,"yin":5},choices:[createChoice({"text":"砸碎水面","next":"huimen_exp3_loop_well_smash","effects":{"sanity":3,"yin":2}}),createChoice({"text":"退回石碑","next":"huimen_exp3_loop_stone","effects":{"yin":1}})]}),
+[whisper]最后一个沉下去时，回头看了你一眼。那眼神，分明是秀兰的。[/whisper]`,effects:{"sanity":-5,"yin":5},choices:[createChoice({"text":"砸碎水面","next":"huimen_exp3_loop_well_smash","effects":{"sanity":3,"yin":2}}),createChoice({"text":"退回石碑","next":"huimen_exp3_loop_counter","condition":{"noFlag":"huimen_exp3_loop_third"},"effects":{"yin":1}}),createChoice({"text":"第三次，你已退不回石碑","next":"huimen_exp3_loop_third_force","condition":{"flag":"huimen_exp3_loop_third"},"effects":{"yin":5}})]}),
     huimen_exp3_loop_paper_refuse: createScene('huimen_exp3_loop_paper_refuse', {title:'拒替',text:`"我不需要替身。"你说。
 
 纸人们齐声叹了口气，像是很失望。那叹气声从四面八方涌来，吹得柜台上的红绳都飘了起来。
@@ -101,7 +103,14 @@ export const scenes = {
 
 [faded]你听见柜台下面有东西在哭，哭得很轻，像是一只被关在纸盒里的猫。[/faded]
 
-你没有去掀开看。你知道，那是上一个没选替身的人留下的东西。`,effects:{"sanity":5,"yin":-2},choices:[createChoice({"text":"回到石碑","next":"huimen_exp3_loop_stone","effects":{"yin":0}})]}),
+你没有去掀开看。你知道，那是上一个没选替身的人留下的东西。`,effects:{"sanity":5,"yin":-2},choices:[createChoice({"text":"回到石碑","next":"huimen_exp3_loop_counter","effects":{"yin":0}}),createChoice({"text":"掀开柜台布帘查看","next":"huimen_exp3_loop_paper_under_counter","effects":{"yin":1}})]}),
+    huimen_exp3_loop_paper_under_counter: createScene('huimen_exp3_loop_paper_under_counter', {title:'柜台下',text:`你掀开柜台下的布帘。
+
+底下没有纸人，只有一团蜷起来的红线。红线已经断了，断口整齐，像被人用剪刀剪断。线团里裹着一张发黄的纸条，纸条上的字歪歪扭扭，像是用左手写的：
+
+[faded]"我是上一个没选替身的人。我把红绳留在这里，希望你带出去。"[/faded]
+
+你把断红绳收好。它很轻，轻得像一截没有说完的话。`,effects:{"sanity":3,"yin":-1,"addItem":"上一人留下的断红绳"},choices:[createChoice({"text":"回到石碑","next":"huimen_exp3_loop_counter","effects":{"yin":0}})]}),
     huimen_exp3_loop_paper_chose: createScene('huimen_exp3_loop_paper_chose', {title:'选替身',text:`你选了一个纸人。
 
 它和你长得最像，连眉角那颗小痣的位置都一样。你的手指碰到它的脸时，那脸是温的，温得像活人的皮。
@@ -112,7 +121,16 @@ export const scenes = {
 
 你低头看自己的手，发现手指正在变纸。
 
-[red]先是指尖，然后是指节，然后是掌心。纸是白的，上面印着你的生辰八字。[/red]`,effects:{"sanity":-10,"yin":10},choices:[createChoice({"text":"挣扎","next":"huimen_exp_village_street","effects":{"sanity":-5,"yin":5}})]}),
+[red]先是指尖，然后是指节，然后是掌心。纸是白的，上面印着你的生辰八字。[/red]`,effects:{"sanity":-10,"yin":10},choices:[createChoice({"text":"你已变成纸人","next":"huimen_exp3_loop_paper_turned","effects":{"sanity":-5,"yin":5}})]}),
+    huimen_exp3_loop_paper_turned: createScene('huimen_exp3_loop_paper_turned', {title:'纸人',text:`你挣了一下，身体却不听使唤。
+
+纸从手指一路往上爬，爬到手腕，爬到手肘，爬到肩膀。你低头看胸口，那里的皮肤也在变白，一寸一寸，像有人在给你糊纸衣。
+
+柜台后的纸人已经不见了。它替你走了出去，而你替它留了下来。
+
+你的眼睛还能转，还能看见柜台上的剪刀。可你够不到。你够不到任何东西。
+
+[faded]你成了一具新的纸人，等着下一个走进来的人。[/faded]`,effects:{"sanity":-10,"yin":10},choices:[createChoice({"text":"被摆进柜台","ending":"huimen_exp3_ending_paper_self","effects":{"yin":0}})]}),
     huimen_exp3_loop_mansion_ask: createScene('huimen_exp3_loop_mansion_ask', {title:'问路',text:`"走对的路，不在地上。"无脸小女孩说，"在你心里。你心里装着谁，路就通向谁。"
 
 她说完，重新转过身，继续梳头。井水从她发梢滴落，一滴一滴，落在地上"啪嗒、啪嗒"地响。
@@ -126,7 +144,7 @@ export const scenes = {
 [whisper]心里有什么东西动了。脚下的路也跟着动了。[/whisper]`,effects:{"sanity":3,"yin":1},choices:[createChoice({"text":"想秀兰","next":"huimen_exp3_loop_path_heart","effects":{"sanity":3,"yin":0}})]}),
     huimen_exp3_loop_well_smash: createScene('huimen_exp3_loop_well_smash', {title:'破水',text:`你捡起一块石头，砸向井水面。
 
-水面碎成无数片，每一片里的你都尖叫着消散。那声音又尖又细，像无数根针同时扎进耳朵。你捂住耳朵，血从指缝里渗出来。
+水面碎成无数片，每一片里的倒影都尖叫着消散。那声音又尖又细，像无数根针同时扎进耳朵。你捂住耳朵，血从指缝里渗出来。
 
 水面底下，井壁上那些刻满"秀兰"的字一个个亮了，像被人点亮的灯。
 
@@ -134,5 +152,5 @@ export const scenes = {
 
 她的声音很急，急得像是在哭。你退后几步，水面慢慢恢复平静，但那些倒影已经不见了——它们被你砸碎了，再也拼不回来。
 
-[red]你忽然意识到，那些倒影，都是被困在井底的"秀兰"。每砸碎一个，就有一个秀兰彻底散了。[/red]`,effects:{"sanity":5,"yin":-2},choices:[createChoice({"text":"回到石碑","next":"huimen_exp3_loop_stone","effects":{"yin":0}})]})
+[red]你忽然意识到，那些倒影不是无数个秀兰，而是被井困住的历代女子。每砸碎一个，就有一个无辜的魂彻底散了。[/red]`,effects:{"sanity":5,"yin":-2},choices:[createChoice({"text":"回到石碑","next":"huimen_exp3_loop_counter","effects":{"yin":0}})]})
 };

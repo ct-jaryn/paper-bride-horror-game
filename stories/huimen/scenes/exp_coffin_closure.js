@@ -57,7 +57,7 @@ export const scenes = {
 
 你把嫁衣和纸人一起烧了。火光中，秀兰的身影渐渐清晰，眼里有泪。
 
-"你救了自己，"她说，"也救了我。"`,choices:[createChoice({"text":"结束替身","ending":"hidden_redCoffinOpen"})]}),
+"你救了自己，"她说，"也救了我。`,choices:[createChoice({"text":"结束替身","ending":"hidden_redCoffinOpen"})]}),
     huimen_exp_redemption_loop_alt: createScene('huimen_exp_redemption_loop_alt', {title:"回门续章",text:`你牵着秀兰的手，沿着月光小路走出山村。
 
 她没有盖头，没有血泪，只是一个沉默的姑娘。你把她带到后山，和无字碑一起，重新立了一座新碑。

@@ -62,7 +62,7 @@ export const scenes = {
 
 你猛地回头。柴房的角落里，堆着十几个纸扎人，刚才它们还背对着你，现在全都转了过来。
 
-它们的脸，和你一模一样。`,effects:{"sanity":-30,"yin":10,"visual":"paper-doll"},choices:[createChoice({"text":"点燃柴火","next":"burn_woodshed","condition":{"hasItem":"打火机"}}),createChoice({"text":"冲出柴房","next":"run_to_mountain"})]}),
+它们的脸，和你一模一样。`,effects:{"sanity":-30,"yin":10,"visual":"paper-doll"},choices:[createChoice({"text":"点燃柴火","next":"burn_woodshed","condition":{"hasItem":"打火机"},"effects":{"removeItem":"打火机","sanity":-15}}),createChoice({"text":"冲出柴房","next":"run_to_mountain"})]}),
     burn_woodshed: createScene('burn_woodshed', {title:`焚柴房`,text:`你掏出打火机，点燃了一把干草。
 
 打火机的火苗很小，小得像一粒豆。可干草太干了，一碰到火就"呼"地烧起来，火苗窜得老高。
@@ -73,5 +73,18 @@ export const scenes = {
 
 可当你跑到村口时，发现全村的人都站在那里。他们低着头，手里提着白灯笼。灯笼上写着"囍"字，字是黑的。
 
-"你烧了秀兰的嫁妆。"二叔说，声音很平，平得发冷，"她会更生气的。"`,effects:{"sanity":-15,"yin":10,"time":60},choices:[createChoice({"text":"硬闯村口","next":"charge_exit","ending":"sacrificed"}),createChoice({"text":"退回后山","next":"run_to_mountain"})]})
+"你烧了秀兰的嫁妆。"二叔说，声音很平，平得发冷，"她会更生气的。"`,effects:{"sanity":-15,"yin":10,"time":60},choices:[createChoice({"text":"硬闯村口","next":"huimen_escape_curse_follows"}),createChoice({"text":"退回后山","next":"run_to_mountain"})]}),
+    huimen_escape_curse_follows: createScene('huimen_escape_curse_follows', {title:`未断`,text:`你冲向村口。
+
+火光照亮了半条村街，纸灰像黑雪一样落在你的肩上。你越过那些燃烧的纸人，越过被火舌舔歪的囍字，一直往前冲。
+
+村口的老槐树在风里摇晃，树下的两个纸扎人不知何时转了过来，墨点眼睛直直望着你。你没有停，从它们中间穿了过去。
+
+那一刻，你听见身后传来一声唢呐。那唢呐声很远，却像贴在耳根上吹响，调子不是喜乐，是送葬的调子。
+
+你低头看向自己的手腕。那根红绳——不知道什么时候系上的——不仅没有松开，反而勒得更紧了，勒进皮肉里，一圈红印正在慢慢发黑。
+
+[red]它还在。她还在。[/red]
+
+你忽然明白，烧掉一座柴房、跑出村口，并不能烧断三十年前结下的那根绳。那绳子系在你的血脉里，不管你跑到哪里，它都会跟到哪里。`,effects:{"sanity":-10,"yin":10},choices:[createChoice({"text":"硬闯村口","next":"charge_exit","ending":"sacrificed"})]})
 };

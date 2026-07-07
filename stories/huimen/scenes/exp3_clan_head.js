@@ -40,7 +40,7 @@ export const scenes = {
 
 "可她也在索命。"旁边一个年轻人插嘴，声音很急，被族长瞪了一眼，立刻不敢再说话，缩着脖子退回牌桌后。
 
-族长转回来看你，眼里有倦，也有狠："每隔十年，井神要一个新娘。这是契约。"`,effects:{"sanity":-5,"yin":3},choices:[createChoice({"text":"说契约可以打破","next":"huimen_exp3_clan_head_break","effects":{"yin":2}}),createChoice({"text":"问他愿不愿意认错","next":"huimen_exp3_clan_head_guilt","effects":{"yin":2}})]}),
+族长转回来看你，眼里有倦，也有狠："每隔十年，井神要一个新娘。说是十年，其实就是周家每一代娶一个外姓女子，回门那日沉井，换十年太平。这是契约。"`,effects:{"sanity":-5,"yin":3},choices:[createChoice({"text":"说契约可以打破","next":"huimen_exp3_clan_head_break","effects":{"yin":2}}),createChoice({"text":"问他愿不愿意认错","next":"huimen_exp3_clan_head_guilt","effects":{"yin":2}})]}),
     huimen_exp3_clan_head_flip: createScene('huimen_exp3_clan_head_flip', {title:'掀桌',text:`你一把掀翻牌桌。
 
 牌桌很沉，沉得你用了全身力气才掀动。牌九散落一地，"哗啦"一声，像下了一场冰雹。女子的脸在月光下扭曲，每张脸都像是活的，在地上滚了几滚才停下。
@@ -65,7 +65,7 @@ export const scenes = {
 
 那沉默很长，长得你能听见自己心跳。他低着头，看着自己手里的牌，牌面上的女子也看着他，眉眼低垂，像在等他说什么。
 
-"愧疚？"他低声说，声音忽然软了，软得不像他，"我爹把我姐姐沉井的时候，我也愧疚。可他说，不沉井，村子就完了。"
+"愧疚？"他低声说，声音忽然软了，软得不像他，"我爹把阿沅沉井的时候，我也愧疚。她是周家第一代媳妇，也是第一个被沉井的女子。可他说，不沉井，村子就完了。"
 
 他抬起头，眼里有一丝裂缝，那裂缝里透出一点光，光里是累："后来我当了族长，才知道……原来只要人心齐，不沉井也能活。可已经停不下来了。"
 
@@ -76,7 +76,7 @@ export const scenes = {
 
 他伸出苍老的手，掌心摊开给你看。掌心有一道陈年伤疤，疤很深，疤肉是紫色的，像一条死虫趴在掌心。
 
-"我爹当年用我姐姐的血续了契约。"他说，声音很平，平得像在说别人的事，"我老了，血快流干了。"
+"我爹当年用阿沅的血续了契约。"他说，声音很平，平得像在说别人的事，"阿沅是我姐姐，第一个被沉井的女子。我老了，血快流干了。"
 
 旁边几个男人低下头，不敢看他。有一个的肩膀抖了一下，像是在忍哭。`,effects:{"sanity":-5,"yin":4},choices:[createChoice({"text":"说可以用其他方式偿还","next":"huimen_exp3_clan_head_repent","effects":{"yin":2}}),createChoice({"text":"说周家该偿命","next":"huimen_exp3_clan_head_accuse","effects":{"yin":4}})]}),
     huimen_exp3_clan_head_word: createScene('huimen_exp3_clan_head_word', {title:'冤',text:`"你们看。"你指着地上的字。
@@ -152,5 +152,5 @@ export const scenes = {
 
 她转身走出祠堂，阳光从门外涌进来，照在她身上，她整个人都透了。
 
-族长跪在地上，朝她的背影重重磕了一个头。那头磕得很响，响得祠堂的回声都震了。`,effects:{"sanity":10,"yin":-10},choices:[createChoice({"text":"追上秀兰","ending":"huimen_exp3_hidden_clan_head_penance","effects":{"yin":0}})]})
+族长跪在地上，朝她的背影重重磕了一个头。那头磕得很响，响得祠堂的回声都震了。`,effects:{"sanity":10,"yin":-10},choices:[createChoice({"text":"追上秀兰","ending":"huimen_exp3_hidden_clan_head_penance","condition":{"flag":"huimen_exp3_freed_nine_women"},"effects":{"yin":0}}),createChoice({"text":"秀兰的怨气稍解，但井底还有其他女子","next":"huimen_exp_well_night","condition":{"noFlag":"huimen_exp3_freed_nine_women"},"effects":{"yin":1}})]})
 };

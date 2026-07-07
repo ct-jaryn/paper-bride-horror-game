@@ -20,11 +20,11 @@ export const scenes = {
 
 石头发出一个苍老的声音，从石头里渗出来，像是从地底传上来的：
 
-"很久以前，这里还没有周家村。有一对外乡男女相爱，被村里人反对。女子被活埋在井里，男子在井边守了一辈子，守成了一块石头。"
+"很久以前，这里还没有周家村。有一户外乡女子被沉进井里，只因她不愿嫁给不认识的男子。后来又有第二户、第三户……井边的石头听惯了哭声，就暖了。"
 
-"那口井，就是后来的周家井。" 石头说，"那女子，就是秀兰的前世。她不是第一次死，她已经死过很多次。每一次死，都因为同一个原因——她爱了不该爱的人，怀了不该怀的孩子。"
+"那口井，就是后来的周家井。" 石头说，"秀兰不是第一个，也不会是最后一个。历史在这里有回声，不是轮回，是同样的罪一再发生。"
 
-"循环已经很多世了。" 石头的声音低下去，"我也累了，讲不动了。"`,effects:{"sanity":-5,"yin":2,"setFlag":"huimen_exp2_heard_stone_story"},choices:[createChoice({"text":"问怎么结束这个循环","next":"huimen_exp2_moonlit_path_stone_ask","effects":{"yin":1}}),createChoice({"text":"继续走","next":"huimen_exp_moonlit_path","effects":{"yin":1}})]}),
+"我讲了很多年，讲不动了。"`,effects:{"sanity":-5,"yin":2,"setFlag":"huimen_exp2_heard_stone_story"},choices:[createChoice({"text":"问怎么结束这个循环","next":"huimen_exp2_moonlit_path_stone_ask","effects":{"yin":1}}),createChoice({"text":"继续走","next":"huimen_exp_moonlit_path","effects":{"yin":1}})]}),
     huimen_exp2_moonlit_path_stone_ask: createScene('huimen_exp2_moonlit_path_stone_ask', {title:'问法',text:`你问："怎么结束这个循环？"
 
 石头沉默了一会儿。沉默里，你听见它的心跳慢了下来。

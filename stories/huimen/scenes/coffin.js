@@ -23,7 +23,7 @@ export const scenes = {
 
 你的脑袋"嗡"地一声。
 
-[red]这不是还债。这是要把你搭进去。[/red]`,effects:{"sanity":-15,"yin":5},choices:[createChoice({"text":"去那扇小门看看","next":"small_door","danger":true}),createChoice({"text":"坚持要先看祖母遗体","next":"huimen_coffin_inspection"}),createChoice({"text":"想起纸人的话：别喝交杯酒","next":"refuse_wine_plan","condition":{"flag":"heard_paper_whisper"},"hidden":true,"effects":{"sanity":-5}}),createChoice({"text":"你借口去后院透气，暂时退出堂屋","next":"huimen_exp_village_loop_entry","effects":{"yin":1}}),createChoice({"text":"趁乱从后窗离开堂屋","next":"huimen_exp3_return_mainline","condition":{"hasItem":"秀兰的骨殖"},"hidden":true,"effects":{"yin":-3}})]}),
+[red]这不是还债。这是要把你搭进去。[/red]`,effects:{"sanity":-10,"yin":5,"time":60},choices:[createChoice({"text":"去那扇小门看看","next":"small_door","danger":true}),createChoice({"text":"坚持要先看祖母遗体","next":"huimen_coffin_inspection"}),createChoice({"text":"想起纸人的话：别喝交杯酒","next":"refuse_wine_plan","condition":{"flag":"heard_paper_whisper"},"hidden":true,"effects":{"sanity":-5}}),createChoice({"text":"你借口去后院透气，暂时退出堂屋","next":"huimen_exp_village_loop_entry","effects":{"yin":1}})]}),
     ask_coffin_with_inscription: createScene('ask_coffin_with_inscription', {title:'喜丧',text:`你指着棺盖上的刻字质问二叔："这是什么意思？周氏秀兰，未过门而亡——这就是你说的喜丧？"
 
 可堂屋里明明供着白幡、点着白烛，怎么算"喜"？你瞥了一眼那口黑漆棺材，棺材上贴的不是寿字，是大红"囍"字——这哪里是丧事的摆设。
@@ -42,7 +42,7 @@ export const scenes = {
 
 你的脑袋"嗡"地一声。
 
-[red]这不是还债。这是要把你搭进去。[/red]`,effects:{"sanity":-15,"yin":5},choices:[createChoice({"text":"去那扇小门看看","next":"small_door","danger":true}),createChoice({"text":"坚持要先看祖母遗体","next":"huimen_coffin_inspection"}),createChoice({"text":"想起纸人的话：别喝交杯酒","next":"refuse_wine_plan","condition":{"flag":"heard_paper_whisper"},"hidden":true,"effects":{"sanity":-5}}),createChoice({"text":"你借口去后院透气，暂时退出堂屋","next":"huimen_exp_village_loop_entry","effects":{"yin":1}}),createChoice({"text":"趁乱从后窗离开堂屋","next":"huimen_exp3_return_mainline","condition":{"hasItem":"秀兰的骨殖"},"hidden":true,"effects":{"yin":-3}})]}),
+[red]这不是还债。这是要把你搭进去。[/red]`,effects:{"sanity":-10,"yin":5,"time":60},choices:[createChoice({"text":"去那扇小门看看","next":"small_door","danger":true}),createChoice({"text":"坚持要先看祖母遗体","next":"huimen_coffin_inspection"}),createChoice({"text":"想起纸人的话：别喝交杯酒","next":"refuse_wine_plan","condition":{"flag":"heard_paper_whisper"},"hidden":true,"effects":{"sanity":-5}}),createChoice({"text":"你借口去后院透气，暂时退出堂屋","next":"huimen_exp_village_loop_entry","effects":{"yin":1}})]}),
     observe_red_strings: createScene('observe_red_strings', {title:'红绳入骨',text:`你盯着那些红绳看。
 
 红绳系在跪着的亲戚们手腕上，每根都绷得很紧，勒进皮肉里，每个人的手腕上都有一圈深深的红印，皮肉翻起，露出底下发青的肉。更诡异的是，你越看越觉得不对——
@@ -57,7 +57,7 @@ export const scenes = {
 
 "什么成亲？" 你的声音变了调，自己都听不出是自己的。
 
-三姑指了指棺材后面的小门，门缝里那点暗红的光还在一跳一跳："秀兰在里面等你。今晚子时，拜堂。"`,effects:{"sanity":-18,"yin":7},choices:[createChoice({"text":"冲向小门","next":"small_door"}),createChoice({"text":"假装顺从，趁机观察环境","next":"pretend_comply","effects":{"setFlag":"gainedTrust"}}),createChoice({"text":"用护身符抵住红绳，防止它缠上自己","next":"talisman_against_rope","condition":{"hasItem":"护身符"},"effects":{"sanity":5,"yin":-10}}),createChoice({"text":"这红绳……和赶尸匠见过的冥婚新娘一样","next":"corpse_bride_link","condition":{"flag":"ganshi_to_qingshi"}})]}),
+三姑指了指棺材后面的小门，门缝里那点暗红的光还在一跳一跳："秀兰在里面等你。今晚子时，拜堂。"`,effects:{"sanity":-18,"yin":7},choices:[createChoice({"text":"冲向小门","next":"small_door"}),createChoice({"text":"假装顺从，趁机观察环境","next":"pretend_comply"}),createChoice({"text":"用护身符抵住红绳，防止它缠上自己","next":"talisman_against_rope","condition":{"hasItem":"护身符"},"effects":{"sanity":5,"yin":-10}}),createChoice({"text":"这红绳……和赶尸匠见过的冥婚新娘一样","next":"corpse_bride_link","condition":{"flag":"ganshi_to_qingshi"}})]}),
     approach_coffin: createScene('approach_coffin', {title:'祖母开棺',text:`你一步一步走近棺材。
 
 堂屋里很静，静得能听见自己心跳的声音，能闻到棺材上那层黑漆混着桐油的气味。亲戚们的目光跟着你移动，像一群盯紧猎物的眼睛，但没有人阻止你，也没有人开口。
@@ -93,7 +93,7 @@ export const scenes = {
 
 四婶已经把红嫁衣捧到了你面前。嫁衣叠得整整齐齐，金线绣的龙凤在烛光下泛光，料子冰凉，透着一股井水的湿气。你盯着那嫁衣看，越看越不对——龙的眼睛，是用黑线绣的，没有眼白，黑洞洞地瞪着你，像两颗墨点。
 
-[red]你无路可逃。但后窗的纸糊似乎松动了，风从缝里灌进来。[/red]`,effects:{"sanity":-20,"yin":10,"time":60},choices:[createChoice({"text":"接过嫁衣，假装配合","next":"pretend_marry","effects":{"setFlag":"willingGroom"}}),createChoice({"text":"推开四婶，撞破窗户","next":"break_window","danger":true}),createChoice({"text":"奔向后院井底","next":"huimen_red_coffin_discovery","effects":{"yin":2}}),createChoice({"text":"头也不回地离开村子","next":"huimen_exp_village_escape_alt"})]}),
+[red]你无路可逃。但后窗的纸糊似乎松动了，风从缝里灌进来。[/red]`,effects:{"sanity":-20,"yin":10,"time":60},choices:[createChoice({"text":"接过嫁衣，假装配合","next":"pretend_marry"}),createChoice({"text":"喊出秀兰的名字，求她放过你","next":"beg_xiulan","condition":{"flag":"xiulanMercy"},"effects":{"sanity":5}}),createChoice({"text":"推开四婶，撞破窗户","next":"break_window","danger":true}),createChoice({"text":"奔向后院井底","next":"huimen_red_coffin_discovery","effects":{"yin":2}})]}),
     open_red_coffin: createScene('open_red_coffin', {title:'开红棺',text:`你把手伸向红棺的棺盖。这口井底的棺材比你想的轻，也比你想象的更冷。你深吸一口气，准备打开它。`,textVariants:[{condition:{custom:(state)=>state.inventory.includes('铜钥匙')},text:`铜钥匙插入棺盖上的锁孔，发出一声沉闷的"咔哒"声，那声音不响，却像敲在心口上，闷闷地震了一下。
 
 九根桃木钉同时松动，一根一根从棺沿跳出来，落在青砖地上，发出清脆的、参差不齐的响声，像谁在数数。井底的水跟着晃了晃，倒映的红棺裂开一道道细纹。

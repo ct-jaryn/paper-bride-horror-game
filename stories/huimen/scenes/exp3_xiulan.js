@@ -62,5 +62,14 @@ export const scenes = {
 
 你蹲在淤泥里，盯着那两个字看了很久。井底的红光照着它们，让它们一笔一画都发着光。
 
-[red]你这才明白，她一直在等你。从你出生那天起，她就知道你会回来。[/red]`,effects:{"sanity":-3,"yin":4,"addItem":"秀兰的骨殖"},choices:[createChoice({"text":"把骨殖包好","next":"huimen_exp3_well_bottom_wrap","effects":{"sanity":3,"yin":1}}),createChoice({"text":"给她换上带来的嫁衣","next":"huimen_exp3_well_bottom_change_dress","condition":{"flag":"huimen_exp3_wish_dress"},"effects":{"sanity":8,"yin":-3}})]})
+[faded]这件是真真正正穿在她沉井那夜的红嫁衣。你在记忆里烧掉的那件，只是她怨念的投影。真正的嫁衣还在，井纹还在，你的名字也还在。[/faded]
+
+[red]你这才明白，她一直在等你。从你出生那天起，她就知道你会回来。[/red]`,effects:{"sanity":-3,"yin":4,"addItem":"秀兰的骨殖"},choices:[createChoice({"text":"把骨殖包好","next":"huimen_exp3_well_bottom_wrap","effects":{"sanity":3,"yin":1}}),createChoice({"text":"给她换上带来的嫁衣","next":"huimen_exp3_well_bottom_change_dress","condition":{"flag":"huimen_exp3_wish_dress"},"effects":{"sanity":8,"yin":-3}})]}),
+    huimen_exp3_return_mainline: createScene('huimen_exp3_return_mainline', {title:'回老宅',text:`你带着秀兰的骨殖，沿着村街走回老宅。
+
+夜已经深得像一口井。老宅的轮廓在雾里若隐若现，门口那盏红灯笼还亮着，把门前的青石照得像一块血玉。你绕过正门，从侧门翻进后院。
+
+后院的井绳还在，井沿上的铜镜碎片已经不见了。秀兰的骨殖在你怀里很轻，轻得像一包纸灰。你听见堂屋里传来低低的唢呐声，那是周家还在等你完成最后一件事。
+
+[red]是时候了。[/red]`,effects:{"yin":2},choices:[createChoice({"text":"潜入后院井边","next":"sneak_back_yard"})]})
 };

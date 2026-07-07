@@ -42,7 +42,7 @@ export const scenes = {
 
 二叔和三姑对视一眼。那眼神交会了一下，像是在算账。三姑慢慢点头："……有道理。"
 
-他们松开了你的手腕。松手的时候，二叔的手在你腕上多停了一瞬，像是想说什么，最终没说。`,effects:{"sanity":-5,"yin":2,"setFlag":"knows_ritual_loophole"},choices:[createChoice({"text":"趁他们松懈，跑向小门","next":"small_door"}),createChoice({"text":"真的去找族谱","next":"find_family_tree","effects":{"time":30}})]}),
+他们松开了你的手腕。松手的时候，二叔的手在你腕上多停了一瞬，像是想说什么，最终没说。`,effects:{"sanity":-3,"yin":2,"time":30},choices:[createChoice({"text":"真的去找族谱","next":"find_family_tree","effects":{"time":30}})]}),
     pretend_comply: createScene('pretend_comply', {title:`假装顺从`,text:`你垂下眼睛，不再反抗。
 
 二叔满意地点点头，那点头很轻，像在确认一件早就定好的事："好孩子。你去后院洗把脸，换身衣服。吉时要到了。"

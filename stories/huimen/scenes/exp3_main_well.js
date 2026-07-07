@@ -16,7 +16,7 @@ export const scenes = {
 
 最深处，有一具穿着红嫁衣的骨架，手腕上系着一根红绳。
 
-红绳已经褪成暗红，却还紧紧地勒在腕骨上，勒出一道深深的凹痕。`,effects:{"sanity":-5,"yin":6},choices:[createChoice({"text":"靠近红嫁衣骨架","next":"huimen_exp3_well_bottom_xiulan_bones","effects":{"yin":3}}),createChoice({"text":"先祭拜其他尸骨","next":"huimen_exp3_well_bottom_bow","effects":{"sanity":5,"yin":-2}}),createChoice({"text":"在井底寻找出口","next":"huimen_exp3_well_bottom_exit","effects":{"yin":2}})]}),
+红绳已经褪成暗红，却还紧紧地勒在腕骨上，勒出一道深深的凹痕。`,effects:{"sanity":-5,"yin":6},textVariants:[{condition:{flag:'huimen_exp3_loop_count'},text:`你手腕上那根从纸扎铺带出来的断红绳忽然紧了一下，像被什么东西扯了扯。你知道，循环石碑上刻的"入村者三，出村者一"，也适用于这口井。`}],choices:[createChoice({"text":"靠近红嫁衣骨架","next":"huimen_exp3_well_bottom_xiulan_bones","effects":{"yin":3}}),createChoice({"text":"先祭拜其他尸骨","next":"huimen_exp3_well_bottom_bow","effects":{"sanity":5,"yin":-2}}),createChoice({"text":"在井底寻找出口","next":"huimen_exp3_well_bottom_exit","effects":{"yin":2}})]}),
     huimen_exp3_well_bottom_bow: createScene('huimen_exp3_well_bottom_bow', {title:`井底祭拜`,text:`你跪在淤泥里，朝散落的白骨拜了三拜。
 
 膝盖陷进淤泥，凉得像跪在冰上。你每拜一次，井底就"嗡"地响一声，像是有口钟在你头顶回应。

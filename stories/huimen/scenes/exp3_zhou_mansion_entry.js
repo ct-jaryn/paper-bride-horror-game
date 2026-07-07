@@ -16,7 +16,9 @@ export const scenes = {
 
 它转得很慢，慢得你以为是错觉。可它的眼珠确实跟着你动了，从左转到右，又从右转回中。
 
-[whisper]门缝里飘出一股檀香，混着纸灰的甜。[/whisper]`,effects:{"yin":2},choices:[createChoice({"text":"推门进去","next":"huimen_exp3_zhou_mansion_courtyard","effects":{"yin":2}}),createChoice({"text":"先敲三下门","next":"huimen_exp3_zhou_mansion_knock","effects":{"yin":1}}),createChoice({"text":"绕到后院","next":"huimen_exp3_zhou_mansion_backyard","effects":{"yin":1}})]}),
+[whisper]门缝里飘出一股檀香，混着纸灰的甜。[/whisper]
+
+[red]这不是一座真正的老宅。这是秀兰与周家历代怨气凝结出的旧宅幻象。你推门进去，踏入的是一段被反复重演、从未散去的记忆。[/red]`,effects:{"yin":2},choices:[createChoice({"text":"推门进去","next":"huimen_exp3_zhou_mansion_courtyard","effects":{"yin":2}}),createChoice({"text":"先敲三下门","next":"huimen_exp3_zhou_mansion_knock","effects":{"yin":1}}),createChoice({"text":"绕到后院","next":"huimen_exp3_zhou_mansion_backyard","effects":{"yin":1}})]}),
     huimen_exp3_zhou_mansion_knock: createScene('huimen_exp3_zhou_mansion_knock', {title:'三声门环',text:`你敲了三下。
 
 铜门环撞在门板上，"咚——咚——咚——"三声，沉得像敲钟。每一声都在夜里荡开，荡到很远才回来。

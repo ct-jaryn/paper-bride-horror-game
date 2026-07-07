@@ -96,11 +96,11 @@ export const scenes = {
 
 角落是老宅后院的柴房，柴房漏雨，好在角落里干着。你把东西摊在一张破桌子上，桌腿不平，你垫了一块砖才稳住。
 
-祖父日记、秀兰生辰八字、井壁长发、债墙拓片、周家契约、桑树头发、云袖银簪、族谱碎片……每一样东西摊开来，都带着一股说不出的寒。那寒是从东西里渗出来的，渗进你手指，顺着手指渗进心里。
+你手边的线索零零散散，但每一样都透着一股说不出的寒。那寒是从东西里渗出来的，渗进你手指，顺着手指渗进心里。
 
 这些线索拼凑出一个可怕的真相：周家百年来一直在用女子的命抵债。秀兰不是第一个，也不会是最后一个。每一代，都有一个新的"秀兰"被填进井里，填一个，富十年。
 
 [red]除非你终结它。[/red]
 
-你感到肩上的重量。你不仅是回门的周家后人，也可能是唯一能让这些女子安息的人。`,effects:{"sanity":-5,"yin":5,"setFlag":"clues_assembled"},choices:[createChoice({"text":"去祠堂烧毁族谱","next":"huimen_exp_family_tree_alt","condition":{"hasItem":"族谱碎片二"}}),createChoice({"text":"去井底开棺","next":"huimen_red_coffin_discovery","condition":{"custom":(state)=>state.inventory.includes('铜钥匙')||state.inventory.includes('云袖银簪')}}),createChoice({"text":"去纸扎铺终结契约","ending":"hidden_paperDollBurned","condition":{"hasItem":"周家纸人契约"}})]})
+你感到肩上的重量。你不仅是回门的周家后人，也可能是唯一能让这些女子安息的人。`,textVariants:[{condition:{hasItem:'祖父日记残页'},text:`一本破旧的日记摊在桌上，是祖父的字迹。最后一页写着"我对不起秀兰"，字迹抖得像写的人手在抖。`},{condition:{hasItem:'秀兰生辰八字'},text:`一张黄纸上用朱砂写着"癸丑年七月初七，周氏秀兰"，被周家封在纸人里替她挡灾。`},{condition:{hasItem:'井壁长发'},text:`一缕从井壁上取下的长发缠在指间，发根还连着一小块头皮，黑得发亮。`},{condition:{hasItem:'债墙拓片'},text:`从祠堂后墙拓下来的女子名字，每一个"周氏"后面都跟着"不祥"或"活埋"。`},{condition:{hasItem:'周家纸人契约'},text:`纸扎铺的百年契约上记着，民国二十三年，周家订纸新娘一具，内填秀兰发一束。`},{condition:{hasItem:'镇魂铜钱'},text:`几枚发绿的铜钱排成镇魂图案，是桑树底下用来困住秀兰的东西。`},{condition:{hasItem:'云袖银簪'},text:`一支簪头刻着"照魂"二字的银簪，是百年前被纸替的戏班女子云袖的遗物。`},{condition:{hasItem:'族谱碎片二'},text:`几片碎族谱上，周家女子的名字被朱砂划掉，只隐约透出兰、红、袖等字。`}],effects:{"sanity":-5,"yin":5,"setFlag":"clues_assembled"},choices:[createChoice({"text":"去祠堂烧毁族谱","next":"huimen_exp_family_tree_alt","condition":{"hasItem":"族谱碎片二"}}),createChoice({"text":"去井底开棺","next":"huimen_red_coffin_discovery","condition":{"custom":(state)=>state.inventory.includes('铜钥匙')||state.inventory.includes('云袖银簪')}}),createChoice({"text":"去纸扎铺终结契约","ending":"hidden_paperDollBurned","condition":{"hasItem":"周家纸人契约"}}),createChoice({"text":"一切已明，打开阴阳簿","next":"true_ending_gate","condition":{"flag":"clues_assembled"},"hidden":true})]}),
 };

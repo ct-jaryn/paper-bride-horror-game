@@ -20,7 +20,7 @@ export const scenes = {
 
 秀兰的眼泪落进井水里，井水第一次变得清澈。她伸出手，那只苍白的手穿过你的身体，你没有感到冷，而是感到一阵温暖。
 
-"那我跟你走。"她说，声音里带着一点笑，也带着一点哭。`,effects:{"sanity":15,"yin":-20,"setFlag":"xiulanMercy","addItem":["秀兰的嫁衣","孩子的骸骨"]},choices:[createChoice({"text":"准备安葬她","next":"huimen_prepare_burial","effects":{"yin":1}}),createChoice({"text":"先带她去见周家列祖列宗","next":"huimen_family_tree_confront","effects":{"yin":1}})]}),
+"那我跟你走。"她说，声音里带着一点笑，也带着一点哭。`,textVariants:[{condition:{flag:'huimen_exp2_saw_xiulan_childhood'},text:`你想起她小时候绣花的样子：她说女子要学会绣花，将来好做嫁衣。`},{condition:{flag:'huimen_exp2_saw_xiulan_pregnancy'},text:`你想起她给小老虎衣服绣花时，说县里的学堂女孩子也能读书。`},{condition:{flag:'huimen_exp2_saw_xiulan_betrayal'},text:`你想起周文在门缝里伸出的手，差一寸就够到她了。`},{condition:{flag:'huimen_exp2_held_xiulan_in_well_memory'},text:`你想起井底她最后说："原来我不是一个人死的。"`},{condition:{flag:'huimen_exp3_knows_xiulan_birth'},text:`你想起她咬破手指写下的生辰八字。那才是真正的她。`},{condition:{flag:'huimen_exp3_promised_xiulan_opera'},text:`你想起她说过想看戏台上的花旦。"我带你去。"你说。`},{condition:{flag:'huimen_exp_saw_xiulan_death'},text:`你想起她刻在井壁上的"周文，我恨你。周文，我等你。"`},{condition:{hasItem:'记忆中的玉佩（虚幻）'},text:`你手中的玉佩忽然变得温热，又渐渐化作一缕青烟，像是终于还给了她。`},{condition:{hasItem:'秀兰的绣品'},text:`你怀里的绣品也轻轻颤了一下，针脚化在风里，像她的一个笑。`}],effects:{"sanity":15,"yin":-20,"setFlag":"xiulanMercy","addItem":["秀兰的嫁衣","孩子的骸骨"],"time":120},choices:[createChoice({"text":"准备安葬她","next":"huimen_prepare_burial","effects":{"yin":1}}),createChoice({"text":"先带她去见周家列祖列宗","next":"huimen_family_tree_confront","effects":{"yin":1}})]}),
     huimen_prepare_burial: createScene('huimen_prepare_burial', {title:`备葬`,text:`你向秀兰伸出手。"走，"你说，"我带你回家。"她的身影从井水里缓缓升起，落在你身边，像一缕被月光纺成的纱。天快亮了。
 
 东边的山头已经泛起一点鱼肚白，白得很淡，淡得像没睡醒的眼。你回到老宅，找出一身干净的白衣、一篮纸钱、一束从村口采来的野菊。
@@ -31,7 +31,7 @@ export const scenes = {
 
 "后山那块无字碑，是她唯一能去的地方。周家不让她进祖坟。"
 
-"那从今以后，"你说，握紧那把铁锹，"她就是我的家人。我给她立碑。"`,effects:{"sanity":5,"yin":-5,"addItem":"葬花"},choices:[createChoice({"text":"去后山选葬地","next":"huimen_gather_villagers","effects":{"yin":1}}),createChoice({"text":"先去井底把她的骨殖请上来","next":"give_letter","effects":{"yin":2}}),createChoice({"text":"直接去后山安葬","next":"bury_xiulan","condition":{"hasItem":"秀兰的嫁衣"},"effects":{"yin":-3}}),createChoice({"text":"在村口买一口薄棺","next":"huimen_gather_villagers","condition":{"hasItem":"清代铜钱"},"effects":{"yin":1}})]}),
+"那从今以后，"你说，握紧那把铁锹，"她就是我的家人。我给她立碑。"`,effects:{"sanity":5,"yin":-5,"addItem":"葬花","time":120},choices:[createChoice({"text":"去后山选葬地","next":"huimen_gather_villagers","effects":{"yin":1}}),createChoice({"text":"先去井底把她的骨殖请上来","next":"give_letter","effects":{"yin":2}}),createChoice({"text":"直接去后山安葬","next":"bury_xiulan","condition":{"hasItem":"秀兰的嫁衣"},"effects":{"yin":-3}})]}),
     huimen_gather_villagers: createScene('huimen_gather_villagers', {title:`请村民作证`,text:`你抱着秀兰的嫁衣和孩子的骸骨走出老宅，身后跟着一队沉默的村民。
 
 他们不知道什么时候跟上来的，你回头时，他们已经站成一排，低着头，像送葬的队伍。没有人说话，只有脚步声，"沙沙"地踩在泥路上。纸人们站在屋檐下，低着头，像是在送行。
@@ -47,7 +47,7 @@ export const scenes = {
 
 [red]就葬在这里吧。[/red]
 
-你用手挖开桂树下的泥土。泥土很松，像是早就被人挖开过。你挖到一尺深时，指尖碰到了一个硬物——是一只小小的虎头鞋，已经朽烂了，鞋面上的虎头还依稀可辨。`,effects:{"sanity":-5,"yin":-3,"setFlag":"huimen_chose_burial_site"},choices:[createChoice({"text":"把虎头鞋一并安葬","next":"huimen_burial_ritual","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"继续挖坟坑","next":"huimen_burial_ritual","effects":{"yin":1}}),createChoice({"text":"把虎头鞋收好，带给秀兰看","next":"give_letter","effects":{"yin":2}})]}),
+无字碑旁的桂树下已经挖好了一个土坑。坑边的土还带着湿气，像是不久前有人替你翻过。你握着四婶递来的铁锹，在坑边跪下，伸手拨开浮土。你挖到一尺深时，指尖碰到了一个硬物——是一只小小的虎头鞋，已经朽烂了，鞋面上的虎头还依稀可辨。`,effects:{"sanity":-5,"yin":-3,"setFlag":"huimen_chose_burial_site"},choices:[createChoice({"text":"把虎头鞋一并安葬","next":"huimen_burial_ritual","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"继续挖坟坑","next":"huimen_burial_ritual","effects":{"yin":1}}),createChoice({"text":"把虎头鞋收好，带给秀兰看","next":"give_letter","effects":{"yin":2}})]}),
     huimen_burial_ritual: createScene('huimen_burial_ritual', {title:`归土`,text:`你把秀兰的嫁衣、孩子的骸骨、那只朽烂的虎头鞋，一起放进土坑。
 
 嫁衣是粉的，粉得像一捧春光。骸骨很小，小得能托在掌心。虎头鞋已经朽得只剩一个轮廓，却还是虎头的样子。
@@ -64,5 +64,5 @@ export const scenes = {
 
 你终于走出了山村。
 
-但你知道，这个村子的罪，还没有还完。`,effects:{"sanity":20,"yin":-30},choices:[createChoice({"text":"离开山村","next":"","ending":"redemption"}),createChoice({"text":"想起族谱上的正名，把族谱也埋在墓旁","next":"","condition":{"flag":"restored_xiulan_name"},"hidden":true,"ending":"hidden_perfect_redemption"})]})
+但你知道，这个村子的罪，还没有还完。`,effects:{"sanity":20,"yin":-30},choices:[createChoice({"text":"离开山村","next":"","ending":"redemption"}),createChoice({"text":"想起族谱上的正名，把族谱也埋在墓旁","next":"","condition":{"flag":"restored_xiulan_name"},"hidden":true,"ending":"hidden_perfect_redemption"}),createChoice({"text":"一切已明，打开阴阳簿","next":"true_ending_gate","condition":{"flag":"clues_assembled"},"hidden":true})]})
 };

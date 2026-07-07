@@ -43,7 +43,7 @@ export const scenes = {
 
 天边已经泛起鱼肚白，山头的雾一缕一缕往低处沉，把后山的树、坟、石碑都泡成一片灰白。村口的纸人们还整整齐齐站在那里，一动不动，脸上画着笑，眼睛是墨点的黑洞。可它们没有追来，像是被什么定住了一样，只在你走远时，齐刷刷把头转向你离开的方向。
 
-你来到无字碑旁，那块青苔斑驳的碑下有个早挖好的土坑，坑边的湿土还带着昨夜的雨气。你把嫁衣和骸骨一起放进坑里，骸骨在嫁衣里蜷成一团，像在睡，像在母亲的怀里。
+你来到无字碑旁，桂树下已经挖好了一个土坑。坑边的湿土还带着昨夜的雨气，坑壁的泥土颜色比周围新一些，像是不久前有人替你翻过。你把嫁衣和骸骨一起放进坑里，骸骨在嫁衣里蜷成一团，像在睡，像在母亲的怀里。
 
 你蹲下身，用手一捧一捧地埋上土。土是湿的，凉丝丝地从指缝里漏下去，盖住嫁衣的金线，盖住那具小小的骨头。你埋得很慢，一捧一捧，像在哄一个不肯睡的孩子。
 
@@ -55,7 +55,7 @@ export const scenes = {
 
 第一缕阳光照在碑上时，你看见一个穿红嫁衣的女子站在阳光下，朝你福了一礼，盖头下的脸看不清，可你能感到她在笑。然后她化作点点红光，散进晨雾里，连那个一直蜷在她怀里的婴孩的影子，也跟着散了。
 
-你终于走出了山村。晨雾沾在睫毛上，凉凉的。你低头看手腕，那根红绳不知何时松了，落在脚边，变成一截褪色的线。你弯腰拾起，放进口袋。这个村子的罪还没有还完，但秀兰，终于不用再等了。`,choices:[createChoice({"text":"离开山村","next":"","ending":"redemption"}),createChoice({"text":"你想起族谱上的正名，把族谱也埋在墓旁","next":"","ending":"hidden_perfect_redemption","condition":{"flag":"restored_xiulan_name"},"hidden":true})]}),
+你终于走出了山村。晨雾沾在睫毛上，凉凉的。你低头看手腕，那根红绳不知何时松了，落在脚边，变成一截褪色的线。你弯腰拾起，放进口袋。这个村子的罪还没有还完，但秀兰，终于不用再等了。`,textVariants:[{condition:{flag:'huimen_exp2_saw_xiulan_childhood'},text:`你想起她说，女子要学会绣花，将来好做嫁衣。`},{condition:{flag:'huimen_exp2_saw_xiulan_pregnancy'},text:`你想起她给小衣服绣的小老虎，虎头虎脑。`},{condition:{flag:'huimen_exp2_saw_xiulan_betrayal'},text:`你想起她在门缝里伸手去抓周文，只差一点点。`},{condition:{flag:'huimen_exp2_held_xiulan_in_well_memory'},text:`你想起她最后说："原来我不是一个人死的。"`},{condition:{flag:'huimen_exp2_promised_to_restore_name'},text:`你也想起在井底记忆里答应过她："我会把你的名字写回族谱。"如今碑上终于有了字。`},{condition:{flag:'huimen_exp3_knows_xiulan_birth'},text:`你想起她真正的生辰八字，现在终于写进了族谱。`},{condition:{flag:'huimen_exp3_promised_xiulan_opera'},text:`你想起你答应带她去看戏。也许来世，她会坐在最好的位置。`},{condition:{flag:'huimen_exp_saw_xiulan_death'},text:`你想起她刻在井壁上的字，爱和恨揉在一起。`},{condition:{hasItem:'记忆中的玉佩（虚幻）'},text:`你口袋里的玉佩忽然变得温热，然后化作一缕青烟，飘向碑后。`},{condition:{hasItem:'秀兰的绣品'},text:`你怀里的绣品轻轻颤了颤，针脚散在晨光里，像终于松开的执念。`}],choices:[createChoice({"text":"离开山村","next":"","ending":"redemption"}),createChoice({"text":"你想起族谱上的正名，把族谱也埋在墓旁","next":"","ending":"hidden_perfect_redemption","condition":{"flag":"restored_xiulan_name"},"hidden":true}),createChoice({"text":"一切已明，打开阴阳簿","next":"true_ending_gate","condition":{"flag":"clues_assembled"},"hidden":true})]}),
     beg_xiulan: createScene('beg_xiulan', {title:'求她',text:`"秀兰！" 你大喊，嗓子被烟熏得发哑，"我知道真相了！周家对不起你！我带你走，我给你正名！"
 
 秀兰的动作停住了。
@@ -106,5 +106,5 @@ export const scenes = {
 
 "我等这句话，等了三十年。" 她没再说别的。
 
-你们来到无字碑前。碑脚的土坑已经挖好，坑壁还带着昨夜的雨气。你把嫁衣放进坑里，嫁衣落下时发出一声极轻的叹息，像有人终于躺了下来。`,effects:{"sanity":10,"yin":-10},choices:[createChoice({"text":"离开山村","ending":"redemption","effects":{"yin":-5}})]})
+你们来到无字碑前。碑脚的土坑已经挖好，坑壁还带着昨夜的雨气。你把嫁衣放进坑里，嫁衣落下时发出一声极轻的叹息，像有人终于躺了下来。`,effects:{"sanity":10,"yin":-10},choices:[createChoice({"text":"离开山村","ending":"redemption","effects":{"yin":-5}}),createChoice({"text":"带她沿月光小路回家","next":"huimen_exp_redemption_loop_alt","effects":{"yin":-5}})]})
 };

@@ -5,7 +5,7 @@
 import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 
 export const scenes = {
-    old_house_door_locked: createScene('old_house_door_locked', {title:'老宅门锁',text:`老宅的大门紧闭。
+    old_house_door_locked: createScene('old_house_door_locked', {title:'老宅侧门',text:`你绕到老宅侧门。侧门紧闭。
 
 门是黑漆的，漆已经剥落大半，露出底下灰白的木。木上有许多划痕，像是有人用指甲抓过，抓痕密密麻麻，像一群人在门上写字。
 
@@ -15,7 +15,7 @@ export const scenes = {
 
 [faded]"周家后人，以血以名，方可入门。"[/faded]
 
-字是朱砂写的，朱砂已经发黑，像凝住的血。你把纸翻过来，背面还有一行小字，写得歪歪扭扭，像是有人偷偷添的："名是她的，不是你的。"
+字是朱砂写的，朱砂已经发黑，像凝住的血。这是侧门的"血印名封"——以血以名，封住的是周家后人，也是这扇门后三十年的债。你把纸翻过来，背面还有一行小字，写得歪歪扭扭，像是有人偷偷添的："名是她的，不是你的。"
 
 你想起在纸人腹中发现的生辰八字。秀兰的八字——癸丑年七月初七。
 

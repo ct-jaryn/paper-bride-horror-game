@@ -41,7 +41,7 @@ export const scenes = {
 
 水面"咕嘟"冒出一个气泡，气泡破裂时，溅起的水珠落在你的手背上，冰凉。
 
-[whisper]"姐姐一直在哭。"[/whisper]孩子说，"她哭的时候，整个村子都在下雨。你能让她不哭吗？"
+[whisper]"娘一直在哭。"[/whisper]孩子说，"她哭的时候，整个村子都在下雨。你能让她不哭吗？"
 
 你还没来得及回答，井绳突然松开了你的脚踝，像一条死去的蛇滑回井里。`,effects:{"sanity":-5,"yin":2,"setFlag":"huimen_exp_heard_well_child"},choices:[createChoice({"text":"问孩子是谁","next":"huimen_exp_little_boy","effects":{"yin":1}}),createChoice({"text":"离开井边","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp_well_release: createScene('huimen_exp_well_release', {title:'解井魂',text:`你回到井边。

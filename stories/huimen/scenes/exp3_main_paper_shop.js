@@ -59,7 +59,7 @@ export const scenes = {
 
 纸娃娃的脸上带着笑，那笑画得很精细，嘴角弯弯，眼睛弯弯，像是一个真在开心的孩子。它的小手里攥着一张纸条，纸条已经被它攥出了褶皱。
 
-[faded]"吾儿周安，满月夭折，以纸代之。"[/faded]`,effects:{"sanity":-3,"yin":3},choices:[createChoice({"text":"把纸娃娃抱出来","next":"huimen_exp3_paper_shop_baby_doll","effects":{"yin":3}}),createChoice({"text":"盖上棺材盖","next":"huimen_exp3_paper_shop_baby_doll_close","effects":{"sanity":3,"yin":1}})]}),
+[faded]"吾儿周安，未成形而夭，以纸代之。"[/faded]`,effects:{"sanity":-3,"yin":3},choices:[createChoice({"text":"把纸娃娃抱出来","next":"huimen_exp3_paper_shop_baby_doll","effects":{"yin":3}}),createChoice({"text":"盖上棺材盖","next":"huimen_exp3_paper_shop_baby_doll_close","effects":{"sanity":3,"yin":1}})]}),
     huimen_exp3_paper_shop_baby_doll: createScene('huimen_exp3_paper_shop_baby_doll', {title:`纸娃娃`,text:`纸娃娃很轻，轻得像一只空心的鸡蛋。
 
 你把它抱起来时，它忽然动了动，像是一个睡梦中的孩子翻了个身。它的小手松开，把纸条塞进你手里。
@@ -68,7 +68,7 @@ export const scenes = {
 
 [faded]"娘亲秀兰，愿儿来世不姓周。"[/faded]
 
-你的眼眶忽然一酸。你想起李木匠说的那个满月夭折的小少爷，想起秀兰怀着三个月的身孕被沉进井里。
+你的眼眶忽然一酸。你想起李木匠说的那个未成形而夭的小少爷，想起秀兰怀着孩子被沉进井里。
 
 这个纸娃娃，是周家用来代替那个没机会生下来的孩子的。它在这里躺了多少年，替那个孩子"活"了多少年。
 

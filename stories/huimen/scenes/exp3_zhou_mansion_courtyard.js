@@ -14,6 +14,8 @@ export const scenes = {
 
 他抬头看你，眼神浑浊，浑浊得像井底的水。可那浑浊下面，却藏着一道鹰一样的光。
 
+[red]你注意到他动作有些僵，像关节不是肉长的，而是纸糊的。他呼出的气没有温度，只有一股陈年纸灰的味道。他也不是活人，而是周家怨气凝成的旧影。[/red]
+
 "你是来还债的，还是来讨债的？"他问，声音像风吹过空棺材。`,effects:{"yin":2},choices:[createChoice({"text":"说自己是来讨债的","next":"huimen_exp3_zhou_mansion_courtyard_debt","effects":{"yin":2}}),createChoice({"text":"说自己是来还债的","next":"huimen_exp3_zhou_mansion_courtyard_pay","effects":{"yin":2}}),createChoice({"text":"问他秀兰的事","next":"huimen_exp3_zhou_mansion_courtyard_xiulan","effects":{"yin":1}})]}),
     huimen_exp3_zhou_mansion_courtyard_debt: createScene('huimen_exp3_zhou_mansion_courtyard_debt', {title:'讨债',text:`老人把石榴放在石凳上，石榴籽滚了一地。
 

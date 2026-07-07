@@ -16,7 +16,7 @@ export const scenes = {
 
 [red]这不是给祖母的供品。这是给你的。[/red]
 
-二叔的声音从堂屋深处传来，闷闷的，像隔了一层棺材板："进来吧，吉时快到了。"`,effects:{"sanity":-10,"yin":3},textVariants:[{condition:{flag:'knowsTruth'},text:`灵堂的红烛还在烧。你如今知道了，这喜堂是给死人办的——红绳牵的不是姻缘，是锁魂。`},{condition:{flag:'xiulanMercy'},text:`红绳不知何时断了半截。秀兰已经原谅，这灵堂的怨气也散了大半。`},{condition:{hasItem:'祖父日记残页'},text:`日记残页上的字句在脑中盘旋。祖父欠秀兰的，不只是未能护她周全。`}],choices:[createChoice({"text":"迈进堂屋","next":"huimen_enter_coffin_room","effects":{"yin":1}}),createChoice({"text":"先绕到棺材侧面看一眼","next":"huimen_coffin_inspection","effects":{"sanity":-5,"yin":2}}),createChoice({"text":"问二叔供桌上的东西是什么意思","next":"huimen_enter_coffin_room","effects":{"sanity":-3,"yin":1}})]}),
+二叔的声音从堂屋深处传来，闷闷的，像隔了一层棺材板："进来吧，吉时快到了。"`,effects:{"sanity":-10,"yin":3},textVariants:[{condition:{flag:'knowsTruth'},text:`灵堂的红烛还在烧。你如今知道了，这喜堂是给死人办的——红绳牵的不是姻缘，是锁魂。`},{condition:{flag:'xiulanMercy'},text:`红绳不知何时断了半截。秀兰已经原谅，这灵堂的怨气也散了大半。`},{condition:{hasItem:'祖父日记残页'},text:`日记残页上的字句在脑中盘旋。祖父欠秀兰的，不只是未能护她周全。`}],choices:[createChoice({"text":"迈进堂屋","next":"huimen_enter_coffin_room","effects":{"yin":1}}),createChoice({"text":"先绕到棺材侧面看一眼","next":"huimen_coffin_inspection","effects":{"sanity":-5,"yin":2}}),createChoice({"text":"问二叔供桌上的东西是什么意思","next":"huimen_enter_coffin_room","effects":{"sanity":-3,"yin":1}}),createChoice({"text":"先不进灵堂，在老宅四周调查","next":"investigate_old_house"}),createChoice({"text":"时辰已近，去井边","next":"shichen_zi_entry","condition":{"timeAfter":1320},"hidden":true,"effects":{"time":30}})]}),
     huimen_enter_coffin_room: createScene('huimen_enter_coffin_room', {title:`踏入灵堂`,text:`你迈进堂屋，脚下的青砖发出空洞的回响。
 
 那回响很怪，每踩一步，砖下面就"咚"地响一声，像是底下是空的。你不敢去想底下是什么，只是把脚放轻，一步一步往前走。

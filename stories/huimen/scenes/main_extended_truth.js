@@ -6,11 +6,11 @@
 import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 
 export const scenes = {
-    huimen_red_coffin_discovery: createScene('huimen_red_coffin_discovery', {title:`井底红棺`,text:`你喘了口气，重新抓起井绳滑了下去。井底的红棺还在，红绳和铜钱在幽暗中泛着旧光。
+    huimen_red_coffin_discovery: createScene('huimen_red_coffin_discovery', {title:`井底红棺`,text:`你喘了口气，抓着井绳滑了下去。井底的红棺还在，红绳和铜钱在幽暗中泛着旧光。
 
 碎片很碎，碎成十几片，散在井沿四周。每一片都映着一弯残月，残月在碎片里晃，像在碎玻璃里游泳。
 
-你不知哪来的勇气，抓着井绳滑了下去。井绳粗得硌手，麻绳的纤维勒进掌心，勒出一道道红印。井水冰凉刺骨，凉得你一口气没喘上来，差点呛了一口。
+井绳粗得硌手，麻绳的纤维勒进掌心，勒出一道道红印。井水冰凉刺骨，凉得你一口气没喘上来，差点呛了一口。
 
 越往下越红。水先是淡红，然后是暗红，最后红得像血。红光从井底透上来，照得井壁上的青苔都发着红。
 
@@ -20,7 +20,7 @@ export const scenes = {
 
 [red]这才是秀兰真正的棺木。[/red]
 
-棺材旁边散落着一些女子的饰物：一支银簪、半块玉佩、一束干枯的头发。你捡起银簪，簪头刻着两个字："照魂"。`,effects:{"sanity":-20,"yin":10,"addItem":"云袖银簪","setFlag":"found_red_coffin"},choices:[createChoice({"text":"用银簪撬开棺盖","next":"open_red_coffin","condition":{"hasItem":"云袖银簪"},"effects":{"sanity":-10,"yin":5}}),createChoice({"text":"去找铜钥匙","next":"find_bones","effects":{"yin":2}}),createChoice({"text":"先上去想想办法","next":"huimen_truth_revelation","effects":{"sanity":3,"yin":1}})]}),
+棺材旁边散落着一些女子的饰物：一支银簪、半块玉佩、一束干枯的头发。你捡起银簪，簪头刻着两个字："照魂"。`,effects:{"sanity":-20,"yin":10,"addItem":"云袖银簪","setFlag":"found_red_coffin"},textVariants:[{condition:{custom:(state)=>!state.history.includes('huimen_red_coffin_discovery')},text:`这是你第一次下到井底，井水凉得你倒吸一口冷气。`},{condition:{custom:(state)=>state.history.filter(s=>s==='huimen_red_coffin_discovery').length>1},text:`你重新下到井底，红棺还在原来的位置，只是水温似乎比之前更冷了。`},{condition:{custom:(state)=>state.history.length>=2 && state.history[state.history.length-2]==='hold_breath'},text:`你沿着山路跑回村子，月光把井口照得发白。井沿上的铜镜碎片还在，碎片很多，每一片都映着一弯残月。你不知哪来的勇气，抓着井绳滑了下去。`}],choices:[createChoice({"text":"用银簪撬开棺盖","next":"open_red_coffin","condition":{"hasItem":"云袖银簪"},"effects":{"sanity":-10,"yin":5}}),createChoice({"text":"去找铜钥匙","next":"find_bones","effects":{"yin":2}}),createChoice({"text":"先上去想想办法","next":"huimen_truth_revelation","effects":{"sanity":3,"yin":1}})]}),
     huimen_truth_revelation: createScene('huimen_truth_revelation', {title:`真相如刀`,text:`你爬出井口，坐在井沿上喘气。
 
 你浑身湿透，水顺着衣角往下淌，淌在青石板上，汇成一摊暗红。你的牙在打颤，分不清是冷还是怕。月光照在你身上，把你影子投在地上，那影子比你还黑。
@@ -61,5 +61,5 @@ export const scenes = {
 
 她缓缓从井水里托起两件东西，递到你面前——一件叠得整整齐齐的红嫁衣，金线在月光下一闪一闪；另一截小小的、发白的骸骨，轻得像一捧碎瓷。那是她未出世的孩子留在井底的唯一一点形骸。
 
-"带上它们，"她说，"带我走。"`,effects:{"sanity":10,"yin":-15,"setFlag":"xiulanMercy","addItem":["秀兰的嫁衣","孩子的骸骨"]},choices:[createChoice({"text":"现在我可以带你走了","next":"huimen_prepare_burial","condition":{"hasItem":"秀兰的嫁衣"},"effects":{"yin":1}}),createChoice({"text":"先解开红棺的封印","next":"open_red_coffin","effects":{"yin":2}}),createChoice({"text":"让族谱上的所有女子都被看见","next":"huimen_exp_zhou_women_alt","effects":{"sanity":5,"yin":-5}})]})
+"带上它们，"她说，"带我走。"`,textVariants:[{condition:{flag:'huimen_exp3_knows_xiulan_birth'},text:`你想起那张红纸上的生辰八字。你把它也写进了族谱——不是周家随手糊弄的假名，是她真正的生日。`},{condition:{flag:'huimen_exp3_promised_xiulan_opera'},text:`你低声说："我还记得答应过你，带你去看戏。"她的眼眶又亮了一下，像很多年前的那个小女孩。`},{condition:{flag:'huimen_exp2_promised_to_restore_name'},text:`你想起在井底记忆里握着她的手时说过："我会把你的名字写回族谱。"现在，你真的做到了。`},{condition:{flag:'huimen_exp3_promised_to_restore_name'},text:`你握紧族谱："秀兰，我把你的名字堂堂正正写回去了。"`}],effects:{"sanity":10,"yin":-15,"setFlag":"xiulanMercy","addItem":["秀兰的嫁衣","孩子的骸骨"]},choices:[createChoice({"text":"现在我可以带你走了","next":"huimen_prepare_burial","condition":{"hasItem":"秀兰的嫁衣"},"effects":{"yin":1}}),createChoice({"text":"先解开红棺的封印","next":"open_red_coffin","effects":{"yin":2}}),createChoice({"text":"让族谱上的所有女子都被看见","next":"huimen_exp_zhou_women_alt","effects":{"sanity":5,"yin":-5}})]})
 };
