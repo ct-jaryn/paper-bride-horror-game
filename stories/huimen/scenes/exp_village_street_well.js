@@ -17,7 +17,17 @@ export const scenes = {
 
 "刻我的名字。"她说，声音幽幽的，"我怕时间久了，连我自己都忘了自己是谁。"
 
-[red]你探头看，井壁上密密麻麻全是"秀兰"两个字，刻得深深浅浅。[/red]`,effects:{"sanity":-10,"yin":3},choices:[createChoice({"text":"对她说我记得你","next":"huimen_exp_village_street_well_sound_remember","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+[faded]你凑近井口，一股阴冷的水汽扑面而来，湿漉漉的，带着井底青苔和陈年积水的腥味。井壁上爬满了青黑色的苔藓，一缕一缕地垂着，像湿透的头发。[/faded]
+
+井沿的石头被磨得发亮，那是三十年来无数人趴在这儿往下看留下的痕迹。你想起祖父日记里写过："井是村子的眼，看的不是水，是底下的魂。"当年秀兰被活埋，就埋在这井旁，周家人说，这样她的魂就顺着井水渗下去，永世不得翻身。
+
+[whisper]"别看太久。"[/whisper]身后一个苍老的声音忽然响起，是个拄拐的瞎眼婆婆，你不知道她什么时候来的，"井底的东西，看一眼记一辈子，看两眼就要跟着下去。"
+
+你没回头，只是更用力地扶住井沿。井水黑得像墨，映不出你的脸，只映出一团模糊的、惨白的轮廓。那轮廓的五官正在慢慢改变，眉眼一点点变成秀兰的模样。
+
+[faded]远处传来一声鸡鸣，是纸鸡叫的，"喔——喔——"，拖得老长。井底的敲击声又响起来，这一次急促了，像是在赶着刻完最后几笔。[/faded]
+
+[red]你探头看，井壁上密密麻麻全是"秀兰"两个字，刻得深深浅浅。有的笔画刚劲，有的笔画虚软，像是一刻三十年，连刻字的人的力气都快要耗尽了。[/red]`,effects:{"sanity":-10,"yin":3},choices:[createChoice({"text":"对她说我记得你","next":"huimen_exp_village_street_well_sound_remember","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp_village_street_well_sound_remember: createScene('huimen_exp_village_street_well_sound_remember', {title:'记得',text:`你说："我记得你。你是周秀兰，民国三年生，喜欢桂花糕，喜欢听戏，想当老师。"
 
 井底的敲击声停了。井底静了很久，静得能听见水滴落。过了一会儿，传来轻轻的啜泣，呜呜咽咽。
@@ -27,6 +37,14 @@ export const scenes = {
 "我记得你是人。"你说，"一个很好的人。"
 
 井壁上的"秀兰"两个字开始发光，金色的光。然后一个个从井壁上脱落，像萤火虫一样飞向夜空，一闪一闪。
+
+[faded]金光升起的瞬间，井底的水面泛起一圈圈涟漪，倒映出许多张脸——都是秀兰，不同年纪的秀兰：扎着辫子的小秀兰、抱着书本的少女秀兰、披着嫁衣的秀兰、最后是井底那个苍白瘦削的秀兰。一张张脸在水面上一闪而过，像是在告别。[/faded]
+
+那些金字越飞越高，最后聚成一团，化作一只金色的凤蝶，绕着井口转了三圈。凤蝶的翅膀扇动时，带起的微风把井沿的桂花瓣吹起，花瓣旋转着上升，和凤蝶一起没入夜空。
+
+[whisper]"三十年了。"[/whisper]秀兰的声音从井下传来，这一次不再幽怨，而是带着一种说不出的释然，"我刻了三十年的名字，从深到浅，从重到轻。我一直在等，等一个不需要我把名字刻下去的人。"
+
+井水忽然变清了，清澈见底。你看见井底的青石上，"秀兰"两个字的地方，只剩两道浅浅的凹痕，像是被人温柔地抚平了。
 
 "我不需要再刻了。"她说，"因为有人会记得我了。"`,effects:{"sanity":10,"yin":-10,"setFlag":"huimen_exp_xiulan_remembered"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]})
 };

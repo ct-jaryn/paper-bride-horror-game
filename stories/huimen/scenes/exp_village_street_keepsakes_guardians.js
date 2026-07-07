@@ -18,6 +18,10 @@ export const scenes = {
 
 [red]周家把女子的名字塞进石狮嘴里，让她们守门。[/red]
 
+[faded]你凑近看，纸狮的爪子是断了一截的，断口处露出竹篾的茬子，发黑。狮子的鬃毛是用一缕缕头发粘上去的，发丝粗细不一，显然来自不同的人。三十年来，每一任"守门女子"的头发，都被剪下来一缕，粘在狮身上做鬃毛——意思是让她们的魂永远镇在门口。[/faded]
+
+[whisper]"含着名字，就出不去。"[/whisper]石狮说，"我们的魂被名字压在嘴里，半个字也说不出来。三十年了，想喊一声'冤'都喊不出来。"
+
 你伸手，从石狮嘴里取出那团纸。石狮顿时瘫软在地，化为一堆废纸，散了一地。`,effects:{"sanity":-5,"yin":2,"addItem":"石狮口中的名字"},choices:[createChoice({"text":"把纸烧掉","next":"huimen_exp_village_street_stone_lion_burn","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"收好","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp_village_street_stone_lion_burn: createScene('huimen_exp_village_street_stone_lion_burn', {title:"焚名",text:`你点燃那团纸。
 
@@ -27,6 +31,12 @@ export const scenes = {
 
 另一只石狮也张开了嘴，里面还有更多名字。你一个一个取出，一个一个烧掉，火光映红了村口。
 
+[faded]每一个名字被烧化的时候，都化作一只红蝴蝶，扑扇着飞起来。蝴蝶越来越多，绕着村口飞了一圈又一圈，最后聚成一团红光，朝井的方向飘去——那是她们生前最后去过的地方，她们记得路。[/faded]
+
+烧到第七个名字的时候，纸团里忽然掉出一截断发，乌黑，长长一缕。你认出那是秀兰的发——她被剪断发那天，剩下的发被塞进石狮嘴里，连同名字一起镇着。
+
+[whisper]"这缕发，是你祖父偷偷藏起来的。"[/whisper]一个老妇的声音忽然说，"他想留个念想。可周家发现后，又把它塞回狮子嘴里，连一个念想都不让他留。"
+
 村口的两只石狮彻底化为了灰烬。从此，周家再也没有守门人了。`,effects:{"sanity":10,"yin":-10,"removeItem":"石狮口中的名字"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp_village_street_abandoned_bed: createScene('huimen_exp_village_street_abandoned_bed', {title:"空床",text:`你推开一扇门，屋里静悄悄的，有一张床。
 
@@ -35,6 +45,10 @@ export const scenes = {
 你掀开盖头，纸人的脸是空白的，一片白纸，没有五官。
 
 "这是秀兰的婚床。"一个声音从屋里飘出来，"她没睡过，就被活埋了。"
+
+[faded]屋里落满灰，床帐是红的，红得发暗，像是褪了色的血。床脚系着一圈红绳，红绳上挂着十二枚铜钱，每一枚都磨得发亮——那是压床钱，本该是新婚之夜撒在床上的喜钱。可秀兰没等到撒钱的那一刻，这些铜钱就一直挂着，挂了三十年，挂出一层青绿的锈。[/faded]
+
+桌上还摆着一对红烛，烧到一半就灭了，蜡油凝在烛台上，像两行干涸的泪。烛台上刻着"百年好合"，"合"字被人用刀划了一道，划断了。
 
 [red]你把被褥掀开，床板上刻着一行字："兰妹，等我。"[/red]
 
@@ -47,7 +61,11 @@ export const scenes = {
 
 "他一直在等你。"你说，"只是没等到。"
 
-秀兰把字条贴在心口，字条化作一道光，渗入她的身体。
+[faded]秀兰把字条贴在心口，字条上的墨迹开始发亮，像被她心口的体温焐热了。"等我"两个字一笔一笔从纸面上浮起来，化作金色的光，渗进她的身体。[/faded]
+
+[whisper]"他写这四个字的时候，手是抖的。"[/whisper]秀兰说，声音轻得像怕惊扰了什么，"我能感觉到，每一笔都用力过猛，刻进木头里去了。他怕我看不到，所以刻得那么深。"
+
+井水泛起一圈圈涟漪。水里浮起一片红烛的蜡，是当年那对烧了一半的红烛剩下的——蜡片漂在水面上，慢慢融化，融成一团暗红的水。
 
 "我等到了。"她说，声音发颤，"三百年也值了。"`,effects:{"sanity":10,"yin":-10,"removeItem":"婚床上的字条"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]})
 };
