@@ -13,7 +13,8 @@ export const StoryManifest = [
         horrorLevel: 9,
         playTime: '90–120 分钟',
         tags: ['冥婚', '复仇', '家族罪孽'],
-        scriptPath: 'stories/huimen/index.js'
+        scriptPath: 'stories/huimen/index.js',
+        image: 'assets/images/huimen.png'
     },
     {
         id: 'shouye',
@@ -24,7 +25,8 @@ export const StoryManifest = [
         horrorLevel: 8,
         playTime: '60–90 分钟',
         tags: ['诈尸', '殡仪馆', '因果'],
-        scriptPath: 'stories/shouye/index.js'
+        scriptPath: 'stories/shouye/index.js',
+        image: 'assets/images/shouye.png'
     },
     {
         id: 'xitai',
@@ -35,7 +37,8 @@ export const StoryManifest = [
         horrorLevel: 10,
         playTime: '40–60 分钟',
         tags: ['鬼戏', '戏班', '诅咒'],
-        scriptPath: 'stories/xitai/index.js'
+        scriptPath: 'stories/xitai/index.js',
+        image: 'assets/images/xitai.png'
     },
     {
         id: 'tishen',
@@ -46,7 +49,8 @@ export const StoryManifest = [
         horrorLevel: 9,
         playTime: '30–45 分钟',
         tags: ['纸人', '替身', '身份恐怖'],
-        scriptPath: 'stories/tishen/index.js'
+        scriptPath: 'stories/tishen/index.js',
+        image: 'assets/images/tishen.png'
     },
     {
         id: 'heniang',
@@ -57,7 +61,8 @@ export const StoryManifest = [
         horrorLevel: 8,
         playTime: '25–40 分钟',
         tags: ['水鬼', '母女', '救赎'],
-        scriptPath: 'stories/heniang/index.js'
+        scriptPath: 'stories/heniang/index.js',
+        image: 'assets/images/heniang.png'
     },
     {
         id: 'hujia',
@@ -68,7 +73,8 @@ export const StoryManifest = [
         horrorLevel: 9,
         playTime: '35–50 分钟',
         tags: ['狐妖', '人妖', '长生'],
-        scriptPath: 'stories/hujia/index.js'
+        scriptPath: 'stories/hujia/index.js',
+        image: 'assets/images/hujia.png'
     },
     {
         id: 'ganshi',
@@ -79,7 +85,8 @@ export const StoryManifest = [
         horrorLevel: 10,
         playTime: '40–60 分钟',
         tags: ['赶尸', '雨夜', '尸变'],
-        scriptPath: 'stories/ganshi/index.js'
+        scriptPath: 'stories/ganshi/index.js',
+        image: 'assets/images/ganshi.png'
     }
 ];
 

@@ -369,6 +369,7 @@ export function renderStorySelect() {
         card.className = 'story-card';
         card.style.setProperty('--order', String(index));
         card.innerHTML = `
+            <div class="story-card-image" style="background-image: url('${escapeHtml(story.image || '')}')"></div>
             <div class="story-card-header">
                 <div class="story-card-title-wrap">
                     <h3 class="story-card-title">${escapeHtml(story.title)}</h3>
