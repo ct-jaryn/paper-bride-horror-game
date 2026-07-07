@@ -5,7 +5,26 @@
 import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 
 export const scenes = {
-    ask_coffin: createScene('ask_coffin', {title:'喜丧',text:`你指着棺盖上的刻字质问二叔：'这是什么意思？周氏秀兰，未过门而亡——这就是你说的喜丧？'
+    ask_coffin: createScene('ask_coffin', {title:'喜丧',text:`你指着棺材上倒挂的"囍"字质问二叔："这是什么意思？祖母刚过世，堂屋里却贴着喜字——这就是你说的喜丧？"
+
+可堂屋里明明供着白幡、点着白烛，怎么算"喜"？你瞥了一眼那口黑漆棺材，棺材上贴的不是寿字，是大红"囍"字——这哪里是丧事的摆设。
+
+"可囍字为什么是倒挂的？" 你追问。
+
+堂屋里忽然安静下来。那种安静不是人闭了嘴，是连烛火"噼啪"的声音都停了，红蜡烛"啪"地爆了个灯花，烛芯歪到一边，火苗矮了半截。
+
+三姑缓缓开口，她的声音压得很低，像怕惊动什么："倒挂的囍，是给阴间的人看的。阳间正看，阴间倒看——活人看见喜，死人看见的也是喜。你祖母这辈子没给秀兰名分，死了总得办一场，让她在底下也算周家的人。"
+
+[whisper]"什么名分？"[/whisper] 你听见自己的声音在发抖，喉咙像被什么东西掐着。
+
+四婶一直没说话，这时才抬手，指了指棺材后面。那里有一扇小门，门缝里透出暗红色的光，光一跳一跳的，像是里面点着红烛。
+
+"秀兰的灵位在里面。" 二叔说，声音还是稳的，可他端着的茶碗在微微抖，"今晚子时，你替她掀开盖头，拜了天地，周家欠她的，就算还清了。"
+
+你的脑袋"嗡"地一声。
+
+[red]这不是还债。这是要把你搭进去。[/red]`,effects:{"sanity":-15,"yin":5},choices:[createChoice({"text":"去那扇小门看看","next":"small_door","danger":true}),createChoice({"text":"坚持要先看祖母遗体","next":"huimen_coffin_inspection"}),createChoice({"text":"想起纸人的话：别喝交杯酒","next":"refuse_wine_plan","condition":{"flag":"heard_paper_whisper"},"hidden":true,"effects":{"sanity":-5}}),createChoice({"text":"你借口去后院透气，暂时退出堂屋","next":"huimen_exp_village_loop_entry","effects":{"yin":1}}),createChoice({"text":"趁乱从后窗离开堂屋","next":"huimen_exp3_return_mainline","condition":{"hasItem":"秀兰的骨殖"},"hidden":true,"effects":{"yin":-3}})]}),
+    ask_coffin_with_inscription: createScene('ask_coffin_with_inscription', {title:'喜丧',text:`你指着棺盖上的刻字质问二叔："这是什么意思？周氏秀兰，未过门而亡——这就是你说的喜丧？"
 
 可堂屋里明明供着白幡、点着白烛，怎么算"喜"？你瞥了一眼那口黑漆棺材，棺材上贴的不是寿字，是大红"囍"字——这哪里是丧事的摆设。
 
@@ -75,15 +94,15 @@ export const scenes = {
 四婶已经把红嫁衣捧到了你面前。嫁衣叠得整整齐齐，金线绣的龙凤在烛光下泛光，料子冰凉，透着一股井水的湿气。你盯着那嫁衣看，越看越不对——龙的眼睛，是用黑线绣的，没有眼白，黑洞洞地瞪着你，像两颗墨点。
 
 [red]你无路可逃。但后窗的纸糊似乎松动了，风从缝里灌进来。[/red]`,effects:{"sanity":-20,"yin":10,"time":60},choices:[createChoice({"text":"接过嫁衣，假装配合","next":"pretend_marry","effects":{"setFlag":"willingGroom"}}),createChoice({"text":"推开四婶，撞破窗户","next":"break_window","danger":true}),createChoice({"text":"奔向后院井底","next":"huimen_red_coffin_discovery","effects":{"yin":2}}),createChoice({"text":"头也不回地离开村子","next":"huimen_exp_village_escape_alt"})]}),
-    open_red_coffin: createScene('open_red_coffin', {title:'开红棺',text:`铜钥匙插入棺盖上的锁孔，发出一声沉闷的"咔哒"声，那声音不响，却像敲在心口上，闷闷地震了一下。
+    open_red_coffin: createScene('open_red_coffin', {title:'开红棺',text:`你把手伸向红棺的棺盖。这口井底的棺材比你想的轻，也比你想象的更冷。你深吸一口气，准备打开它。`,textVariants:[{condition:{custom:(state)=>state.inventory.includes('铜钥匙')},text:`铜钥匙插入棺盖上的锁孔，发出一声沉闷的"咔哒"声，那声音不响，却像敲在心口上，闷闷地震了一下。
 
 九根桃木钉同时松动，一根一根从棺沿跳出来，落在青砖地上，发出清脆的、参差不齐的响声，像谁在数数。井底的水跟着晃了晃，倒映的红棺裂开一道道细纹。
 
 你推开棺盖，棺盖比想象的轻，轻得不像石头，像推开一层纸。
 
-里面没有尸体。
+里面没有完整的尸身。
 
-只有一件叠得整整齐齐的红嫁衣，金线绣的龙凤还泛着冷光，衣襟上却没有一丝褶皱，像是刚被人叠好的。嫁衣下面，垫着一具小小的、已经发白的婴儿骸骨，骨头蜷成一团，像在母亲怀里睡着的样子，小小的颅骨上还裂着一道缝——那是没足月的孩子才有的囟门。
+只有一件叠得整整齐齐的红嫁衣，金线绣的龙凤还泛着冷光，衣襟上却没有一丝褶皱，像是刚被人叠好的。嫁衣下面，除了那具小小的、已经发白的婴儿骸骨，还埋着另一副骨架——秀兰的骸骨。她蜷在嫁衣里，像是到死都在护着肚子里的孩子。
 
 [red]秀兰被活埋时，肚子里还怀着孩子。[/red]
 
@@ -95,7 +114,47 @@ export const scenes = {
 
 身后，秀兰的声音轻轻响起，没有怨，只有一种你听不懂的、近乎释然的疲惫："他……也写过这样的话吗？"
 
-她问这话时，声音很轻，像是怕惊碎了什么等了三十年的东西。`,effects:{"sanity":-10,"yin":-20,"setFlag":"foundBones"},choices:[createChoice({"text":"把字条递给她","next":"give_letter","effects":{"setFlag":"xiulanMercy"}}),createChoice({"text":"为周家辩解","next":"defend_family","effects":{"sanity":-10}}),createChoice({"text":"她已经原谅你了，准备安葬","next":"huimen_xiulan_forgiveness","condition":{"flag":"xiulanMercy"},"effects":{"yin":1}}),createChoice({"text":"红棺底部有一道缝隙，透出村街的灯火","next":"huimen_exp_village_loop_entry","condition":{"flag":"foundBones"},"hidden":true,"effects":{"yin":2}})]}),
+她问这话时，声音很轻，像是怕惊碎了什么等了三十年的东西。`},{condition:{custom:(state)=>(state.inventory.includes('云袖银簪')||state.flags.red_coffin_unlocked)&&!state.inventory.includes('铜钥匙')},text:`你把云袖银簪插入棺盖与棺身之间的缝隙，银簪是云袖的遗物，簪头刻着"照魂"二字。你一点点撬开棺盖，每动一下，银簪便发出一声细碎的呻吟，像是云袖也在帮你。
+
+九根桃木钉随之松动，一根一根从棺沿跳出来，落在青砖地上，发出清脆的、参差不齐的响声。井底的水跟着晃了晃，倒映的红棺裂开一道道细纹。
+
+你推开棺盖，棺盖比想象的轻，轻得不像石头，像推开一层纸。
+
+里面没有完整的尸身。
+
+只有一件叠得整整齐齐的红嫁衣，金线绣的龙凤还泛着冷光，衣襟上却没有一丝褶皱，像是刚被人叠好的。嫁衣下面，除了那具小小的、已经发白的婴儿骸骨，还埋着另一副骨架——秀兰的骸骨。她蜷在嫁衣里，像是到死都在护着肚子里的孩子。
+
+[red]秀兰被活埋时，肚子里还怀着孩子。[/red]
+
+嫁衣上放着一张字条，纸已经发黄发脆，字迹是你祖父的——你见过祖父留下的笔迹，写家训时用的同一种力道。字写得很慢，一笔一画，像用尽了力气：
+
+[faded]"兰妹勿怪，家族所逼，我不得不从。你若有恨，恨我一人，放过周家后人。"[/faded]
+
+你攥着字条，纸在指腹下"簌簌"地抖。眼泪不知道为什么流了下来，一滴一滴砸在字条上，把"兰妹"两个字晕开。
+
+身后，秀兰的声音轻轻响起，没有怨，只有一种你听不懂的、近乎释然的疲惫："他……也写过这样的话吗？"
+
+她问这话时，声音很轻，像是怕惊碎了什么等了三十年的东西。`},{condition:{custom:(state)=>!state.inventory.includes('铜钥匙')&&!state.inventory.includes('云袖银簪')&&!state.flags.red_coffin_unlocked},text:`你没有钥匙，也没有银簪，只能用指甲抠住棺盖边缘，一点一点往外掰。棺盖的木头被井水泡得发软，指甲抠进去又疼又凉。九根桃木钉一根一根被你拔出来，每拔一根，掌心便多一道灼伤似的红痕。
+
+最后一根钉子脱出时，棺盖自己滑开了。井底的水晃了晃，红棺的倒影裂开了细纹。
+
+你推开棺盖，棺盖比想象的轻，轻得不像石头，像推开一层纸。
+
+里面没有完整的尸身。
+
+只有一件叠得整整齐齐的红嫁衣，金线绣的龙凤还泛着冷光，衣襟上却没有一丝褶皱，像是刚被人叠好的。嫁衣下面，除了那具小小的、已经发白的婴儿骸骨，还埋着另一副骨架——秀兰的骸骨。她蜷在嫁衣里，像是到死都在护着肚子里的孩子。
+
+[red]秀兰被活埋时，肚子里还怀着孩子。[/red]
+
+嫁衣上放着一张字条，纸已经发黄发脆，字迹是你祖父的——你见过祖父留下的笔迹，写家训时用的同一种力道。字写得很慢，一笔一画，像用尽了力气：
+
+[faded]"兰妹勿怪，家族所逼，我不得不从。你若有恨，恨我一人，放过周家后人。"[/faded]
+
+你攥着字条，纸在指腹下"簌簌"地抖。眼泪不知道为什么流了下来，一滴一滴砸在字条上，把"兰妹"两个字晕开。
+
+身后，秀兰的声音轻轻响起，没有怨，只有一种你听不懂的、近乎释然的疲惫："他……也写过这样的话吗？"
+
+她问这话时，声音很轻，像是怕惊碎了什么等了三十年的东西。`}],effects:{"sanity":-10,"yin":-20,"setFlag":"foundBones","addItem":["秀兰的嫁衣","秀兰的骨殖","孩子的骸骨","祖父日记残页"]},choices:[createChoice({"text":"把字条递给她","next":"give_letter","effects":{"setFlag":"xiulanMercy"}}),createChoice({"text":"为周家辩解","next":"defend_family","effects":{"sanity":-10}}),createChoice({"text":"她已经原谅你了，准备安葬","next":"huimen_xiulan_forgiveness","condition":{"flag":"xiulanMercy"},"effects":{"yin":1}}),createChoice({"text":"红棺底部有一道缝隙，透出村街的灯火","next":"huimen_exp_village_loop_entry","condition":{"flag":"foundBones"},"hidden":true,"effects":{"yin":2}})]}),
     resist_marriage: createScene('resist_marriage', {title:'掀翻供桌',text:`你掀翻了供桌。
 
 那一下用尽了全身的力气，供桌"哐啷"一声翻倒，香炉、供果、红烛、酒壶，全摔在地上。红烛倒地，火苗"呼"地窜起来，舔上垂着的白幡，白幡遇火就着，火舌一路往上爬，整个堂屋瞬间陷入火海。

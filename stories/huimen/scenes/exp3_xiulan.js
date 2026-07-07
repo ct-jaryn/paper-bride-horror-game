@@ -53,7 +53,7 @@ export const scenes = {
 
 她的身影慢慢淡去，井水重新合拢。只留下一句话飘在水面上："我在井边等你。"
 
-[faded]井沿上多了一枚铜顶针，不知何时放在那里的。[/faded]`,effects:{"sanity":3,"yin":-2},choices:[createChoice({"text":"去井边","next":"huimen_exp_well_night","effects":{"yin":1}}),createChoice({"text":"先回村街准备","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+[faded]井沿上多了一枚铜顶针，不知何时放在那里的。[/faded]`,effects:{"sanity":3,"yin":-2},choices:[createChoice({"text":"去井边","next":"huimen_exp_well_night","effects":{"yin":1}}),createChoice({"text":"先回村街准备","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"带着她，离开这条旧路","next":"huimen_exp3_return_mainline","condition":{"custom":(state)=>state.inventory.includes('秀兰的骨殖')||state.flags['huimen_exp3_freed_nine_women']===true},"effects":{"yin":0}})]}),
     huimen_exp3_well_bottom_xiulan_bones: createScene('huimen_exp3_well_bottom_xiulan_bones', {title:'秀兰的骨殖',text:`你轻轻拨开淤泥，露出红嫁衣下的骨架。
 
 红嫁衣已经褪成暗红，绣的井纹却还清晰，针脚细密，是秀兰自己的手艺。你拨开嫁衣的领口，看见骨架很小，肩胛骨上还有一处旧伤，凹下去一块，像是很久以前被什么东西勒过——是红绳，勒了三十年都没长好。

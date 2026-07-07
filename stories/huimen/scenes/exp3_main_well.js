@@ -69,7 +69,7 @@ export const scenes = {
 
 你找了一只最大的纸船，把骨殖放进去。纸船没有沉，反而稳稳地漂向河心。船上的小灯被风吹得摇摇晃晃，却始终没灭。
 
-[faded]那是她在为你照路。[/faded]`,effects:{"sanity":5,"yin":-3},choices:[createChoice({"text":"跟着纸船走","next":"huimen_exp3_ending_paper_boat_ferry_scene","effects":{"yin":1}}),createChoice({"text":"把船推远，自己游上岸","next":"huimen_exp3_well_bottom_shore","effects":{"yin":2}})]}),
+[faded]那是她在为你照路。[/faded]`,effects:{"sanity":5,"yin":-3},choices:[createChoice({"text":"跟着纸船走","next":"huimen_exp3_ending_paper_boat_ferry_scene","effects":{"yin":1}}),createChoice({"text":"把船推远，自己游上岸","next":"huimen_exp3_well_bottom_shore","effects":{"yin":2}}),createChoice({"text":"带着她，回老宅完成最后一件事","next":"huimen_exp3_return_mainline","condition":{"hasItem":"秀兰的骨殖"},"effects":{"yin":0}})]}),
     huimen_exp3_well_bottom_shore: createScene('huimen_exp3_well_bottom_shore', {title:`上岸`,text:`你游到对岸，浑身湿透。
 
 河水冷得刺骨，却洗掉了你身上一路沾的阴气和纸灰。你爬上岸，趴在草地上喘了很久，才有力气回头。

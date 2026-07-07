@@ -29,7 +29,7 @@ export const scenes = {
 
 可你知道，棺材里躺着的，可能不是祖母。`,textVariants: [
     { condition: { hasVisited: 'huimen_coffin_inspection' }, text: `你绕回棺前，手按在冰凉的棺盖上。刚才看到的刻字还在脑中发烫。` }
-],effects:{"sanity":-12,"yin":4},choices:[createChoice({"text":"问为什么棺材上贴囍字","next":"ask_coffin","effects":{"yin":1}}),createChoice({"text":"走近棺材看一眼","next":"huimen_coffin_inspection","effects":{"sanity":-5,"yin":2}}),createChoice({"text":"观察亲戚们的手腕红绳","next":"observe_red_strings","effects":{"sanity":-8,"yin":2}})]}),
+],effects:{"sanity":-12,"yin":4},choices:[createChoice({"text":"问为什么棺材上贴囍字","next":"ask_coffin","condition":{"noFlag":"saw_coffin_inscription"},"effects":{"yin":1}}),createChoice({"text":"指着棺盖刻字质问二叔","next":"ask_coffin_with_inscription","condition":{"flag":"saw_coffin_inscription"},"effects":{"sanity":-5,"yin":1}}),createChoice({"text":"走近棺材看一眼","next":"huimen_coffin_inspection","effects":{"sanity":-5,"yin":2}}),createChoice({"text":"观察亲戚们的手腕红绳","next":"observe_red_strings","effects":{"sanity":-8,"yin":2}})]}),
     huimen_coffin_inspection: createScene('huimen_coffin_inspection', {title:`棺侧`,text:`你绕到棺材侧面，发现棺盖上刻着一行小字。
 
 字刻得很细，不仔细看几乎看不见。你凑近了看，借着烛光辨认：
@@ -44,5 +44,5 @@ export const scenes = {
 
 你凑近闻了闻——桂花和檀香缠在一起，甜得发腻。祖母生前说过，给阴人封棺要朱砂画符，意思是棺材里'住'的不止一个。
 
-二叔的手搭在你肩上，手是凉的："别看了。看了，就更要成亲了。"`,effects:{"sanity":-15,"yin":5,"setFlag":"saw_coffin_inscription"},choices:[createChoice({"text":"推开棺盖看个究竟","next":"huimen_enter_coffin_room","effects":{"sanity":-10,"yin":3}}),createChoice({"text":"后退，先问清楚","next":"huimen_enter_coffin_room","effects":{"yin":1}}),createChoice({"text":"质问二叔这是什么意思","next":"ask_coffin","effects":{"sanity":-5,"yin":1}})]})
+二叔的手搭在你肩上，手是凉的："别看了。看了，就更要成亲了。"`,effects:{"sanity":-15,"yin":5,"setFlag":"saw_coffin_inscription"},choices:[createChoice({"text":"推开棺盖看个究竟","next":"huimen_enter_coffin_room","effects":{"sanity":-10,"yin":3}}),createChoice({"text":"后退，先问清楚","next":"huimen_enter_coffin_room","effects":{"yin":1}}),createChoice({"text":"质问二叔这是什么意思","next":"ask_coffin_with_inscription","effects":{"sanity":-5,"yin":1}})]})
 };

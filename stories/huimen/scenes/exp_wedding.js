@@ -51,16 +51,5 @@ export const scenes = {
 
 你离开山村后，把柳红的嫁衣交给了赶尸匠田小七。他看着嫁衣上的"柳"字，沉默了很久，手指摩挲着绣纹。
 
-"我会带她回家。"他说。`,choices:[createChoice({"text":"让她们不再孤单","ending":"hidden_brideLink"})]}),
-    huimen_exp_bride_veil_alt: createScene('huimen_exp_bride_veil_alt', {title:'盖头',text:`你捡起了秀兰的红盖头。
-
-那盖头不是给你盖的，是给她自己盖的。她盖了三十年，因为死的时候，没有人愿意看她的脸。
-
-你轻轻掀开盖头，看见了一个清秀的姑娘，眉眼温柔，眼角有一颗小小的泪痣。
-
-"我好看吗？"她问，怯生生的。
-
-"好看。"你说。
-
-她把盖头收好，递给你："帮我烧了。我不想再盖着了。"`,choices:[createChoice({"text":"烧了盖头","ending":"hidden_brideVeil"})]})
+"我会带她回家。"他说。`,choices:[createChoice({"text":"让她们不再孤单","ending":"hidden_brideLink"})]})
 };

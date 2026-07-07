@@ -18,7 +18,7 @@ export const scenes = {
 李婆摇摇头，转身消失在雨雾里。她的背影佝偻，但走路没有声音，像飘在地上一样。雨雾很浓，她一走进去就看不见了，只剩那盏白灯笼的光，越来越远，越来越淡。
 
 你握着那张符，手心全是冷汗。`,effects:{"addItem":"护身符","sanity":-5,"yin":2},choices:[createChoice({"text":"把符贴身收好","next":"huimen_paper_doll_warning","effects":{"setFlag":"hasTalisman"}}),createChoice({"text":"觉得晦气，把符扔了","next":"huimen_paper_doll_warning","effects":{"sanity":-5,"yin":5}})]}),
-    to_old_house: createScene('to_old_house', {title:'周家老宅',text:`你翻过后院的矮墙，落入老宅的院子里。月光把青砖照得发白，老宅的门洞开着，像一张黑洞洞的嘴。
+    to_old_house: createScene('to_old_house', {title:'周家老宅',text:`月光把青砖照得发白，老宅的门洞开着，像一张黑洞洞的嘴。
 
 门洞很深，深得看不见底，只看见里面一点昏黄的烛光。烛光摇曳，把堂屋里的影子投到门口，影子里有人，人影很长，长得拖到门槛外。
 
@@ -38,7 +38,7 @@ export const scenes = {
 
 他们的嘴角都向上弯着，露出同样的弧度，像是用同一把尺子量出来的。那笑是画的，画得很均匀，均匀得不像是人笑出来的。
 
-你注意到，他们每个人的手腕上，都系着一根红绳。红绳的另一端，消失在棺材下面。`,effects:{"sanity":-10,"yin":5,"visual":"flicker","visualDuration":3000},choices:[createChoice({"text":"迈进堂屋","next":"huimen_observe_hall"}),createChoice({"text":"观察手腕上的红绳","next":"huimen_observe_hall","effects":{"sanity":-8}}),createChoice({"text":"不进灵堂，先去西侧偏房看看","next":"safe_house"}),createChoice({"text":"已知真相则潜回后院","next":"sneak_back_yard","condition":{"flag":"knowsTruth"},"hidden":true,"effects":{"yin":1}}),createChoice({"text":"子时已至，去井边","next":"shichen_zi_entry","condition":{"timeAfter":1380},"hidden":true,"effects":{"time":30}})],hallucination:'[whisper]棺材下面传来婴儿的啼哭声，但只持续了一秒。[/whisper]'}),
+你注意到，他们每个人的手腕上，都系着一根红绳。红绳的另一端，消失在棺材下面。`,textVariants:[{condition:{custom:(state)=>state.history.lastIndexOf('huimen_old_house_gate')>Math.max(state.history.lastIndexOf('safe_house'),state.history.lastIndexOf('huimen_exp_return_old_house'))},text:`你刚才推开虚掩的大门，迈进老宅前院。`},{condition:{custom:(state)=>state.history.lastIndexOf('safe_house')>Math.max(state.history.lastIndexOf('huimen_old_house_gate'),state.history.lastIndexOf('huimen_exp_return_old_house'))},text:`你刚从西侧偏房出来，穿过回廊，回到前院。`},{condition:{custom:(state)=>state.history.lastIndexOf('huimen_exp_return_old_house')>Math.max(state.history.lastIndexOf('huimen_old_house_gate'),state.history.lastIndexOf('safe_house'))},text:`你穿过村街，从老宅侧门回到院中。`},{condition:{custom:(state)=>!['huimen_old_house_gate','safe_house','huimen_exp_return_old_house'].some(s=>state.history.includes(s))},text:`你翻过后院的矮墙，落入老宅的院子里。`}],effects:{"sanity":-10,"yin":5,"visual":"flicker","visualDuration":3000},choices:[createChoice({"text":"迈进堂屋","next":"huimen_observe_hall"}),createChoice({"text":"观察手腕上的红绳","next":"huimen_observe_hall","effects":{"sanity":-8}}),createChoice({"text":"不进灵堂，先去西侧偏房看看","next":"safe_house"}),createChoice({"text":"已知真相则潜回后院","next":"sneak_back_yard","condition":{"flag":"knowsTruth"},"hidden":true,"effects":{"yin":1}}),createChoice({"text":"子时已至，去井边","next":"shichen_zi_entry","condition":{"timeAfter":1380},"hidden":true,"effects":{"time":30}})],hallucination:'[whisper]棺材下面传来婴儿的啼哭声，但只持续了一秒。[/whisper]'}),
     talisman_against_rope: createScene('talisman_against_rope', {title:'符镇红绳',text:`你摸到胸口的护身符，那是离家时母亲塞给你的。
 
 符纸贴着皮肤，凉凉的，像一片湿叶子。你把护身符按在手腕上，冰凉的黄符纸贴着皮肤，发出淡淡的艾草香。那香很淡，淡得像一缕烟，却让那些原本像蛇一样朝你游来的红绳，像是被烫到一般，猛地缩了回去。
@@ -64,7 +64,7 @@ export const scenes = {
 
 你摸了摸胸口。那里不知道什么时候，多了一把生锈的铜钥匙。钥匙是凉的，凉得像铁，却贴着你的皮肤，像是在等你用它。
 
-钥匙柄上刻着一个"周"字，和你家老宅门上那把锁一模一样。`,effects:{"addItem":"铜钥匙","sanity":10,"yin":-10,"setFlag":"xiulanMercy"},choices:[createChoice({"text":"去井底开棺","next":"huimen_red_coffin_discovery"}),createChoice({"text":"直接准备安葬","next":"huimen_prepare_burial"})]}),
+钥匙柄上刻着一个"周"字，和你家老宅门上那把锁一模一样。`,effects:{"addItem":"铜钥匙","sanity":10,"yin":-10,"setFlag":"xiulanMercy"},choices:[createChoice({"text":"去井底开棺","next":"huimen_red_coffin_discovery"}),createChoice({"text":"先去井底取回骨殖","next":"find_bones"})]}),
     find_bones: createScene('find_bones', {title:'井底寻骨',text:`你壮着胆子回到村子，绕到老宅后院。
 
 月亮偏西了，月光把后院照得惨白。后院那口老井在月光下泛着幽光，井水是黑的，黑得像一块墨。井沿上的铜镜碎片还在，碎片很多，每一片都映着一弯残月。
@@ -78,7 +78,7 @@ export const scenes = {
 终于，你的脚碰到了硬物。
 
 那是一口红漆棺材，棺盖上钉着九根桃木钉。`,effects:{"sanity":-20,"yin":12,"visual":"blood","visualDuration":3000},choices:[createChoice({"text":"继续探查红棺","next":"huimen_red_coffin_discovery","effects":{"yin":1}}),createChoice({"text":"拔出桃木钉，打开棺材","next":"open_red_coffin","condition":{"hasItem":"铜钥匙"},"effects":{"yin":2}}),createChoice({"text":"没有钥匙，只能徒手拔钉","next":"pull_nails_barehand","effects":{"sanity":-15,"yin":7}})]}),
-    give_letter: createScene('give_letter', {title:'递字条',text:`你顺着井绳下到井底，在淤泥里捧出秀兰的骨殖。你把她包好，背在背上，然后转过身，把手中能证明真相的东西递向声音传来的方向——不管是字条、照片、虎头鞋，还是那一小截骸骨。
+    give_letter: createScene('give_letter', {title:'递字条',text:`你在红棺前跪下，把秀兰的嫁衣、骨殖和孩子的骸骨一起包好。然后转过身，把手中能证明真相的东西递向红光里传来的声音——不管是字条、照片、虎头鞋，还是那一小截骸骨。
 
 手伸出去，伸进一片红光里。那红光是暖的，暖得你手指都松了一点。
 
@@ -92,7 +92,7 @@ export const scenes = {
 
 "你走吧。" 秀兰说，"带上我的嫁衣和孩子的骨头，把我埋在后山。我要看着这个村子，看着他们一个一个来找我赎罪。"
 
-井水开始上涨，你抱着红嫁衣和骸骨，被一股力量托出了井口。`,effects:{"sanity":20,"yin":-30,"setFlag":"xiulanMercy","addItem":"秀兰的嫁衣"},choices:[createChoice({"text":"向她承诺正名与安葬","next":"huimen_xiulan_forgiveness","effects":{"yin":1}})]}),
+井水开始上涨，你抱着红嫁衣和骸骨，被一股力量托出了井口。`,effects:{"sanity":20,"yin":-30,"setFlag":"xiulanMercy","addItem":["秀兰的嫁衣","秀兰的骨殖","孩子的骸骨"]},choices:[createChoice({"text":"向她承诺正名与安葬","next":"huimen_xiulan_forgiveness","effects":{"yin":1}})]}),
     small_door: createScene('small_door', {title:'喜房',text:`你推开那扇小门。
 
 门是木的，木很旧，旧得一推就"吱呀"地响。门后是一间喜房，比堂屋小，却点着更多的烛。红烛高照，烛火把整间屋子染成红色，红得像血。

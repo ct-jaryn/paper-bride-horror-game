@@ -15,7 +15,7 @@ export const scenes = {
 
 正房的门缝里，塞着一本破旧的日记。你抽出来，是祖父的字迹。字迹抖得很厉害，像是写的人手在抖。最后一页写着：
 
-[faded]"我对不起秀兰。她怀的是周家的孩子，可爹说周家不能有这种丑事。我眼睁睁看着她被推进井里，一个字也没敢说。"[/faded]
+[faded]"我对不起秀兰。她怀的是周家的孩子，可爹说周家不能有这种丑事。我被锁在东厢房里，从门缝看见她被拖过院子，手指抠着门板的缝隙，却推不开那扇门。一个字也没敢说。"[/faded]
 
 你的手指开始发抖。`,effects:{"sanity":-10,"yin":5,"addItem":"祖父日记残页","setFlag":["knows_xiulan_truth","knowsTruth"]},choices:[createChoice({"text":"把日记收好，继续调查","next":"investigate_items_hub"}),createChoice({"text":"直接去灵堂","next":"huimen_old_house_gate"})]}),
     investigate_paper_dolls: createScene('investigate_paper_dolls', {title:'纸人调查',text:`你蹲下身，仔细查看那两个纸扎人。
@@ -102,5 +102,5 @@ export const scenes = {
 
 [red]除非你终结它。[/red]
 
-你感到肩上的重量。你不仅是回门的周家后人，也可能是唯一能让这些女子安息的人。`,effects:{"sanity":-5,"yin":5,"setFlag":"clues_assembled"},choices:[createChoice({"text":"去祠堂烧毁族谱","next":"huimen_exp_family_tree_alt","condition":{"hasItem":"族谱碎片二"}}),createChoice({"text":"去井底开棺","next":"approach_coffin"}),createChoice({"text":"去纸扎铺终结契约","ending":"hidden_paperDollBurned","condition":{"hasItem":"周家纸人契约"}})]})
+你感到肩上的重量。你不仅是回门的周家后人，也可能是唯一能让这些女子安息的人。`,effects:{"sanity":-5,"yin":5,"setFlag":"clues_assembled"},choices:[createChoice({"text":"去祠堂烧毁族谱","next":"huimen_exp_family_tree_alt","condition":{"hasItem":"族谱碎片二"}}),createChoice({"text":"去井底开棺","next":"huimen_red_coffin_discovery","condition":{"custom":(state)=>state.inventory.includes('铜钥匙')||state.inventory.includes('云袖银簪')}}),createChoice({"text":"去纸扎铺终结契约","ending":"hidden_paperDollBurned","condition":{"hasItem":"周家纸人契约"}})]})
 };

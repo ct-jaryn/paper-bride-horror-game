@@ -32,7 +32,6 @@ import { scenes as exp2_tailorScenes } from './exp2_tailor.js';
 import { scenes as exp2_theaterScenes } from './exp2_theater.js';
 import { scenes as exp2_village_headScenes } from './exp2_village_head.js';
 import { scenes as exp2_wellScenes } from './exp2_well.js';
-import { scenes as exp2_xiulan_memoryScenes } from './exp2_xiulan_memory.js';
 
 export const scenes = {
     ...exp2_abandoned_hallScenes,
@@ -64,6 +63,5 @@ export const scenes = {
     ...exp2_tailorScenes,
     ...exp2_theaterScenes,
     ...exp2_village_headScenes,
-    ...exp2_wellScenes,
-    ...exp2_xiulan_memoryScenes
+    ...exp2_wellScenes
 };

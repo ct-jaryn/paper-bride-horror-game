@@ -57,5 +57,9 @@ export const scenes = {
 
 秀兰伸出手，苍白的手指穿过族谱纸页。纸页上的墨迹忽然亮了一下，像是被什么力量认可了。那亮是一瞬的，却很暖，暖得她整个人都透了一点。
 
-"三十年，"她说，声音哽住了，"我等了三十年，就想听周家人说一句：你是我的。"`,effects:{"sanity":10,"yin":-15,"setFlag":"xiulanMercy"},choices:[createChoice({"text":"现在我可以带你走了","next":"huimen_prepare_burial","effects":{"yin":1}}),createChoice({"text":"先解开红棺的封印","next":"open_red_coffin","effects":{"yin":2}}),createChoice({"text":"让族谱上的所有女子都被看见","next":"huimen_exp_zhou_women_alt","effects":{"sanity":5,"yin":-5}})]})
+"三十年，"她说，声音哽住了，"我等了三十年，就想听周家人说一句：你是我的。"
+
+她缓缓从井水里托起两件东西，递到你面前——一件叠得整整齐齐的红嫁衣，金线在月光下一闪一闪；另一截小小的、发白的骸骨，轻得像一捧碎瓷。那是她未出世的孩子留在井底的唯一一点形骸。
+
+"带上它们，"她说，"带我走。"`,effects:{"sanity":10,"yin":-15,"setFlag":"xiulanMercy","addItem":["秀兰的嫁衣","孩子的骸骨"]},choices:[createChoice({"text":"现在我可以带你走了","next":"huimen_prepare_burial","condition":{"hasItem":"秀兰的嫁衣"},"effects":{"yin":1}}),createChoice({"text":"先解开红棺的封印","next":"open_red_coffin","effects":{"yin":2}}),createChoice({"text":"让族谱上的所有女子都被看见","next":"huimen_exp_zhou_women_alt","effects":{"sanity":5,"yin":-5}})]})
 };

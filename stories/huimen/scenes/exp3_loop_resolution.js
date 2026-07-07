@@ -64,5 +64,5 @@ export const scenes = {
 
 骨殖在你怀里变轻，越来越轻，最后只剩一件粉色的嫁衣，叠得整整齐齐，像刚从裁缝铺取回来。
 
-嫁衣上还带着一点桂花的香。`,effects:{"sanity":10,"yin":-10},choices:[createChoice({"text":"离开山村","ending":"huimen_exp3_hidden_return_with_xiulan","effects":{"yin":0}})]})
+嫁衣上还带着一点桂花的香。`,effects:{"sanity":10,"yin":-10},choices:[createChoice({"text":"离开山村","ending":"huimen_exp3_hidden_return_with_xiulan","effects":{"yin":0}}),createChoice({"text":"回老宅，完成最后一件事","next":"huimen_exp3_return_mainline","condition":{"hasItem":"秀兰的骨殖"},"effects":{"yin":0}})]})
 };

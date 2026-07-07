@@ -87,6 +87,8 @@ export const scenes = {
 画面渐渐淡去，秀兰的身影也越来越淡，最后只剩下一缕桂花香。`,effects:{"sanity":5,"yin":-10,"setFlag":"huimen_exp2_hugged_xiulan_in_memory"},choices:[createChoice({"text":"退出记忆","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp2_xiulan_memory_wedding: createScene('huimen_exp2_xiulan_memory_wedding', {title:'秀兰的记忆 · 嫁衣',text:`你进入一段新的记忆。
 
+这是她被拖走前的最后一夜。红嫁衣是她自己偷偷缝的，周文说会回来娶她，但她再也没等到。这不是真正举行过的婚礼，而是她死前反复做的一场梦，是执念凝成的记忆。
+
 秀兰穿着一身大红嫁衣，坐在喜房里。嫁衣是她自己绣的，金线鸳鸯，针脚细密。她盖着红盖头，手里攥着一块玉佩——是周文给她的那块。
 
 喜房里点着红烛，烛火"噼啪"地响。桌上放着合卺酒，酒是红的，像血。

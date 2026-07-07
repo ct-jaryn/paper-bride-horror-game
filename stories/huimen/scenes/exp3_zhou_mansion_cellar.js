@@ -143,5 +143,5 @@ export const scenes = {
 
 "你做到了。"她说，声音轻得像风，"现在，我可以跟你走了。"
 
-她伸出手，掌心里是一枚冰凉的骨片。那骨片上刻着一个"秀"字。`,effects:{"sanity":10,"yin":-10,"addItem":"秀兰骨片","setFlag":"huimen_exp3_freed_nine_women"},choices:[createChoice({"text":"握住她的手","next":"huimen_exp3_xiulan_hand","effects":{"sanity":5,"yin":-3}})]})
+她伸出手，掌心里是一枚冰凉的骨片。那骨片上刻着一个"秀"字。`,effects:{"sanity":10,"yin":-10,"addItem":"秀兰骨片","setFlag":"huimen_exp3_freed_nine_women"},choices:[createChoice({"text":"握住她的手","next":"huimen_exp3_xiulan_hand","effects":{"sanity":5,"yin":-3}}),createChoice({"text":"石室深处有道裂口，像通往村子的另一头","next":"huimen_exp3_loop_stone","condition":{"yinAbove":8},"effects":{"yin":2}})]})
 };

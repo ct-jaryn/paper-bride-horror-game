@@ -52,7 +52,7 @@ export const scenes = {
 
 "新郎官，上轿吧。" 二叔说，声音很平，平得发冷。
 
-你注意到，他的手腕上，红绳已经勒进了骨头里。那红绳勒得很深，深得皮肉都翻出来了，红绳却还在收紧。`,effects:{"yin":15,"time":120},choices:[createChoice({"text":"反抗","next":"resist_marriage","ending":"sacrificed"}),createChoice({"text":"顺从","next":"pretend_marry"})]}),
+你注意到，他的手腕上，红绳已经勒进了骨头里。那红绳勒得很深，深得皮肉都翻出来了，红绳却还在收紧。`,effects:{"yin":15,"time":120},choices:[createChoice({"text":"反抗","next":"resist_marriage"}),createChoice({"text":"顺从","next":"pretend_marry"})]}),
     pretend_marry: createScene('pretend_marry', {title:'拜堂',text:`你穿上了红嫁衣。
 
 不，不对。给你穿的是新郎服，但刺绣的龙凤位置却是反的——龙在右，凤在左，像是给死人穿的寿衣。你摸了摸那料子，料子是冰凉的，凉得像刚从水里捞出来。
@@ -84,7 +84,11 @@ export const scenes = {
 
 照片上，是年轻的祖父和一个穿学生装的女子。女子笑得很甜，甜得像她还没遇见周家之前的样子。
 
-[red]那不是祖母。[/red]`,effects:{"sanity":-20,"yin":5,"setFlag":"foundBones"},choices:[createChoice({"text":"取出照片和嫁衣","next":"give_letter"}),createChoice({"text":"她已经原谅你了，准备安葬","next":"huimen_xiulan_forgiveness","condition":{"flag":"xiulanMercy"},"effects":{"yin":1}})]}),
+你在她身旁摸到一件叠得整整齐齐的红嫁衣，嫁衣下面垫着一具小小的婴儿骸骨。嫁衣的褶皱里还夹着一张泛黄的纸，字迹是你祖父的——你见过祖父写家训时的笔力，字写得很慢，一笔一画，像用尽了力气：
+
+[faded]"兰妹勿怪，家族所逼，我不得不从。你若有恨，恨我一人，放过周家后人。"[/faded]
+
+[red]那不是祖母。[/red]`,effects:{"sanity":-20,"yin":5,"setFlag":"foundBones","addItem":["秀兰的嫁衣","秀兰的骨殖","孩子的骸骨","祖父日记残页"]},choices:[createChoice({"text":"取出照片和嫁衣","next":"give_letter"}),createChoice({"text":"她已经原谅你了，准备安葬","next":"huimen_xiulan_forgiveness","condition":{"flag":"xiulanMercy"},"effects":{"yin":1}})]}),
     corpse_bride_link: createScene('corpse_bride_link', {title:'同命新娘',text:`你盯着那些从皮肉里长出来的红绳，忽然想起赶尸匠田小七说过的话。
 
 那红绳是从皮肉里长出来的，像是血管，却红得不正常。你盯着它们，盯着盯着，忽然想起一个雨夜。
