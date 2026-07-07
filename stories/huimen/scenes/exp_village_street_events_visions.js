@@ -6,12 +6,100 @@
 import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 
 export const scenes = {
-    huimen_exp_village_street_baby: createScene('huimen_exp_village_street_baby', {title:"婴啼",text:"你听见婴儿的哭声。\n\n哭声很细，像是从很远的地方传来，又像是从你脚边传来。你低头看，石板缝里伸出一只小小的手。\n\n那是一只婴儿的手，苍白，柔软，五指张开，像在抓什么。\n\n[red]这是秀兰未出世的孩子。[/red]\n\n你蹲下身，轻轻握住那只小手。小手很凉，却在你手心里动了动。\n\n\"娘……\" 一个微弱的声音说，\"我要娘……\"",effects:{"sanity":-10,"yin":3},choices:[createChoice({"text":"带他去见秀兰","next":"huimen_exp_village_street_baby_to_xiulan","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"松开手","next":"huimen_exp_village_street","effects":{"sanity":-5,"yin":2}})]}),
-    huimen_exp_village_street_baby_to_xiulan: createScene('huimen_exp_village_street_baby_to_xiulan', {title:"母子",text:"你捧着那只小手，来到井边。\n\n秀兰的身影立刻浮出来。她看见那只小手，发出一声撕心裂肺的哭喊：\"我的孩子！\"\n\n小手从石板缝里挣脱出来，化作一个透明的小婴儿，飘向秀兰。秀兰接过婴儿，紧紧抱在怀里。\n\n\"元宝……我的元宝……\" 她哭着说。\n\n婴儿在她怀里笑了，小手抓着她的头发。\n\n[red]这一刻，你不是在救一个怨鬼，而是在帮一个母亲找回孩子。[/red]\n\n秀兰抬起头，泪眼婆娑地看着你：\"谢谢你。这是我三十年来，第一次抱他。\"",effects:{"sanity":15,"yin":-15,"setFlag":"huimen_exp_reunited_xiulan_and_baby"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
-    huimen_exp_village_street_bride_parade: createScene('huimen_exp_village_street_bride_parade', {title:"送亲",text:"你看见一队送亲的队伍从巷子里出来。\n\n不是纸人，而是真正的村民。他们穿着三十年前的衣裳，抬着一顶红轿子，脸上带着喜庆的笑。\n\n可那喜庆里透着诡异。轿帘掀开，里面坐着一个盖着红盖头的女子。女子的手腕上系着红绳，红绳的另一端被四个村民牵着。\n\n[red]这不是送亲，是送葬。[/red]\n\n队伍从你面前经过，你没有动。最后一抬轿的村民看了你一眼，说：\"小伙子，让让，别挡着新娘子回门。\"\n\n回门？死人回什么门？",effects:{"sanity":-10,"yin":3},choices:[createChoice({"text":"拦住队伍","next":"huimen_exp_village_street_bride_parade_stop","effects":{"sanity":-5,"yin":3}}),createChoice({"text":"让开","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"带走柳红的嫁衣","next":"huimen_exp_bride_link_alt"})]}),
-    huimen_exp_village_street_bride_parade_stop: createScene('huimen_exp_village_street_bride_parade_stop', {title:"拦轿",text:"你冲到轿子前，掀开轿帘。\n\n里面的女子抬起头，红盖头滑落。她的脸和秀兰一模一样，但眼神空洞，像是一个被操控的傀儡。\n\n\"秀兰？\" 你喊。\n\n\"我不是秀兰。\" 她说，\"我是下一个秀兰。\"\n\n村民们的脸变了，变得纸一样白。他们朝你围过来：\"你也要上轿吗？\"\n\n你抱起轿子里的女子，转身就跑。她的身体很轻，像一张纸。\n\n\"谢谢你。\" 她说，\"我终于可以不用回门了。\"",effects:{"sanity":-5,"yin":-5,"setFlag":"huimen_exp_saved_next_bride"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
-    huimen_exp_village_street_paper_horse: createScene('huimen_exp_village_street_paper_horse', {title:"纸马",text:"你看见一匹纸马站在路边。\n\n纸马很高，差不多到你的肩膀。它的眼睛是两个黑洞，鼻孔里却喷出白气。\n\n你走近它，它低下头，用鼻子蹭了蹭你的手。纸做的鼻子居然有温度。\n\n\"你想带我走？\" 你问。\n\n纸马点了点头。\n\n你骑上马背。纸马迈开步子，跑向村口。风在你耳边呼啸，纸马的鬃毛扫过你的脸。\n\n[red]它真的要带你离开这个村子。[/red]",effects:{"sanity":-3,"yin":2},choices:[createChoice({"text":"让它带你走","next":"huimen_exp_moonlit_escape","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"跳下马","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
-    huimen_exp_village_street_ancestor_shadow: createScene('huimen_exp_village_street_ancestor_shadow', {title:"祖影",text:"你看见一个老人的影子跟在身后。\n\n影子没有主人，就这么贴着地面走。你快它也快，你慢它也慢。\n\n你停下，转身：\"你是谁？\"\n\n影子从地上立起来，化作一个穿长袍的老者。他的脸是模糊的，但下巴有一颗痣——和周家男人一样的痣。\n\n\"我是周家的先祖。\" 他说，\"我来劝你回头。\"\n\n\"回头？\" 你冷笑，\"回去做周家的祭品？\"\n\n\"你可以做周家的救星。\" 他说，\"娶了秀兰，平息她的怨，周家还能再续百年。\"\n\n[red]你明白了，他们从来没有把秀兰当人看，只把她当工具。[/red]",effects:{"sanity":-8,"yin":3},choices:[createChoice({"text":"拒绝","next":"huimen_exp_village_street_ancestor_shadow_refuse","effects":{"sanity":5,"yin":-3}}),createChoice({"text":"假装答应","next":"huimen_exp_village_street","effects":{"yin":2}})]}),
-    huimen_exp_village_street_ancestor_shadow_refuse: createScene('huimen_exp_village_street_ancestor_shadow_refuse', {title:"拒祖",text:"你说：\"周家的百年，不该用女人的血来续。\"\n\n老者影子的脸扭曲了：\"逆子！没有周家，哪来的你！\"\n\n\"没有那些女子，也没有周家。\" 你说，\"你们吸她们的血，还觉得自己高高在上。\"\n\n你掏出打火机，点燃一张黄符，扔向影子。\n\n影子发出一声尖叫，像被火烧的纸一样卷曲、焦黑，最后化为一缕烟。\n\n\"周家的根，早就烂了。\" 你说。",effects:{"sanity":10,"yin":-10,"setFlag":"huimen_exp_refused_ancestor_shadow"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
-    huimen_exp_village_street_red_thread: createScene('huimen_exp_village_street_red_thread', {title:"红线",text:"你发现自己的手腕上缠着一根红线。\n\n红线很细，一头系在你手腕上，另一头延伸到街道深处。你顺着红线走，发现它穿过无数纸人的手腕，最后系在一口井上。\n\n这是秀兰的红线。她把所有的纸人都连在自己身上，像是一个巨大的蜘蛛网。\n\n[red]你在这张网里，也是一只猎物。[/red]\n\n可你忽然发现，红线不是绑着你的，而是绕着你。它似乎在保护你，不让纸人靠近。",effects:{"sanity":-5,"yin":2},choices:[createChoice({"text":"顺着红线去井边","next":"huimen_exp_well_night","effects":{"yin":1}}),createChoice({"text":"把红线系紧","next":"huimen_exp_village_street","effects":{"sanity":3,"yin":-2}})]})
+    huimen_exp_village_street_baby: createScene('huimen_exp_village_street_baby', {title:"婴啼",text:`你听见婴儿的哭声。
+
+哭声很细，像是从很远的地方传来，又像是从你脚边传来，嗡嗡地钻进耳朵。你低头看——石板缝里伸出一只小小的手。
+
+那是一只婴儿的手，苍白，柔软，五指张开，像在抓什么，一下一下地动着。
+
+[red]这是秀兰未出世的孩子。[/red]
+
+你蹲下身，轻轻握住那只小手。小手很凉，凉得像冰，却在你手心里动了动，攥住你的手指。
+
+"娘……"一个微弱的声音说，奶声奶气，"我要娘……"`,effects:{"sanity":-10,"yin":3},choices:[createChoice({"text":"带他去见秀兰","next":"huimen_exp_village_street_baby_to_xiulan","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"松开手","next":"huimen_exp_village_street","effects":{"sanity":-5,"yin":2}})]}),
+    huimen_exp_village_street_baby_to_xiulan: createScene('huimen_exp_village_street_baby_to_xiulan', {title:"母子",text:`你捧着那只小手，小心翼翼地来到井边。
+
+秀兰的身影立刻浮出来，水珠从她发梢滴落。她看见那只小手，整个人僵住了，然后发出一声撕心裂肺的哭喊："我的孩子！"
+
+小手从石板缝里挣脱出来，化作一个透明的小婴儿，飘向秀兰。秀兰伸手接过婴儿，紧紧抱在怀里，浑身发抖。
+
+"元宝……我的元宝……"她哭着说，眼泪落下来。
+
+婴儿在她怀里笑了，露出没有牙的牙床，小手抓着她的头发。
+
+[red]这一刻，你不是在救一个怨鬼，而是在帮一个母亲找回孩子。[/red]
+
+秀兰抬起头，泪眼婆娑地看着你："谢谢你。这是我三十年来，第一次抱他。"`,effects:{"sanity":15,"yin":-15,"setFlag":"huimen_exp_reunited_xiulan_and_baby"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_village_street_bride_parade: createScene('huimen_exp_village_street_bride_parade', {title:"送亲",text:`你看见一队送亲的队伍从巷子里出来，"唢呐"声声。
+
+不是纸人，而是真正的村民，一个个面色蜡黄。他们穿着三十年前的衣裳，抬着一顶红轿子，脸上带着喜庆的笑，笑得僵硬。
+
+可那喜庆里透着诡异。轿帘掀开，里面坐着一个盖着红盖头的女子。女子的手腕上系着红绳，红绳的另一端被四个村民牵着，像牵牲口一样。
+
+[red]这不是送亲，是送葬。[/red]
+
+队伍从你面前经过，你没有动。最后一抬轿的村民看了你一眼，咧嘴笑："小伙子，让让，别挡着新娘子回门。"
+
+回门？死人回什么门？`,effects:{"sanity":-10,"yin":3},choices:[createChoice({"text":"拦住队伍","next":"huimen_exp_village_street_bride_parade_stop","effects":{"sanity":-5,"yin":3}}),createChoice({"text":"让开","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"带走柳红的嫁衣","next":"huimen_exp_bride_link_alt"})]}),
+    huimen_exp_village_street_bride_parade_stop: createScene('huimen_exp_village_street_bride_parade_stop', {title:"拦轿",text:`你冲到轿子前，一把掀开轿帘。
+
+里面的女子抬起头，红盖头滑落。她的脸和秀兰一模一样，眉眼清秀，但眼神空洞，像是一个被操控的傀儡，没有神采。
+
+"秀兰？"你喊。
+
+"我不是秀兰。"她说，声音平淡，"我是下一个秀兰。"
+
+村民们的脸变了，变得纸一样白，毫无血色。他们朝你围过来，一步一步："你也要上轿吗？"
+
+你抱起轿子里的女子，转身就跑。她的身体很轻，轻得像一张纸。
+
+"谢谢你。"她说，"我终于可以不用回门了。"`,effects:{"sanity":-5,"yin":-5,"setFlag":"huimen_exp_saved_next_bride"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_village_street_paper_horse: createScene('huimen_exp_village_street_paper_horse', {title:"纸马",text:`你看见一匹纸马站在路边。
+
+纸马很高，差不多到你的肩膀，纸皮糊得平整。它的眼睛是两个黑洞，鼻孔里却喷出白气，"呼呼"地响。
+
+你走近它，它低下头，用鼻子蹭了蹭你的手。纸做的鼻子居然有温度，暖暖的。
+
+"你想带我走？"你问。
+
+纸马点了点头，纸脖子"咯吱"响。
+
+你骑上马背。纸马迈开步子，跑向村口。风在你耳边呼啸，纸马的鬃毛扫过你的脸，沙沙地响。
+
+[red]它真的要带你离开这个村子。[/red]`,effects:{"sanity":-3,"yin":2},choices:[createChoice({"text":"让它带你走","next":"huimen_exp_moonlit_escape","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"跳下马","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_village_street_ancestor_shadow: createScene('huimen_exp_village_street_ancestor_shadow', {title:"祖影",text:`你看见一个老人的影子跟在身后。
+
+影子没有主人，就这么贴着地面走，像一条黑色的狗。你快它也快，你慢它也慢，始终不远不近地跟着。
+
+你停下，转身："你是谁？"
+
+影子从地上立起来，化作一个穿长袍的老者。他的脸是模糊的，看不清五官，但下巴有一颗痣——和周家男人一样的痣。
+
+"我是周家的先祖。"他说，"我来劝你回头。"
+
+"回头？"你冷笑，"回去做周家的祭品？"
+
+"你可以做周家的救星。"他说，"娶了秀兰，平息她的怨，周家还能再续百年。"
+
+[red]你明白了，他们从来没有把秀兰当人看，只把她当工具。[/red]`,effects:{"sanity":-8,"yin":3},choices:[createChoice({"text":"拒绝","next":"huimen_exp_village_street_ancestor_shadow_refuse","effects":{"sanity":5,"yin":-3}}),createChoice({"text":"假装答应","next":"huimen_exp_village_street","effects":{"yin":2}})]}),
+    huimen_exp_village_street_ancestor_shadow_refuse: createScene('huimen_exp_village_street_ancestor_shadow_refuse', {title:"拒祖",text:`你说："周家的百年，不该用女人的血来续。"
+
+老者影子的脸扭曲了，五官挤在一起："逆子！没有周家，哪来的你！"
+
+"没有那些女子，也没有周家。"你说，"你们吸她们的血，还觉得自己高高在上。"
+
+你掏出打火机，点燃一张黄符，扔向影子。
+
+影子发出一声尖叫，像被火烧的纸一样卷曲、焦黑，最后化为一缕烟，散了。
+
+"周家的根，早就烂了。"你说。`,effects:{"sanity":10,"yin":-10,"setFlag":"huimen_exp_refused_ancestor_shadow"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_village_street_red_thread: createScene('huimen_exp_village_street_red_thread', {title:"红线",text:`你发现自己的手腕上缠着一根红线。
+
+红线很细，几乎看不见，一头系在你手腕上，另一头延伸到街道深处，消失在雾里。你顺着红线走，发现它穿过无数纸人的手腕，一条一条，最后系在一口井上。
+
+这是秀兰的红线。她把所有的纸人都连在自己身上，像是一个巨大的蜘蛛网，密密麻麻。
+
+[red]你在这张网里，也是一只猎物。[/red]
+
+可你忽然发现，红线不是绑着你的，而是绕着你。它似乎在保护你，不让纸人靠近，像一道屏障。`,effects:{"sanity":-5,"yin":2},choices:[createChoice({"text":"顺着红线去井边","next":"huimen_exp_well_night","effects":{"yin":1}}),createChoice({"text":"把红线系紧","next":"huimen_exp_village_street","effects":{"sanity":3,"yin":-2}})]})
 };

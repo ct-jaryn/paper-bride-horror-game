@@ -5,118 +5,140 @@
 import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 
 export const scenes = {
-    huimen_exp_bury_diary: createScene('huimen_exp_bury_diary', {title:'埋日记',text:`你在废墟墙角挖了一个小坑，把烧焦的日记放进去。
+    huimen_exp_bury_diary: createScene('huimen_exp_bury_diary', {title:'埋日记',text:`你在废墟墙角挖了一个小坑，土是湿的，凉丝丝的，一铲一铲翻出来，带着一股陈年的霉味。
 
-"秀兰，" 你说，"你的委屈，我知道了。我会让更多人知道。"
+你把那本烧焦的日记放进去，封面已经烧得只剩一半，焦黑的纸页一碰就碎。你小心地把残页一页页抚平，按顺序放进坑里。
 
-你捧起土，盖在日记上。土落下的瞬间，你听见一声很轻很轻的"谢谢"，像是从很远的地方传来。
+"秀兰，" 你说，嗓子哑得像含着砂，"你的委屈，我知道了。我会让更多人知道。"
 
-废墟里的纸人忽然安静下来。它们脸上的墨点眼睛似乎不再那么阴森，而像是……闭上了。
+你捧起土，一捧一捧盖在日记上。土落下的瞬间，你听见一声很轻很轻的"谢谢"，那声音不是从耳边来的，是从地底、从墙缝、从四面的空气里一起透出来的，像一阵极轻的叹息。
 
-你站起身，感到胸口轻松了许多。`,effects:{"sanity":10,"yin":-10},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+废墟里的纸人忽然安静下来。先前它们一直抖个不停，纸糊的身子"沙沙"作响，这一刻全停了。它们脸上的墨点眼睛似乎不再那么阴森，眼角的墨痕往下垂了垂，像是……闭上了。
+
+你站起身，拍了拍手上的泥。胸口那块压了许久的湿石头，忽然轻了许多。`,effects:{"sanity":10,"yin":-10},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp_little_boy: createScene('huimen_exp_little_boy', {title:'元宝',text:`井水里浮出一个小小的身影。
 
-是个男孩，穿着红肚兜，扎着冲天辫。他的脸很白，眼睛却很大，黑漆漆的，像两颗浸在水里的珠子。
+水面"咕嘟"一声冒了个泡，那个身影就漂了上来，先是一团黑，然后慢慢有了轮廓——是个男孩，穿着红肚兜，扎着冲天辫，辫子上还系着一根红头绳。他的脸很白，白得不正常，像泡久了的纸，眼睛却很大，黑漆漆的，像两颗浸在水里的珠子，亮得吓人。
 
-"我叫元宝。" 他说，"是秀兰姐姐的弟弟……也不是。我是她没出世的孩子，被井水冲出来的一缕魂。"
+他爬上井沿，浑身湿淋淋的，水顺着红肚兜往下滴，可他好像不觉得冷，一屁股坐在井沿上，脚一晃一晃的，甩着水珠。
 
-他爬上井沿，坐在你旁边，脚一晃一晃的。
+"我叫元宝。" 他说，声音脆生生的，像没变声的孩子，"是秀兰姐姐的弟弟……也不是。我是她没出世的孩子，被井水冲出来的一缕魂。"
+
+他歪着头看你，眼神里没有恶意，只有一种孩子才有的、纯粹的好奇。
 
 "姐姐太苦了。她每天都在哭，哭到整个村子都下雨。你能让她不哭吗？"
 
-你看着他，心里忽然没那么怕了。`,effects:{"sanity":-3,"yin":1},choices:[createChoice({"text":"陪他玩一会儿","next":"huimen_exp_play_with_boy","effects":{"sanity":5,"yin":-3}}),createChoice({"text":"问他怎么才能救秀兰","next":"huimen_exp_boy_advice","effects":{"yin":1}}),createChoice({"text":"离开井边","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
-    huimen_exp_play_with_boy: createScene('huimen_exp_play_with_boy', {title:'踢毽子',text:`你捡起地上的纸钱，折成一个纸毽子。
+你看着他，那张小脸白得发青，可眼神是干净的。你忽然不那么怕了，心里反而有点酸。`,effects:{"sanity":-3,"yin":1},choices:[createChoice({"text":"陪他玩一会儿","next":"huimen_exp_play_with_boy","effects":{"sanity":5,"yin":-3}}),createChoice({"text":"问他怎么才能救秀兰","next":"huimen_exp_boy_advice","effects":{"yin":1}}),createChoice({"text":"离开井边","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_play_with_boy: createScene('huimen_exp_play_with_boy', {title:'踢毽子',text:`你捡起地上的纸钱，折成一个纸毽子。纸钱又脆又冷，折起来"咯吱咯吱"响，折成的毽子毛毛糙糙的，却也能踢。
 
-元宝高兴地跳起来："陪我踢！"
+元宝高兴地跳起来，赤脚在井沿上蹦："陪我踢！"
 
-你们就在井边踢起了毽子。元宝踢得很高，纸毽子在空中翻飞，像一只白色的鸟。
+你们就在井边踢起了毽子。元宝踢得很高，纸毽子在空中翻飞，像一只白色的鸟，扑棱着纸翅膀。他笑得很大声，笑声脆生生的，在空荡荡的井边回响。
 
-你忽然发现，每踢一下，井水的红色就淡一分。元宝的笑声像铃铛一样，把井底的阴气一点点敲散。
+你忽然发现一件事——每踢一下，井水的红色就淡一分。那原本血红血红的井水，随着毽子起起落落，一点点变淡，变清。元宝的笑声像铃铛一样，把井底的阴气一点点敲散。
 
-"你是好人。" 元宝说，"我帮你一次。"
+"你是好人。" 元宝接住毽子，仰起头看你，黑漆漆的眼睛亮亮的，"我帮你一次。"
 
-他朝你吹了一口气，你感到胸口的压抑轻了许多。`,effects:{"sanity":10,"yin":-10,"setFlag":"huimen_exp_boy_friendly"},choices:[createChoice({"text":"问他愿意跟你走吗","next":"huimen_exp_little_boy_friend","effects":{"yin":-3}}),createChoice({"text":"送他回井里","next":"huimen_exp_village_street","effects":{"sanity":5,"yin":-2}}),createChoice({"text":"答应陪他玩一夜，然后带他走","next":"huimen_exp_little_boy_friend_alt"})]}),
-    huimen_exp_boy_advice: createScene('huimen_exp_boy_advice', {title:'鬼孩的指点',text:`元宝歪着头想了想说："姐姐最怕一个人。"
+他朝你吹了一口气，那口气凉丝丝的，扑在脸上像深井里冒出的凉气。可你感到胸口的压抑轻了许多，像压着的那块湿石头被人挪开了一点。`,effects:{"sanity":10,"yin":-10,"setFlag":"huimen_exp_boy_friendly"},choices:[createChoice({"text":"问他愿意跟你走吗","next":"huimen_exp_little_boy_friend","effects":{"yin":-3}}),createChoice({"text":"送他回井里","next":"huimen_exp_village_street","effects":{"sanity":5,"yin":-2}}),createChoice({"text":"答应陪他玩一夜，然后带他走","next":"huimen_exp_little_boy_friend_alt"})]}),
+    huimen_exp_boy_advice: createScene('huimen_exp_boy_advice', {title:'鬼孩的指点',text:`元宝歪着头想了想，冲天辫跟着一晃。他想了一会儿，伸出小手，掰着指头数：
 
-"她一个人被埋在井底，一个人生孩子，一个人死。你们周家的人，都把她当耻辱，没人陪她。"
+"姐姐最怕一个人。"
+
+"她一个人被埋在井底，一个人生孩子，一个人死。你们周家的人，都把她当耻辱，没人陪她。井底很黑，她喊也没人应，孩子掉了也没人接，就这么一个人，硬生生熬到死。"
+
+他说这些话时，声音还是孩子的脆嗓，可那语气不像孩子，像是一个旁观了很多年的老人。
 
 "你要是想让她不哭，就陪她坐一夜。不要说话，不要烧纸，不要成亲。就坐着。"
 
-他伸出小手，指了指井沿："坐在这里，她就能看见你。"
+他伸出小手，指了指井沿那块磨得发亮的青石："坐在这里，她就能看见你。她要的不是仪式，是有人陪着。"
 
-[red]你忽然明白了，秀兰要的不是仪式，是被看见。[/red]`,effects:{"sanity":3,"yin":-3,"setFlag":"huimen_exp_knows_sit_with_xiulan"},choices:[createChoice({"text":"坐在井边陪她","next":"huimen_exp_sit_with_xiulan","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+[red]你忽然明白了，秀兰要的不是仪式，是被看见。[/red]
+
+三十年了，她等的不是新郎，是一个愿意坐下来、什么都不做、只是陪着她的人。`,effects:{"sanity":3,"yin":-3,"setFlag":"huimen_exp_knows_sit_with_xiulan"},choices:[createChoice({"text":"坐在井边陪她","next":"huimen_exp_sit_with_xiulan","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp_ask_leave: createScene('huimen_exp_ask_leave', {title:'问她',text:`你问："你愿意离开这里吗？"
 
-秀兰沉默了很久。她低下头，看着井水里自己的倒影。
+秀兰沉默了很久。井水在她身下轻轻晃，映着她模糊的影子。她低下头，看着井水里自己的倒影，那倒影很淡，淡得快要化进水里。
 
-"我走了，谁会记得我？" 她说，"周家不会承认我，村子不会承认我。我连个名字都没有。"
+"我走了，谁会记得我？" 她说，声音很轻，带着井水的回音，"周家不会承认我，村子不会承认我。我连个名字都没有，连族谱上都是黑的。"
 
-"我记得。" 你说，"我会把你的名字写下来，告诉所有人。"
+"我记得。" 你说，一字一顿，"我会把你的名字写下来，告诉所有人。写进族谱，刻在碑上，让所有路过的人都知道，这里埋过一个叫秀兰的女子。"
 
-秀兰抬起头，眼眶里有红色的泪光："你发誓？"
+秀兰抬起头，眼眶里有红色的泪光，那泪光不像怨，更像是一种等了太久、快要不敢相信的期待："你发誓？"
 
 "我发誓。"
 
-她伸出手，那只苍白的手穿过你的身体，你没有感到冷，而是感到一阵温暖。`,effects:{"sanity":10,"yin":-10,"setFlag":"xiulanMercy"},choices:[createChoice({"text":"带她回老宅，走 redemption","next":"huimen_exp_return_bury_xiulan","effects":{"yin":-5}}),createChoice({"text":"先回村街准备","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
-    huimen_exp_little_boy_friend: createScene('huimen_exp_little_boy_friend', {title:'伴行',text:`元宝眨眨眼睛："你真的愿意带我走？"
+她伸出手，那只苍白的手穿过你的身体。你以为会冷，可穿过的不是冷意，是一阵暖，暖得你眼眶发酸，像有人在你心里捂了一捧热水。`,effects:{"sanity":10,"yin":-10,"setFlag":"xiulanMercy"},choices:[createChoice({"text":"带她回老宅，走 redemption","next":"huimen_exp_return_bury_xiulan","effects":{"yin":-5}}),createChoice({"text":"先回村街准备","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+    huimen_exp_little_boy_friend: createScene('huimen_exp_little_boy_friend', {title:'伴行',text:`元宝眨眨眼睛，黑漆漆的瞳仁里映着你的脸："你真的愿意带我走？"
 
 "愿意。" 你说。
 
-他高兴得跳起来，化作一道青光钻进你的影子里。你低头看自己的影子，发现它比往常浓了一些，像是有个小男孩牵着你的衣角。
+他高兴得跳起来，跳得太高，一下子蹦到了半空。然后他化作一道青光，"嗖"地钻进你的影子里。你低头看自己的影子，发现它比往常浓了一些，浓的地方鼓出一个小小的鼓包，像是有个小男孩牵着你的衣角，躲在影子里不肯出来。
 
-"我会保护你的。" 元宝的声音从你影子里传出来，"纸人不敢靠近我了。"
+"我会保护你的。" 元宝的声音从你影子里传出来，闷闷的，像从被子底下说话，"纸人不敢靠近我了。它们怕我，我身上有秀兰姐姐的血脉。"
 
-你走出山村时，天边已经亮了。你的影子在地上拉得很长，里面似乎藏着一个小小的笑声。`,effects:{"sanity":10,"yin":-10},ending:'huimen_exp_little_boy_friend'}),
+你走出山村时，天边已经亮了。第一缕晨光铺在山路上，把雾染成淡金色。你的影子在地上拉得很长，那鼓出的一小块跟着你走，里面似乎藏着一个小小的、没出声的笑。`,effects:{"sanity":10,"yin":-10},ending:'huimen_exp_little_boy_friend'}),
     huimen_exp_buy_face: createScene('huimen_exp_buy_face', {title:'换脸',text:`你接过纸脸，贴在脸上。
 
-纸脸像有生命一样吸住你的皮肤，你感到自己的五官在移动、重塑。片刻后，你摸了摸脸，已经变成了另一个人的模样。
+那纸脸入手冰凉，比井沿的青石还冷，薄薄一层，背面涂着一层说不清的黏液，黏糊糊的，像血又不像血。你把它往脸上一按，纸脸"嘶"地一声，像活物一样吸住了你的皮肤。
 
-老妇满意地点点头："好了，秀兰认不出你了。"
+你感到自己的五官在移动——眉毛往上挪，眼睛拉长，鼻梁塌下去，嘴唇变厚。皮肤底下有什么东西在涌动、重塑，疼倒不疼，只是一种极诡异的、被人捏着揉着的感觉。片刻后，重塑停了。你摸了摸脸，凹凸已经变了，变成了另一个人的模样。
 
-可你低头看自己的手，发现手腕上那根红绳还在，勒得更紧了。
+老妇满意地点点头，她那张皱得像核桃皮的脸绽开一个笑："好了，秀兰认不出你了。这张脸是三十年前死的一个外乡人的，干净，没牵连。"
+
+你低头看自己的手，想松口气。可你一眼就看见了——手腕上那根红绳还在，不但没松，反而勒得更紧了，紧得陷进皮肉里，皮肉翻起一圈红印。
 
 [red]脸可以换，债换不了。[/red]`,effects:{"sanity":-10,"yin":5,"setFlag":"huimen_exp_wearing_paper_face"},choices:[createChoice({"text":"把纸脸撕下来","next":"huimen_exp_village_street","effects":{"sanity":-5,"yin":-3,"removeItem":"纸脸"}}),createChoice({"text":"戴着纸脸继续走","next":"huimen_exp_village_street","effects":{"yin":2}})]}),
     huimen_exp_return_old_house: createScene('huimen_exp_return_old_house', {title:'回老宅',text:`你深吸一口气，转身朝老宅走去。
 
-身后的村街像退潮一样远去，纸钱、白灯笼、纸人，都渐渐模糊。你推开老宅的门，堂屋里的红烛还在燃烧，亲戚们还跪在那里。
+身后的村街像退潮一样远去，纸钱、白灯笼、纸人，都渐渐模糊，像隔着一层水在看。那股萦绕鼻端的香灰味淡了，取而代之的是老宅那种陈年桐油和樟木的气味。
 
-二叔抬起头："你去哪了？吉时要到了。"
+你推开老宅的门，门"吱呀"一声开了，堂屋里的红烛还在燃烧，火苗一跳一跳的，把堂屋照得忽明忽暗。亲戚们还跪在那里，姿势都没变，像一群跪了很久的雕像。
 
-你摇摇头，没有回答。你知道自己刚才去过另一个村子，一个藏在怨气里的村子。
+二叔抬起头，眼神里有一丝你捉摸不透的东西："你去哪了？吉时要到了。"
+
+你摇摇头，没有回答。你自己也说不清刚才去了哪里——一个藏在怨气里的村子，一个纸人游荡、白幡飘飞的村子，和这座老宅，明明是两个地方，又像是同一处的两面。
 
 [red]但现在，你回到了主线上。[/red]
 
-你还有机会改变结局。`,effects:{"sanity":3,"yin":1},choices:[createChoice({"text":"继续主线","next":"to_old_house","effects":{"yin":1}})]}),
+红烛还在烧，纸钱还在飘，秀兰还在等。而你，还有机会改变结局。`,effects:{"sanity":3,"yin":1},choices:[createChoice({"text":"继续主线","next":"to_old_house","effects":{"yin":1}})]}),
     huimen_exp_burn_incense_scene: createScene('huimen_exp_burn_incense_scene', {title:'燃香',text:`你摸出打火机，点燃了那半支安神香。
 
-香头冒出一缕青烟，烟不是往上升的，而是盘旋着往你口鼻里钻。你闻到一股奇异的香气，像是艾草，又像是陈年桂花。
+香是半截的，断口参差，香芯发黑，看着像被人掰断又塞回去过。打火机火苗一舔香头，那截香"嗤"地一声就着了，冒出一缕青烟。
 
-庙里的阴冷忽然退散了。供桌上的灰尘簌簌落下，露出底下崭新的红漆。牌位后的阴影发出不甘的嘶吼，却不敢靠近香烟的范围。
+那烟不走寻常路——不往上升，而是盘旋着往你口鼻里钻。你下意识屏住呼吸，可那烟像认人，绕着你的脸转了一圈，到底钻了进去。你闻到一股奇异的香气，像是艾草，又像是陈年的桂花糕，甜里压着一层苦，苦里又透着一丝凉。
+
+庙里的阴冷忽然退散了，像有什么东西被这缕烟推着往后退。供桌上的灰尘簌簌落下，露出底下崭新的红漆，红得发亮，像新刷的。牌位后的阴影发出一声不甘的嘶吼，嘶吼声又尖又长，像被烫到了要害，却不敢靠近香烟的范围，只能缩在阴影里发抖。
 
 [red]原来这香不是祭品，是镇物。[/red]
 
-你举着香，在庙里走了一圈。每到一处，墙上的黄符就自动剥落，像被烫到的蛇。庙外传来秀兰轻轻的叹息，那叹息里没有怨，只有一点疲惫的释然。`,effects:{"sanity":10,"yin":-10,"removeItem":"半支安神香","setFlag":"huimen_exp_burned_temple_incense"},choices:[createChoice({"text":"趁香还没烧完，进内殿","next":"huimen_exp_temple_inner","effects":{"yin":1}}),createChoice({"text":"离开庙，回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+你举着香，在庙里走了一圈。香烟走到哪里，哪里的黄符就自动剥落，"啪嗒、啪嗒"地掉在地上，像被烫到的蛇一样扭着身子落下去。庙外传来秀兰轻轻的叹息，那叹息里没有怨，只有一点疲惫的释然，像是终于有人替她做了一件她做不了的事。`,effects:{"sanity":10,"yin":-10,"removeItem":"半支安神香","setFlag":"huimen_exp_burned_temple_incense"},choices:[createChoice({"text":"趁香还没烧完，进内殿","next":"huimen_exp_temple_inner","effects":{"yin":1}}),createChoice({"text":"离开庙，回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp_forgotten_alt: createScene('huimen_exp_forgotten_alt', {title:'被遗忘的名字',text:`你在山村里走了很多年。
 
-你记得自己姓周，记得秀兰，记得一口井。但你忘了自己为什么要回来，忘了自己有没有走出去。
+你不记得具体是多少年。日子在这里是拧成一股的，没有春夏秋冬，只有阴、晴、雨、雾，反反复复。你记得自己姓周，记得秀兰，记得一口井。但你忘了自己为什么要回来，忘了自己有没有走出去，甚至忘了自己是从哪条路进来的。
 
-村里的石碑上刻满了名字，你找了很多遍，找不到自己的。
+村里的石碑上刻满了名字，你找了很多遍，从碑头找到碑脚，从正面找到背面，找不到自己的。你的名字被纸人借走了，借走名字的人，连碑都不肯收。
 
-秀兰告诉你："名字被纸人借走的人，是回不来的。"
+秀兰告诉你，她的声音从井底飘上来，又轻又空："名字被纸人借走的人，是回不来的。借了名字，纸人就有了脸，有了脸就能替你活。而你，就成了没有脸的。"
 
-你低头看了看自己的手，发现手指正在变纸，变脆，变白。`,choices:[createChoice({"text":"接受被遗忘","ending":"huimen_exp_forgotten"})]}),
+你低头看了看自己的手，想攥一攥拳。可你看见，自己的手指正在变纸——先是指尖，然后是指节，一层一层地变薄、变脆、变白，像被人一层一层地糊上了黄纸。`,choices:[createChoice({"text":"接受被遗忘","ending":"huimen_exp_forgotten"})]}),
     huimen_exp_little_pine_alt: createScene('huimen_exp_little_pine_alt', {title:'青松',text:`你在秀兰的坟旁种了一棵松树。
 
-那棵松树种下时只有筷子高，三年后却长得比你还高。村里人说，那棵树长得太快，不像凡间的树。
+那棵松树种下时只有筷子高，根须带泥，是你从后山移来的小苗。你把它栽在无字碑旁，培了土，浇了井水——那井水是清的，自从秀兰散了之后，井水就变清了。
 
-每年清明，你都会在树下坐一会儿。风过时，松针沙沙作响，像是一个女子在低声说话。
+三年后，那棵松树长得比你还高，枝干遒劲，松针墨绿，在山风里"沙沙"地响。村里人都说，那棵树长得太快，不像凡间的树，凡间的松三年哪能长这么高。可也没人敢去砍它——砍了怕是要出事。
 
-有一天，你在树下捡到一片松针，上面缠着一根细细的红绳。`,choices:[createChoice({"text":"把红绳埋回土里","ending":"hidden_littlePine"})]}),
+每年清明，你都会回山里，在树下坐一会儿，什么也不做，就坐着。风过时，松针沙沙作响，声音又轻又密，像是一个女子在低声说话，可你侧耳去听，又听不清她说的是什么。
+
+有一年清明，你在树下坐到黄昏。起身时，脚下踩到一片松针，弯腰捡起来——那片松针上，缠着一根细细的红绳，红绳已经褪了色，发白，可还是认得出是红的。`,choices:[createChoice({"text":"把红绳埋回土里","ending":"hidden_littlePine"})]}),
     huimen_exp_little_boy_friend_alt: createScene('huimen_exp_little_boy_friend_alt', {title:'鬼孩伴行',text:`你答应陪小鬼玩一夜。
 
-你们踢了纸毽子，放了纸船，在井边数星星。小鬼说他叫"元宝"，是秀兰当年未出世的孩子分出来的一缕魂。
+那一夜过得很快。你们在井边踢纸毽子，毽子踢得高高的，纸翅膀在月光下翻飞。你折了纸船，放进井水里，纸船顺着井水转圈，转了几圈就沉了，元宝看得直拍手。后来你们并排躺在井沿上数星星——其实山里看不见几颗星星，雾太重，可元宝说看得见，你就跟着说看得见。
 
-"姐姐太苦了。"元宝说，"你帮她，我就帮你。"
+玩到后半夜，元宝终于安静下来。他盘腿坐在井沿上，冲天辫耷拉下来，声音也低了："姐姐太苦了。"
 
-天亮时，元宝化作一道青光钻进你的影子里。`,choices:[createChoice({"text":"带他一起走","ending":"huimen_exp_little_boy_friend"})]})
+"我叫元宝，是秀兰当年未出世的孩子分出来的一缕魂。姐姐死的时候，我也跟着死了，可我舍不得走，就留在井边。三十年了，没人陪我玩过。"
+
+"你帮她，我就帮你。" 他说，仰起头看你，黑漆漆的眼睛里映着你的脸，"我的魂分一缕给你，护着你。"
+
+天亮时，元宝站起来，朝你笑了一下——那是孩子才有的、干净的一笑。然后他化作一道青光，"嗖"地钻进你的影子里。`,choices:[createChoice({"text":"带他一起走","ending":"huimen_exp_little_boy_friend"})]})
 };

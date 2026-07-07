@@ -5,33 +5,53 @@
 import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 
 export const scenes = {
-    find_family_tree: createScene('find_family_tree', {title:'周家族谱',text:`你在老宅东厢房的樟木箱底翻出一本泛黄的族谱。
+    find_family_tree: createScene('find_family_tree', {title:'周家族谱',text:`你在老宅东厢房的樟木箱底，翻出一本泛黄的族谱。
 
-族谱最后一页，秀兰的名字被墨水涂黑了，旁边用朱笔写着"周氏不祥女"五个字。你手指发抖，把涂黑的地方一点点刮开。
+东厢房许久没人住，窗纸糊得严严实实，屋里一股樟木和陈年霉味，混着说不清的香灰气。樟木箱的铜锁早锈死了，你用石头砸开的，箱盖一掀，扬起一层灰，呛得你咳了半天。族谱压在箱底，裹着一层发黄的红绸，红绸一碰就酥了，碎成片片落在你手上。
+
+族谱的纸很脆，一翻"簌簌"掉渣。你一页一页往后翻，周家男丁的名字排得整整齐齐，生卒年月、婚配子嗣，记得清清楚楚。可翻到最后一页，你停住了。
+
+秀兰的名字被人用墨水涂黑了，涂了一层又一层，墨结了痂，鼓在纸上。旁边用朱笔另写了五个字，笔力极狠，像用刀刻上去的："周氏不祥女"。
+
+你手指发抖，把涂黑的地方一点点刮开。墨痂一层层剥落，露出底下原来的字迹，墨色淡得发灰，可还是认得出来：
 
 秀兰。周家长子未婚妻。民国二十三年卒。
 
+卒字旁边，本该写着死因，却被人用朱砂狠狠划了一道，划得纸都破了。
+
 [red]她不是不祥。她是被周家活埋的。[/red]
 
-你在她名字旁边，用颤抖的手写下："周氏秀兰，明媒正娶。"
+你攥着笔，手抖得厉害。你在她名字旁边，用颤抖的手一笔一画写下："周氏秀兰，明媒正娶。"
 
-刚写完最后一个字，窗外的纸钱忽然停了。远处传来一声似有似无的叹息。`,effects:{"sanity":-10,"yin":-15,"setFlag":"restored_xiulan_name"},choices:[createChoice({"text":"把族谱带去找秀兰","next":"small_door"}),createChoice({"text":"把族谱烧了，重写一份","next":"huimen_exp_family_tree_alt"}),createChoice({"text":"族谱碎成几片，需要先拼起来","next":"family_tree_puzzle","condition":{"hasItem":"族谱碎片二"}})]}),
+刚写完最后一个字，窗外的纸钱忽然不飞了。先前窗外"沙沙"飘的纸钱，像被人按了暂停，齐刷刷悬在半空，停了一息，又"哗"地全落了地。远处传来一声似有似无的叹息，很轻，像是从土里、从墙缝里、从族谱的纸页里一起透出来的。`,effects:{"sanity":-10,"yin":-15,"setFlag":"restored_xiulan_name"},choices:[createChoice({"text":"把族谱带去找秀兰","next":"small_door"}),createChoice({"text":"把族谱烧了，重写一份","next":"huimen_exp_family_tree_alt"}),createChoice({"text":"族谱碎成几片，需要先拼起来","next":"family_tree_puzzle","condition":{"hasItem":"族谱碎片二"}})]}),
     defend_family: createScene('defend_family', {title:'辩解',text:`你下意识说："那是三十年前的事了，和我没关系……"
 
-话音未落，井底的水突然结冰。秀兰的脸色变得惨白，眼睛里的黑色迅速蔓延，占满了整个眼眶。
+话一出口你就后悔了，可话已收不回来。井底的水"咔"地一声结了冰，从井心一路冻到井壁，冰面上裂开一道道细纹，像蛛网。
 
-"和你没关系？" 她的声音变成了千百个人的合唱，"你是周家的种！你的血里，流着他的罪！"
+秀兰的脸色变得惨白，原本还有的一丝血色褪得干干净净。她眼睛里的黑色迅速蔓延，占满了整个眼眶，只剩两个针尖大的瞳孔，盯着你。
 
-她的手掐住了你的脖子。那不是实体，而是无数根黑发缠绕成的手。
+"和我没关系？" 她重复了一遍，这一遍她的声音变了，不是一个人的声音，是千百个人的合唱——有老的、有少的、有哭腔的、有念诵的，全叠在一起，从井底、从四面井壁一起挤出来，震得你耳膜发疼。
 
-[red]你的阴气太重了。[/red]`,effects:{"sanity":-30,"yin":20},choices:[createChoice({"text":"挣扎","next":"struggle_in_well","ending":"possessed"})]}),
-    family_tree_puzzle: createScene('family_tree_puzzle', {title:'族谱拼图',text:`你手中的族谱碎片只有三张，拼起来刚好是一页。
+"你是周家的种！你的血里，流着他的罪！"
 
-第一片记载着周家男丁的姓名和生卒。第二片记载着每一代"纸新娘"的名字，但都被朱砂划掉了。第三片是空白，只在角落有一行小字：
+她的手掐住了你的脖子。那不是实体，是无数根黑发缠绕成的手，湿冷、黏腻，一根一根钻进你的衣领，缠上你的喉咙。你想喊，发不出声；想挣扎，四肢被另一缕头发缠住，钉在井壁上。
+
+[red]你的阴气太重了。[/red]
+
+你感到自己的体温在一点一点被抽走，指尖先凉，然后是手腕、小臂、肩膀……`,effects:{"sanity":-30,"yin":20},choices:[createChoice({"text":"挣扎","next":"struggle_in_well","ending":"possessed"})]}),
+    family_tree_puzzle: createScene('family_tree_puzzle', {title:'族谱拼图',text:`你手中的族谱碎片只有三张，纸边参差不齐，像被人撕碎又胡乱塞回箱底的。你把三张碎片摊在膝上，借着东厢房漏进来的微光，一块一块拼。
+
+第一片记载着周家男丁的姓名和生卒。一代一代，名字排得密密麻麻，可每隔一两代，就有一个名字旁边标着"早卒"二字，朱砂写的，红得刺眼。
+
+第二片记载着每一代"纸新娘"的名字。名字倒是写着，可每一个都被朱砂狠狠划掉了，划得纸都破了洞，只隐约透出几个字的轮廓：兰、红、袖……
+
+第三片是空白，什么都没写，只在右下角藏了一行蝇头小字，墨色淡得发灰：
 
 [faded]"女不入谱，以纸代之。"[/faded]
 
-你把三张碎片按顺序拼好，族谱上浮现出一个完整的名单——周家百年来所有被活埋、被纸替的女子名字。
+你把三张碎片按顺序拼好，拼缝对上的那一刻，族谱上浮现出一个完整的名单——周家百年来所有被活埋、被纸替的女子名字，一个挨一个，排了满满一页。
 
-[faded]秀兰、柳红、云袖……还有更多你不知道的名字。[/faded]`,effects:{"sanity":-15,"yin":10,"setFlag":"family_tree_complete"},choices:[createChoice({"text":"把完整的族谱带走","next":"huimen_exp_family_tree_alt"}),createChoice({"text":"把族谱碎片贴回祠堂墙上","next":"huimen_exp_zhou_women_alt"}),createChoice({"text":"烧了族谱，终结契约","ending":"hidden_paperDollBurned","condition":{"hasItem":"周家纸人契约"}})]})
+[faded]秀兰、柳红、云袖……还有更多你不知道的名字。[/faded]
+
+每一个名字下面，都注着同样的四个字：周氏不祥。`,effects:{"sanity":-15,"yin":10,"setFlag":"family_tree_complete"},choices:[createChoice({"text":"把完整的族谱带走","next":"huimen_exp_family_tree_alt"}),createChoice({"text":"把族谱碎片贴回祠堂墙上","next":"huimen_exp_zhou_women_alt"}),createChoice({"text":"烧了族谱，终结契约","ending":"hidden_paperDollBurned","condition":{"hasItem":"周家纸人契约"}})]})
 };
