@@ -27,7 +27,9 @@ export const scenes = {
 
 她伸手把铜镜碎片从你手里拿走，动作很轻很慢，像是在捧一个活物。可她转手又把碎片一块块放回井沿，摆得整整齐齐，对着井口，神情恭敬得近乎害怕。
 
-"看来，真的是你。" 她喃喃道，退后两步，对着你的影子行了个礼，"真的是你回来了。"`,effects:{"addItem":"铜镜碎片","sanity":-5,"yin":-5},choices:[createChoice({"text":"问她\"真的是我\"是什么意思","next":"ask_really_me"}),createChoice({"text":"趁她恍惚，往后山跑","next":"run_to_mountain","danger":true}),createChoice({"text":"铜镜碎片里映出的村子，似乎多了一条月光铺成的小路","next":"huimen_exp_village_loop_entry","condition":{"hasItem":"铜镜碎片"},"hidden":true,"effects":{"yin":2}})]}),
+"看来，真的是你。" 她喃喃道，退后两步，对着你的影子行了个礼，"真的是你回来了。"
+
+    铜镜碎片映出的村街尽头，似乎有一道淡淡的月光铺成的小路。`,effects:{"addItem":"铜镜碎片","sanity":-5,"yin":-5},choices:[createChoice({"text":"问她\"真的是我\"是什么意思","next":"ask_really_me"}),createChoice({"text":"趁她恍惚，往后山跑","next":"run_to_mountain","danger":true}),createChoice({"text":"铜镜碎片里映出的村子，似乎多了一条月光铺成的小路","next":"huimen_exp_village_loop_entry","condition":{"hasItem":"铜镜碎片"},"hidden":true,"effects":{"yin":2}})]}),
     struggle_in_well: createScene('struggle_in_well', {title:'溺亡',text:`黑发越缠越紧。
 
 那不是头发，是井底积了三十年的怨，一缕一缕缠上你的手腕、脚踝、脖子，又湿又冷，像无数条水蛇。你想喊，可一根发丝钻进你的嘴里，堵住了喉咙，咽下去是满口井水的腥甜。

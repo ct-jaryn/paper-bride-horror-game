@@ -66,5 +66,5 @@ export const scenes = {
 
 秀兰看着那行字，忽然笑了："原来回门，是真的可以回家的。"
 
-她化作红光消散前，把一枚金戒指轻轻放在你手心。戒指温热，像是带着体温。`,choices:[createChoice({"text":"带她回家","ending":"huimen_exp_redemption_loop"}),createChoice({"text":"在带她走之前，先问她是否愿意成为记录","next":"true_ending_gate","condition":{"flag":"clues_assembled"},"hidden":true})]})
+她化作红光消散前，把一枚金戒指轻轻放在你手心。戒指温热，像是带着体温。`,choices:[createChoice({"text":"带她回家","ending":"huimen_exp_redemption_loop"}),createChoice({"text":"在带她走之前，先问她是否愿意把她的故事告诉世人","next":"true_ending_gate","condition":{"flag":"clues_assembled"},"hidden":true})]})
 };

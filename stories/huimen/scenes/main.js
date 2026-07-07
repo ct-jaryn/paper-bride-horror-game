@@ -67,7 +67,7 @@ export const scenes = {
 
 "我发誓。"
 
-她伸出手，那只苍白的手穿过你的身体。你以为会冷，可穿过的不是冷意，是一阵暖，暖得你眼眶发酸，像有人在你心里捂了一捧热水。`,effects:{"sanity":10,"yin":-10,"setFlag":"xiulanMercy"},choices:[createChoice({"text":"带她回老宅，走 redemption","next":"huimen_exp_return_bury_xiulan","effects":{"yin":-5}}),createChoice({"text":"先回村街准备","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+她伸出手，那只苍白的手穿过你的身体。你以为会冷，可穿过的不是冷意，是一阵暖，暖得你眼眶发酸，像有人在你心里捂了一捧热水。`,effects:{"sanity":10,"yin":-10,"setFlag":"xiulanMercy"},choices:[createChoice({"text":"带她去后山，好好安葬","next":"huimen_exp_return_bury_xiulan","effects":{"yin":-5}}),createChoice({"text":"先回村街准备","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp_little_boy_friend: createScene('huimen_exp_little_boy_friend', {title:'伴行',text:`元宝眨眨眼睛，黑漆漆的瞳仁里映着你的脸："你真的愿意带我走？"
 
 "愿意。" 你说。

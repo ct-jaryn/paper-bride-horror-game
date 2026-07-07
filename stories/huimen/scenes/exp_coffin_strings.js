@@ -44,7 +44,7 @@ export const scenes = {
 
 你握紧了拳头。你刚从另一个村子回来，你知道了更多的真相。秀兰不是耻辱，是被害的人。周家欠下的债，不该用你的命来还。
 
-[red]你决定从棺材这条线继续查下去。[/red]`,effects:{"sanity":-3,"yin":1},choices:[createChoice({"text":"继续主线","next":"ask_coffin","effects":{"yin":1}})]}),
+[red]你决定从棺材这条线继续查下去。[/red]`,effects:{"sanity":-3,"yin":1},choices:[createChoice({"text":"沿着红绳的方向走回去","next":"ask_coffin","effects":{"yin":1}})]}),
     huimen_exp_return_red_coffin: createScene('huimen_exp_return_red_coffin', {title:"回红棺",text:`你攥紧井绳，顺着湿滑的井壁一寸一寸下到井底。
 
 井水冰冷，浸透了你的裤脚。红漆棺材还在原处，棺盖上钉着九根桃木钉，钉头上刻着镇邪的符文。你摸了摸胸口那把铜钥匙，硬邦邦的还在。
@@ -53,5 +53,5 @@ export const scenes = {
 
 [red]开棺，是结束一切的钥匙。[/red]
 
-井底的风阴冷，吹得棺材上的红漆"啪啪"剥落，露出底下乌黑的木料。`,effects:{"sanity":-5,"yin":2},choices:[createChoice({"text":"继续主线","next":"open_red_coffin","effects":{"yin":1}}),createChoice({"text":"你已开过红棺，想再看一眼棺中物","next":"huimen_exp2_red_coffin_inside","condition":{"flag":"red_coffin_unlocked"},"hidden":true,"effects":{"yin":2}})]})
+井底的风阴冷，吹得棺材上的红漆"啪啪"剥落，露出底下乌黑的木料。`,effects:{"sanity":-5,"yin":2},choices:[createChoice({"text":"沿着红绳的方向走回去","next":"open_red_coffin","effects":{"yin":1}}),createChoice({"text":"查看棺上的封印","next":"red_coffin_locked","effects":{"yin":1}}),createChoice({"text":"你已开过红棺，想再看一眼棺中物","next":"huimen_exp2_red_coffin_inside","condition":{"flag":"red_coffin_unlocked"},"hidden":true,"effects":{"yin":2}})]})
 };

@@ -48,7 +48,9 @@ export const scenes = {
 
 [red]这封信，三十年前没能送到她手里。[/red]
 
-你把信放在女纸人手里。一阵风吹过，两个纸人倒在地上，化为灰烬。`,effects:{"sanity":-5,"yin":3,"addItem":"老槐树下未寄出的信"},choices:[createChoice({"text":"把信给秀兰","next":"huimen_exp_dawn_tree_give_letter","effects":{"yin":1}}),createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+你把信放在女纸人手里。一阵风吹过，两个纸人倒在地上，化为灰烬。
+
+你的手指间还夹着那封信——纸人化灰时，它却完好地留在你掌心。`,effects:{"sanity":-5,"yin":3,"addItem":"老槐树下未寄出的信"},choices:[createChoice({"text":"把信给秀兰","next":"huimen_exp_dawn_tree_give_letter","effects":{"yin":1}}),createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp_dawn_tree_give_letter: createScene('huimen_exp_dawn_tree_give_letter', {title:'迟到的信',text:`你来到井边，把信轻轻放在井沿。
 
 秀兰的身影从井底浮出来。她看着那封信，手在发抖，半天不敢去碰。

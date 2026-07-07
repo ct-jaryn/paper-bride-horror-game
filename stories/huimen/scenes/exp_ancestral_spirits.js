@@ -61,7 +61,7 @@ export const scenes = {
 
 "把我们的名字记下来。"一个幽幽的女声从墙里传出，"别让世人忘了我们。"
 
-墙缝里渗出几缕湿冷的气息，拂过你的脸，带着桂花糕的甜香和腐土的腥气。`,effects:{"sanity":-10,"yin":3,"setFlag":"huimen_exp_saw_women_wall"},choices:[createChoice({"text":"用血在墙上写正名","next":"huimen_exp_ancestral_women_wall_rename","effects":{"sanity":-5,"yin":5}}),createChoice({"text":"把名字抄下来","next":"huimen_exp_village_street","effects":{"yin":1,"addItem":"女子名单"}}),createChoice({"text":"把这些名字抄下来，贴在村口","next":"huimen_exp_zhou_women_alt"}),createChoice({"text":"你已见过女墙，带红漆回来重新描红每一个名字","next":"huimen_exp2_ancestral_women_wall_2","condition":{"flag":"huimen_exp_saw_women_wall"},"hidden":true,"effects":{"sanity":-3,"yin":2}})]}),
+墙缝里渗出几缕湿冷的气息，拂过你的脸，带着桂花糕的甜香和腐土的腥气。`,effects:{"sanity":-10,"yin":3,"setFlag":"huimen_exp_saw_women_wall"},choices:[createChoice({"text":"用血在墙上写正名","next":"huimen_exp_ancestral_women_wall_rename","effects":{"sanity":-5,"yin":5}}),createChoice({"text":"把名字抄下来","next":"huimen_exp_village_street","effects":{"yin":1,"addItem":"女子名单"}}),createChoice({"text":"把这些名字抄下来","next":"huimen_exp_zhou_women_alt"}),createChoice({"text":"你已见过女墙，带红漆回来重新描红每一个名字","next":"huimen_exp2_ancestral_women_wall_2","condition":{"flag":"huimen_exp_saw_women_wall"},"hidden":true,"effects":{"sanity":-3,"yin":2}})]}),
     huimen_exp_ancestral_women_wall_rename: createScene('huimen_exp_ancestral_women_wall_rename', {title:"重写",text:`你咬破食指，在每个名字后面，用血写下"正名"二字。
 
 血字渗入墙面的瞬间，那些原本黯淡发黑的名字一个个亮了起来，像被点燃的灯。墙里传来女子的哭声——这次不是悲伤，是一种近乎解脱的呜咽。
@@ -72,5 +72,5 @@ export const scenes = {
 
 [faded]"周氏女子，各有名姓，各有来生。"[/faded]
 
-你感到胸口那块压了不知多久的石头，终于松动了。像是卸下了三十七年的重担，连呼吸都轻快了几分。`,effects:{"sanity":10,"yin":-15,"setFlag":"huimen_exp_renamed_women_wall"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"把名单带出村子，让世人知道","ending":"huimen_exp_ending_name_list","condition":{"hasItem":"女子名单"},"effects":{"yin":-5}}),createChoice({"text":"在村口立一块名碑","ending":"huimen_exp_ending_name_stone","condition":{"flag":"huimen_exp_renamed_women_wall"},"effects":{"yin":-5}}),createChoice({"text":"一切已明，打开阴阳簿","next":"true_ending_gate","condition":{"flag":"clues_assembled"},"hidden":true})]})
+你感到胸口那块压了不知多久的石头，终于松动了。像是卸下了三十七年的重担，连呼吸都轻快了几分。`,effects:{"sanity":10,"yin":-15,"setFlag":"huimen_exp_renamed_women_wall"},choices:[createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"把名单带出村子，让世人知道","ending":"huimen_exp_ending_name_list","condition":{"hasItem":"女子名单"},"effects":{"yin":-5}}),createChoice({"text":"在墙前立一块小石碑","ending":"huimen_exp_ending_name_stone","condition":{"flag":"huimen_exp_renamed_women_wall"},"effects":{"yin":-5}}),createChoice({"text":"一切已明，打开阴阳簿","next":"true_ending_gate","condition":{"flag":"clues_assembled"},"hidden":true})]})
 };

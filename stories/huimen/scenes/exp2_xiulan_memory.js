@@ -98,7 +98,7 @@ export const scenes = {
 
 "你来了。"
 
-画面突然扭曲。喜房变成了井底，红烛变成了井壁的青苔，合卺酒变成了井水。秀兰穿着同样的嫁衣，沉在血红的井水里，头发散开，像水草。`,effects:{"sanity":-10,"yin":5},choices:[createChoice({"text":"退出记忆","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"轻轻掀开秀兰的盖头","next":"huimen_exp_bride_veil_alt"})]}),
+画面突然扭曲。喜房变成了井底，红烛变成了井壁的青苔，合卺酒变成了井水。秀兰穿着同样的嫁衣，沉在血红的井水里，头发散开，像水草。`,effects:{"sanity":-10,"yin":5},choices:[createChoice({"text":"退出记忆","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"捡起地上的红盖头","next":"huimen_exp_bride_veil_alt"})]}),
     huimen_exp2_xiulan_memory_wedding_wait: createScene('huimen_exp2_xiulan_memory_wedding_wait', {title:'婚礼记忆等待',text:`你陪秀兰坐着，看她等。
 
 她等了很久。红烛烧了一半，烛泪流了一桌。窗外的天从黑变灰，从灰变白，鸡叫了三遍。她脸上的笑容渐渐淡了，从期待变成失望，从失望变成认命。

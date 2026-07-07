@@ -63,5 +63,7 @@ export const scenes = {
 
 李婆笑了。她笑起来嘴咧得很开，露出没牙的牙床，灯笼光在她脸上跳。她凑近一步，身上一股陈年纸钱和香灰的味道：
 
-"[whisper]血脉里的债，总得有人还。你今晚上了轿，就是她的新郎了。[/whisper]"`,effects:{"sanity":-12,"yin":4},choices:[createChoice({"text":"质问李婆什么意思","next":"ask_meaning"}),createChoice({"text":"强忍恐惧，走向老宅","next":"huimen_paper_doll_warning"}),createChoice({"text":"那个空位上的纸人，脸画得很像自己","next":"huimen_exp_paper_doll_alt"}),createChoice({"text":"拆开纸人，检查里面藏着什么","next":"investigate_paper_dolls"}),createChoice({"text":"摸出护身符挡在纸人面前","next":"use_talisman_ghost","condition":{"hasItem":"护身符"},"hidden":true})]})
+"[whisper]血脉里的债，总得有人还。你今晚上了轿，就是她的新郎了。[/whisper]"
+
+    你注意到男纸人身旁还空着一个位置，地上留着纸扎的底座印子，像是在等第三个纸人入位。`,effects:{"sanity":-12,"yin":4},choices:[createChoice({"text":"质问李婆什么意思","next":"ask_meaning"}),createChoice({"text":"强忍恐惧，走向老宅","next":"huimen_paper_doll_warning"}),createChoice({"text":"那个空位上的纸人，脸画得很像自己","next":"huimen_exp_paper_doll_alt"}),createChoice({"text":"拆开纸人，检查里面藏着什么","next":"investigate_paper_dolls"}),createChoice({"text":"摸出护身符挡在纸人面前","next":"use_talisman_ghost","condition":{"hasItem":"护身符"},"hidden":true})]})
 };

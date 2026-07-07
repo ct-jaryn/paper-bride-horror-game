@@ -44,7 +44,7 @@ export const scenes = {
 
 稳婆点点头，磕了一个头，磕得很重，地上裂开一道缝。她化作一缕青烟，慢慢飘向井的方向。
 
-你感到屋里的药味淡了许多，那盏黑火的长明灯也跳了一下，亮了一些。`,effects:{"sanity":5,"yin":-10,"setFlag":"huimen_exp2_midwife_released"},choices:[createChoice({"text":"把稳婆的忏悔录下来带出村子","ending":"huimen_exp2_ending_midwife_secret","effects":{"yin":-5}}),createChoice({"text":"去井边看秀兰","next":"huimen_exp2_riverbank","effects":{"yin":1}}),createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+你感到屋里的药味淡了许多，那盏黑火的长明灯也跳了一下，亮了一些。`,effects:{"sanity":5,"yin":-10,"setFlag":"huimen_exp2_midwife_released"},choices:[createChoice({"text":"把稳婆的忏悔记在心里，带出村子","ending":"huimen_exp2_ending_midwife_secret","effects":{"yin":-5}}),createChoice({"text":"去井边看秀兰","next":"huimen_exp2_riverbank","effects":{"yin":1}}),createChoice({"text":"回村街","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp2_midwife_seal: createScene('huimen_exp2_midwife_seal', {title:'夺符',text:`你用力掰开稳婆的手。她的手指硬得像铁，你掰得指甲都翻了，血渗出来，才把她的手指一根一根掰开。
 
 黄符一离开她的手，就自己燃烧起来。火光不是红的，是白的，白得刺眼。火光里，一个婴儿的虚影浮现出来，哇哇大哭，哭声尖锐，像是要把屋顶掀翻。

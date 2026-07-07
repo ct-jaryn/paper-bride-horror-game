@@ -19,7 +19,7 @@ export const scenes = {
 
 字是用毛笔写的，墨很浓，最后一笔拖得很长，像是写到一半手抖了。
 
-你把照片贴在胸口，照片是凉的，凉得像井底的水。`,effects:{"sanity":-8,"yin":3,"setFlag":"huimen_exp2_opened_red_coffin_again"},choices:[createChoice({"text":"把照片给秀兰","next":"huimen_exp2_red_coffin_photo","effects":{"yin":-5}}),createChoice({"text":"把嫁衣收好","next":"huimen_exp_village_street","effects":{"yin":1,"addItem":"红棺中的嫁衣"}})]}),
+你把照片贴在胸口，照片是凉的，凉得像井底的水。`,effects:{"sanity":-8,"yin":3,"setFlag":"huimen_exp2_opened_red_coffin_again"},choices:[createChoice({"text":"把照片给秀兰","next":"huimen_exp2_red_coffin_photo","effects":{"yin":-5,"addItem":"红棺中的照片"}}),createChoice({"text":"把嫁衣收好","next":"huimen_exp_village_street","effects":{"yin":1,"addItem":"红棺中的嫁衣"}})]}),
     huimen_exp2_red_coffin_photo: createScene('huimen_exp2_red_coffin_photo', {title:'照片',text:`你拿着照片，爬出井口，走到那口老井边。井栏上爬满青苔，井水黑沉沉的，像一只闭着的眼。
 
 你对着井说："秀兰，你看。"
@@ -36,5 +36,5 @@ export const scenes = {
 
 "那我不怪他了。" 她终于说。
 
-她的身影慢慢沉下去，井水恢复平静。你低头看照片，照片上的秀兰似乎也笑了一下。`,effects:{"sanity":10,"yin":-10,"removeItem":"红棺中的嫁衣"},choices:[createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}})]})
+她身影慢慢沉下去，井水恢复平静。你低头看照片，照片上的秀兰似乎也笑了一下。`,effects:{"sanity":10,"yin":-10,"removeItem":"红棺中的照片"},choices:[createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}})]})
 };

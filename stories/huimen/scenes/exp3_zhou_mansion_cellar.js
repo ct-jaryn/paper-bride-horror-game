@@ -48,11 +48,11 @@ export const scenes = {
 
 鞋面绣着并蒂莲，针脚细密，是秀兰的手艺。莲叶上的露珠都绣出来了，圆圆的一颗，像是真的要滚下来。鞋里塞着一张纸条，纸条折得很小，折了四折，边角都被磨毛了。
 
-你展开纸条，上面写着一行字，是英文：
+你展开纸条，上面写着一行字：
 
-[faded]"waiting for the one who remembers"[/faded]
+[faded]"等那个记得我的人来"[/faded]
 
-你认出这是秀兰留的。她识字不多，这几个英文是跟戏班子的人学的，写得很歪，却写得很认真。
+你认出这是秀兰留的。她识字不多，这几个字写得歪，却写得很认真。
 
 她把一只鞋留在这里，作为还没被完全吞没的证据。`,effects:{"sanity":3,"yin":-2,"addItem":"秀兰的绣花鞋"},choices:[createChoice({"text":"把鞋收好，继续探索","next":"huimen_exp3_zhou_mansion_cellar_deep","effects":{"yin":1}})]}),
     huimen_exp3_zhou_mansion_cellar_burn: createScene('huimen_exp3_zhou_mansion_cellar_burn', {title:'地窖焚纸',text:`火从最近的纸人开始烧起，很快蔓延到所有小棺材。

@@ -17,7 +17,7 @@ export const scenes = {
 
 [red]你终于听到了真相：周家的兴旺，是踩着女人的尸骨堆起来的。[/red]
 
-"那周家就完了。"你说，一字一顿，"从今天起，周家不再靠女人续命。"`,effects:{"sanity":-10,"yin":5},choices:[createChoice({"text":"用族谱和她们谈判","next":"huimen_exp_final_choice","condition":{"hasItem":"周家秘录"},"effects":{"yin":-5}}),createChoice({"text":"直接冲过去","ending":"huimen_exp_ancestor_judge","effects":{"sanity":-10,"yin":5}})]}),
+"那周家就完了。"你说，一字一顿，"从今天起，周家不再靠女人续命。"`,effects:{"sanity":-10,"yin":5},choices:[createChoice({"text":"用族谱和她们谈判","next":"huimen_exp_final_choice","condition":{"hasItem":"周家秘录"},"effects":{"yin":-5}}),createChoice({"text":"无视警告，带秀兰走","ending":"huimen_exp_ancestor_judge","effects":{"sanity":-10,"yin":5}})]}),
     huimen_exp_final_choice: createScene('huimen_exp_final_choice', {title:'抉择',text:`你掏出周家秘录，当着所有祖先的面，"嘶啦"一声撕下了记载女子罪名的那一页。
 
 "周家的债，我来还。"你说，"但你们欠她们的清白，我现在就还给她们。"

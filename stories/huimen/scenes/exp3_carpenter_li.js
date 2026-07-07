@@ -104,7 +104,7 @@ export const scenes = {
 
 秀兰看着他，眼泪无声地流进井水。她说："你已经做得够多了。"
 
-[faded]她在井里等了三十年，等的不是道歉，是这一句"护不住你"。[/faded]`,effects:{"sanity":8,"yin":-3,"setFlag":"huimen_exp3_carpenter_at_well"},choices:[createChoice({"text":"让他锯断老槐树","next":"huimen_exp3_carpenter_li_saw_tree","condition":{"hasItem":"李木匠的锯"},"effects":{"sanity":5,"yin":-3}})]}),
+[faded]她在井里等了三十年，等的不是道歉，是这一句"护不住你"。[/faded]`,effects:{"sanity":8,"yin":-3,"addItem":"李木匠的锯","setFlag":"huimen_exp3_carpenter_at_well"},choices:[createChoice({"text":"让他锯断老槐树","next":"huimen_exp3_carpenter_li_saw_tree","condition":{"hasItem":"李木匠的锯"},"effects":{"sanity":5,"yin":-3}})]}),
     huimen_exp3_carpenter_li_promise: createScene('huimen_exp3_carpenter_li_promise', {title:'木匠承诺',text:`李木匠看着你，眼里第一次有了光。
 
 那光很淡，淡得像井底的一点磷火。可它确实在亮，亮在他浑浊的眼里，亮在他干枯的脸上。

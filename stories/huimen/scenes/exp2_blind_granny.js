@@ -44,7 +44,7 @@ export const scenes = {
 
 她的手枯瘦，骨节凸起，像干柴。月琴一离开她的手，她就老了十岁，背塌下去，头垂到膝盖上。
 
-"我这辈子，就剩这一桩心愿了。" 她说，"你替我办了，我也能闭眼了。"`,effects:{"sanity":5,"yin":-5,"addItem":"盲婆婆的月琴"},choices:[createChoice({"text":"收下月琴","next":"huimen_exp2_blind_granny_house","effects":{"yin":1}}),createChoice({"text":"录下歌声","ending":"huimen_exp2_ending_grandma_song","effects":{"yin":-5}})]}),
+"我这辈子，就剩这一桩心愿了。" 她说，"你替我办了，我也能闭眼了。"`,effects:{"sanity":5,"yin":-5,"addItem":"盲婆婆的月琴"},choices:[createChoice({"text":"收下月琴","next":"huimen_exp2_blind_granny_house","effects":{"yin":1}}),createChoice({"text":"把歌声记在心里","ending":"huimen_exp2_ending_grandma_song","effects":{"yin":-5}})]}),
     huimen_exp2_blind_granny_ask: createScene('huimen_exp2_blind_granny_ask', {title:'盲婆婆询问',text:`你问盲婆婆："秀兰是个什么样的人？"
 
 盲婆婆沉默了一会儿，屋里的豆油灯跳了一下，像是在替她喘气。

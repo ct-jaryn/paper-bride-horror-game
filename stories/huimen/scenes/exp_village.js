@@ -17,7 +17,7 @@ export const scenes = {
 
 这里没有时间。月亮永远停在东山之上，雾气里偶尔传来唢呐声，忽远忽近，凄厉得很。你知道这不是真实的世界，而是秀兰三十年怨念织出的网。
 
-但你没有立刻死去。这说明她还在等你做选择。`,effects:{"sanity":-5,"yin":2,"visual":"flicker","visualDuration":2000},choices:[createChoice({"text":"沿着村街往前走","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"贴着墙根，试图找到出路","next":"huimen_exp_village_map","effects":{"sanity":-3,"yin":2}}),createChoice({"text":"立刻回头，回老宅去","next":"huimen_exp_return_old_house","effects":{"yin":1}})]}),
+但你没有立刻死去。这说明她还在等你做选择。`,effects:{"sanity":-5,"yin":2,"visual":"flicker","visualDuration":2000},choices:[createChoice({"text":"沿着村街往前走","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"贴着墙根，试图找到出路","next":"huimen_exp_village_map","effects":{"sanity":-3,"yin":2}}),createChoice({"text":"试图寻找来时的路","next":"huimen_exp_village_loop_entry","effects":{"yin":1}})]}),
     huimen_exp_village_map: createScene('huimen_exp_village_map', {title:'村图',text:`你贴着墙根走，手指触到一块松动的墙砖，砖缝里渗着凉风。
 
 你抠出那块墙砖，后面藏着一个暗格，格子里卷着一张发黄的纸。你展开一看——纸上画着村子的地图。可那地图不是平面的，而是像人的脏腑一样盘绕着，弯弯绕绕。心脏位置标着一口井，胃的位置画着一栋纸扎铺，肝的位置是一座庙，肺的位置是周家祖祠。

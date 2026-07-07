@@ -69,7 +69,7 @@ export const scenes = {
 
 她顿了顿，又补了一句："她原本叫阿沅。"
 
-[red]王婆是村里唯一还记得阿沅名字的人。[/red]`,effects:{"sanity":-3,"yin":2,"setFlag":"huimen_exp3_knows_first_woman"},choices:[createChoice({"text":"问她第一个女子叫什么","next":"huimen_exp3_granny_wang_first_name","effects":{"yin":1}})]}),
+[red]王婆是村里唯一还记得阿沅名字的人。[/red]`,effects:{"sanity":-3,"yin":2,"setFlag":"huimen_exp3_knows_first_woman"},choices:[createChoice({"text":"问她第一个女子叫什么","next":"huimen_exp3_granny_wang_first_name","condition":{"noFlag":"huimen_exp3_knows_first_woman"},"effects":{"yin":1}})]}),
     huimen_exp3_granny_wang_first_name: createScene('huimen_exp3_granny_wang_first_name', {title:'第一个名字',text:`王婆凑近油灯，压低声音。
 
 油灯的火苗被她吹得一晃，照得她脸上皱纹更深了。她左看右看，确认没人偷听，才开口。

@@ -11,7 +11,7 @@ export const scenes = {
 
 台上没有演员。只有一件大红戏服在空中飘动，水袖自己挥舞，像是在表演。戏服是空的，里面没有人，却能做出每一个动作——甩袖、转身、亮相、回眸，一招一式，像是有个看不见的女子在穿它。
 
-台下坐着许多纸人观众。纸人是竹篾扎的，糊着白纸，脸上画着五官，整整齐齐地排成排，仰着头，像是在看一出好戏。它们一动不动，眼睛却都盯着台上。`,effects:{"sanity":-5,"yin":3},choices:[createChoice({"text":"上台","next":"huimen_exp2_old_theater_stage","effects":{"yin":3}}),createChoice({"text":"坐在纸人中间","next":"huimen_exp2_old_theater_audience","effects":{"yin":2}}),createChoice({"text":"问戏服是不是柳红","next":"huimen_exp2_old_theater_liu_hong","effects":{"yin":1}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"绕到戏台后面，看看后台的镜子","next":"huimen_exp2_theater_backstage","condition":{"flag":"xiulanMercy"},"hidden":true,"effects":{"yin":1}})]}),
+台下坐着许多纸人观众。纸人是竹篾扎的，糊着白纸，脸上画着五官，整整齐齐地排成排，仰着头，像是在看一出好戏。它们一动不动，眼睛却都盯着台上。`,effects:{"sanity":-5,"yin":3},choices:[createChoice({"text":"上台","next":"huimen_exp2_old_theater_stage","effects":{"yin":3}}),createChoice({"text":"坐在纸人中间","next":"huimen_exp2_old_theater_audience","effects":{"yin":2}}),createChoice({"text":"问戏服是不是柳红","next":"huimen_exp2_old_theater_liu_hong","condition":{"hasVisited":"huimen_exp2_graveyard"},"effects":{"yin":1}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"绕到戏台后面，看看后台的镜子","next":"huimen_exp2_theater_backstage","condition":{"flag":"xiulanMercy"},"hidden":true,"effects":{"yin":1}})]}),
     huimen_exp2_old_theater_stage: createScene('huimen_exp2_old_theater_stage', {title:'登台',text:`你走上戏台。台板是木的，每一步都"咯吱"地响，像是台板底下有人在替你数脚步。
 
 戏服立刻飘到你面前。水袖缠上你的脖子，凉得像水，却不像水那样湿。戏服里没有身体，却发出一个女子的声音，从戏服的领口里传出来：

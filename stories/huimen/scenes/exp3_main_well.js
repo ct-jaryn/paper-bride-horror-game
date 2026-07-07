@@ -35,7 +35,7 @@ export const scenes = {
 字是竖着写的，水珠一颗一颗往下淌，淌过的地方留下一道湿痕，像眼泪。
 
 [whisper]你背上忽然一沉，像是有人趴了上来，又很快轻了回去。[/whisper]`,effects:{"sanity":5,"yin":-2,"setFlag":"huimen_exp3_has_bones"},choices:[createChoice({"text":"寻找出路","next":"huimen_exp3_well_bottom_exit","effects":{"yin":1}})]}),
-    huimen_exp3_well_bottom_change_dress: createScene('huimen_exp3_well_bottom_change_dress', {title:`换衣`,text:`你从怀里取出那件粉色的嫁衣——是你在裁缝铺请刘姐连夜赶制的。
+    huimen_exp3_well_bottom_change_dress: createScene('huimen_exp3_well_bottom_change_dress', {title:`换衣`,text:`你从怀里取出那件粉色的嫁衣——不知从何时起，你怀里多了这件嫁衣，像是秀兰的念想化成了实物。
 
 粉色的布料在井底的红光里泛着暖色，像一捧被捧进坟墓的春光。你跪在骨架前，小心翼翼地替她脱下那件绣着井的红嫁衣。
 

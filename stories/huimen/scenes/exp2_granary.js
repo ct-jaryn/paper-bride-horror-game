@@ -60,7 +60,9 @@ export const scenes = {
 
 [red]最后一行刻得很浅，像是她已经没有力气了。字迹歪斜，最后一个"死"字拖得很长，一直拖到墙角，像一个人倒下去的影子。[/red]
 
-灯油快烧完了，火苗忽明忽暗。你听见墙里传来一阵细碎的哭声，像是字本身在哭。`,effects:{"sanity":-8,"yin":3,"setFlag":"huimen_exp2_saw_granary_words"},choices:[createChoice({"text":"把秀兰的头发和谷灰一起撒向风中","ending":"huimen_exp2_ending_granary_ash","condition":{"hasItem":"灶下的头发"},"effects":{"yin":-5}}),createChoice({"text":"在墙上刻\"我记住你了\"","next":"huimen_exp2_granary","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+灯油快烧完了，火苗忽明忽暗。你听见墙里传来一阵细碎的哭声，像是字本身在哭。
+
+你摸到墙角的谷灰里，缠着一缕头发——是秀兰的。`,effects:{"sanity":-8,"yin":3,"setFlag":"huimen_exp2_saw_granary_words"},choices:[createChoice({"text":"把秀兰的头发和谷灰一起撒向风中","ending":"huimen_exp2_ending_granary_ash","condition":{"hasItem":"灶下的头发"},"effects":{"yin":-5}}),createChoice({"text":"在墙上刻\"我记住你了\"","next":"huimen_exp2_granary","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"离开","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp2_granary_soul: createScene('huimen_exp2_granary_soul', {title:'谷魂',text:`你听见粮仓深处传来一声叹息，很长，很轻，像风穿过空谷。
 
 你循声走去，拨开一堆堆谷粒。谷粒在你脚下让开，像水一样分开，又在你身后合拢。你走了很久，走到谷堆中央，发现那里站着一个女子。

@@ -33,7 +33,7 @@ export const scenes = {
 
 "青石镇？"你想起村口旧报纸上的话。
 
-"是啊。"柳红说，声音低了下去，"周家的罪，不止这一个小山村。你若救秀兰，也救救我。把我的戏服带出村子，交给一个赶尸匠。他会懂。"`,effects:{"sanity":-5,"yin":3,"setFlag":"huimen_exp_met_liu_hong"},choices:[createChoice({"text":"答应她","next":"huimen_exp_village_street","effects":{"yin":1,"addItem":"柳红的戏服"}})]}),
+"是啊。"柳红说，声音低了下去，"周家的罪，不止这一个小山村。你若救秀兰，也救救我。把我的戏服带出村子，交给一个赶尸匠。他会懂。"`,effects:{"sanity":-5,"yin":3,"setFlag":"huimen_exp_met_liu_hong"},choices:[createChoice({"text":"答应她","next":"huimen_exp_village_street","effects":{"yin":1,"addItem":"柳红的戏服","setFlag":"promisedLiuHong"}})]}),
     huimen_exp_street_drum: createScene('huimen_exp_street_drum', {title:'鼓声',text:`你听见一声沉闷的鼓声。
 
 "咚——"
