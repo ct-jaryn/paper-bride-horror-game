@@ -55,6 +55,10 @@ export const StoryConfig = { /* 故事级配置 */ };      // 可选
   id: 'prologue',           // 唯一标识
   title: '归乡',            // 场景标题，显示在选择记录与调试中
   text: '祖母病逝……',      // 场景正文（支持 HTML）
+  textVariants: [           // 可选：状态感知补充文本
+    { condition: { flag: 'knowsTruth' }, text: '你如今知道了真相。' },
+    { condition: { hasItem: '铜钥匙' }, text: '铜钥匙在口袋里发烫。' }
+  ],
   effects: {                // 可选：进入场景时生效的数值/物品效果
     sanity: -5,
     addItem: '纸人碎片'     // 支持单个字符串或字符串数组
@@ -80,6 +84,7 @@ export const StoryConfig = { /* 故事级配置 */ };      // 可选
 | `id` | `string` | 是 | 场景唯一标识 |
 | `title` | `string` | 是 | 场景标题 |
 | `text` | `string` | 是 | 场景正文 |
+| `textVariants` | `Array<{condition, text}>` | 否 | 状态感知补充文本，满足 condition 的变体追加到 text 之后 |
 | `effects` | `object` | 否 | 进入场景时生效的数值/物品效果，`addItem` 和 `setFlag` 支持数组形式 |
 | `choices` | `Choice[]` | 否 | 玩家可选项 |
 | `condition` | `object/function` | 否 | 场景显示/进入条件 |
@@ -87,6 +92,25 @@ export const StoryConfig = { /* 故事级配置 */ };      // 可选
 | `cg` | `string` | 否 | CG 图片/占位 id |
 | `onEnter` | `function` | 否 | 进入场景时调用 |
 | `ending` | `string` | 否 | 进入后直接触发的结局 id |
+
+### textVariants 机制
+
+场景可包含 `textVariants` 数组，实现**状态感知场景文本**——玩家带着不同信息/物品回到同一场景时，描述会动态变化。
+
+```javascript
+createScene('village_street', {
+  title: '村街',
+  text: `青石板路湿漉漉的，纸钱在脚边打旋。`,
+  textVariants: [
+    { condition: { flag: 'knowsTruth' }, text: `你以不同的眼光看着这条街——秀兰走过的路，就在脚下。` },
+    { condition: { flag: 'restored_xiulan_name' }, text: `街口的纸钱不再飞舞，像是被什么安抚了。` },
+    { condition: { hasItem: '铜钥匙' }, text: `口袋里的铜钥匙在发烫。井底的红棺在等你。` }
+  ],
+  choices: [...]
+})
+```
+
+渲染顺序：基础 `text` → 匹配的 `textVariants`（逐条追加）→ `hallucination`（sanity<40 时）。`condition` 格式与 `choice.condition` 相同。
 
 ## 选择（Choice）结构
 
