@@ -21,7 +21,7 @@ export const scenes = {
 秀兰的眼泪落进井水里，井水第一次变得清澈。她伸出手，那只苍白的手穿过你的身体，你没有感到冷，而是感到一阵温暖。
 
 "那我跟你走。"她说，声音里带着一点笑，也带着一点哭。`,effects:{"sanity":15,"yin":-20,"setFlag":"xiulanMercy","addItem":"秀兰的嫁衣"},choices:[createChoice({"text":"准备安葬她","next":"huimen_prepare_burial","effects":{"yin":1}}),createChoice({"text":"先带她去见周家列祖列宗","next":"huimen_family_tree_confront","effects":{"yin":1}})]}),
-    huimen_prepare_burial: createScene('huimen_prepare_burial', {title:`备葬`,text:`天快亮了。
+    huimen_prepare_burial: createScene('huimen_prepare_burial', {title:`备葬`,text:`你向秀兰伸出手。"走，"你说，"我带你回家。"她的身影从井水里缓缓升起，落在你身边，像一缕被月光纺成的纱。天快亮了。
 
 东边的山头已经泛起一点鱼肚白，白得很淡，淡得像没睡醒的眼。你回到老宅，找出一身干净的白衣、一篮纸钱、一束从村口采来的野菊。
 

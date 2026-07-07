@@ -48,7 +48,7 @@ export const scenes = {
 "好看。"秀兰的声音在井壁间回荡，"比周家那件好看多了。"
 
 [red]她的声音里第一次有了笑意。[/red]`,effects:{"sanity":10,"yin":-5,"setFlag":"huimen_exp3_has_bones_dressed"},choices:[createChoice({"text":"带她离开井底","next":"huimen_exp3_well_bottom_exit","effects":{"yin":1}})]}),
-    huimen_exp3_well_bottom_exit: createScene('huimen_exp3_well_bottom_exit', {title:`井底出口`,text:`井底一侧的淤泥里，露出半扇石门。
+    huimen_exp3_well_bottom_exit: createScene('huimen_exp3_well_bottom_exit', {title:`井底出口`,text:`你扶起秀兰，向井壁走去。刚迈出几步，脚下的淤泥忽然一陷——井底一侧的淤泥里，露出半扇石门。
 
 石门被淤泥糊了一半，门上刻着："背井者出，负骨者归。"
 

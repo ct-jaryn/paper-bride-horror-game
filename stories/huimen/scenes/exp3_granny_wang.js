@@ -16,7 +16,7 @@ export const scenes = {
 一个沙哑的声音说："进来吧，外乡人。我等你很久了。"
 
 [whisper]那声音像是被砂纸磨过，又像是哭过太久留下的。[/whisper]`,effects:{"yin":1},choices:[createChoice({"text":"推门进去","next":"huimen_exp3_granny_wang_inside","effects":{"yin":1}}),createChoice({"text":"问她为什么等你","next":"huimen_exp3_granny_wang_ask","effects":{"yin":1}})]}),
-    huimen_exp3_granny_wang_inside: createScene('huimen_exp3_granny_wang_inside', {title:'王婆',text:`屋里很暗，只有灶上一盏油灯。
+    huimen_exp3_granny_wang_inside: createScene('huimen_exp3_granny_wang_inside', {title:'王婆',text:`你问出秀兰的名字。屋里很暗，只有灶上一盏油灯。
 
 油灯的火苗很小，小得像一粒豆，却把老婆婆的影子拉得老长，投在墙上，像一道弯曲的沟。屋里堆满了东西——草药、剪刀、针线、还有一堆红绳，红绳缠成一团，像一团乱麻。
 
