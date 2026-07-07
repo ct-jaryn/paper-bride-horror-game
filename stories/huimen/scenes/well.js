@@ -5,7 +5,7 @@
 import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 
 export const scenes = {
-    mirror_well: createScene('mirror_well', {title:'照魂镜',text:`你抓起井沿上的铜镜，对准井水。
+    mirror_well: createScene('mirror_well', {title:'照魂镜',text:`你捧起一捧井水，泼向手中的铜镜。水珠溅在镜面上，井水里的倒影开始扭曲。
 
 铜镜入手冰凉，比井边的湿石头还冷，背面布满铜锈，只有边缘还泛着一层暗淡的金光。镜面裂着三道缝，缝里渗着细细的水痕，像旧伤口没有收口。
 

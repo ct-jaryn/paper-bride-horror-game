@@ -25,7 +25,7 @@ export const scenes = {
 
 刚写完最后一个字，窗外的纸钱忽然不飞了。先前窗外"沙沙"飘的纸钱，像被人按了暂停，齐刷刷悬在半空，停了一息，又"哗"地全落了地。远处传来一声似有似无的叹息，很轻，像是从土里、从墙缝里、从族谱的纸页里一起透出来的。
 
-    你翻到最后一页时，几页纸突然脱落，碎成几片散在地上。`,effects:{"sanity":-10,"yin":-15,"setFlag":"restored_xiulan_name"},choices:[createChoice({"text":"把族谱带去找秀兰","next":"small_door"}),createChoice({"text":"把族谱烧了，重写一份","next":"huimen_exp_family_tree_alt"}),createChoice({"text":"族谱碎成几片，需要先拼起来","next":"family_tree_puzzle","condition":{"hasItem":"族谱碎片二"}})]}),
+    你翻到最后一页时，几页纸突然脱落，碎成几片散在地上。`,effects:{"sanity":-10,"yin":-15,"setFlag":"restored_xiulan_name"},choices:[createChoice({"text":"把族谱带去找秀兰","next":"huimen_family_tree_confront"}),createChoice({"text":"把族谱烧了，重写一份","next":"huimen_exp_family_tree_alt"}),createChoice({"text":"族谱碎成几片，需要先拼起来","next":"family_tree_puzzle","condition":{"hasItem":"族谱碎片二"}})]}),
     defend_family: createScene('defend_family', {title:'辩解',text:`你下意识说："那是三十年前的事了，和我没关系……"
 
 话一出口你就后悔了，可话已收不回来。井底的水"咔"地一声结了冰，从井心一路冻到井壁，冰面上裂开一道道细纹，像蛛网。

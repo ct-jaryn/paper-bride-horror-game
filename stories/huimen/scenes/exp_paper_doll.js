@@ -5,7 +5,7 @@
 import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 
 export const scenes = {
-    huimen_exp_paper_doll_craftsman: createScene('huimen_exp_paper_doll_craftsman', {title:'扎纸匠',text:`你压下心里的寒意，问老人："你为什么扎我的脸？"
+    huimen_exp_paper_doll_craftsman: createScene('huimen_exp_paper_doll_craftsman', {title:'扎纸匠',text:`你从屋顶跳下，挡在老人面前。他手中的纸人被风一吹，正面朝你转了过来。
 
 老人终于抬起头。他的眼眶里没有眼珠，只有两团干涸的墨渍，黑洞洞的，像两口枯井。
 

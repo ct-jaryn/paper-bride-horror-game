@@ -78,7 +78,7 @@ export const scenes = {
 
 你在树根处还发现了几枚铜钱，排成一个奇怪的图案。铜钱排成一个圈，圈里又排成一个十字，那是镇魂钱。铜钱很旧，旧得发绿，绿得像铜锈。
 
-你把这些东西都收了起来。`,effects:{"sanity":-8,"yin":10,"addItem":"镇魂铜钱","setFlag":"mulberry_investigated"},choices:[createChoice({"text":"把头发和红绳一起烧掉","next":"huimen_exp_mulberry_guard_alt"}),createChoice({"text":"在树下磕头","next":"huimen_exp_moonlit_grave"})]}),
+你把这些东西都收了起来。`,effects:{"sanity":-8,"yin":10,"addItem":"镇魂铜钱","setFlag":"mulberry_investigated"},choices:[createChoice({"text":"把头发和红绳一起烧掉","next":"huimen_exp_mulberry_release"}),createChoice({"text":"在树下磕头","next":"huimen_exp_mulberry_tree"})]}),
     investigate_ruins: createScene('investigate_ruins', {title:'戏台废墟调查',text:`你在青石戏台的废墟里翻找。
 
 戏台烧得很透，木梁都烧成炭了，炭黑得发亮。瓦砾里长着草，草长得比人高，一钻进去就扎一身。你拨开草，在烧焦的木梁下，压着半块残破的戏牌，上面写着"春香班"三个字。字是漆写的，漆已经剥落大半，却还能认出来。戏牌旁边有一支银簪子，簪头雕着一朵牡丹。牡丹雕得很细，连花蕊都雕出来了。

@@ -16,7 +16,7 @@ export const scenes = {
 你心头一紧。这庙不是供神的，是镇魂的。
 
 供桌上积着厚厚的灰，灰里埋着半支熄灭的香。你拿起那支香，香头上还残留着一点余温，像是刚熄不久。`,effects:{"sanity":-5,"yin":2,"addItem":"半支安神香"},choices:[createChoice({"text":"点燃安神香","next":"huimen_exp_burn_incense_scene","condition":{"hasItem":"打火机"},"effects":{"sanity":10,"yin":-10}}),createChoice({"text":"进内殿看看","next":"huimen_exp_temple_inner","effects":{"yin":2}}),createChoice({"text":"敲响庙钟","next":"huimen_exp_temple_bell","effects":{"sanity":-5,"yin":3}}),createChoice({"text":"跪在庙前祈愿","next":"huimen_exp_temple_pray","effects":{"yin":1}}),createChoice({"text":"离开，回村街","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"庙门后坐着一个敲木鱼的枯瘦老人","npc":"lao_zhou","npcNode":"start","effects":{"yin":1},"custom":true})]}),
-    huimen_exp_temple_inner: createScene('huimen_exp_temple_inner', {title:'庙内',text:`你走进内殿。
+    huimen_exp_temple_inner: createScene('huimen_exp_temple_inner', {title:'庙内',text:`你举着未燃尽的安神香走进内殿。香烟像活物一样往前钻，所到之处，棺材上的黄符自动剥落，露出底下漆黑的棺木。
 
 内殿里没有神像，只有一口竖着的棺材，黑漆漆的，靠墙而立。棺材上贴着密密麻麻的黄符，一层叠一层，符上的朱砂字已经褪色，变成暗红。
 

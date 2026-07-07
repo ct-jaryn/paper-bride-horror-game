@@ -5,7 +5,7 @@
 import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 
 export const scenes = {
-    ask_coffin: createScene('ask_coffin', {title:'喜丧',text:`二叔的笑容没有变，还是那副四平八稳的样子："喜丧嘛，你不懂。你祖母高寿，走的时候是笑着走的。"
+    ask_coffin: createScene('ask_coffin', {title:'喜丧',text:`你指着棺盖上的刻字质问二叔：'这是什么意思？周氏秀兰，未过门而亡——这就是你说的喜丧？'
 
 可堂屋里明明供着白幡、点着白烛，怎么算"喜"？你瞥了一眼那口黑漆棺材，棺材上贴的不是寿字，是大红"囍"字——这哪里是丧事的摆设。
 
@@ -61,7 +61,7 @@ export const scenes = {
 
 然后，她的头缓缓转向你，盖头跟着动，盖头下的阴影里传来一个年轻女子的声音，带着井水的回音：
 
-[whisper]"你终于……来娶我了。"[/whisper]`,effects:{"sanity":-40,"yin":15,"visual":"blood","visualDuration":3000},choices:[createChoice({"text":"盖上棺盖，转身就跑","next":"run_away_coffin","effects":{"sanity":-10}}),createChoice({"text":"双腿发软，动弹不得","next":"paralyzed","ending":"ghostMarriage"}),createChoice({"text":"伸手去掀她的红盖头","next":"huimen_xiulan_forgiveness"}),createChoice({"text":"查看她手上的金戒指","next":"huimen_xiulan_forgiveness"})]}),
+[whisper]"你终于……来娶我了。"[/whisper]`,effects:{"sanity":-40,"yin":15,"visual":"blood","visualDuration":3000},choices:[createChoice({"text":"盖上棺盖，转身就跑","next":"run_away_coffin","effects":{"sanity":-10}}),createChoice({"text":"双腿发软，动弹不得","next":"paralyzed","ending":"ghostMarriage"}),createChoice({"text":"伸手去掀她的红盖头","next":"huimen_observe_hall"}),createChoice({"text":"查看她手上的金戒指","next":"huimen_observe_hall"})]}),
     run_away_coffin: createScene('run_away_coffin', {title:'无处可逃',text:`你发疯似的冲向大门。
 
 可大门在你眼前"砰"地一声关上了，门闩没人动，自己落下来的。门板上贴满了黄符，符上的朱砂字像虫子一样蠕动，一笔一画地扭着，发出极轻的"沙沙"声。

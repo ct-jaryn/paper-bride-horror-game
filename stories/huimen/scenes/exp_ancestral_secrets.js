@@ -48,7 +48,7 @@ export const scenes = {
 祖祠开始崩塌，牌位一个个倒下，香炉翻倒，黄符自燃。你拼命跑出祖祠，身后是一片呛人的烟尘。
 
 [red]你毁了周家续命的根。[/red]`,effects:{"sanity":-10,"yin":10},ending:"huimen_exp_ending_paper_doll_burned"}),
-    huimen_exp_family_tree_alt: createScene('huimen_exp_family_tree_alt', {title:"新谱",text:`你把那本泛黄的周家族谱，扔进了火盆。
+    huimen_exp_family_tree_alt: createScene('huimen_exp_family_tree_alt', {title:"新谱",text:`你把那些族谱碎片扔进火盆，看着周家的字一行一行被火吞掉。
 
 火苗舔上书页，册子里每一页都写着周家男丁的名字，却没有一个女子。你看着它一点点烧成灰，火光映在你的脸上。
 

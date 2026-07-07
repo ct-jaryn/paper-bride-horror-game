@@ -20,8 +20,10 @@ export const scenes = {
 
 [whisper]"每年七月半，回来看我一眼。"[/whisper]
 
-[red]你意识到，这不是出口，是一个约定。[/red]`,effects:{"sanity":-5,"yin":2},choices:[createChoice({"text":"答应她","next":"huimen_exp_moonlit_escape","effects":{"sanity":3,"yin":-5}}),createChoice({"text":"拒绝，转身回村街","next":"huimen_exp_village_street","effects":{"yin":2}}),createChoice({"text":"答应她每年七月半回来看她","next":"huimen_exp_moon_pact_alt"})]}),
-    huimen_exp_moonlit_escape: createScene('huimen_exp_moonlit_escape', {title:"月下离村",text:`你答应了秀兰。
+[red]你意识到，这不是出口，是一个约定。[/red]`,textVariants: [
+    { condition: { hasVisited: 'huimen_exp_moonlit_bridge' }, text: `你跑过桥，脚下的路越来越窄，终于到了尽头。` }
+],effects:{"sanity":-5,"yin":2},choices:[createChoice({"text":"答应她","next":"huimen_exp_moonlit_escape","effects":{"sanity":3,"yin":-5}}),createChoice({"text":"拒绝，转身回村街","next":"huimen_exp_village_street","effects":{"yin":2}}),createChoice({"text":"答应她每年七月半回来看她","next":"huimen_exp_moon_pact_alt"})]}),
+    huimen_exp_moonlit_escape: createScene('huimen_exp_moonlit_escape', {title:"月下离村",text:`你做出了选择。身后的村子开始褪色，像一幅被水洇开的画。
 
 纸门轻轻打开，月光像水一样涌进来，铺了满地银白。你踏出门，发现自己站在村口的石板路上，身后是沉睡的山村。
 

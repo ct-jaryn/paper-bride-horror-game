@@ -37,7 +37,7 @@ export const scenes = {
 你是周家最后的血脉，也是周家最后的还债人。
 
 可你不再害怕。因为你渐渐明白了一件事——只要你不忘，那些亡魂就不会真正消失。他们活着时无人记得，死了被族谱除名，被朱砂划掉，被说成"不祥"。而你记得他们每一个的名字，这就是你这份债，唯一的还法。`,choices:[createChoice({"text":"接下这份债","ending":"hidden_zhouCurse"})]}),
-    huimen_exp_zhou_women_alt: createScene('huimen_exp_zhou_women_alt', {title:'女名墙',text:`你在老宅祠堂的最里头，找到了一面墙。
+    huimen_exp_zhou_women_alt: createScene('huimen_exp_zhou_women_alt', {title:'女名墙',text:`你让所有被遗忘的女子名字都被世人看见。名单在风中展开，像一面白色的旗。
 
 那面墙被白幔遮着，幔子积了三十年的灰，一掀，灰扑了一脸。墙上是密密麻麻的刻字，刀刻的，一笔一笔很深，刻进砖里：周氏秀兰、周氏柳红、周氏云袖……一个挨一个，排了满满一墙。每一个都是周家害过的女子，每一个名字下面都刻着卒年，最早的一个，能上溯到百年前。
 

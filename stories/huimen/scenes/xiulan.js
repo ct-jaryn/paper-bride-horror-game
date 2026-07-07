@@ -101,5 +101,5 @@ export const scenes = {
 
 你们来到无字碑前。碑脚的土坑已经挖好，坑壁还带着昨夜的雨气。你把嫁衣放进坑里，嫁衣落下时发出一声极轻的叹息，像有人终于躺了下来。你蹲下身，用手一捧一捧地埋上土，土从指缝里漏下去，凉丝丝的，一捧一捧，像在哄一个不肯睡的孩子。
 
-[red]这一刻，你回到了主线最温柔的结局。[/red]`,effects:{"sanity":10,"yin":-10},choices:[createChoice({"text":"继续主线","next":"huimen_prepare_burial","effects":{"yin":-5}})]})
+    [red]这一刻，你回到了主线最温柔的结局。[/red]`,effects:{"sanity":10,"yin":-10},choices:[createChoice({"text":"继续主线","ending":"redemption","effects":{"yin":-5}})]})
 };

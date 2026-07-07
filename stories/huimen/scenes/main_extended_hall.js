@@ -6,7 +6,7 @@
 import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 
 export const scenes = {
-    huimen_observe_hall: createScene('huimen_observe_hall', {title:`堂前止步`,text:`你站在老宅堂屋门口，没有立刻进去。
+    huimen_observe_hall: createScene('huimen_observe_hall', {title:`堂前止步`,text:`你迈进堂屋，脚下的青砖发出空洞的回响。灵堂正中停着一口朱红棺材，棺上缠着红绳。
 
 堂屋里的光线很奇怪。两根红蜡烛的火焰不是黄色的，而是泛着青白色，像两团鬼火。火苗不跳，直直地烧着，烧得很稳，稳得不正常——像是被什么东西定住了。
 
@@ -27,7 +27,9 @@ export const scenes = {
 
 "跪下吧。"二叔说，声音很平，"给你祖母磕个头。"
 
-可你知道，棺材里躺着的，可能不是祖母。`,effects:{"sanity":-12,"yin":4},choices:[createChoice({"text":"问为什么棺材上贴囍字","next":"ask_coffin","effects":{"yin":1}}),createChoice({"text":"走近棺材看一眼","next":"huimen_coffin_inspection","effects":{"sanity":-5,"yin":2}}),createChoice({"text":"观察亲戚们的手腕红绳","next":"observe_red_strings","effects":{"sanity":-8,"yin":2}})]}),
+可你知道，棺材里躺着的，可能不是祖母。`,textVariants: [
+    { condition: { hasVisited: 'huimen_coffin_inspection' }, text: `你绕回棺前，手按在冰凉的棺盖上。刚才看到的刻字还在脑中发烫。` }
+],effects:{"sanity":-12,"yin":4},choices:[createChoice({"text":"问为什么棺材上贴囍字","next":"ask_coffin","effects":{"yin":1}}),createChoice({"text":"走近棺材看一眼","next":"huimen_coffin_inspection","effects":{"sanity":-5,"yin":2}}),createChoice({"text":"观察亲戚们的手腕红绳","next":"observe_red_strings","effects":{"sanity":-8,"yin":2}})]}),
     huimen_coffin_inspection: createScene('huimen_coffin_inspection', {title:`棺侧`,text:`你绕到棺材侧面，发现棺盖上刻着一行小字。
 
 字刻得很细，不仔细看几乎看不见。你凑近了看，借着烛光辨认：

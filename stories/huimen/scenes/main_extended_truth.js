@@ -6,7 +6,7 @@
 import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 
 export const scenes = {
-    huimen_red_coffin_discovery: createScene('huimen_red_coffin_discovery', {title:`井底红棺`,text:`你跌跌撞撞冲到后院，井沿上的铜镜碎片在月光下泛着冷光。
+    huimen_red_coffin_discovery: createScene('huimen_red_coffin_discovery', {title:`井底红棺`,text:`你喘了口气，重新抓起井绳滑了下去。井底的红棺还在，红绳和铜钱在幽暗中泛着旧光。
 
 碎片很碎，碎成十几片，散在井沿四周。每一片都映着一弯残月，残月在碎片里晃，像在碎玻璃里游泳。
 
@@ -33,7 +33,7 @@ export const scenes = {
 
 [red]秀兰不是病死的。她是被周家活埋的。[/red]
 
-而那个周家少爷，正是你的祖父。你胸口那颗红痣突然发烫，像是某种烙印在回应这段血债。`,effects:{"sanity":-15,"yin":5,"setFlag":"knowsTruth"},choices:[createChoice({"text":"回老宅找族谱","next":"huimen_seek_evidence","effects":{"yin":1}}),createChoice({"text":"去井底开棺，带她走","next":"huimen_red_coffin_discovery","effects":{"yin":2}}),createChoice({"text":"在碑前发誓为她正名","next":"swear_justice","effects":{"sanity":5,"yin":-5,"setFlag":"xiulanMercy"}})]}),
+而那个周家少爷，正是你的祖父。你胸口那颗红痣突然发烫，像是某种烙印在回应这段血债。`,effects:{"sanity":-15,"yin":5,"setFlag":"knowsTruth"},choices:[createChoice({"text":"回老宅找族谱","next":"huimen_seek_evidence","effects":{"yin":1}}),createChoice({"text":"喘口气，再下一次井，把她接上来","next":"huimen_red_coffin_discovery","effects":{"yin":2}}),createChoice({"text":"在碑前发誓为她正名","next":"swear_justice","effects":{"sanity":5,"yin":-5,"setFlag":"xiulanMercy"}})]}),
     huimen_seek_evidence: createScene('huimen_seek_evidence', {title:`寻证`,text:`你悄悄摸进老宅东厢房。
 
 厢房很暗，窗户被布帘遮得严严实实。你摸黑找到樟木箱，箱盖很沉，掀开时"嘎吱"一声，像是一只老兽在呻吟。樟木的香扑出来，香里压着一股陈年的霉。

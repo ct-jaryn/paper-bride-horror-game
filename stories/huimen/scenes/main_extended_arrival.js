@@ -50,7 +50,7 @@ export const scenes = {
 你不敢回头。你知道，秀兰就在你身后某处，或许在井底，或许在纸人里，或许就在你脚下的影子里。
 
 老宅的轮廓出现在雾气中，门口那盏红灯笼亮得刺眼。那红，红得像血，红得像嫁衣。`,effects:{"sanity":-5,"yin":3},choices:[createChoice({"text":"继续走向老宅","next":"huimen_paper_doll_warning","effects":{"yin":1}}),createChoice({"text":"绕到后院看看","next":"huimen_exp_village_street","effects":{"yin":2}}),createChoice({"text":"站在原地，等秀兰现身","next":"huimen_paper_doll_warning","condition":{"flag":"knowsTruth"},"effects":{"sanity":-5,"yin":3}})]}),
-    huimen_old_house_gate: createScene('huimen_old_house_gate', {title:`老宅门前`,text:`你终于来到周家老宅门前。
+    huimen_old_house_gate: createScene('huimen_old_house_gate', {title:`老宅门前`,text:`纸人沉默片刻，墨点眼睛齐刷刷望向老宅方向。你顺着它们的目光，来到周家老宅门前。
 
 门没有关严，留着一条缝。缝里透出青白色的烛光，还有一股纸钱和檀香混合的味道。那味道浓得呛鼻，闻久了让人头晕。门板上贴着一张黄符，符上写着你的生辰八字——是你的，不是别人的。
 
