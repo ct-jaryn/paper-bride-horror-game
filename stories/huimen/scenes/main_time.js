@@ -42,7 +42,7 @@ export const scenes = {
 你只剩下寅时之前的这段时间了。`,effects:{"time":60,"setFlag":"shichen_chou","sanity":-5},choices:[createChoice({"text":"去祠堂查族谱","next":"huimen_exp_ancestral_hall"}),createChoice({"text":"去纸扎铺找线索","next":"huimen_exp_paper_shop"}),createChoice({"text":"去井底开棺","next":"approach_coffin"})]}),
     shichen_yin_entry: createScene('shichen_yin_entry', {title:'寅时 · 黎明之前',text:`天边泛起一丝极淡的鱼肚白，但山村依然笼罩在浓雾里。
 
-那白很淡，淡得像一缕烟，淡得你不仔细看就看不见。可它确实在，在东边的山头上，一点点往外渗。浓雾却还压着村子，压得很低，低得你能摸到雾，雾是凉的，凉得像井水。
+那白很淡，淡得像一缕烟，淡得你不仔细看就看不见。可它确实在，在东边的山头上，一点点往外渗。浓雾却还压着村子，压得很低，低得你能摸到雾，雾是凉的，凉得像没晒过太阳的棺材板。
 
 [faded]寅时，是一夜中最黑暗的时刻，也是离黎明最近的时刻。[/faded]
 

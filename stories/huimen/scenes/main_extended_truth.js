@@ -33,7 +33,7 @@ export const scenes = {
 
 [red]秀兰不是病死的。她是被周家活埋的。[/red]
 
-而那个周家少爷，正是你的祖父。你胸口那颗红痣突然发烫，像是某种烙印在回应这段血债。`,effects:{"sanity":-15,"yin":5,"setFlag":"knowsTruth"},choices:[createChoice({"text":"回老宅找族谱","next":"huimen_seek_evidence","effects":{"yin":1}}),createChoice({"text":"喘口气，再下一次井，把她接上来","next":"huimen_red_coffin_discovery","effects":{"yin":2}}),createChoice({"text":"在碑前发誓为她正名","next":"swear_justice","effects":{"sanity":5,"yin":-5,"setFlag":"xiulanMercy"}})]}),
+而那个周家少爷，正是你的祖父。你胸口忽然一烫，像有人用烧红的针尖按在那颗红痣上。你小时候祖母说过，周家男丁都有这样一颗痣，你却从没放在心上。此刻那句话记得格外清楚，清晰得像是她在耳边又念了一遍。`,effects:{"sanity":-15,"yin":5,"setFlag":"knowsTruth"},choices:[createChoice({"text":"回老宅找族谱","next":"huimen_seek_evidence","effects":{"yin":1}}),createChoice({"text":"喘口气，再下一次井，把她接上来","next":"huimen_red_coffin_discovery","effects":{"yin":2}}),createChoice({"text":"在碑前发誓为她正名","next":"swear_justice","effects":{"sanity":5,"yin":-5,"setFlag":"xiulanMercy"}})]}),
     huimen_seek_evidence: createScene('huimen_seek_evidence', {title:`寻证`,text:`你悄悄摸进老宅东厢房。
 
 厢房很暗，窗户被布帘遮得严严实实。你摸黑找到樟木箱，箱盖很沉，掀开时"嘎吱"一声，像是一只老兽在呻吟。樟木的香扑出来，香里压着一股陈年的霉。

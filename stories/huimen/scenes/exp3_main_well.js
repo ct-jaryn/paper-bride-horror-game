@@ -43,6 +43,8 @@ export const scenes = {
 
 粉色嫁衣套上骨架时，井底忽然亮起一层柔和的光。那光不是从外面来的，是从骨殖里透出来的，暖暖的，像一盏被点亮的长明灯。
 
+井底红棺里的，是秀兰的真身；庙下石室里的，是她被分出去的那份怨魂凝成的影。三魂三分，身却只有一个。周家用井镇身，用庙镇怨，用桑树镇她最后一缕未散的生念。
+
 "好看。"秀兰的声音在井壁间回荡，"比周家那件好看多了。"
 
 [red]她的声音里第一次有了笑意。[/red]`,effects:{"sanity":10,"yin":-5,"setFlag":"huimen_exp3_has_bones_dressed"},choices:[createChoice({"text":"带她离开井底","next":"huimen_exp3_well_bottom_exit","effects":{"yin":1}})]}),

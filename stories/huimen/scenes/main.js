@@ -98,9 +98,7 @@ export const scenes = {
 
 你摇摇头，没有回答。你自己也说不清刚才去了哪里——一个藏在怨气里的村子，一个纸人游荡、白幡飘飞的村子，和这座老宅，明明是两个地方，又像是同一处的两面。
 
-[red]但现在，你回到了主线上。[/red]
-
-红烛还在烧，纸钱还在飘，秀兰还在等。而你，还有机会改变结局。`,effects:{"sanity":3,"yin":1},choices:[createChoice({"text":"继续主线","next":"to_old_house","effects":{"yin":1}})]}),
+[red]身后的村街像退潮一样远去，纸钱、白灯笼、纸人，都渐渐模糊。那股萦绕鼻端的香灰味淡了，取而代之的是老宅陈年桐油和樟木的气味。红烛还在烧，纸钱还在飘，秀兰还在等。而你，还有机会改变结局。[/red]`,effects:{"sanity":3,"yin":1},choices:[createChoice({"text":"回到老宅正堂","next":"to_old_house","effects":{"yin":1}})]}),
     huimen_exp_burn_incense_scene: createScene('huimen_exp_burn_incense_scene', {title:'燃香',text:`你摸出打火机，点燃了那半支安神香。
 
 香是半截的，断口参差，香芯发黑，看着像被人掰断又塞回去过。打火机火苗一舔香头，那截香"嗤"地一声就着了，冒出一缕青烟。

@@ -9,7 +9,16 @@ export const scenes = {
 
 那一僵只有一瞬，可你看得清清楚楚——她脸上那层画上去似的喜气"咔"地碎开一道缝，底下露出的，是真正的、活了几十年的那张老脸。
 
-"秀兰？" 她的声音忽然变得很轻，压得极低，像是怕被井里的、风里的、纸人里的什么东西听见，"秀兰是你祖父未过门的媳妇。三十年前，她和你祖父有了私情，还怀了孩子。周家嫌她败坏门风，把她活埋在井底，对外只说得了急病。"
+"秀兰？" 她的声音忽然变得很轻，压得极低，像是怕被井里的、风里的、纸人里的什么东西听见，"秀兰是你祖父年轻时候的……那姑娘命不好。井底冷，她一个人喊了三十年。"`,effects:{"sanity":-10,"yin":5},choices:[createChoice({"text":"她到底是谁？","next":"ask_xiulan_who"})]}),
+    ask_xiulan_who: createScene('ask_xiulan_who', {title:'李婆的秘密 · 姻缘',text:`李婆没立刻回答。她抬头望了望井的方向，像是要确认那口井还在原地，井里的东西没跟出来。
+
+"周家祖上定的娃娃亲，"她终于开口，声音低得几乎被风吹散，"没等过门就出了事。你祖父……他护不住她。"`,choices:[createChoice({"text":"她怎么死的？","next":"ask_xiulan_how"})]}),
+    ask_xiulan_how: createScene('ask_xiulan_how', {title:'李婆的秘密 · 死法',text:`李婆的嘴唇抖了一下，像是那三个字在她嘴里搁了三十年，早已生了锈。
+
+"周家嫌她败坏门风。她和你祖父有了私情，肚子里还怀了一个。周家把她活埋在井底，对外只说得了急病。"`,choices:[createChoice({"text":"孩子呢？","next":"ask_xiulan_child"})]}),
+    ask_xiulan_child: createScene('ask_xiulan_child', {title:'李婆的秘密 · 婴灵',text:`李婆的眼神躲开了你。
+
+"孩子没保住。那口井从那时起就不干净。"
 
 她的话没说完。一阵冷风卷着纸钱"啪"地扑到她脸上，她连忙低下头，用袖口擦了擦并不存在的眼泪，肩膀一抖一抖的。你分不清她是真的在哭，还是在掩饰刚才那一瞬的失态。
 
@@ -27,7 +36,7 @@ export const scenes = {
 
 [whisper]那影子有三个头。[/whisper]
 
-一个高，一个矮，还有一个，很小很小，像是个还没足月的婴孩。`,effects:{"sanity":-10,"yin":5},choices:[createChoice({"text":"追上去继续问","next":"chase_li_po","danger":true}),createChoice({"text":"快步走向老宅","next":"huimen_after_li_po"})]}),
+一个高，一个矮，还有一个，很小很小，像是个还没足月的婴孩。`,choices:[createChoice({"text":"追上去继续问","next":"chase_li_po","danger":true}),createChoice({"text":"快步走向老宅","next":"huimen_after_li_po"})]}),
     bury_xiulan: createScene('bury_xiulan', {title:'安葬秀兰',text:`你抱着秀兰的嫁衣和孩子的骸骨，向后山走去。
 
 那具小小的骸骨轻得没有分量，捧在手里像捧着一捧碎掉的瓷器片，骨头又薄又脆，泛着发黄的白色。嫁衣叠在臂弯里，金线在晨光里一闪一闪，料子却冰得像井水浸过。
@@ -99,7 +108,5 @@ export const scenes = {
 
 "我等这句话，等了三十年。" 她没再说别的。
 
-你们来到无字碑前。碑脚的土坑已经挖好，坑壁还带着昨夜的雨气。你把嫁衣放进坑里，嫁衣落下时发出一声极轻的叹息，像有人终于躺了下来。你蹲下身，用手一捧一捧地埋上土，土从指缝里漏下去，凉丝丝的，一捧一捧，像在哄一个不肯睡的孩子。
-
-    [red]这一刻，你回到了主线最温柔的结局。[/red]`,effects:{"sanity":10,"yin":-10},choices:[createChoice({"text":"继续主线","ending":"redemption","effects":{"yin":-5}})]})
+你们来到无字碑前。碑脚的土坑已经挖好，坑壁还带着昨夜的雨气。你把嫁衣放进坑里，嫁衣落下时发出一声极轻的叹息，像有人终于躺了下来。`,effects:{"sanity":10,"yin":-10},choices:[createChoice({"text":"离开山村","ending":"redemption","effects":{"yin":-5}})]})
 };

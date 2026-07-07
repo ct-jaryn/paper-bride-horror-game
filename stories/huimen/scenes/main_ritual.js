@@ -28,7 +28,7 @@ export const scenes = {
 
 四种颜色撞在一起，刺得你眼睛发疼。红是喜，白是丧，黑是棺，囍是冥婚——这堂屋里，喜丧不分，生死不分。
 
-棺材前跪着几个人，是你的叔伯婶娘。他们听见脚步声，齐刷刷地转过头来。转头的动作很齐，齐得像被同一根线牵着的木偶。
+棺材前跪着几个人，是你的叔伯婶娘。他们听见脚步声，齐刷刷地转过头来。转头的动作很齐，齐得像一声令下同时抬头的鸟群。
 
 "回来啦。" 二叔说。
 
@@ -38,7 +38,7 @@ export const scenes = {
 
 他们的嘴角都向上弯着，露出同样的弧度，像是用同一把尺子量出来的。那笑是画的，画得很均匀，均匀得不像是人笑出来的。
 
-你注意到，他们每个人的手腕上，都系着一根红绳。红绳的另一端，消失在棺材下面。`,effects:{"sanity":-10,"yin":5,"visual":"flicker","visualDuration":3000},choices:[createChoice({"text":"迈进堂屋","next":"huimen_observe_hall"}),createChoice({"text":"走近棺材，想看祖母最后一眼","next":"huimen_observe_hall","danger":true}),createChoice({"text":"观察亲戚们的手腕红绳","next":"huimen_observe_hall","effects":{"sanity":-8}}),createChoice({"text":"你保持清醒，注意到烛火阴影里还有一个人","next":"shadow_in_corner","condition":{"sanityAbove":80},"hidden":true,"effects":{"sanity":-5}}),createChoice({"text":"你注意到堂屋侧门的门帘被风掀起，帘后不是后院，而是一条陌生的村街","next":"huimen_exp_village_loop_entry","condition":{"yinAbove":12},"hidden":true,"effects":{"sanity":-3,"yin":2}}),createChoice({"text":"把老宅的门换成一扇纸门","next":"huimen_exp_gate_of_paper_alt"}),createChoice({"text":"村街尽头有块石碑，刻着\"入村者三，出村者一\"","next":"huimen_exp3_loop_stone","condition":{"yinAbove":8},"hidden":true,"effects":{"yin":1}}),createChoice({"text":"子时将至，去井边看看","next":"shichen_zi_entry","condition":{"timeAfter":1350},"hidden":true,"effects":{"time":30}}),createChoice({"text":"不进灵堂，先调查老宅","next":"investigate_old_house"}),createChoice({"text":"先去西侧偏房歇一歇","next":"safe_house"}),createChoice({"text":"你已知真相，不愿惊动灵堂，悄悄潜回后院","next":"sneak_back_yard","condition":{"flag":"knowsTruth"},"hidden":true,"effects":{"yin":1}})],hallucination:'[whisper]棺材下面传来婴儿的啼哭声，但只持续了一秒。[/whisper]'}),
+你注意到，他们每个人的手腕上，都系着一根红绳。红绳的另一端，消失在棺材下面。`,effects:{"sanity":-10,"yin":5,"visual":"flicker","visualDuration":3000},choices:[createChoice({"text":"迈进堂屋","next":"huimen_observe_hall"}),createChoice({"text":"观察手腕上的红绳","next":"huimen_observe_hall","effects":{"sanity":-8}}),createChoice({"text":"不进灵堂，先去西侧偏房看看","next":"safe_house"}),createChoice({"text":"已知真相则潜回后院","next":"sneak_back_yard","condition":{"flag":"knowsTruth"},"hidden":true,"effects":{"yin":1}}),createChoice({"text":"子时已至，去井边","next":"shichen_zi_entry","condition":{"timeAfter":1380},"hidden":true,"effects":{"time":30}})],hallucination:'[whisper]棺材下面传来婴儿的啼哭声，但只持续了一秒。[/whisper]'}),
     talisman_against_rope: createScene('talisman_against_rope', {title:'符镇红绳',text:`你摸到胸口的护身符，那是离家时母亲塞给你的。
 
 符纸贴着皮肤，凉凉的，像一片湿叶子。你把护身符按在手腕上，冰凉的黄符纸贴着皮肤，发出淡淡的艾草香。那香很淡，淡得像一缕烟，却让那些原本像蛇一样朝你游来的红绳，像是被烫到一般，猛地缩了回去。
@@ -103,7 +103,7 @@ export const scenes = {
 
 "夫君……" 她说，声音甜甜的，甜得发腻，"你来了。"
 
-[scream]盖头下，是一张和你一模一样的脸。[/scream]`,effects:{"sanity":-50,"yin":20,"visual":"shake"},choices:[createChoice({"text":"尖叫着冲出门","next":"run_away_coffin"})]}),
+盖头滑落。你先看见下巴，然后是嘴唇——那唇色红得不自然。再往上看，眉眼的轮廓一寸寸熟悉起来，熟悉得让你想后退。最后你看清了整张脸。那脸白得像纸，却和你照镜子时一模一样。`,effects:{"sanity":-50,"yin":20,"visual":"shake"},choices:[createChoice({"text":"尖叫着冲出门","next":"run_away_coffin"})]}),
     pull_back_hand: createScene('pull_back_hand', {title:'扯黑发',text:`你用力一扯，手从水面上挣脱。
 
 扯的时候很用力，用力得你整个人都往后仰。可你带出来的不是井水，而是一团黑色的长发。长发缠在你的手腕上，越勒越紧，紧得你手腕都开始发紫。那头发是活的，会动，像一条黑色的蛇。

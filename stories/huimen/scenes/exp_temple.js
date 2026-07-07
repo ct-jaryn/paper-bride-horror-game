@@ -83,6 +83,8 @@ export const scenes = {
 
 [red]这是秀兰真正的尸骨。[/red]
 
+你盯着那具骸骨，忽然想起井底也有一口红棺。阿欢说过，秀兰的魂被分成了三份。那么这里有的，也许不是她完整的身子，而是她的一份怨气凝结成的"影骨"——是魂太重，压成了骨的形状。
+
 骸骨的怀里，紧紧抱着一个小小的布包。你小心打开布包，里面是一块已经发硬的桂花糕，还隐约闻得到一点甜香。`,effects:{"sanity":-10,"yin":3,"addItem":"秀兰的遗骨"},choices:[createChoice({"text":"把遗骨带出去安葬","next":"huimen_exp_return_bury_xiulan","effects":{"yin":-5}}),createChoice({"text":"把桂花糕留给井里的秀兰","next":"huimen_exp_temple_underground_cake","effects":{"sanity":5,"yin":-5}})]}),
     huimen_exp_temple_underground_cake: createScene('huimen_exp_temple_underground_cake', {title:'还糕',text:`你捧着那块发硬的桂花糕，来到井边。
 

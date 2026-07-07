@@ -40,7 +40,9 @@ export const scenes = {
 
 [red]祖母的棺材里，要配的是秀兰。[/red]
 
-棺材缝里渗出一点点暗红色的液体，你用手指抹了一点，凑到鼻尖闻了闻——不是血，是朱砂混着某种香料。那香料闻起来像桂花，又像檀香，闻久了让人头晕。这是冥婚的封棺仪式，意味着棺材里已经"住"了两个人。
+那暗红液体不是血，是朱砂混着香。锅里不是汤，是一锅凝固的桂花糕。
+
+你凑近闻了闻——桂花和檀香缠在一起，甜得发腻。祖母生前说过，给阴人封棺要朱砂画符，意思是棺材里'住'的不止一个。
 
 二叔的手搭在你肩上，手是凉的："别看了。看了，就更要成亲了。"`,effects:{"sanity":-15,"yin":5,"setFlag":"saw_coffin_inscription"},choices:[createChoice({"text":"推开棺盖看个究竟","next":"huimen_enter_coffin_room","effects":{"sanity":-10,"yin":3}}),createChoice({"text":"后退，先问清楚","next":"huimen_enter_coffin_room","effects":{"yin":1}}),createChoice({"text":"质问二叔这是什么意思","next":"ask_coffin","effects":{"sanity":-5,"yin":1}})]})
 };

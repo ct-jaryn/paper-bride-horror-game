@@ -17,7 +17,7 @@ export const StoryConfig = {
     defaultState: {
         sanity: 100,
         yin: 0,
-        time: 1200
+        time: 1260
     },
     defaultItems: ["打火机"]
 };

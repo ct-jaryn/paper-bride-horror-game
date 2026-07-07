@@ -7,7 +7,7 @@ import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 export const scenes = {
     investigate_old_house: createScene('investigate_old_house', {title:'老宅调查',text:`你决定暂时不进灵堂，而是在老宅四周细细查看。
 
-雨刚停，地上还湿着，每踩一脚都"咕叽"一声。老宅的院墙爬满了青苔，青苔软得像皮，摸上去凉得像井水。你绕着院墙走，脚下的泥路软得不像路，像踩在一块湿海绵上。
+雨刚停，地上还湿着，每踩一脚都"咕叽"一声。老宅的院墙爬满了青苔，青苔软得像皮，摸上去凉得像井沿青石。你绕着院墙走，脚下的泥路软得不像路，像踩在一块湿海绵上。
 
 院墙的青苔里嵌着半块碎瓷，瓷片上画着一个"囍"字，但"喜"字的下半部分被人用指甲抠掉了。抠痕很深，深得能看见青苔底下的砖，像有人一边抠一边哭，哭到没力气才停。窗台下有一小堆燃尽的纸灰，你用手拨开，灰是凉的，凉得发黏。灰里藏着一张烧焦的纸条，只剩几个字：
 
@@ -27,6 +27,8 @@ export const scenes = {
 [faded]"癸丑年七月初七，周氏秀兰。"[/faded]
 
 这是秀兰的八字。周家把她的八字封在纸人里，是要让她生生世世替周家挡灾。
+
+你忽然明白了：这是两回事。女纸人是"镇魂物"，用秀兰的头发和八字把她的一缕残魄锁在里面，让她生生世世替周家挡灾。而男纸人是"替命物"，周家男丁满三十就要扎一个，替他们去死、去成亲、去下井。一个是用来囚女人的魂，一个是用来换男人的命。
 
 你在纸人脚下还发现了一小截红绳，绳结是同心结，但被剪断了。断口很齐，剪的人手很稳，稳得像是早就下定了决心。`,effects:{"sanity":-15,"yin":10,"addItem":["断同心结红绳","秀兰生辰八字"],"setFlag":"paper_doll_investigated"},choices:[createChoice({"text":"烧掉这个纸人","next":"huimen_exp_burn_dolls_alt"}),createChoice({"text":"把红绳收好，走向老宅","next":"huimen_old_house_gate"})]}),
     investigate_well: createScene('investigate_well', {title:'井边调查',text:`你趴在井口，借着手电光往里看。
