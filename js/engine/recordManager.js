@@ -111,11 +111,13 @@ export function reviveAtCheckpoint(storyId) {
 
     const checkpoint = checkpoints[checkpoints.length - 1];
 
-    // 恢复状态到该选择之前
+    // 恢复状态到该选择之前，但确保脱离死亡线
+    const SAFE_SANITY_FLOOR = 30;
+    const SAFE_TIME_CEILING = 1800;
     updateState({
-        sanity: checkpoint.sanity,
+        sanity: Math.max(checkpoint.sanity, SAFE_SANITY_FLOOR),
         yin: 0,
-        time: checkpoint.time,
+        time: Math.min(checkpoint.time, SAFE_TIME_CEILING),
         inventory: checkpoint.inventory,
         flags: checkpoint.flags,
         currentScene: checkpoint.currentScene,

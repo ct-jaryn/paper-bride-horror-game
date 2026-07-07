@@ -8,9 +8,10 @@ import { emit } from './eventBus.js';
 import { screens, ui } from './dom.js';
 import * as SaveManager from './saveManager.js';
 import { escapeHtml } from './utils.js';
-import { getShichen, checkCondition, applyEffects } from './effectEngine.js';
+import { getShichen, checkCondition, applyEffects, checkGameOver } from './effectEngine.js';
 import { saveStoryState, patchGameState, pushToArray } from './state.js';
 import { makeChoice } from './recordManager.js';
+import { showEnding } from './endingManager.js';
 import { loadStory } from './storyLoader.js';
 import { Platform } from './platform.js';
 
@@ -244,6 +245,13 @@ export function renderScene(sceneId) {
     }
 
     applyEffects(scene.effects);
+
+    // 场景效果可能导致死亡，需检查
+    const forcedEnding = checkGameOver();
+    if (forcedEnding) {
+        showEnding(forcedEnding);
+        return;
+    }
 
     let text = scene.text;
     if (typeof text === 'function') {

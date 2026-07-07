@@ -46,6 +46,9 @@ jobs:
       - name: Test save manager
         run: node tools/test_save_manager.mjs
 
+      - name: Test revive logic
+        run: node tools/test_revive.mjs
+
       - name: Browser DOM smoke test
         run: NODE_PATH=$(npm root -g) node tools/test_browser_boot.cjs
 
