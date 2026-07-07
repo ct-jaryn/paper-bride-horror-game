@@ -22,7 +22,7 @@ export const scenes = {
 
 [faded]"愿兰妹新婚大喜，白头偕老。——周文"[/faded]
 
-[red]这是祖父为秀兰订做的嫁衣。他订做的时候，秀兰还活着，还怀着他的孩子。嫁衣做好了，秀兰却已经死了。嫁衣挂在这里，三十年，等着一个永远不会来穿它的新娘。[/red]`,effects:{"sanity":-5,"yin":2,"addItem":"秀兰的嫁衣（裁缝铺）"},choices:[createChoice({"text":"把嫁衣带给秀兰","next":"huimen_exp2_riverbank","effects":{"sanity":10,"yin":-10,"removeItem":"秀兰的嫁衣（裁缝铺）"}}),createChoice({"text":"收好","next":"huimen_exp2_tailor_shop","effects":{"yin":1}})]}),
+[red]这是祖父为秀兰订做的嫁衣。他订做的时候，秀兰还活着，还怀着他的孩子。嫁衣做好了，秀兰却已经死了。嫁衣挂在这里，三十年，等着一个永远不会来穿它的新娘。[/red]`,effects:{"sanity":-5,"yin":2,"addItem":"秀兰的嫁衣（裁缝铺）"},choices:[createChoice({"text":"把嫁衣带给秀兰","next":"huimen_exp2_riverbank","condition":{"hasItem":"秀兰的嫁衣（裁缝铺）"},"effects":{"sanity":10,"yin":-10,"removeItem":"秀兰的嫁衣（裁缝铺）"}}),createChoice({"text":"收好","next":"huimen_exp2_tailor_shop","effects":{"yin":1}})]}),
     huimen_exp2_tailor_scissors: createScene('huimen_exp2_tailor_scissors', {title:'剪刀',text:`你伸手，拿起那把缠着头发的剪刀。
 
 剪刀很沉，沉得不像一把剪刀，像吸了很多年的怨气。铁是凉的，凉得刺骨。你刚拿起它，就听见一个女子的声音，从剪刀里传来：
@@ -48,5 +48,5 @@ export const scenes = {
 
 剪刀"咔嚓"一声，布上的秀兰忽然动了。她朝你福了一福，姿态老旧，像是从前的女子。然后她从布上走下来，脚一沾地，就化作一道光，飞入你的怀中。
 
-"带我走。" 她说，声音很轻，"带我离开这卷布。我在这里躺了三十年，躺得腰都直不起来了。"`,effects:{"sanity":5,"yin":-5,"addItem":"布上的秀兰"},choices:[createChoice({"text":"带她去找秀兰","next":"huimen_exp2_riverbank","effects":{"sanity":10,"yin":-10,"removeItem":"布上的秀兰"}}),createChoice({"text":"收好","next":"huimen_exp2_tailor_shop","effects":{"yin":1}})]})
+"带我走。" 她说，声音很轻，"带我离开这卷布。我在这里躺了三十年，躺得腰都直不起来了。"`,effects:{"sanity":5,"yin":-5,"addItem":"布上的秀兰"},choices:[createChoice({"text":"带她去找秀兰","next":"huimen_exp2_riverbank","condition":{"hasItem":"布上的秀兰"},"effects":{"sanity":10,"yin":-10,"removeItem":"布上的秀兰"}}),createChoice({"text":"收好","next":"huimen_exp2_tailor_shop","effects":{"yin":1}})]})
 };

@@ -62,7 +62,7 @@ export const scenes = {
 
 [faded]"秀兰，民国二十三年中秋前夜，母子俱亡。"[/faded]
 
-[red]"母子俱亡"四个字，把两条命轻描淡写地抹去了。连一个字都不愿多给。[/red]`,effects:{"sanity":-10,"yin":3,"addItem":"稳婆的接生记录"},choices:[createChoice({"text":"把记录带给秀兰","next":"huimen_exp2_riverbank","effects":{"sanity":5,"yin":-5,"removeItem":"稳婆的接生记录"}}),createChoice({"text":"收好","next":"huimen_exp2_midwife_house","effects":{"yin":1}})]}),
+[red]"母子俱亡"四个字，把两条命轻描淡写地抹去了。连一个字都不愿多给。[/red]`,effects:{"sanity":-10,"yin":3,"addItem":"稳婆的接生记录"},choices:[createChoice({"text":"把记录带给秀兰","next":"huimen_exp2_riverbank","condition":{"hasItem":"稳婆的接生记录"},"effects":{"sanity":5,"yin":-5,"removeItem":"稳婆的接生记录"}}),createChoice({"text":"收好","next":"huimen_exp2_midwife_house","effects":{"yin":1}})]}),
     huimen_exp2_midwife_talk: createScene('huimen_exp2_midwife_talk', {title:'稳婆对话',text:`你对着稳婆的尸体说："秀兰的孩子，是周家欠她的。不是你的错，但你可以选择说出来。"
 
 尸体没有动，白布下面一片死寂。屋里的风停了，那盏黑火的长明灯也定住了，火苗不动。

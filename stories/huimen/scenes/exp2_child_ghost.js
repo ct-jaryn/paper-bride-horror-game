@@ -35,7 +35,7 @@ export const scenes = {
 
 "你拿着它，周家的人就不敢欺负你。" 她说完，退后一步，和其他孩子站成一排。
 
-他们一起朝你鞠了一躬，那个动作整齐得吓人，像是排练过很久。鞠完躬，他们的身影就淡了一些。`,effects:{"sanity":5,"yin":-5,"addItem":"鬼孩的眼泪"},choices:[createChoice({"text":"收好","next":"huimen_exp2_child_ghost_playground","effects":{"yin":1}}),createChoice({"text":"把它给秀兰","next":"huimen_exp2_riverbank","effects":{"sanity":5,"yin":-5,"removeItem":"鬼孩的眼泪"}})]}),
+他们一起朝你鞠了一躬，那个动作整齐得吓人，像是排练过很久。鞠完躬，他们的身影就淡了一些。`,effects:{"sanity":5,"yin":-5,"addItem":"鬼孩的眼泪"},choices:[createChoice({"text":"收好","next":"huimen_exp2_child_ghost_playground","effects":{"yin":1}}),createChoice({"text":"把它给秀兰","next":"huimen_exp2_riverbank","condition":{"hasItem":"鬼孩的眼泪"},"effects":{"sanity":5,"yin":-5,"removeItem":"鬼孩的眼泪"}})]}),
     huimen_exp2_child_ghost_wish: createScene('huimen_exp2_child_ghost_wish', {title:'愿望',text:`你问："你们想要什么？"
 
 孩子们安静下来。嬉笑声一下子没了，空地上静得能听见秋千绳的嘎吱声。

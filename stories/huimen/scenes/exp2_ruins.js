@@ -13,7 +13,7 @@ export const scenes = {
 
 纸偶的胸口贴着一张黄符，符上用朱砂写着秀兰的生辰八字。朱砂已经发黑，字却还认得出来。
 
-[red]这是周文扎的替身，想替秀兰受过。他扎了自己，烧了自己，想让秀兰的怨气消一些。可怨气没有消，反而更重了——秀兰恨的不是他。[/red]`,effects:{"sanity":-5,"yin":2,"addItem":"周文的纸偶"},choices:[createChoice({"text":"把纸偶烧了","next":"huimen_exp2_ruins_doll_burn","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"把纸偶给秀兰","next":"huimen_exp2_riverbank","effects":{"sanity":10,"yin":-10,"removeItem":"周文的纸偶"}})]}),
+[red]这是周文扎的替身，想替秀兰受过。他扎了自己，烧了自己，想让秀兰的怨气消一些。可怨气没有消，反而更重了——秀兰恨的不是他。[/red]`,effects:{"sanity":-5,"yin":2,"addItem":"周文的纸偶"},choices:[createChoice({"text":"把纸偶烧了","next":"huimen_exp2_ruins_doll_burn","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"把纸偶给秀兰","next":"huimen_exp2_riverbank","condition":{"hasItem":"周文的纸偶"},"effects":{"sanity":10,"yin":-10,"removeItem":"周文的纸偶"}})]}),
     huimen_exp2_ruins_doll_burn: createScene('huimen_exp2_ruins_doll_burn', {title:'废墟焚偶',text:`你点燃纸偶。
 
 纸偶是竹篾扎的，外面糊的宣纸，一点就着。火苗从胸口烧起来，先把黄符烧了，朱砂发出"滋滋"的声响，像血在煎。

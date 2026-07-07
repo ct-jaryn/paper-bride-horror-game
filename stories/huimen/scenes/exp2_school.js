@@ -38,7 +38,7 @@ export const scenes = {
 
 [faded]"今日偷听先生讲《木兰辞》，甚喜。愿天下女子，皆能如木兰，不必嫁人，不必死，可以自己选自己的路。"[/faded]
 
-[red]她也曾有过梦想。她梦想的不是嫁人，是读书，是走出去，是做一个像木兰一样的人。[/red]`,effects:{"sanity":-3,"yin":1,"addItem":"秀兰的课堂笔记"},choices:[createChoice({"text":"把笔记收好","next":"huimen_exp2_school","effects":{"yin":1}}),createChoice({"text":"把笔记带给秀兰","next":"huimen_exp2_riverbank","effects":{"sanity":5,"yin":-5,"removeItem":"秀兰的课堂笔记"}})]}),
+[red]她也曾有过梦想。她梦想的不是嫁人，是读书，是走出去，是做一个像木兰一样的人。[/red]`,effects:{"sanity":-3,"yin":1,"addItem":"秀兰的课堂笔记"},choices:[createChoice({"text":"把笔记收好","next":"huimen_exp2_school","effects":{"yin":1}}),createChoice({"text":"把笔记带给秀兰","next":"huimen_exp2_riverbank","condition":{"hasItem":"秀兰的课堂笔记"},"effects":{"sanity":5,"yin":-5,"removeItem":"秀兰的课堂笔记"}})]}),
     huimen_exp2_school_blackboard: createScene('huimen_exp2_school_blackboard', {title:'写字',text:`你拿起讲台上的粉笔。粉笔已经很短了，只剩一截，捏在手里刚刚好。
 
 你抬手，把黑板上的"女子无才便是德"擦掉。粉笔灰纷纷扬扬地落下来，像一场小小的雪。

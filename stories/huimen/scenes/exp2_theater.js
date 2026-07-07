@@ -27,7 +27,7 @@ export const scenes = {
 
 你唱得很难听，跑调，破音，可戏服没有嫌弃。它反而唱得更轻了，像是在迁就你。它越唱越轻，越唱越淡，水袖越挥越慢，最后像一缕烟一样，消散在月光里。
 
-台下响起一阵掌声。纸人观众们纷纷站起来，朝你鞠躬，鞠得很深，像是在谢幕。然后它们一个一个地化为灰烬，灰烬落在地上，像一地的雪。`,effects:{"sanity":10,"yin":-10,"setFlag":"huimen_exp2_sang_with_liu_hong"},choices:[createChoice({"text":"把柳红的戏服收好","next":"huimen_exp_village_street","effects":{"yin":1,"addItem":"柳红的戏服"}}),createChoice({"text":"让戏服随风散去","ending":"huimen_exp2_ending_theater_shadow","effects":{"yin":-5}})]}),
+台下响起一阵掌声。纸人观众们纷纷站起来，朝你鞠躬，鞠得很深，像是在谢幕。然后它们一个一个地化为灰烬，灰烬落在地上，像一地的雪。`,effects:{"sanity":10,"yin":-10,"setFlag":"huimen_exp2_sang_with_liu_hong"},choices:[createChoice({"text":"把这件戏服收好","next":"huimen_exp_village_street","effects":{"yin":1,"addItem":"柳红的戏服"}}),createChoice({"text":"让戏服随风散去","ending":"huimen_exp2_ending_theater_shadow","effects":{"yin":-5}})]}),
     huimen_exp2_old_theater_audience: createScene('huimen_exp2_old_theater_audience', {title:'观众席',text:`你在纸人中间找了个空位，坐下。纸人是冰凉的，你坐在它们中间，能感觉到它们的"看"——不是用眼看，是用整个身体在看。
 
 台上的戏服唱到高潮处，纸人们齐齐鼓掌。掌声干燥，"沙沙沙"，像一阵风穿过枯叶。
@@ -82,7 +82,7 @@ export const scenes = {
 
 盒底刻着两个字："柳红"。字是刻的，刻得很深，像是用发簪刻的。
 
-[red]这是柳红的胭脂。她死前用这个胭脂化妆，化到一半，就被抓走了。[/red]`,effects:{"sanity":-3,"yin":1,"addItem":"柳红的胭脂"},choices:[createChoice({"text":"把胭脂带给柳红的戏服","next":"huimen_exp2_old_theater","effects":{"sanity":5,"yin":-5,"removeItem":"柳红的胭脂"}}),createChoice({"text":"收好","next":"huimen_exp2_theater_backstage","effects":{"yin":1}})]}),
+[red]这是柳红的胭脂。她死前用这个胭脂化妆，化到一半，就被抓走了。[/red]`,effects:{"sanity":-3,"yin":1,"addItem":"柳红的胭脂"},choices:[createChoice({"text":"把胭脂带给柳红的戏服","next":"huimen_exp2_old_theater","condition":{"hasItem":"柳红的胭脂"},"effects":{"sanity":5,"yin":-5,"removeItem":"柳红的胭脂"}}),createChoice({"text":"收好","next":"huimen_exp2_theater_backstage","effects":{"yin":1}})]}),
     huimen_exp2_theater_makeup_help: createScene('huimen_exp2_theater_makeup_help', {title:'完妆',text:`你拿起眉笔，帮镜中的柳红画完剩下的妆。
 
 你的手穿过镜面，却像穿过水一样，没有阻力。柳红的脸渐渐清晰，从一团白影变成一个清秀的女子——眉如远山，眼含秋水，唇点朱砂。

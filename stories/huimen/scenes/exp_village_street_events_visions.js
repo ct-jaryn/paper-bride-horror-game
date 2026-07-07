@@ -64,7 +64,7 @@ export const scenes = {
 
 [whisper]"接一张吧。"[/whisper]她说，声音又尖又细，"这是周家的规矩，过路的客人都要接一张喜钱，不接就是不给周家脸面。"
 
-你后退半步，纸钱从她指缝里漏下去，落了一地，每一张落地都"啪"地一声，轻得不像纸，倒像一片片烧硬的瓦。`,effects:{"sanity":-10,"yin":3},choices:[createChoice({"text":"拦住队伍","next":"huimen_exp_village_street_bride_parade_stop","effects":{"sanity":-5,"yin":3}}),createChoice({"text":"让开","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"带走柳红的嫁衣","next":"huimen_exp_bride_link_alt"})]}),
+你后退半步，纸钱从她指缝里漏下去，落了一地，每一张落地都"啪"地一声，轻得不像纸，倒像一片片烧硬的瓦。`,effects:{"sanity":-10,"yin":3},choices:[createChoice({"text":"拦住队伍","next":"huimen_exp_village_street_bride_parade_stop","effects":{"sanity":-5,"yin":3}}),createChoice({"text":"让开","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"带走轿中女子的嫁衣","next":"huimen_exp_bride_link_alt","condition":{"flag":"huimen_exp2_met_liu_hong_dress"}})]}),
     huimen_exp_village_street_bride_parade_stop: createScene('huimen_exp_village_street_bride_parade_stop', {title:"拦轿",text:`你冲到轿子前，一把掀开轿帘。
 
 里面的女子抬起头，红盖头滑落。她的脸和秀兰一模一样，眉眼清秀，但眼神空洞，像是一个被操控的傀儡，没有神采。

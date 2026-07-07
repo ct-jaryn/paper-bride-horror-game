@@ -77,7 +77,7 @@ export const scenes = {
 "我会保护你的。" 元宝的声音从你影子里传出来，闷闷的，像从被子底下说话，"纸人不敢靠近我了。它们怕我，我身上有秀兰姐姐的血脉。"
 
 你走出山村时，天边已经亮了。第一缕晨光铺在山路上，把雾染成淡金色。你的影子在地上拉得很长，那鼓出的一小块跟着你走，里面似乎藏着一个小小的、没出声的笑。`,effects:{"sanity":10,"yin":-10},ending:'huimen_exp_little_boy_friend'}),
-    huimen_exp_buy_face: createScene('huimen_exp_buy_face', {title:'换脸',text:`你接过纸脸，贴在脸上。
+    huimen_exp_buy_face: createScene('huimen_exp_buy_face', {title:'换脸',text:`你接过纸脸，贴在脸上。纸脸比你想的轻，像一层薄蝉翼，贴上后却有一种奇怪的吸附力。它在你的脸上慢慢展开，把你的五官一点点吞进去。
 
 那纸脸入手冰凉，比井沿的青石还冷，薄薄一层，背面涂着一层说不清的黏液，黏糊糊的，像血又不像血。你把它往脸上一按，纸脸"嘶"地一声，像活物一样吸住了你的皮肤。
 
@@ -87,7 +87,7 @@ export const scenes = {
 
 你低头看自己的手，想松口气。可你一眼就看见了——手腕上那根红绳还在，不但没松，反而勒得更紧了，紧得陷进皮肉里，皮肉翻起一圈红印。
 
-[red]脸可以换，债换不了。[/red]`,effects:{"sanity":-10,"yin":5,"setFlag":"huimen_exp_wearing_paper_face"},choices:[createChoice({"text":"把纸脸撕下来","next":"huimen_exp_village_street","effects":{"sanity":-5,"yin":-3,"removeItem":"纸脸"}}),createChoice({"text":"戴着纸脸继续走","next":"huimen_exp_village_street","effects":{"yin":2}})]}),
+[red]脸可以换，债换不了。[/red]`,effects:{"sanity":-10,"yin":5,"setFlag":"huimen_exp_wearing_paper_face"},choices:[createChoice({"text":"把纸脸撕下来","next":"huimen_exp_village_street","condition":{"hasItem":"纸脸"},"effects":{"sanity":-5,"yin":-3,"removeItem":"纸脸"}}),createChoice({"text":"戴着纸脸继续走","next":"huimen_exp_village_street","effects":{"yin":2}})]}),
     huimen_exp_return_old_house: createScene('huimen_exp_return_old_house', {title:'回老宅',text:`你深吸一口气，转身朝老宅走去。
 
 身后的村街像退潮一样远去，纸钱、白灯笼、纸人，都渐渐模糊，像隔着一层水在看。那股萦绕鼻端的香灰味淡了，取而代之的是老宅那种陈年桐油和樟木的气味。

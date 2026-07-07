@@ -46,7 +46,7 @@ export const scenes = {
 
 这是秀兰给孩子做的鞋。鞋还没做完，左脚的虎头绣好了，右脚的虎头只绣了一半。
 
-你把鞋捧在手里，感到一阵刺骨的冷，从掌心一直冷到心口。`,effects:{"sanity":-5,"yin":2,"addItem":"粮仓里的虎头鞋"},choices:[createChoice({"text":"把鞋带给秀兰","next":"huimen_exp2_riverbank","effects":{"sanity":10,"yin":-10,"removeItem":"粮仓里的虎头鞋"}}),createChoice({"text":"收好","next":"huimen_exp2_granary","effects":{"yin":1}})]}),
+你把鞋捧在手里，感到一阵刺骨的冷，从掌心一直冷到心口。`,effects:{"sanity":-5,"yin":2,"addItem":"粮仓里的虎头鞋"},choices:[createChoice({"text":"把鞋带给秀兰","next":"huimen_exp2_riverbank","condition":{"hasItem":"粮仓里的虎头鞋"},"effects":{"sanity":10,"yin":-10,"removeItem":"粮仓里的虎头鞋"}}),createChoice({"text":"收好","next":"huimen_exp2_granary","effects":{"yin":1}})]}),
     huimen_exp2_granary_light: createScene('huimen_exp2_granary_light', {title:'粮仓点灯',text:`你在墙角找到一盏油灯，灯里的油还剩半盏。你用打火机点了几次才点着，火苗跳了跳，稳住。
 
 火光里，粮仓的墙壁上浮现出许多字，都是秀兰用指甲刻的，刻得很深，一笔一画，像是要把字嵌进墙里。

@@ -70,7 +70,7 @@ export const scenes = {
 
 [red]秀兰连来生取暖的愿望，都这么小。她不求富贵，不求长寿，只求一把火。[/red]
 
-你把头发捧在手里，头发是凉的，凉得像井水。`,effects:{"sanity":-5,"yin":2,"addItem":"灶下的头发"},choices:[createChoice({"text":"把头发还给秀兰","next":"huimen_exp2_riverbank","effects":{"sanity":10,"yin":-10,"removeItem":"灶下的头发"}}),createChoice({"text":"收好","next":"huimen_exp2_kitchen","effects":{"yin":1}})]}),
+你把头发捧在手里，头发是凉的，凉得像井水。`,effects:{"sanity":-5,"yin":2,"addItem":"灶下的头发"},choices:[createChoice({"text":"把头发还给秀兰","next":"huimen_exp2_riverbank","condition":{"hasItem":"灶下的头发"},"effects":{"sanity":10,"yin":-10,"removeItem":"灶下的头发"}}),createChoice({"text":"收好","next":"huimen_exp2_kitchen","effects":{"yin":1}})]}),
     huimen_exp2_kitchen_stove: createScene('huimen_exp2_kitchen_stove', {title:'灶台',text:`你蹲在废弃厨房的灶台前，凑近了看。
 
 灶台是土砌的，外面糊了一层石灰，石灰已经剥落，露出里面的土砖。灶膛里还有没烧完的柴火，柴火中间埋着一个陶罐。罐口露出一角，不仔细看发现不了。
@@ -99,7 +99,7 @@ export const scenes = {
 
 "你要是见到秀兰，告诉她，姨对不起她，但姨给她留了一罐桂花蜜。是我亲手熬的，熬了三天，她最爱吃那个甜。"
 
-她的手在发抖，罐子是温的。`,effects:{"sanity":-5,"yin":-5,"addItem":"厨娘的桂花蜜"},choices:[createChoice({"text":"把桂花蜜给秀兰","next":"huimen_exp2_riverbank","effects":{"sanity":10,"yin":-10,"removeItem":"厨娘的桂花蜜"}}),createChoice({"text":"收好","next":"huimen_exp2_kitchen","effects":{"yin":1}})]}),
+她的手在发抖，罐子是温的。`,effects:{"sanity":-5,"yin":-5,"addItem":"厨娘的桂花蜜"},choices:[createChoice({"text":"把桂花蜜给秀兰","next":"huimen_exp2_riverbank","condition":{"hasItem":"厨娘的桂花蜜"},"effects":{"sanity":10,"yin":-10,"removeItem":"厨娘的桂花蜜"}}),createChoice({"text":"收好","next":"huimen_exp2_kitchen","effects":{"yin":1}})]}),
     huimen_exp2_kitchen_stove_burn: createScene('huimen_exp2_kitchen_stove_burn', {title:'灶台焚符',text:`你把黄符点燃。
 
 符纸燃烧时，发出一阵婴儿的啼哭——不是一个人的哭，是许多个，叠在一起，像一窝被遗弃的猫崽。哭声从灶膛里涌出来，灌满整个厨房。

@@ -48,7 +48,7 @@ export const scenes = {
 
 铃身上刻着两个字："回家"。
 
-字是新的，像是刚刻上去的。`,effects:{"sanity":3,"yin":1,"addItem":"牧童的牛铃"},choices:[createChoice({"text":"把牛铃还给牧童","next":"huimen_exp2_cowherd_home","effects":{"sanity":10,"yin":-10,"removeItem":"牧童的牛铃"}}),createChoice({"text":"收好","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
+字是新的，像是刚刻上去的。`,effects:{"sanity":3,"yin":1,"addItem":"牧童的牛铃"},choices:[createChoice({"text":"把牛铃还给牧童","next":"huimen_exp2_cowherd_home","condition":{"hasItem":"牧童的牛铃"},"effects":{"sanity":10,"yin":-10,"removeItem":"牧童的牛铃"}}),createChoice({"text":"收好","next":"huimen_exp_village_street","effects":{"yin":1}})]}),
     huimen_exp2_cowherd_home: createScene('huimen_exp2_cowherd_home', {title:'归家',text:`你把牛铃交给牧童。
 
 他接过铃，摇了摇。清脆的响声传遍村子，铃声不大，却传得很远，像水波一样荡开去。村里的纸人纷纷停下动作，朝这边看。

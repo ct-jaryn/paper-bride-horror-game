@@ -37,5 +37,5 @@ export const scenes = {
 
 你继续往石缝里摸，发现石板缝里不仅有青苔，还有一些细小的东西。你抠出来一看，是一枚生锈的铜钱，钱眼上缠着一根红绳。
 
-铜钱背面刻着"周氏"两个字。`,effects:{"sanity":-5,"yin":2,"addItem":"清代铜钱"},choices:[createChoice({"text":"把铜钱收好","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"把铜钱扔回石缝","next":"huimen_exp_village_street","effects":{"sanity":3,"yin":-2,"removeItem":"清代铜钱"}})]})
+铜钱背面刻着"周氏"两个字。`,effects:{"sanity":-5,"yin":2,"addItem":"清代铜钱"},choices:[createChoice({"text":"把铜钱收好","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"把铜钱扔回石缝","next":"huimen_exp_village_street","condition":{"hasItem":"清代铜钱"},"effects":{"sanity":3,"yin":-2,"removeItem":"清代铜钱"}})]})
 };

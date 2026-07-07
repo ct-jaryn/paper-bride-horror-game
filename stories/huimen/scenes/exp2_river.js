@@ -58,7 +58,7 @@ export const scenes = {
 
 "我不是秀兰。" 她说，声音苍老，像是从地底传上来的，"我是她娘。我等了三十年，终于等到有人把她带来。"
 
-她伸出手，手里是一枚生锈的长命锁。锁面上刻着"长命百岁"四个字，字已经被锈盖住了大半。`,effects:{"sanity":-5,"yin":3,"addItem":"秀兰的长命锁"},choices:[createChoice({"text":"把长命锁交给秀兰","next":"huimen_exp2_riverbank","effects":{"sanity":10,"yin":-10,"removeItem":"秀兰的长命锁","setFlag":"huimen_exp2_returned_longevity_lock"}}),createChoice({"text":"收好长命锁","next":"huimen_exp2_riverbank","effects":{"yin":1}})]}),
+她伸出手，手里是一枚生锈的长命锁。锁面上刻着"长命百岁"四个字，字已经被锈盖住了大半。`,effects:{"sanity":-5,"yin":3,"addItem":"秀兰的长命锁"},choices:[createChoice({"text":"把长命锁交给秀兰","next":"huimen_exp2_riverbank","condition":{"hasItem":"秀兰的长命锁"},"effects":{"sanity":10,"yin":-10,"removeItem":"秀兰的长命锁","setFlag":"huimen_exp2_returned_longevity_lock"}}),createChoice({"text":"收好长命锁","next":"huimen_exp2_riverbank","effects":{"yin":1}})]}),
     huimen_exp2_river_lantern: createScene('huimen_exp2_river_lantern', {title:'河灯',text:`你在河边发现一盏未点燃的河灯。
 
 河灯是用黄纸扎的，扎成莲花的形状，花瓣一层一层，每一层都写着小小的字。灯芯是一缕细细的头发，头发是黑的，系在灯芯的棉线上。

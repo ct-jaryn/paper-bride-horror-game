@@ -71,5 +71,5 @@ export const scenes = {
 
 秀兰被换了三十两银子。柳红被换了二十两。阿绣被换了十五两。最便宜的一个，只换了五两——是一个叫"小翠"的丫鬟，死了没人收尸，周家把她的尸首卖了。
 
-[red]原来她们的命，在周家眼里就这么便宜。三十两银子，是一桌酒席的钱。一个女子的命，只值一桌酒席。[/red]`,effects:{"sanity":-10,"yin":3,"addItem":"周家女子命价单"},choices:[createChoice({"text":"把命价单贴到村口","next":"huimen_exp_village_street","effects":{"sanity":10,"yin":-10,"removeItem":"周家女子命价单","setFlag":"huimen_exp2_posted_price_list"}}),createChoice({"text":"收好","next":"huimen_exp2_village_head_vault","effects":{"yin":1}})]})
+[red]原来她们的命，在周家眼里就这么便宜。三十两银子，是一桌酒席的钱。一个女子的命，只值一桌酒席。[/red]`,effects:{"sanity":-10,"yin":3,"addItem":"周家女子命价单"},choices:[createChoice({"text":"把命价单贴到村口","next":"huimen_exp_village_street","condition":{"hasItem":"周家女子命价单"},"effects":{"sanity":10,"yin":-10,"removeItem":"周家女子命价单","setFlag":"huimen_exp2_posted_price_list"}}),createChoice({"text":"收好","next":"huimen_exp2_village_head_vault","effects":{"yin":1}})]})
 };

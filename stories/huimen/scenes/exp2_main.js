@@ -42,5 +42,5 @@ export const scenes = {
 
 [red]那不是人的骨头，是纸扎的骨架。[/red]
 
-你拿起嫁衣，发现内衬上绣着"秀兰"二字，是用金线绣的，针脚细密，像是一个女人一针一针绣了很久。`,effects:{"sanity":-5,"yin":2,"addItem":"芦苇中的嫁衣"},choices:[createChoice({"text":"把嫁衣带回去给秀兰","next":"huimen_exp2_riverbank","effects":{"sanity":5,"yin":-5,"removeItem":"芦苇中的嫁衣"}}),createChoice({"text":"把船推回河里","next":"huimen_exp2_riverbank","effects":{"yin":1}})]})
+你拿起嫁衣，发现内衬上绣着"秀兰"二字，是用金线绣的，针脚细密，像是一个女人一针一针绣了很久。`,effects:{"sanity":-5,"yin":2,"addItem":"芦苇中的嫁衣"},choices:[createChoice({"text":"把嫁衣带回去给秀兰","next":"huimen_exp2_riverbank","condition":{"hasItem":"芦苇中的嫁衣"},"effects":{"sanity":5,"yin":-5,"removeItem":"芦苇中的嫁衣"}}),createChoice({"text":"把船推回河里","next":"huimen_exp2_riverbank","effects":{"yin":1}})]})
 };
