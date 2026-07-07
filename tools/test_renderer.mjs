@@ -42,7 +42,7 @@ Huimen.GameState.time = 1140;
 Huimen.GameState.inventory = [];
 
 const { screens, ui } = await import('../js/engine/dom.js');
-const { processText, showScreen, updateStatus, updateInventory, renderChoices } = await import('../js/engine/renderer.js');
+const { processText, showScreen, updateStatus, updateInventory, renderChoices, renderScene, typeText } = await import('../js/engine/renderer.js');
 
 let passed = 0;
 let failed = 0;
@@ -102,6 +102,51 @@ renderChoices(choices);
 assert('渲染可见选项', ui.choices.children.length === 3);
 assert('危险选项有 danger class', ui.choices.children[2].classList.contains('danger'));
 assert('第一个按钮文本正确', ui.choices.children[0].textContent === '选项 A');
+
+console.log('测试 renderScene textVariants');
+
+Huimen.GameState.sanity = 100;
+Huimen.GameState.yin = 0;
+Huimen.GameState.inventory = [];
+Huimen.GameState.flags = {};
+Huimen.GameState.history = [];
+
+Huimen.StoryData = {
+    variant_test: {
+        id: 'variant_test',
+        title: '变体测试',
+        text: '基础文本。',
+        textVariants: [
+            { condition: { flag: 'knowsTruth' }, text: '[whisper]你已经知道真相了。[/whisper]' },
+            { condition: { hasItem: '铜钥匙' }, text: '口袋里的铜钥匙在发烫。' }
+        ],
+        choices: [{ text: '继续', next: 'variant_test' }]
+    }
+};
+
+// 测试 textVariants 逻辑：模拟 renderScene 的条件匹配
+const { checkCondition } = await import('../js/engine/effectEngine.js');
+Huimen.GameState.flags = {};
+Huimen.GameState.inventory = [];
+let testText = '基础文本。';
+const variants = Huimen.StoryData.variant_test.textVariants;
+for (const v of variants) {
+    if (checkCondition(v.condition)) {
+        testText += '\n\n' + v.text;
+    }
+}
+assert('无 flag/物品时 textVariants 不追加', !testText.includes('真相') && !testText.includes('铜钥匙'));
+
+Huimen.GameState.flags = { knowsTruth: true };
+Huimen.GameState.inventory = ['铜钥匙'];
+testText = '基础文本。';
+for (const v of variants) {
+    if (checkCondition(v.condition)) {
+        testText += '\n\n' + v.text;
+    }
+}
+assert('有 flag 时追加变体文本', testText.includes('真相'));
+assert('有物品时追加变体文本', testText.includes('铜钥匙'));
 
 console.log(`\n测试完成: 通过 ${passed}, 失败 ${failed}`);
 if (failed > 0) process.exit(1);

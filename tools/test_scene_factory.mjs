@@ -67,4 +67,20 @@ assertEqual(choice.danger, true, 'choice should have danger');
 assertEqual(choice.exit, true, 'choice should have exit');
 assertEqual(choice.ending, undefined, 'choice should not have ending if not provided');
 
+// createScene with textVariants
+const variantScene = createScene('variant_scene', {
+    title: '变体场景',
+    text: '基础文本',
+    textVariants: [
+        { condition: { flag: 'knowsTruth' }, text: '你已经知道了真相。' },
+        { condition: { hasItem: '铜钥匙' }, text: '口袋里的铜钥匙在发烫。' }
+    ]
+});
+assertEqual(variantScene.textVariants.length, 2, 'variant scene should have 2 variants');
+assertEqual(variantScene.textVariants[0].condition, { flag: 'knowsTruth' }, 'first variant condition');
+assertEqual(variantScene.textVariants[1].text, '口袋里的铜钥匙在发烫。', 'second variant text');
+
+// createScene without textVariants should not have the field
+assertEqual(minimalScene.textVariants, undefined, 'minimal scene should not have textVariants');
+
 console.log('sceneFactory tests passed');

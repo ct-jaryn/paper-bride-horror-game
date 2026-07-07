@@ -47,7 +47,7 @@ export const scenes = {
 
 你把凿下的石屑收进口袋。它们很轻，轻得像烧过的纸灰。
 
-[faded]那是她的名字的灰。[/faded]`,effects:{"sanity":5,"yin":-3,"setFlag":"huimen_exp3_restored_xiulan_name"},choices:[createChoice({"text":"去前院","next":"huimen_exp3_zhou_mansion_courtyard","effects":{"yin":1}})]}),
+[faded]那是她的名字的灰。[/faded]`,effects:{"sanity":5,"yin":-3,"setFlag":["huimen_exp3_restored_xiulan_name","restored_xiulan_name"]},choices:[createChoice({"text":"去前院","next":"huimen_exp3_zhou_mansion_courtyard","effects":{"yin":1}})]}),
     huimen_exp3_zhou_mansion_backyard_open: createScene('huimen_exp3_zhou_mansion_backyard_open', {title:'掀板',text:`石板很重，你用了全身力气才推开一条缝。
 
 石板比想象中还重，重得不像石头，像是有谁在底下按着它。你的指甲都抠翻了，渗出血来，才把它推开一条缝。

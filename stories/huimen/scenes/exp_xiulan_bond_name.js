@@ -14,7 +14,7 @@ export const scenes = {
 
 [whisper]"够了。"[/whisper]秀兰的声音从四面八方传来，像是填满了整间祠堂，"不用再写了。"
 
-你感到胸口的压抑彻底消散了。手腕上的红痕也变得温热，像是一个安心的印记，贴着脉搏。`,effects:{"sanity":15,"yin":-15,"setFlag":"huimen_exp_restored_xiulan_name_in_hall"},choices:[createChoice({"text":"离开祖祠","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"回老宅，把这件事告诉亲戚","next":"huimen_exp_return_coffin","effects":{"yin":1}})]}),
+你感到胸口的压抑彻底消散了。手腕上的红痕也变得温热，像是一个安心的印记，贴着脉搏。`,effects:{"sanity":15,"yin":-15,"setFlag":["huimen_exp_restored_xiulan_name_in_hall","restored_xiulan_name"]},choices:[createChoice({"text":"离开祖祠","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"回老宅，把这件事告诉亲戚","next":"huimen_exp_return_coffin","effects":{"yin":1}})]}),
     huimen_exp_xiulan_wish: createScene('huimen_exp_xiulan_wish', {title:"秀兰的愿望",text:`秀兰想了很久，井水里泛着一圈一圈的涟漪。
 
 "我最想要的？"她说，声音轻轻的，"我想穿一次凤冠霞帔，光明正大地嫁一次人。不是冥婚，不是替身，是堂堂正正地拜天地。"

@@ -250,6 +250,14 @@ export function renderScene(sceneId) {
         text = text(Huimen.GameState);
     }
 
+    if (scene.textVariants) {
+        for (const variant of scene.textVariants) {
+            if (checkCondition(variant.condition)) {
+                text += '\n\n' + variant.text;
+            }
+        }
+    }
+
     if (Huimen.GameState.sanity < 40 && scene.hallucination) {
         text += '\n\n' + scene.hallucination;
     }

@@ -14,7 +14,7 @@ export const scenes = {
 
 地窖里没有灯，只有墙缝里渗出的一点磷光。磷光绿幽幽的，像无数只眼睛嵌在墙里，一眨不眨地盯着你。
 
-你看见墙上钉着无数黄纸，每张纸上都写着一个女子的生辰八字，朱砂写的字已经发黑，像凝住的血。最下面一行是"秀兰，民国三年六月初七"。
+你看见墙上钉着无数黄纸，每张纸上都写着一个女子的生辰八字，朱砂写的字已经发黑，像凝住的血。最下面一行是"秀兰，癸丑年七月初七"。
 
 那八个字写得格外用力，纸都被笔尖戳穿了。`,effects:{"sanity":-3,"yin":4},choices:[createChoice({"text":"撕下秀兰的黄纸","next":"huimen_exp3_zhou_mansion_cellar_tear","effects":{"sanity":3,"yin":-2}}),createChoice({"text":"点燃墙上的油灯","next":"huimen_exp3_zhou_mansion_cellar_light","effects":{"yin":3}}),createChoice({"text":"继续往深处走","next":"huimen_exp3_zhou_mansion_cellar_deep","effects":{"yin":5}})]}),
     huimen_exp3_zhou_mansion_cellar_tear: createScene('huimen_exp3_zhou_mansion_cellar_tear', {title:'撕纸',text:`黄纸被撕下的瞬间，地窖里响起一声女人的尖叫。

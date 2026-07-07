@@ -12,14 +12,16 @@
  * @param {object} options
  * @param {string} options.title - 场景标题
  * @param {string} options.text - 场景正文
+ * @param {Array<{condition: object, text: string}>} [options.textVariants] - 状态感知补充文本，满足 condition 时追加到 text 之后
  * @param {object} [options.effects] - 进入场景时生效的数值/物品效果
  * @param {Array} [options.choices] - 玩家可选项
  * @param {string} [options.cg] - CG id
  * @param {Function} [options.onEnter] - 进入场景时执行的副作用
  * @returns {object} 场景对象
  */
-export function createScene(id, { title, text, effects, choices, condition, hallucination, cg, onEnter, ending }) {
+export function createScene(id, { title, text, textVariants, effects, choices, condition, hallucination, cg, onEnter, ending }) {
     const scene = { id, title, text };
+    if (textVariants) scene.textVariants = textVariants;
     if (effects) scene.effects = effects;
     if (choices) scene.choices = choices;
     if (condition) scene.condition = condition;
