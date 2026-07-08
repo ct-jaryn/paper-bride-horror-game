@@ -13,7 +13,8 @@ const tests = [
     '../test_esm_boot.mjs',
     'state-engine-integration.mjs',
     'minigame-integration.mjs',
-    'stories-integration.mjs'
+    'stories-integration.mjs',
+    'dead-end-prevention.mjs'
 ];
 
 async function runTest(script) {

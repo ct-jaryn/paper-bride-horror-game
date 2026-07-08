@@ -14,6 +14,7 @@ import { scenes as confrontScenes } from './scenes/confront.js';
 import { scenes as findScenes } from './scenes/find.js';
 import { scenes as finishScenes } from './scenes/finish.js';
 import { scenes as inspectScenes } from './scenes/inspect.js';
+import { scenes as itemUseScenes } from './scenes/item_use.js';
 import { scenes as jumpScenes } from './scenes/jump.js';
 import { scenes as keepScenes } from './scenes/keep.js';
 import { scenes as liuScenes } from './scenes/liu.js';
@@ -54,6 +55,7 @@ export const StoryData = {
     ...findScenes,
     ...finishScenes,
     ...inspectScenes,
+    ...itemUseScenes,
     ...jumpScenes,
     ...keepScenes,
     ...liuScenes,

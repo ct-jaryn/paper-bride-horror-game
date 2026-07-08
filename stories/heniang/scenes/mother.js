@@ -42,6 +42,17 @@ export const scenes = {
         hasItem: '香灰和朱砂'
       }
     }), createChoice({
+      text: '你死死攥住神婆给的护身符，把它按向那只拉你的手',
+      next: 'heniang_item_use_shenpo_charm',
+      condition: {
+        hasItem: '河婆护身符'
+      },
+      hidden: true,
+      effects: {
+        sanity: -5,
+        yin: -10
+      }
+    }), createChoice({
       text: '拼命往岸上跑',
       next: 'flee_river',
       effects: {

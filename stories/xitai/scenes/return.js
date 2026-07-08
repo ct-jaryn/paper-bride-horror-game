@@ -36,10 +36,10 @@ export const scenes = {
       text: '绕到戏台侧面',
       next: 'side_of_stage'
     }), createChoice({
-      text: '你摸到胸口的护身符，决定用它来抵抗鬼戏的魅惑',
+      text: '你摸到身上那件小生戏服，决定用它来抵抗鬼戏的魅惑',
       next: 'talisman_resist',
       condition: {
-        hasItem: '护身符'
+        hasItem: '小生戏服'
       },
       hidden: true,
       effects: {

@@ -157,7 +157,7 @@ export function typeText(html, onComplete) {
     if (ui.skipHint) ui.skipHint.classList.add('visible');
 
     const temp = document.createElement('div');
-    temp.innerHTML = html;
+    temp.innerHTML = html || '';
     const nodes = Array.from(temp.childNodes);
 
     let nodeIndex = 0;
@@ -261,16 +261,16 @@ export function renderScene(sceneId) {
     if (scene.textVariants) {
         for (const variant of scene.textVariants) {
             if (checkCondition(variant.condition)) {
-                text += '\n\n' + variant.text;
+                text = (text || '') + '\n\n' + variant.text;
             }
         }
     }
 
     if (Huimen.GameState.sanity < 40 && scene.hallucination) {
-        text += '\n\n' + scene.hallucination;
+        text = (text || '') + '\n\n' + scene.hallucination;
     }
 
-    const processedText = processText(text);
+    const processedText = processText(text || '');
     if (ui.choices) ui.choices.innerHTML = '';
 
     typeText(processedText, () => {
@@ -286,6 +286,7 @@ export function renderScene(sceneId) {
 
 const CHOICE_COLLAPSE_THRESHOLD = 8;
 const MOBILE_COLLAPSE_THRESHOLD = 5;
+const MAX_REACHABILITY_DEPTH = 5;
 
 /**
  * 根据当前视口宽度获取折叠阈值
@@ -296,13 +297,103 @@ function getCollapseThreshold() {
 }
 
 /**
+ * 模拟应用一组效果后的状态（不修改真实 GameState）
+ */
+function simulateEffects(baseState, effects) {
+    if (!effects) return baseState;
+    const state = {
+        ...baseState,
+        inventory: [...baseState.inventory],
+        flags: { ...baseState.flags }
+    };
+    if (typeof effects.sanity === 'number') {
+        state.sanity = Math.max(0, Math.min(100, state.sanity + effects.sanity));
+    }
+    if (typeof effects.yin === 'number') {
+        state.yin = Math.max(0, Math.min(100, state.yin + effects.yin));
+    }
+    if (typeof effects.time === 'number') {
+        state.time += effects.time;
+    }
+    if (effects.addItem) {
+        const items = Array.isArray(effects.addItem) ? effects.addItem : [effects.addItem];
+        for (const item of items) {
+            if (!state.inventory.includes(item)) state.inventory.push(item);
+        }
+    }
+    if (effects.removeItem) {
+        state.inventory = state.inventory.filter(i => i !== effects.removeItem);
+    }
+    if (effects.setFlag) {
+        const flags = Array.isArray(effects.setFlag) ? effects.setFlag : [effects.setFlag];
+        for (const flag of flags) state.flags[flag] = true;
+    }
+    if (effects.clearFlag) {
+        delete state.flags[effects.clearFlag];
+    }
+    return state;
+}
+
+/**
+ * 判断应用一组效果后是否可能触发强制结局
+ */
+function couldEffectsTriggerEnding(effects, state) {
+    if (!effects) return false;
+    const s = state || Huimen.GameState;
+    if (typeof effects.sanity === 'number' && s.sanity + effects.sanity <= 0) return true;
+    if (typeof effects.yin === 'number' && s.yin + effects.yin >= 100) return true;
+    if (typeof effects.time === 'number' && s.time + effects.time >= 1860) return true;
+    return false;
+}
+
+/**
+ * 判断一个选择点击后是否能最终推进游戏（避免死胡同）。
+ * 用于过滤掉那些进入后没有选项、也无法触发结局的隐藏/条件分支。
+ */
+function isChoiceReachable(choice, visited = new Set(), depth = 0, stateOverride = null) {
+    // 直接触发结局或 NPC 对话，总是可达
+    if (choice.ending) return true;
+    if (choice.npc && typeof Huimen.startNPCDialogue === 'function') return true;
+
+    // 没有后续跳转，不可达
+    if (!choice.next) return false;
+
+    const nextScene = Huimen.StoryData && Huimen.StoryData[choice.next];
+    if (!nextScene) return false;
+
+    // 场景本身是结局
+    if (nextScene.ending) return true;
+
+    // 防止循环和过深递归：保守视为可达，避免误杀正常分支
+    if (depth >= MAX_REACHABILITY_DEPTH || visited.has(choice.next)) return true;
+    visited.add(choice.next);
+
+    const simulatedState = simulateEffects(stateOverride || Huimen.GameState, nextScene.effects);
+
+    // 进入场景的效果可能触发强制结局，也算可达
+    if (couldEffectsTriggerEnding(nextScene.effects, simulatedState)) return true;
+
+    // 场景有至少一个当前可见且可达的选择
+    if (Array.isArray(nextScene.choices) && nextScene.choices.length > 0) {
+        return nextScene.choices.some(c => {
+            if (c.condition && !checkCondition(c.condition, simulatedState)) return false;
+            return isChoiceReachable(c, visited, depth + 1, simulatedState);
+        });
+    }
+
+    // 无选择、无结局、无效果致死，判定为死胡同
+    return false;
+}
+
+/**
  * 渲染选择按钮（支持折叠）
  */
 export function renderChoices(choices) {
-    if (!choices || !ui.choices) return;
+    if (!choices || !ui.choices) return [];
 
     const visibleChoices = choices.filter((choice) => {
-        return !choice.condition || checkCondition(choice.condition);
+        if (choice.condition && !checkCondition(choice.condition)) return false;
+        return isChoiceReachable(choice);
     });
 
     const threshold = getCollapseThreshold();
@@ -344,6 +435,21 @@ export function renderChoices(choices) {
         });
         ui.choices.appendChild(toggleBtn);
     }
+
+    // 死胡同兜底：过滤后无任何可用选项时，给玩家一个返回出口
+    if (visibleChoices.length === 0) {
+        console.warn('[死胡同兜底] 当前场景无可用选项');
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn dead-end-btn';
+        btn.textContent = '前路已尽（返回故事选择）';
+        btn.style.setProperty('--order', '0');
+        btn.addEventListener('click', () => {
+            showScreen('storySelect');
+        });
+        ui.choices.appendChild(btn);
+    }
+
+    return visibleChoices;
 }
 
 /**

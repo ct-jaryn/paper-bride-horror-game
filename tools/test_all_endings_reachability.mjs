@@ -9,7 +9,7 @@ const results = [];
 
 for (const story of StoryManifest) {
     const storyId = story.id;
-    const module = await import(`/workspace/stories/${storyId}/index.js`);
+    const module = await import(`../stories/${storyId}/index.js`);
 
     // 模拟引擎加载
     Huimen.StoryData = module.StoryData;

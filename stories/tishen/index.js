@@ -19,6 +19,7 @@ import { scenes as forceScenes } from './scenes/force.js';
 import { scenes as forgettingScenes } from './scenes/forgetting.js';
 import { scenes as giveScenes } from './scenes/give.js';
 import { scenes as inspectScenes } from './scenes/inspect.js';
+import { scenes as itemUseScenes } from './scenes/item_use.js';
 import { scenes as jumpScenes } from './scenes/jump.js';
 import { scenes as keepScenes } from './scenes/keep.js';
 import { scenes as letScenes } from './scenes/let.js';
@@ -66,6 +67,7 @@ export const StoryData = {
     ...forgettingScenes,
     ...giveScenes,
     ...inspectScenes,
+    ...itemUseScenes,
     ...jumpScenes,
     ...keepScenes,
     ...letScenes,

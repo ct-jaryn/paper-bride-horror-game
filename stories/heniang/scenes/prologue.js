@@ -39,7 +39,8 @@ export const scenes = {
 水袖的断口不齐，像是被人硬扯下来的。你捏着它，指尖传来一阵凉意，顺着胳膊往上爬，一直爬到心里。`,
     effects: {
       sanity: -10,
-      yin: 10
+      yin: 10,
+      addItem: "秀兰的嫁衣"
     },
     choices: [createChoice({
       text: '在河边喊母亲',

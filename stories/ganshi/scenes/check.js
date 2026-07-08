@@ -83,6 +83,30 @@ export const scenes = {
                 next: "apologize_for_master",
             }),
             createChoice({
+                text: "把老朱砂符贴在洞口石壁上，替它们守一回门",
+                next: "ganshi_item_use_talisman_cave",
+                condition: {
+                    hasItem: "老朱砂符",
+                },
+                hidden: true,
+                effects: {
+                    sanity: -5,
+                    yin: -10,
+                },
+            }),
+            createChoice({
+                text: "摇响铜铃，把它们的魂叫回来",
+                next: "ganshi_item_use_bell_cave",
+                condition: {
+                    hasItem: "铜铃",
+                },
+                hidden: true,
+                effects: {
+                    sanity: -5,
+                    yin: -5,
+                },
+            }),
+            createChoice({
                 text: "硬闯出去",
                 next: "break_through_corpse",
             }),

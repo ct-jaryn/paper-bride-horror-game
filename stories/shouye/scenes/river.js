@@ -101,6 +101,18 @@ export const scenes = {
                 text: "答应他，回到岸上带云袖来",
                 next: "river_bottom_return",
             }),
+            createChoice({
+                text: "取出周生手记，在河边读完它",
+                next: "shouye_item_use_zhou_sheng_notebook",
+                condition: {
+                    hasItem: "周生手记",
+                },
+                hidden: true,
+                effects: {
+                    sanity: -5,
+                    yin: -10,
+                },
+            }),
         ],
     }),
     river_bottom_return: createScene('river_bottom_return', {

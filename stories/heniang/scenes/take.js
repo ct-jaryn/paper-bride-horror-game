@@ -34,6 +34,17 @@ export const scenes = {
         flag: 'honestApproach'
       }
     }), createChoice({
+      text: '把秀姑的尸骨还给她，求她放过母亲',
+      next: 'heniang_item_use_xiugu_bones',
+      condition: {
+        hasItem: '秀姑的尸骨'
+      },
+      hidden: true,
+      effects: {
+        sanity: -5,
+        yin: -10
+      }
+    }), createChoice({
       text: '质问她为何害母亲',
       next: 'accuse_xiugu'
     })]

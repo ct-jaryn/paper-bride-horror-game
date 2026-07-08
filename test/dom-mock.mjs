@@ -13,7 +13,11 @@ export class MockElement {
     constructor(tag) {
         this.tagName = tag;
         this.children = [];
-        this.style = {};
+        this.style = {
+            _props: new Map(),
+            setProperty(k, v) { this._props.set(k, v); },
+            getPropertyValue(k) { return this._props.get(k) || ''; }
+        };
         this._attrs = new Map();
         this.dataset = {};
         this.classList = {
@@ -32,6 +36,9 @@ export class MockElement {
     focus() {}
     blur() {}
     click() {}
+    get childNodes() {
+        return this.children.slice();
+    }
     appendChild(c) { this.children.push(c); return c; }
     append(c) { this.children.push(c); }
     querySelector() { return new MockElement('div'); }
@@ -40,7 +47,10 @@ export class MockElement {
     get textContent() { return this._text || ''; }
     set textContent(v) { this._text = v; }
     get innerHTML() { return this._html || ''; }
-    set innerHTML(v) { this._html = v; }
+    set innerHTML(v) {
+        this._html = v;
+        this.children = [];
+    }
     className = '';
 }
 

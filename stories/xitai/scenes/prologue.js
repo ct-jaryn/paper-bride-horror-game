@@ -45,6 +45,12 @@ export const scenes = {
       text: '先找村里老人打听',
       next: 'ask_villagers'
     }), createChoice({
+      text: '弯腰捡起老槐树下的旧报纸',
+      next: 'xitai_prologue_newspaper_lore',
+      effects: {
+        yin: 1
+      }
+    }), createChoice({
       text: '你阴气太重，看见后台真正的戏班正在上妆',
       next: 'true_backstage',
       condition: {
@@ -55,6 +61,39 @@ export const scenes = {
         sanity: -5,
         yin: 10
       }
+    })]
+  }),
+
+  xitai_prologue_newspaper_lore: createScene('xitai_prologue_newspaper_lore', {
+    title: '旧报纸上的名字',
+    text: `你蹲下身，从树根的泥水里抽出那张湿透的旧报纸。报纸头条被泥晕得只剩"青石镇戏台"几个字，可背面的社会新闻却还清晰：
+
+"……周家村井底新娘案，秀兰之名终得正名。乡老称，三十年冤屈，一朝写入族谱。"
+
+旁边还贴着一张更小的剪报，是从戏单上撕下来的，边角印着"周氏纸扎铺"的字样。纸页被风吹得"沙沙"作响，像有什么东西在字里行间爬。
+
+你忽然觉得，青石镇和那个叫秀兰的女子，也许早就通过这张纸连在了一起。`,
+    effects: {
+      sanity: -3,
+      yin: 2
+    },
+    choices: [createChoice({
+      text: '想起秀兰要的不过是一句道歉，云袖也许也一样',
+      next: 'take_photo',
+      effects: {
+        setFlag: 'xiulanMercy'
+      }
+    }), createChoice({
+      text: '听见纸页间传来极细的低语："别唱完……"',
+      next: 'take_photo',
+      effects: {
+        sanity: -3,
+        yin: 2,
+        setFlag: 'heard_paper_whisper'
+      }
+    }), createChoice({
+      text: '把报纸塞回树根，继续往戏台去',
+      next: 'take_photo'
     })]
   })
 

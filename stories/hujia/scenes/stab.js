@@ -50,6 +50,18 @@ export const scenes = {
                 text: "跪在地上忏悔",
                 next: "repent_kill_fox",
             }),
+            createChoice({
+                text: "跪在地上，把温热的内丹捧还给她",
+                next: "hujia_item_use_pearl_revive",
+                condition: {
+                    hasItem: "狐妖内丹",
+                },
+                hidden: true,
+                effects: {
+                    sanity: -10,
+                    yin: -10,
+                },
+            }),
         ],
     })
 };

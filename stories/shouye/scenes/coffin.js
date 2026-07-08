@@ -58,6 +58,54 @@ export const scenes = {
                 },
             }),
             createChoice({
+                text: "取出旧登记册，念给她听那些被记录过的名字",
+                next: "shouye_item_use_registry",
+                condition: {
+                    hasItem: "旧登记册",
+                },
+                hidden: true,
+                effects: {
+                    sanity: 5,
+                    yin: -10,
+                },
+            }),
+            createChoice({
+                text: "把春香班戏单贴在棺盖上，让她再看一次自己的名字",
+                next: "shouye_item_use_playbill",
+                condition: {
+                    hasItem: "春香班戏单",
+                },
+                hidden: true,
+                effects: {
+                    sanity: 5,
+                    yin: -10,
+                },
+            }),
+            createChoice({
+                text: "取出茶楼旧账本，替她结清那两块桂花糕的账",
+                next: "shouye_item_use_teahouse_ledger",
+                condition: {
+                    hasItem: "茶楼旧账本",
+                },
+                hidden: true,
+                effects: {
+                    sanity: 5,
+                    yin: -10,
+                },
+            }),
+            createChoice({
+                text: "把珠花还给她，让她戴着去见周生",
+                next: "shouye_item_use_pearl_flower",
+                condition: {
+                    hasItem: "云袖的珠花",
+                },
+                hidden: true,
+                effects: {
+                    sanity: 5,
+                    yin: -10,
+                },
+            }),
+            createChoice({
                 text: "问她，愿不愿意被后人记住",
                 next: "coffin_remember_her",
                 condition: {
@@ -101,6 +149,18 @@ export const scenes = {
             createChoice({
                 text: "目送她离去，回殡仪馆",
                 ending: "hidden_riverReunion",
+            }),
+            createChoice({
+                text: "把周生给的纸牡丹递给她",
+                next: "shouye_item_use_paper_peony",
+                condition: {
+                    hasItem: "河底的纸牡丹",
+                },
+                hidden: true,
+                effects: {
+                    sanity: 5,
+                    yin: -10,
+                },
             }),
         ],
     }),

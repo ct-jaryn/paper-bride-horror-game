@@ -77,6 +77,18 @@ export const scenes = {
                 },
             }),
             createChoice({
+                text: "你怀中老朱砂符发烫，像是想贴上那道多出来的影子",
+                next: "ganshi_item_use_talisman_shadow",
+                condition: {
+                    hasItem: "老朱砂符",
+                },
+                hidden: true,
+                effects: {
+                    sanity: -5,
+                    yin: -10,
+                },
+            }),
+            createChoice({
                 text: "洞口蹲着一个抽旱烟的老人，像是在等人",
                 npc: "zhang_guard",
                 npcNode: "start",

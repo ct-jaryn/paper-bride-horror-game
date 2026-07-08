@@ -16,6 +16,10 @@ export const scenes = {
         },
         choices: [
             createChoice({
+                text: "回殡仪馆继续守夜",
+                next: "enter_with_flashlight",
+            }),
+            createChoice({
                 text: "回殡仪馆告诉云袖，她的同伴走了",
                 next: "three_souls_to_yunxiu",
                 condition: {

@@ -13,6 +13,8 @@ export const scenes = {
 
 老屋是三间土坯房，年久失修，西边那间已经塌了半边。柜子上放着一面铜镜，镜面裂了好几道，是你母亲留下的唯一物件。小时候你曾问父亲镜子是哪里来的，他只说是"祖上从青石镇带出来的"，便不再多说。你再问，他就沉着脸出门打猎，三天不回来。
 
+东屋角落里还锁着一口旧樟木箱，箱底压着一套烧焦的小生戏服——也是祖上从青石镇带出来的。你小时候偷偷打开过一次，戏服上有一股陈年桂花油的香气，袖口焦黑，像是从火场里抢出来的。父亲发现后发了很大的火，从那以后你再也不敢碰它。
+
 你试过对着镜子照，镜面裂成几瓣，照出来的人影也碎成几瓣。你总觉得镜子里那个碎掉的你，比真实的你更像你自己。
 
 这天傍晚，你打猎回来。猎物不多，只打了两只野兔，挂在腰上晃荡。天色阴沉，西边天上压着一层铅灰色的云，云底下透着一线诡异的橘红——不是夕阳的颜色，红得发紫，像是有人在天上烧着什么东西。
@@ -43,6 +45,7 @@ export const scenes = {
         effects: {
             sanity: -10,
             yin: 15,
+            addItem: "小生戏服",
         },
         choices: [
             createChoice({
@@ -61,6 +64,13 @@ export const scenes = {
                 },
             }),
             createChoice({
+                text: "先不答话，进屋查看祖上旧物",
+                next: "hujia_prologue_legacy_research",
+                effects: {
+                    yin: 1,
+                },
+            }),
+            createChoice({
                 text: "你保持清醒，注意到她的影子有九条尾巴",
                 next: "see_through_fox",
                 condition: {
@@ -70,6 +80,50 @@ export const scenes = {
                 effects: {
                     sanity: -5,
                 },
+            }),
+        ],
+    }),
+
+    hujia_prologue_legacy_research: createScene('hujia_prologue_legacy_research', {
+        title: "祖上旧物",
+        text: `你绕过那顶红轿，没立刻答狐女的话。院子里三间土坯房，东屋角落锁着一口旧樟木箱，柜上放着母亲留下的裂铜镜。
+
+箱锁已经锈死，可你小时候见过的那套烧焦小生戏服还在箱底。你把戏服取出来，袖口焦黑，内衬上绣着一个女子的名字——"秀兰"，旁边还有一行小字："周氏正名，以赎其冤"。
+
+你又举起铜镜，裂痕把月光割成几片，几片碎片里同时映出同一个画面：一个穿嫁衣的女子被推进井里，而祖父跪在井边，把一个写着她名字的牌位按进泥土。
+
+[red]周家祖上不只害了秀兰，也有人曾试图为她正名。[/red]
+
+狐女在院中静静看着你，尾巴的影子在地上晃了晃。`,
+        effects: {
+            sanity: -5,
+            yin: 5,
+        },
+        choices: [
+            createChoice({
+                text: "把'周氏正名'的绣字牢牢记下",
+                next: "ask_why_chosen",
+                effects: {
+                    setFlag: "restored_xiulan_name",
+                },
+            }),
+            createChoice({
+                text: "镜中真相让你明白周家欠秀兰的债",
+                next: "ask_why_chosen",
+                effects: {
+                    setFlag: "knowsTruth",
+                },
+            }),
+            createChoice({
+                text: "想起上月村里活埋秀兰时你拦过，却没拦住",
+                next: "ask_why_chosen",
+                effects: {
+                    setFlag: "xiulanMercy",
+                },
+            }),
+            createChoice({
+                text: "合上箱子，回到院中",
+                next: "ask_why_chosen",
             }),
         ],
     })

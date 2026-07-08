@@ -28,7 +28,7 @@ function randomItem(arr) {
 }
 
 async function playthrough(storyId, seedMode = 'random') {
-    const module = await import(`/workspace/stories/${storyId}/index.js`);
+    const module = await import(`../stories/${storyId}/index.js`);
     const StoryData = module.StoryData;
     const Endings = module.Endings;
 
@@ -102,7 +102,7 @@ async function main() {
     console.log(`每故事随机走查 ${runs} 次\n`);
 
     for (const storyId of stories) {
-        const module = await import(`/workspace/stories/${storyId}/index.js`);
+        const module = await import(`../stories/${storyId}/index.js`);
         const totalEndings = Object.keys(module.Endings).length;
         const reached = new Set();
         const errors = [];

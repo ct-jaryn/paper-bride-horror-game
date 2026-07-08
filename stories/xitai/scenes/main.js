@@ -49,6 +49,28 @@ export const scenes = {
     }), createChoice({
       text: '头也不回跑出后台',
       next: 'run_from_backstage'
+    }), createChoice({
+      text: '取出烧焦的胶卷，在镜前烧掉它，看当年真正的火场',
+      next: 'xitai_item_use_burnt_film',
+      condition: {
+        hasItem: '烧焦的胶卷'
+      },
+      hidden: true,
+      effects: {
+        sanity: -5,
+        yin: 10
+      }
+    }), createChoice({
+      text: '把云袖的戏服挂在化妆台前，替她扮上那场没唱完的妆',
+      next: 'xitai_item_use_yunxiu_costume',
+      condition: {
+        hasItem: '云袖的戏服'
+      },
+      hidden: true,
+      effects: {
+        sanity: 5,
+        yin: -10
+      }
     })]
   })
 

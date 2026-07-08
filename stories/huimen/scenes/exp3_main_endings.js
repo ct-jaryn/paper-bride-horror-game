@@ -31,5 +31,5 @@ export const scenes = {
 
 他抬起手，想握住秀兰的手，却只握住了一把空气。那空气里还带着一点桂花的香，是秀兰留给他的最后一点念想。
 
-[faded]"下辈子，"他哑着嗓子说，"我给你打一口最好的棺材。"[/faded]`,effects:{"sanity":5,"yin":-5},choices:[createChoice({"text":"老槐树倒了，但救赎还没完成，去井边","next":"huimen_exp_well_night","effects":{"yin":1}}),createChoice({"text":"去祖祠补全女子的名字","next":"huimen_exp_ancestral_hall","effects":{"yin":1}})]})
+[faded]"下辈子，"他哑着嗓子说，"我给你打一口最好的棺材。"[/faded]`,effects:{"sanity":5,"yin":-5},choices:[createChoice({"text":"老槐树倒了，但救赎还没完成，去井边","next":"huimen_exp_well_night","effects":{"yin":1}}),createChoice({"text":"去祖祠补全女子的名字","next":"huimen_exp_ancestral_hall","effects":{"yin":1}}),createChoice({"text":"李木匠的心愿已了，这是他的结局","ending":"huimen_exp3_ending_carpenter_saw","effects":{"yin":0}})]})
 };

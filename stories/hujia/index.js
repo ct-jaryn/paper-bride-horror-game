@@ -11,6 +11,7 @@ import { scenes as escapeScenes } from './scenes/escape.js';
 import { scenes as foxScenes } from './scenes/fox.js';
 import { scenes as friendScenes } from './scenes/friend.js';
 import { scenes as giveScenes } from './scenes/give.js';
+import { scenes as itemUseScenes } from './scenes/item_use.js';
 import { scenes as goScenes } from './scenes/go.js';
 import { scenes as grabScenes } from './scenes/grab.js';
 import { scenes as marryScenes } from './scenes/marry.js';
@@ -45,6 +46,7 @@ export const StoryData = {
     ...foxScenes,
     ...friendScenes,
     ...giveScenes,
+    ...itemUseScenes,
     ...goScenes,
     ...grabScenes,
     ...marryScenes,

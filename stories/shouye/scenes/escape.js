@@ -37,6 +37,7 @@ export const scenes = {
         effects: {
             sanity: 10,
             yin: -20,
+            removeItem: "护身符",
         },
         ending: "normal_sealedNight",
     }),

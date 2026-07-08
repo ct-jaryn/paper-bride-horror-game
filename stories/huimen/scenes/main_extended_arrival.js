@@ -16,7 +16,7 @@ export const scenes = {
 
 你心头一凛。这是什么意思？是说三个人进来，只有一个人能出去？还是说……
 
-李婆的灯笼在你身后晃了晃，白光在雨里晕开，像一团化不开的雾："别看了。这碑立了三十年，每个字都是血写的。"`,effects:{"sanity":-3,"yin":2,"setFlag":"huimen_saw_village_stele"},choices:[createChoice({"text":"追问碑文含义","next":"huimen_read_stele","effects":{"yin":1}}),createChoice({"text":"快步走向老宅","next":"huimen_paper_doll_warning","effects":{"yin":1}}),createChoice({"text":"绕过石碑，从侧路进村","next":"huimen_paper_doll_warning","effects":{"sanity":-2,"yin":2}})]}),
+李婆的灯笼在你身后晃了晃，白光在雨里晕开，像一团化不开的雾："别看了。这碑立了三十年，每个字都是血写的。"`,effects:{"sanity":-3,"yin":2,"setFlag":"huimen_saw_village_stele"},choices:[createChoice({"text":"追问碑文含义","next":"huimen_read_stele","effects":{"yin":1}}),createChoice({"text":"快步走向老宅","next":"huimen_paper_doll_warning","effects":{"yin":1}}),createChoice({"text":"绕过石碑，从侧路进村","next":"huimen_paper_doll_warning","effects":{"sanity":-2,"yin":2}}),createChoice({"text":"石碑侧面的狐纹像狐嫁女的传说","next":"huimen_read_stele","effects":{"yin":1,"setFlag":"hujia_to_zhou"}})]}),
     huimen_read_stele: createScene('huimen_read_stele', {title:`血碑`,text:`你凑近石碑，借着灯笼光细看。
 
 灯笼的光很弱，只够照见一小块。你把脸贴上去，鼻尖几乎要碰到碑面。碑是青石的，凉得像冰，贴上去能感觉到它"嗡嗡"地震，像有人在底下心跳。

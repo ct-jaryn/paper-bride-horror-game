@@ -111,7 +111,7 @@ export const scenes = {
 
 最后一刻，你听见她说："快跑，别让他们把我沉下去。"
 
-[red]火灭了。屋里只剩一股焦糊的纸味，和地上那片烧焦的嫁衣。[/red]`,effects:{"sanity":-8,"yin":5},choices:[createChoice({"text":"从梦境中挣脱","next":"huimen_exp3_xiulan_memory_return","effects":{"sanity":3,"yin":1}})]}),
+[red]火灭了。屋里只剩一股焦糊的纸味，和地上那片烧焦的嫁衣。[/red]`,effects:{"sanity":-8,"yin":5},choices:[createChoice({"text":"从梦境中挣脱","next":"huimen_exp3_xiulan_memory_return","effects":{"sanity":3,"yin":1}}),createChoice({"text":"捡起地上烧焦的盖头残片","ending":"hidden_brideVeil","effects":{"sanity":5,"yin":-2}})]}),
     huimen_exp3_xiulan_memory_wedding_fear: createScene('huimen_exp3_xiulan_memory_wedding_fear', {title:'她的回答',text:`"怕。"秀兰的声音很轻，轻得像怕惊动门外的人，"但我更怕不被当成一个人。"
 
 她说"不被当成一个人"时，门里的烛火跳了一下，像是在替她心痛。你隔着门，把手按在门板上，门板凉得像井壁。

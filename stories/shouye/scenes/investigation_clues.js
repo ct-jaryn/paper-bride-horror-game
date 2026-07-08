@@ -36,6 +36,7 @@ export const scenes = {
         effects: {
             sanity: -5,
             setFlag: "knowsFullStory",
+            addItem: "青石镇旧报纸",
         },
         choices: [
             createChoice({

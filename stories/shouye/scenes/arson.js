@@ -113,6 +113,10 @@ export const scenes = {
                 text: "去纵火者后人那里讨说法",
                 next: "arson_descendant",
             }),
+            createChoice({
+                text: "暂时封存档案，先回殡仪馆",
+                next: "enter_with_flashlight",
+            }),
         ],
     }),
     arson_truth_to_yunxiu: createScene('arson_truth_to_yunxiu', {
@@ -138,6 +142,10 @@ export const scenes = {
                     flag: "foundCoffin",
                 },
             }),
+            createChoice({
+                text: "再去青石镇走走",
+                next: "old_teahouse",
+            }),
         ],
     }),
     arson_descendant: createScene('arson_descendant', {
@@ -156,6 +164,10 @@ export const scenes = {
                 condition: {
                     flag: "knowsName",
                 },
+            }),
+            createChoice({
+                text: "先回殡仪馆",
+                next: "enter_with_flashlight",
             }),
         ],
     })

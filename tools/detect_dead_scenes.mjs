@@ -31,7 +31,7 @@ function getReferences(scene) {
 }
 
 for (const storyId of storyIds) {
-    const module = await import(`/workspace/stories/${storyId}/index.js`);
+    const module = await import(`../stories/${storyId}/index.js`);
     const StoryData = module.StoryData;
     const sceneIds = Object.keys(StoryData);
 

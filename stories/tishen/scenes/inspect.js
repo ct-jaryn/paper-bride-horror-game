@@ -49,6 +49,17 @@ export const scenes = {
         yin: -10
       }
     }), createChoice({
+      text: '你怀里还藏着另一个纸人——周安。让它替你挡这一劫',
+      next: 'tishen_item_use_zhou_an',
+      condition: {
+        hasItem: '纸人周安'
+      },
+      hidden: true,
+      effects: {
+        sanity: -5,
+        yin: -10
+      }
+    }), createChoice({
       text: '把手按在它胸口，感受它的记忆',
       next: 'memory_exchange',
       effects: {

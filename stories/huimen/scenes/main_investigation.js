@@ -30,7 +30,7 @@ export const scenes = {
 
 你忽然明白了：这是两回事。女纸人是"镇魂物"，用秀兰的头发和八字把她的一缕残魄锁在里面，让她生生世世替周家挡灾。而男纸人是"替命物"，周家男丁满三十就要扎一个，替他们去死、去成亲、去下井。一个是用来囚女人的魂，一个是用来换男人的命。
 
-你在纸人脚下还发现了一小截红绳，绳结是同心结，但被剪断了。断口很齐，剪的人手很稳，稳得像是早就下定了决心。`,effects:{"sanity":-15,"yin":10,"addItem":["断同心结红绳","秀兰生辰八字"],"setFlag":"paper_doll_investigated"},choices:[createChoice({"text":"烧掉这个纸人","next":"huimen_exp_burn_dolls_alt"}),createChoice({"text":"把红绳收好，走向老宅","next":"huimen_old_house_gate"})]}),
+你在纸人脚下还发现了一小截红绳，绳结是同心结，但被剪断了。断口很齐，剪的人手很稳，稳得像是早就下定了决心。`,effects:{"sanity":-15,"yin":10,"addItem":["断同心结红绳","秀兰生辰八字"],"setFlag":"paper_doll_investigated"},choices:[createChoice({"text":"烧掉这个纸人","next":"huimen_exp_burn_dolls_alt"}),createChoice({"text":"把红绳收好，走向老宅","next":"huimen_old_house_gate"}),createChoice({"text":"这纸新娘的红绳系法，和赶尸匠见过的冥婚新娘一样","next":"huimen_old_house_gate","effects":{"yin":1,"setFlag":"ganshi_to_qingshi"}})]}),
     investigate_well: createScene('investigate_well', {title:'井边调查',text:`你趴在井口，借着手电光往里看。
 
 井沿凉得像冰，趴上去胳膊都凉了。井水很深，但出奇地清澈。你看见井壁上刻满了字，都是同一个名字，被刻了一遍又一遍：
@@ -43,7 +43,7 @@ export const scenes = {
 
 [red]这不是自然脱落的头发。这是被人生生扯下来的。[/red]
 
-井水里忽然泛起一圈涟漪，像是有人在深处叹了口气。那涟漪一圈圈荡开，荡到井沿，又折回去。`,effects:{"sanity":-12,"yin":12,"addItem":"井壁长发","setFlag":"well_investigated"},choices:[createChoice({"text":"继续下井查看","next":"huimen_exp_well_night"}),createChoice({"text":"退后，去别处调查","next":"huimen_exp_village_street"})]}),
+井水里忽然泛起一圈涟漪，像是有人在深处叹了口气。那涟漪一圈圈荡开，荡到井沿，又折回去。`,effects:{"sanity":-12,"yin":12,"addItem":["井壁长发","井沿青苔"],"setFlag":"well_investigated"},choices:[createChoice({"text":"继续下井查看","next":"huimen_exp_well_night"}),createChoice({"text":"退后，去别处调查","next":"huimen_exp_village_street"})]}),
     investigate_ancestral_hall: createScene('investigate_ancestral_hall', {title:'祠堂调查',text:`你绕到祠堂后面，发现一面被牌匾遮住的墙。
 
 牌匾很沉，沉得你搬的时候手都酸了。牌匾后面是一面青砖墙，砖缝里都长着青苔，青苔里渗着水。你搬开牌匾，墙上密密麻麻刻着很多女子的名字。每一个名字前面都刻着"周氏"，但没有生卒年月，只有一个"埋"字。那"埋"字刻得很深，深得像一道伤。

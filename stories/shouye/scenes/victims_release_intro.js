@@ -44,6 +44,10 @@ export const scenes = {
                     flag: "knowsVictimDetails",
                 },
             }),
+            createChoice({
+                text: "他们还缺一个名字，先去查清三人姓名",
+                next: "fire_victim_detail",
+            }),
         ],
     })
 };

@@ -13,6 +13,7 @@ import { scenes as escapeScenes } from './scenes/escape.js';
 import { scenes as investigationCluesScenes } from './scenes/investigation_clues.js';
 import { scenes as investigationIdentityScenes } from './scenes/investigation_identity.js';
 import { scenes as investigationReactionScenes } from './scenes/investigation_reaction.js';
+import { scenes as itemUseScenes } from './scenes/item_use.js';
 import { scenes as legacyScenes } from './scenes/legacy.js';
 import { scenes as lineageScenes } from './scenes/lineage.js';
 import { scenes as makeupScenes } from './scenes/makeup.js';
@@ -56,6 +57,7 @@ export const StoryData = {
     ...investigationCluesScenes,
     ...investigationIdentityScenes,
     ...investigationReactionScenes,
+    ...itemUseScenes,
     ...legacyScenes,
     ...lineageScenes,
     ...makeupScenes,

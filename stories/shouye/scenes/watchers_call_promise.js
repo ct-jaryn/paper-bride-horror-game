@@ -82,6 +82,23 @@ export const scenes = {
                     flag: "foundCoffin",
                 },
             }),
+            createChoice({
+                text: "先去地下室找那口柚木棺材",
+                next: "basement_descent",
+                condition: {
+                    noFlag: "foundCoffin",
+                },
+                effects: {
+                    time: 30,
+                },
+            }),
+            createChoice({
+                text: "回七号厅，把铜印放在云袖棺前",
+                next: "enter_with_flashlight",
+                condition: {
+                    noFlag: "foundCoffin",
+                },
+            }),
         ],
     })
 };

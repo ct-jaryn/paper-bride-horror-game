@@ -49,6 +49,18 @@ export const scenes = {
                 next: "negotiate_fox",
             }),
             createChoice({
+                text: "你用黑狗血匕首在院子里画一道血圈，困住自己的贪心",
+                next: "hujia_item_use_dagger_ward",
+                condition: {
+                    hasItem: "黑狗血匕首",
+                },
+                hidden: true,
+                effects: {
+                    sanity: 5,
+                    yin: -10,
+                },
+            }),
+            createChoice({
                 text: "你换上小生戏服，唱起《牡丹亭》",
                 next: "peony_opera_defense",
                 condition: {
@@ -58,6 +70,7 @@ export const scenes = {
                 effects: {
                     sanity: 5,
                     yin: -10,
+                    removeItem: "小生戏服",
                 },
             }),
         ],
@@ -95,6 +108,18 @@ export const scenes = {
             createChoice({
                 text: "让村民们先顶住，你去找狐女谈判",
                 next: "negotiate_under_siege",
+            }),
+            createChoice({
+                text: "你握紧怀里的青丘玉佩，唤她的名字",
+                next: "hujia_item_use_jade_pearl_call",
+                condition: {
+                    hasItem: "青丘玉佩",
+                },
+                hidden: true,
+                effects: {
+                    sanity: 5,
+                    yin: -10,
+                },
             }),
         ],
     })

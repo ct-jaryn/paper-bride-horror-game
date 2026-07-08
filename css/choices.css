@@ -184,6 +184,23 @@
     border-color: var(--bright-red);
 }
 
+/* 死胡同兜底按钮 */
+.choice-btn.dead-end-btn {
+    border-style: dashed;
+    border-left-color: #777;
+    color: #bbb;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.choice-btn.dead-end-btn:hover,
+.choice-btn.dead-end-btn:focus-visible {
+    color: #fff;
+    border-color: #999;
+    box-shadow: 0 0 20px rgba(100, 100, 100, 0.3);
+}
+
 /* ===== 桌面端：右侧放大布局 ===== */
 @media (min-width: 769px) {
     #game-screen.screen.active {

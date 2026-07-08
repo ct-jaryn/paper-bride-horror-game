@@ -54,8 +54,19 @@ export const scenes = {
       effects: {
         sanity: -5
       }
+    }), createChoice({
+      text: '你摸到身上那件小生戏服，决定撕碎它，挣脱云袖的控制',
+      next: 'xitai_item_use_xiaosheng_costume',
+      condition: {
+        hasItem: '小生戏服'
+      },
+      hidden: true,
+      effects: {
+        sanity: 5,
+        yin: -10
+      }
     })]
   })
 
-  // 破幻（新增分支）
+  // 脱戏（新增分支）
 };

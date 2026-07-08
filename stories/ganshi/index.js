@@ -26,6 +26,7 @@ import { scenes as helpScenes } from './scenes/help.js';
 import { scenes as inspectScenes } from './scenes/inspect.js';
 import { scenes as intensifyScenes } from './scenes/intensify.js';
 import { scenes as investigateScenes } from './scenes/investigate.js';
+import { scenes as itemUseScenes } from './scenes/item_use.js';
 import { scenes as leaveScenes } from './scenes/leave.js';
 import { scenes as ledgerScenes } from './scenes/ledger.js';
 import { scenes as liuHongScenes } from './scenes/liuHong.js';
@@ -70,6 +71,7 @@ export const StoryData = {
     ...inspectScenes,
     ...intensifyScenes,
     ...investigateScenes,
+    ...itemUseScenes,
     ...leaveScenes,
     ...ledgerScenes,
     ...liuHongScenes,

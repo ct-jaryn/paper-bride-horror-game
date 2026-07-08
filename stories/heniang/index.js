@@ -14,6 +14,7 @@ import { scenes as ferrymanScenes } from './scenes/ferryman.js';
 import { scenes as findScenes } from './scenes/find.js';
 import { scenes as fleeScenes } from './scenes/flee.js';
 import { scenes as honestScenes } from './scenes/honest.js';
+import { scenes as itemUseScenes } from './scenes/item_use.js';
 import { scenes as leaveScenes } from './scenes/leave.js';
 import { scenes as lieScenes } from './scenes/lie.js';
 import { scenes as lookScenes } from './scenes/look.js';
@@ -51,6 +52,7 @@ export const StoryData = {
     ...findScenes,
     ...fleeScenes,
     ...honestScenes,
+    ...itemUseScenes,
     ...leaveScenes,
     ...lieScenes,
     ...lookScenes,

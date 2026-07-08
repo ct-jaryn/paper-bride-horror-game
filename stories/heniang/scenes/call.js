@@ -46,10 +46,22 @@ export const scenes = {
       hidden: true,
       effects: {
         sanity: -5,
+        yin: -10,
+        removeItem: "秀兰的嫁衣"
+      }
+    }), createChoice({
+      text: '你想起怀里的河灯，点上它，引母亲上岸',
+      next: 'heniang_item_use_river_lantern',
+      condition: {
+        hasItem: '守夜人的河灯'
+      },
+      hidden: true,
+      effects: {
+        sanity: -5,
         yin: -10
       }
     })]
   })
 
-  // 嫁衣迟疑（新增分支）
+  // 河灯引魂（新增分支）
 };

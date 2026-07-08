@@ -35,6 +35,19 @@ export const scenes = {
       text: '把戏服带回研究所',
       next: '',
       ending: 'peacefulDeparture'
+    }), createChoice({
+      text: '取出云袖的戏服，在后台为她扮上一场完整的妆',
+      next: 'xitai_item_use_yunxiu_costume',
+      condition: {
+        hasItem: '云袖的戏服'
+      },
+      hidden: true,
+      effects: {
+        sanity: -5,
+        yin: -10
+      }
     })]
   })
+
+  // 还衣上妆（新增分支）
 };

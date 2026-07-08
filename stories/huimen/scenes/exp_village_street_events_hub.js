@@ -88,7 +88,10 @@ export const scenes = {
             createChoice({ text: "纸门上的门神似乎在看你", next: "huimen_exp_village_street_paper_door_god", effects: { yin: 1 }, condition: { flag: "huimen_exp_saw_village_map" }, hidden: true }),
             createChoice({ text: "院子里堆满了印着囍字的纸钱", next: "huimen_exp_village_street_paper_money_pile", effects: { yin: 1 }, condition: { yinAbove: 38 }, hidden: true }),
             createChoice({ text: "用破镜碎片照井底", next: "huimen_exp_use_broken_mirror", effects: { yin: -1 }, condition: { hasItem: "破镜碎片" } }),
-            createChoice({ text: "系上命丝锦带", next: "huimen_exp_use_life_silk", effects: { yin: -1 }, condition: { hasItem: "命丝锦带" } })
+            createChoice({ text: "系上命丝锦带", next: "huimen_exp_use_life_silk", effects: { yin: -1 }, condition: { hasItem: "命丝锦带" } }),
+            createChoice({ text: "埋葬孩子的骸骨", next: "huimen_exp_use_child_bones", effects: { yin: -1 }, condition: { hasItem: "孩子的骸骨" } }),
+            createChoice({ text: "撕碎周家村族谱", next: "huimen_exp_use_zhou_family_tree", effects: { yin: -1 }, condition: { hasItem: "周家村族谱" } }),
+            createChoice({ text: "焚毁柳红的嫁衣", next: "huimen_exp_use_liu_hong_wedding_dress", effects: { yin: -1 }, condition: { hasItem: "柳红的嫁衣" } })
         ]
     })
 };
