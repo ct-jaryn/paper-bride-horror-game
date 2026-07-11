@@ -6,6 +6,7 @@
 import { Huimen } from './js/engine/namespace.js';
 import { loadCurrency, saveCurrency } from './js/engine/saveManager.js';
 import { Platform } from './js/engine/platform.js';
+import { adjustNumber } from './js/engine/state.js';
 
 const CurrencyManager = (function () {
     let balance = 0;
@@ -21,6 +22,10 @@ const CurrencyManager = (function () {
     const HINT_COST = 10;
     const CG_COST = 50;
     const REVIVE_COST = 50;
+    const SANITY_COST = 80;
+    const YIN_COST = 80;
+    const SANITY_RESTORE = 15;
+    const YIN_REDUCE = 15;
     const ENDING_REWARD = 20;
     const STORY_COMPLETE_REWARD = 30;
     const ACHIEVEMENT_REWARD = 15;
@@ -278,6 +283,50 @@ const CurrencyManager = (function () {
         }
     }
 
+    function isInGame() {
+        return !!(Huimen.CurrentStory && Huimen.CurrentStory.id);
+    }
+
+    function buySanity() {
+        if (!isInGame()) {
+            showToast('当前未进入故事，无法使用定神茶');
+            return;
+        }
+        if (!canSpend(SANITY_COST)) {
+            showToast('阴钱不足，无法购买定神茶');
+            return;
+        }
+        if (Huimen.GameState.sanity >= 100) {
+            showToast('理智已满，无需定神');
+            return;
+        }
+        if (spend(SANITY_COST, '定神茶')) {
+            adjustNumber('sanity', SANITY_RESTORE, 0, 100);
+            if (typeof Huimen.updateStatus === 'function') Huimen.updateStatus();
+            showToast(`定神茶生效，理智恢复 ${SANITY_RESTORE} 点`);
+        }
+    }
+
+    function buyYin() {
+        if (!isInGame()) {
+            showToast('当前未进入故事，无法使用驱邪铃');
+            return;
+        }
+        if (!canSpend(YIN_COST)) {
+            showToast('阴钱不足，无法购买驱邪铃');
+            return;
+        }
+        if (Huimen.GameState.yin <= 0) {
+            showToast('阴气已清，无需驱邪');
+            return;
+        }
+        if (spend(YIN_COST, '驱邪铃')) {
+            adjustNumber('yin', -YIN_REDUCE, 0, 100);
+            if (typeof Huimen.updateStatus === 'function') Huimen.updateStatus();
+            showToast(`驱邪铃生效，阴气降低 ${YIN_REDUCE} 点`);
+        }
+    }
+
     function mockRecharge(amount) {
         amount = parseInt(amount, 10);
         if (isNaN(amount) || amount <= 0) {
@@ -397,6 +446,22 @@ const CurrencyManager = (function () {
         if (buyReviveBtn) {
             buyReviveBtn.addEventListener('click', () => {
                 buyReviveToken();
+                updateShopUI();
+            });
+        }
+
+        const buySanityBtn = document.getElementById('shop-buy-sanity');
+        if (buySanityBtn) {
+            buySanityBtn.addEventListener('click', () => {
+                buySanity();
+                updateShopUI();
+            });
+        }
+
+        const buyYinBtn = document.getElementById('shop-buy-yin');
+        if (buyYinBtn) {
+            buyYinBtn.addEventListener('click', () => {
+                buyYin();
                 updateShopUI();
             });
         }

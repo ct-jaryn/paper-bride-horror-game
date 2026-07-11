@@ -24,8 +24,8 @@
     position: relative;
     max-width: 90vw;
     max-height: 80vh;
-    border: 2px solid rgba(139, 0, 0, 0.6);
-    box-shadow: 0 0 40px rgba(139, 0, 0, 0.4);
+    border: 2px solid rgba(163, 22, 33, 0.6);
+    box-shadow: 0 0 40px rgba(163, 22, 33, 0.4);
     background: #0f0f0f;
     overflow: hidden;
 }
@@ -45,7 +45,7 @@
     align-items: center;
     justify-content: center;
     background:
-        radial-gradient(circle at 30% 30%, rgba(139, 0, 0, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 30% 30%, rgba(163, 22, 33, 0.2) 0%, transparent 50%),
         radial-gradient(circle at 70% 70%, rgba(0, 0, 0, 0.8) 0%, transparent 50%),
         linear-gradient(135deg, #1a1512, #0a0a0a);
     color: var(--aged-yellow);
@@ -53,7 +53,7 @@
 
 .cg-placeholder-mark {
     font-size: 5rem;
-    color: rgba(139, 0, 0, 0.25);
+    color: rgba(163, 22, 33, 0.25);
     margin-bottom: 1rem;
     animation: paperDollFloat 6s ease-in-out infinite;
 }
@@ -63,7 +63,7 @@
     font-size: 1.5rem;
     letter-spacing: 0.5rem;
     color: var(--bright-red);
-    text-shadow: 0 0 15px rgba(139, 0, 0, 0.6);
+    text-shadow: 0 0 15px rgba(163, 22, 33, 0.6);
     z-index: 3;
     text-align: center;
 }
@@ -110,14 +110,14 @@
 
 .cg-gallery-card {
     background: rgba(20, 15, 12, 0.8);
-    border: 1px solid rgba(139, 0, 0, 0.4);
+    border: 1px solid rgba(163, 22, 33, 0.4);
     padding: 1rem;
     transition: all 0.3s ease;
 }
 
 .cg-gallery-card:hover {
     border-color: var(--bright-red);
-    box-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgba(163, 22, 33, 0.3);
     transform: translateY(-3px);
 }
 
@@ -145,14 +145,14 @@
     align-items: center;
     justify-content: center;
     background:
-        radial-gradient(circle at 30% 30%, rgba(139, 0, 0, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 30% 30%, rgba(163, 22, 33, 0.15) 0%, transparent 50%),
         radial-gradient(circle at 70% 70%, rgba(0, 0, 0, 0.6) 0%, transparent 50%),
         linear-gradient(135deg, #1a1512, #0a0a0a);
 }
 
 .cg-gallery-placeholder-mark {
     font-size: 3rem;
-    color: rgba(139, 0, 0, 0.25);
+    color: rgba(163, 22, 33, 0.25);
 }
 
 .cg-gallery-name {

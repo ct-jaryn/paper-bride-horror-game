@@ -14,9 +14,11 @@
     top: 1rem;
     right: 1rem;
     background: rgba(10, 8, 7, 0.85);
-    border: 1px solid rgba(139, 0, 0, 0.5);
+    border: 1px solid rgba(163, 22, 33, 0.5);
     padding: 0.5rem 0.8rem;
-    box-shadow: 0 0 15px rgba(139, 0, 0, 0.25);
+    box-shadow: 0 0 15px rgba(163, 22, 33, 0.25);
+    right: max(1rem, env(safe-area-inset-right));
+    top: max(1rem, env(safe-area-inset-top));
 }
 
 .currency-display.game {
@@ -35,7 +37,7 @@
     font-weight: bold;
     min-width: 2rem;
     text-align: center;
-    text-shadow: 0 0 8px rgba(196, 30, 58, 0.4);
+    text-shadow: 0 0 8px rgba(214, 58, 74, 0.4);
 }
 
 .horror-btn.tiny {
@@ -80,7 +82,7 @@
     max-width: 500px;
     width: 90%;
     text-align: center;
-    box-shadow: 0 0 40px rgba(139, 0, 0, 0.4);
+    box-shadow: 0 0 40px rgba(163, 22, 33, 0.4);
 }
 
 .hint-content h3 {
@@ -129,7 +131,7 @@
 
 .shop-item {
     background: rgba(20, 15, 12, 0.85);
-    border: 1px solid rgba(139, 0, 0, 0.4);
+    border: 1px solid rgba(163, 22, 33, 0.4);
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -153,7 +155,7 @@
 
 .shop-item:hover {
     border-color: var(--bright-red);
-    box-shadow: 0 0 25px rgba(139, 0, 0, 0.3);
+    box-shadow: 0 0 25px rgba(163, 22, 33, 0.3);
     transform: translateY(-3px);
 }
 
@@ -195,7 +197,7 @@
 /* 模拟充值区 */
 .shop-recharge {
     background: rgba(20, 15, 12, 0.6);
-    border: 1px dashed rgba(139, 0, 0, 0.4);
+    border: 1px dashed rgba(163, 22, 33, 0.4);
     padding: 1.5rem;
     margin-bottom: 2rem;
 }
@@ -223,7 +225,7 @@
 
 #shop-recharge-input {
     background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(139, 0, 0, 0.5);
+    border: 1px solid rgba(163, 22, 33, 0.5);
     color: var(--ghost-white);
     padding: 0.7rem 1rem;
     font-family: inherit;
@@ -234,7 +236,7 @@
 
 #shop-recharge-input:focus {
     border-color: var(--bright-red);
-    box-shadow: 0 0 10px rgba(139, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(163, 22, 33, 0.3);
 }
 
 /* 借命还阳按钮 */
@@ -268,6 +270,8 @@
         top: 0.5rem;
         right: 0.5rem;
         padding: 0.35rem 0.6rem;
+        right: max(0.5rem, env(safe-area-inset-right));
+        top: max(0.5rem, env(safe-area-inset-top));
     }
 
     .currency-label {

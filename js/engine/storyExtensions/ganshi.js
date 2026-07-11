@@ -3,32 +3,40 @@
  */
 
 export const choices = {
-    // ganshi:prologue
+    // ganshi:prologue —— 需要阴气足够才能感知纸条存在
     'ganshi:prologue': [
         {
-            text: '尸体手里攥着一张纸条，上面写着一个名字',
-            next: 'ganshi_easter_paper_name'
+            text: '你注意到尸体的手指似乎在指着什么',
+            next: 'ganshi_easter_paper_name',
+            condition: { yinAbove: 20 },
+            hidden: true,
         }
     ],
-    // ganshi:bell_nuo_dance
+    // ganshi:bell_nuo_dance —— 需要阴气足够才能感知第四道影子
     'ganshi:bell_nuo_dance': [
         {
-            text: '铜铃一声，三具尸体同时跪下',
-            ending: 'hidden_bellPardon'
+            text: '洞壁上似乎多了一个不属于尸体的影子',
+            ending: 'hidden_bellPardon',
+            condition: { yinAbove: 30 },
+            hidden: true,
         }
     ],
-    // ganshi:soul_homeward
+    // ganshi:soul_homeward —— 需此前承诺过正义
     'ganshi:soul_homeward': [
         {
-            text: '少年的魂魄跟着你回到了故乡',
-            ending: 'hidden_youthHome'
+            text: '少年的魂魄向你道别时，你想起了一个相似的背影',
+            ending: 'hidden_youthHome',
+            condition: { flag: 'promisedJustice' },
+            hidden: true,
         }
     ],
-    // ganshi:ask_tian_grudge
+    // ganshi:ask_tian_grudge —— 需要携带赶尸匠的关键物品
     'ganshi:ask_tian_grudge': [
         {
-            text: '师父的债你还清了，师徒缘分未尽',
-            ending: 'hidden_masterApprentice'
+            text: '冤有头债有主，但师父的路，也许是另一条',
+            ending: 'hidden_masterApprentice',
+            condition: { hasItem: '铜铃' },
+            hidden: true,
         }
     ]
 };
@@ -40,11 +48,9 @@ export const scenes = {
 
 上面只有一个名字，墨迹已经晕开，却还能辨认：
 
-[red]“云秀”[/red]
+[red]"云袖"[/red]
 
-你想起某个关于纸扎铺的传闻：替身的纸人一旦有了自己的脸，就会替真正的“云秀”活下去。而真正的云秀，也许从未离开过。
-
-尸体忽然握紧了你的手腕。`,
+你觉得这个名字眼熟，却说不出在哪里听过。尸体忽然握紧了你的手腕。`,
         effects: { sanity: -5, yin: 8 },
         choices: [
             { text: '挣脱手腕', next: 'corpse_conversation' }

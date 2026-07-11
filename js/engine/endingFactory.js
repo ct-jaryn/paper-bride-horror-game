@@ -21,6 +21,10 @@ export function createEnding(id, options) {
     const ending = { id, ...options };
     // 确保 id 参数优先，避免 options 中同名属性覆盖
     ending.id = id;
+    // 自动识别标题以"真结局"开头的结局
+    if (typeof ending.title === 'string' && ending.title.startsWith('真结局')) {
+        ending.trueEnding = true;
+    }
     return ending;
 }
 

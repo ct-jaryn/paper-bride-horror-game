@@ -6,7 +6,7 @@
 
     .game-title {
         font-size: 3.5rem;
-        letter-spacing: 0.6rem;
+        letter-spacing: 0.35rem;
     }
 
     .subtitle {
@@ -53,6 +53,27 @@
         gap: 0.4rem;
         padding: 0.5rem;
         margin-bottom: 0.75rem;
+    }
+
+    .title-toolbar {
+        gap: 0.3rem;
+        padding: 0.5rem 0.3rem;
+        max-width: 100%;
+    }
+
+    .toolbar-btn {
+        min-width: 48px;
+        max-width: none;
+        padding: 0.35rem 0.15rem;
+    }
+
+    .toolbar-icon {
+        font-size: 1rem;
+    }
+
+    .toolbar-label {
+        font-size: 0.6rem;
+        letter-spacing: 0.05rem;
     }
 
     .status-item {
@@ -120,7 +141,7 @@
 
     .section-title {
         font-size: 1.8rem;
-        letter-spacing: 0.5rem;
+        letter-spacing: 0.3rem;
     }
 
     .section-subtitle {
@@ -230,7 +251,7 @@
 @media (max-width: 480px) {
     .game-title {
         font-size: 2.6rem;
-        letter-spacing: 0.4rem;
+        letter-spacing: 0.25rem;
     }
 
     .subtitle {
@@ -280,7 +301,7 @@
 
     .section-title {
         font-size: 1.5rem;
-        letter-spacing: 0.3rem;
+        letter-spacing: 0.2rem;
     }
 
     .story-card-title {

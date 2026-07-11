@@ -16,7 +16,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid rgba(139, 0, 0, 0.35);
+    border-bottom: 1px solid rgba(163, 22, 33, 0.35);
     margin-bottom: 1.25rem;
     position: relative;
     z-index: 3;
@@ -73,8 +73,8 @@
 }
 
 .meter-fill.sanity {
-    background: linear-gradient(90deg, #5a0000, #c41e3a);
-    box-shadow: 0 0 8px rgba(196, 30, 58, 0.35);
+    background: linear-gradient(90deg, #6b1212, #d63a4a);
+    box-shadow: 0 0 8px rgba(214, 58, 74, 0.35);
 }
 
 .meter-fill.yin {
@@ -92,8 +92,8 @@
 }
 
 @keyframes sanityPulse {
-    0%, 100% { box-shadow: 0 0 8px rgba(196, 30, 58, 0.35); }
-    50% { box-shadow: 0 0 16px rgba(196, 30, 58, 0.7); }
+    0%, 100% { box-shadow: 0 0 8px rgba(214, 58, 74, 0.35); }
+    50% { box-shadow: 0 0 16px rgba(214, 58, 74, 0.7); }
 }
 
 @keyframes valuePulse {
@@ -110,7 +110,7 @@
     position: relative;
     background: rgba(10, 8, 7, 0.55);
     border-radius: 2px;
-    border: 1px solid rgba(139, 0, 0, 0.15);
+    border: 1px solid rgba(163, 22, 33, 0.15);
     backdrop-filter: blur(1px);
 }
 
@@ -126,7 +126,7 @@
 }
 
 .story-text:hover {
-    text-shadow: 0 0 8px rgba(139, 0, 0, 0.3);
+    text-shadow: 0 0 8px rgba(163, 22, 33, 0.3);
 }
 
 .story-text:active {
@@ -152,12 +152,12 @@
 
 .story-text .red {
     color: var(--bright-red);
-    text-shadow: 0 0 10px rgba(196, 30, 58, 0.5);
+    text-shadow: 0 0 10px rgba(214, 58, 74, 0.5);
 }
 
 .story-text .faded {
-    color: #666;
-    font-style: italic;
+    color: #888;
+    opacity: 0.85;
 }
 
 .story-text .whisper {
@@ -188,7 +188,7 @@
 /* 物品栏 */
 .inventory {
     padding: 0.8rem 1rem;
-    border-top: 1px solid rgba(139, 0, 0, 0.2);
+    border-top: 1px solid rgba(163, 22, 33, 0.2);
     position: relative;
     z-index: 3;
     display: flex;
@@ -209,8 +209,8 @@
 }
 
 .inventory-item {
-    background: rgba(139, 0, 0, 0.15);
-    border: 1px solid rgba(139, 0, 0, 0.4);
+    background: rgba(163, 22, 33, 0.15);
+    border: 1px solid rgba(163, 22, 33, 0.4);
     padding: 0.3rem 0.8rem;
     font-size: 0.85rem;
     border-radius: 2px;
@@ -220,7 +220,7 @@
 #sound-toggle,
 .sound-toggle {
     background: transparent;
-    border: 1px solid rgba(139, 0, 0, 0.5);
+    border: 1px solid rgba(163, 22, 33, 0.5);
     color: var(--blood-red);
     padding: 0.35rem 0.75rem;
     font-size: 0.8rem;
@@ -236,9 +236,9 @@
 
 #sound-toggle:hover,
 .sound-toggle:hover {
-    background: rgba(139, 0, 0, 0.15);
+    background: rgba(163, 22, 33, 0.15);
     border-color: var(--bright-red);
-    box-shadow: 0 0 15px rgba(139, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(163, 22, 33, 0.3);
 }
 
 #sound-toggle.muted,
@@ -264,58 +264,8 @@
 /* 选择区 */
 /* 响应式 */
 @media (max-width: 768px) {
-    .game-title {
-        font-size: 3.2rem;
-        letter-spacing: 0.8rem;
-        padding-left: 0.8rem;
-    }
-
-    .subtitle {
-        font-size: 1.05rem;
-        letter-spacing: 0.25rem;
-    }
-
-    .subtitle-en {
-        font-size: 0.75rem;
-        letter-spacing: 0.15rem;
-    }
-
     #title-screen {
         padding: 5vh 1rem 2vh;
-    }
-
-    .title-actions {
-        max-width: 300px;
-    }
-
-    .title-actions .horror-btn.primary {
-        font-size: 1.1rem;
-        letter-spacing: 0.35rem;
-    }
-
-    .title-toolbar {
-        gap: 0.4rem;
-        padding: 0.5rem 0.4rem;
-    }
-
-    .toolbar-btn {
-        min-width: 56px;
-        padding: 0.4rem 0.2rem;
-    }
-
-    .toolbar-label {
-        font-size: 0.65rem;
-    }
-
-    .paper-seal-decoration {
-        width: 70px;
-        height: 70px;
-        right: 5%;
-        bottom: 14%;
-    }
-
-    .paper-seal-text {
-        font-size: 1.6rem;
     }
 
     #game-screen {

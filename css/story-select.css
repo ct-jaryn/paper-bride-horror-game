@@ -18,11 +18,12 @@
 }
 
 .section-title {
+    font-family: var(--title-font);
     font-size: 2.5rem;
     color: var(--blood-red);
-    letter-spacing: 1rem;
+    letter-spacing: 0.6rem;
     margin-bottom: 0.5rem;
-    text-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+    text-shadow: 0 0 20px rgba(163, 22, 33, 0.5);
 }
 
 .section-subtitle {
@@ -42,7 +43,7 @@
 
 .story-card {
     background: rgba(18, 12, 10, 0.85);
-    border: 1px solid rgba(139, 0, 0, 0.35);
+    border: 1px solid rgba(163, 22, 33, 0.35);
     padding: 0;
     text-align: left;
     transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
@@ -88,15 +89,15 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 80% 0%, rgba(139, 0, 0, 0.08) 0%, transparent 50%);
+    background: radial-gradient(circle at 80% 0%, rgba(163, 22, 33, 0.08) 0%, transparent 50%);
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.35s ease;
 }
 
 .story-card:hover {
-    border-color: rgba(196, 30, 58, 0.7);
-    box-shadow: 0 12px 40px rgba(139, 0, 0, 0.35);
+    border-color: rgba(214, 58, 74, 0.7);
+    box-shadow: 0 12px 40px rgba(163, 22, 33, 0.35);
     transform: translateY(-8px) scale(1.01);
 }
 
@@ -104,7 +105,7 @@
     opacity: 1;
     width: 6px;
     background: var(--bright-red);
-    box-shadow: 0 0 20px rgba(196, 30, 58, 0.5);
+    box-shadow: 0 0 20px rgba(214, 58, 74, 0.5);
 }
 
 .story-card:hover::after {
@@ -117,7 +118,7 @@
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
-    border-bottom: 1px solid rgba(139, 0, 0, 0.35);
+    border-bottom: 1px solid rgba(163, 22, 33, 0.35);
     background-color: #1a0f0f;
 }
 
@@ -139,7 +140,7 @@
 
 .story-card-header {
     padding: 1.5rem 1.5rem 1rem;
-    border-bottom: 1px solid rgba(139, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(163, 22, 33, 0.2);
     position: relative;
     background: rgba(30, 15, 15, 0.25);
 }
@@ -156,7 +157,7 @@
     color: var(--bright-red);
     letter-spacing: 0.35rem;
     margin: 0;
-    text-shadow: 0 0 15px rgba(139, 0, 0, 0.4);
+    text-shadow: 0 0 15px rgba(163, 22, 33, 0.4);
 }
 
 .story-card-subtitle {
@@ -172,8 +173,8 @@
     font-size: 0.75rem;
     color: var(--aged-yellow);
     letter-spacing: 0.05rem;
-    background: rgba(139, 0, 0, 0.12);
-    border: 1px solid rgba(139, 0, 0, 0.25);
+    background: rgba(163, 22, 33, 0.12);
+    border: 1px solid rgba(163, 22, 33, 0.25);
     padding: 0.25rem 0.6rem;
     border-radius: 2px;
 }
@@ -211,8 +212,8 @@
 }
 
 .story-tag {
-    background: rgba(139, 0, 0, 0.12);
-    border: 1px solid rgba(139, 0, 0, 0.28);
+    background: rgba(163, 22, 33, 0.12);
+    border: 1px solid rgba(163, 22, 33, 0.28);
     padding: 0.25rem 0.65rem;
     font-size: 0.75rem;
     color: var(--aged-yellow);
@@ -221,8 +222,8 @@
 }
 
 .story-card:hover .story-tag {
-    background: rgba(139, 0, 0, 0.2);
-    border-color: rgba(196, 30, 58, 0.45);
+    background: rgba(163, 22, 33, 0.2);
+    border-color: rgba(214, 58, 74, 0.45);
 }
 
 .story-card-actions {
@@ -273,7 +274,7 @@
     content: '';
     width: 36px;
     height: 36px;
-    border: 2px solid rgba(139, 0, 0, 0.3);
+    border: 2px solid rgba(163, 22, 33, 0.3);
     border-top-color: var(--bright-red);
     border-radius: 50%;
     animation: spin 1s linear infinite;
@@ -283,10 +284,6 @@
     color: var(--aged-yellow);
     letter-spacing: 0.2rem;
     font-size: 0.9rem;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
 }
 
 @media (max-width: 768px) {

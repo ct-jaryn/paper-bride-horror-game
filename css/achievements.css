@@ -35,7 +35,7 @@
 
 .achievement-card {
     background: rgba(20, 15, 12, 0.8);
-    border: 1px solid rgba(139, 0, 0, 0.3);
+    border: 1px solid rgba(163, 22, 33, 0.3);
     padding: 1rem;
     display: flex;
     align-items: flex-start;
@@ -58,7 +58,7 @@
 }
 
 .achievement-card.unlocked {
-    border-color: rgba(139, 0, 0, 0.6);
+    border-color: rgba(163, 22, 33, 0.6);
     background: rgba(40, 15, 15, 0.8);
 }
 
@@ -84,8 +84,8 @@
 }
 
 .achievement-card.unlocked .achievement-icon {
-    background: rgba(139, 0, 0, 0.2);
-    box-shadow: 0 0 15px rgba(139, 0, 0, 0.3);
+    background: rgba(163, 22, 33, 0.2);
+    box-shadow: 0 0 15px rgba(163, 22, 33, 0.3);
 }
 
 .achievement-info {
@@ -142,7 +142,7 @@
     transform: translateX(120%);
     opacity: 0;
     transition: all 0.5s ease;
-    box-shadow: 0 0 30px rgba(139, 0, 0, 0.4);
+    box-shadow: 0 0 30px rgba(163, 22, 33, 0.4);
     max-width: 320px;
     pointer-events: auto;
 }

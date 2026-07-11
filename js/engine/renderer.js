@@ -90,10 +90,14 @@ export function updateStatus() {
     if (sanityItem) sanityItem.classList.toggle('danger', Huimen.GameState.sanity <= 30);
     if (yinItem) yinItem.classList.toggle('danger', Huimen.GameState.yin >= 70);
 
-    if (Huimen.GameState.sanity < 30) {
-        document.body.style.filter = 'contrast(1.2) saturate(0.6)';
-    } else {
-        document.body.style.filter = '';
+    // 低理智时仅对游戏画面层应用轻微滤镜，避免影响全局对比度和可读性
+    const gameScreen = document.getElementById('game-screen');
+    if (gameScreen) {
+        if (Huimen.GameState.sanity < 30) {
+            gameScreen.style.filter = 'contrast(1.05) saturate(0.85)';
+        } else {
+            gameScreen.style.filter = '';
+        }
     }
 }
 
@@ -573,6 +577,45 @@ export function hideLoading() {
 Huimen.showLoading = showLoading;
 Huimen.hideLoading = hideLoading;
 
+/**
+ * 真结局步数不足时的提示：不进入结局，而是让玩家继续探索
+ */
+export function renderPrematureTrueEndingHint(returnSceneId) {
+    if (!ui.storyText || !ui.choices) return;
+
+    skipTyping();
+
+    const text = `你触到了真相的一角。\n\n` +
+        `纸人没有动，红绳没有断，但你知道——还少了什么。` +
+        `那些散落的线索、那些未被点亮的记忆、那些你还没走过的回廊，都在暗处看着你。\n\n` +
+        `[whisper]"再走走吧。"[/whisper] 有声音在耳边说，[whisper]"等你看过足够多，我自然会放你走。"[/whisper]`;
+
+    ui.choices.innerHTML = '';
+
+    const continueBtn = document.createElement('button');
+    continueBtn.className = 'choice-btn';
+    continueBtn.textContent = '回到当下，继续探索';
+    continueBtn.addEventListener('click', () => {
+        renderScene(returnSceneId);
+    });
+    ui.choices.appendChild(continueBtn);
+
+    const selectBtn = document.createElement('button');
+    selectBtn.className = 'choice-btn secondary dead-end-btn';
+    selectBtn.textContent = '暂且退出，整理思绪';
+    selectBtn.addEventListener('click', () => {
+        showScreen('storySelect');
+        renderStorySelect();
+    });
+    ui.choices.appendChild(selectBtn);
+
+    typeText(processText(text));
+}
+
+Huimen.renderPrematureTrueEndingHint = renderPrematureTrueEndingHint;
+
 // 导出公共 API 到 Huimen
 Huimen.renderScene = renderScene;
+Huimen.updateStatus = updateStatus;
+Huimen.updateInventory = updateInventory;
 

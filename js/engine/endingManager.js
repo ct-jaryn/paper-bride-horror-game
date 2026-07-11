@@ -27,6 +27,17 @@ export function showEnding(endingId) {
         return;
     }
 
+    const historyLength = (Huimen.GameState.history || []).length;
+    const trueEndingBlocked = ending.trueEnding && historyLength < 20;
+
+    if (trueEndingBlocked) {
+        // 不触发结局，回到当前场景继续探索，让玩家积累更多场景步数
+        if (typeof Huimen.renderPrematureTrueEndingHint === 'function') {
+            Huimen.renderPrematureTrueEndingHint(Huimen.GameState.currentScene);
+        }
+        return;
+    }
+
     let newlyUnlocked = [];
     let isFirstCompletion = false;
 
