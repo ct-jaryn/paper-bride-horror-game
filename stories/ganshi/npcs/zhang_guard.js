@@ -50,7 +50,7 @@ export const zhang_guard = createNPC('zhang_guard', {
       })]
     }),
     ask_corpses: createDialogueNode('ask_corpses', {
-      text: `"账房先生发现了赈灾银的猫腻，青年是周家赌坊的债主，柳红——就是那具女尸——是周家少爷的冥婚新娘。"老张压低声音，"县太爷、县丞、周老爷，三方都想让他们死在半道。"`,
+      text: `"三具尸体，三种冤法。"老张看着火堆，"具体什么冤，你得自己问它们——或者查它们身上的东西。我只知道，它们不该死，也不能死得不明不白。"`,
       choices: [createDialogueChoice({
         text: '我该怎么做？',
         next: 'ask_justice'

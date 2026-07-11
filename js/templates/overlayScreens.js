@@ -53,14 +53,28 @@ export const overlayScreensTemplate = `<div class="cg-overlay hidden" id="cg-ove
 <div class="shop-item-price"><span id="shop-revive-cost">50</span> 阴钱</div>
 <button class="horror-btn" id="shop-buy-revive">购买</button>
 </div>
+<div class="shop-item">
+<div class="shop-item-name">定神茶</div>
+<div class="shop-item-desc">饮下一杯定神茶，恢复 15 点理智。仅在故事中有效。</div>
+<div class="shop-item-price"><span id="shop-sanity-cost">80</span> 阴钱</div>
+<button class="horror-btn" id="shop-buy-sanity">购买</button>
+</div>
+<div class="shop-item">
+<div class="shop-item-name">驱邪铃</div>
+<div class="shop-item-desc">摇响驱邪铃，降低 15 点阴气。仅在故事中有效。</div>
+<div class="shop-item-price"><span id="shop-yin-cost">80</span> 阴钱</div>
+<button class="horror-btn" id="shop-buy-yin">购买</button>
+</div>
 </div>
 <div class="shop-recharge">
 <h3>开发者测试入口（模拟充值）</h3>
 <p class="shop-recharge-note">此处仅供开发/演示，不会发起任何真实支付，也不会保存到服务端。</p>
 <div class="shop-recharge-row">
-<input id="shop-recharge-input" max="9999" min="1" placeholder="输入阴钱数量（1-9999）" type="number"/>
+<label class="visually-hidden" for="shop-recharge-input">模拟充值阴钱数量</label>
+<input id="shop-recharge-input" max="9999" min="1" placeholder="输入阴钱数量（1-9999）" type="number" aria-describedby="shop-recharge-hint"/>
 <button class="horror-btn secondary" id="shop-recharge-btn">模拟充值</button>
 </div>
+<p class="shop-recharge-note" id="shop-recharge-hint">输入 1 到 9999 的整数。</p>
 </div>
 <button class="horror-btn secondary" id="shop-close-btn">返回</button>
 </div>

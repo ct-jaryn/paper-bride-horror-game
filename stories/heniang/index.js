@@ -10,6 +10,7 @@ import { scenes as bargainScenes } from './scenes/bargain.js';
 import { scenes as burnScenes } from './scenes/burn.js';
 import { scenes as callScenes } from './scenes/call.js';
 import { scenes as clearScenes } from './scenes/clear.js';
+import { scenes as ferrymanPathScenes } from './scenes/ferryman_path.js';
 import { scenes as ferrymanScenes } from './scenes/ferryman.js';
 import { scenes as findScenes } from './scenes/find.js';
 import { scenes as fleeScenes } from './scenes/flee.js';
@@ -18,6 +19,7 @@ import { scenes as itemUseScenes } from './scenes/item_use.js';
 import { scenes as leaveScenes } from './scenes/leave.js';
 import { scenes as lieScenes } from './scenes/lie.js';
 import { scenes as lookScenes } from './scenes/look.js';
+import { scenes as motherPastScenes } from './scenes/mother_past.js';
 import { scenes as motherScenes } from './scenes/mother.js';
 import { scenes as negotiateScenes } from './scenes/negotiate.js';
 import { scenes as planScenes } from './scenes/plan.js';
@@ -26,15 +28,18 @@ import { scenes as promiseScenes } from './scenes/promise.js';
 import { scenes as reburyScenes } from './scenes/rebury.js';
 import { scenes as refuseScenes } from './scenes/refuse.js';
 import { scenes as respectScenes } from './scenes/respect.js';
+import { scenes as riverKingdomScenes } from './scenes/river_kingdom.js';
 import { scenes as saneScenes } from './scenes/sane.js';
 import { scenes as searchScenes } from './scenes/search.js';
 import { scenes as silenceScenes } from './scenes/silence.js';
 import { scenes as takeScenes } from './scenes/take.js';
 import { scenes as tellScenes } from './scenes/tell.js';
 import { scenes as threatenScenes } from './scenes/threaten.js';
+import { scenes as threeHundredScenes } from './scenes/three_hundred_years.js';
 import { scenes as underwaterScenes } from './scenes/underwater.js';
 import { scenes as useScenes } from './scenes/use.js';
 import { scenes as walkScenes } from './scenes/walk.js';
+import { scenes as xiuguPastScenes } from './scenes/xiugu_past.js';
 import { scenes as xiulanScenes } from './scenes/xiulan.js';
 import { Endings } from './endings/index.js';
 import { NPCs } from './npcs/index.js';
@@ -48,6 +53,7 @@ export const StoryData = {
     ...burnScenes,
     ...callScenes,
     ...clearScenes,
+    ...ferrymanPathScenes,
     ...ferrymanScenes,
     ...findScenes,
     ...fleeScenes,
@@ -56,6 +62,7 @@ export const StoryData = {
     ...leaveScenes,
     ...lieScenes,
     ...lookScenes,
+    ...motherPastScenes,
     ...motherScenes,
     ...negotiateScenes,
     ...planScenes,
@@ -64,15 +71,18 @@ export const StoryData = {
     ...reburyScenes,
     ...refuseScenes,
     ...respectScenes,
+    ...riverKingdomScenes,
     ...saneScenes,
     ...searchScenes,
     ...silenceScenes,
     ...takeScenes,
     ...tellScenes,
     ...threatenScenes,
+    ...threeHundredScenes,
     ...underwaterScenes,
     ...useScenes,
     ...walkScenes,
+    ...xiuguPastScenes,
     ...xiulanScenes
 };
 
