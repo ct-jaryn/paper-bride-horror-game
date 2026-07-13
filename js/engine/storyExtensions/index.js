@@ -18,6 +18,10 @@ import * as hujia from './hujia.js';
 import * as ganshi from './ganshi.js';
 
 const STORY_EXTENSIONS = { huimen, shouye, xitai, tishen, heniang, hujia, ganshi };
+const OMITTED_EXTENSION_BRANCHES = new Set([
+    // 这是旧的“结局展示选择器”，会在巡夜场景一次性暴露大量互相重复的彩蛋结局。
+    'shouye:patrol_corridor'
+]);
 
 /**
  * 在当前加载的故事数据中注入彩蛋
@@ -41,6 +45,7 @@ export function applyEasterEggs() {
     // 注入额外选择
     if (ext.choices) {
         Object.entries(ext.choices).forEach(([key, choices]) => {
+            if (OMITTED_EXTENSION_BRANCHES.has(key)) return;
             const [, sceneId] = key.split(':');
             const scene = Huimen.StoryData[sceneId];
             if (!scene) return;

@@ -42,6 +42,10 @@ export const scenes = {
     }), createChoice({
       text: '回到河边找线索',
       next: 'walk_riverbank'
+    }), createChoice({
+      text: '向河边的摆渡人打听沈氏旧事',
+      next: 'ferryman_choice',
+      hidden: true
     })]
   }),
   find_first_heniang: createScene('find_first_heniang', {

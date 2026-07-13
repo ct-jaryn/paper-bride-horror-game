@@ -6,7 +6,7 @@
 import { Huimen } from './namespace.js';
 import { emit } from './eventBus.js';
 import { checkCondition } from './effectEngine.js';
-import { applyEffects } from './effectEngine.js';
+import { applyChoiceEffects, applyEffects } from './effectEngine.js';
 import { patchGameState, saveStoryState } from './state.js';
 
 let currentNPCId = null;
@@ -91,6 +91,7 @@ function renderDialogue() {
     if (portraitEl) portraitEl.textContent = (npc.name || currentNPCId).charAt(0);
 
     let text = node.text;
+    if (node.effects) applyEffects(node.effects);
     if (typeof text === 'function') text = text(Huimen.GameState, getNPCState(currentNPCId));
     if (textEl) textEl.textContent = text || '';
 
@@ -134,7 +135,7 @@ function handleChoice(choice) {
             if (state.affinity < -100) state.affinity = -100;
             syncNPCState(currentNPCId, state);
         }
-        applyEffects(choice.effects);
+        applyChoiceEffects(choice);
     }
 
     emit('npcDialogueChoice', { npcId: currentNPCId, choice });

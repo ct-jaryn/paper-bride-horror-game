@@ -57,5 +57,5 @@ export const scenes = {
 
 "你来了。"水里的女子说。
 
-你想松手，却发现自己的手被水面吸住了。`,effects:{"sanity":-20,"yin":10,"visual":"whisper"},choices:[createChoice({"text":"用铜镜照井水","next":"mirror_well","condition":{"lacksItem":"铜镜"}}),createChoice({"text":"用力抽回手","next":"pull_back_hand","effects":{"sanity":-10}}),createChoice({"text":"问她是谁","next":"ask_who_are_you"})]})
+你想松手，却发现自己的手被水面吸住了。`,effects:{"sanity":-20,"yin":10,"visual":"whisper"},choices:[createChoice({"text":"用铜镜照井水","next":"mirror_well","condition":{"lacksItem":"铜镜碎片"}}),createChoice({"text":"用力抽回手","next":"pull_back_hand","effects":{"sanity":-10}}),createChoice({"text":"问她是谁","next":"ask_who_are_you"})]})
 };

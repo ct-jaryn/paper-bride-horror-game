@@ -129,6 +129,14 @@ export const scenes = {
       text: '回家翻看母亲的老照片',
       next: 'look_old_photos'
     }), createChoice({
+      text: '河雾里露出一条通往河底的旧路',
+      next: 'river_kingdom_enter',
+      hidden: true
+    }), createChoice({
+      text: '听见三百年前的水下回响',
+      next: 'three_hundred_begin',
+      hidden: true
+    }), createChoice({
       text: '你神志恍惚，把河边的身影看成了母亲',
       next: 'mother_as_heniang',
       condition: {

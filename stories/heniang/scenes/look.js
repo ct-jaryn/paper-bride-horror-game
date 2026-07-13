@@ -78,6 +78,14 @@ export const scenes = {
     choices: [createChoice({
       text: '带着信去河边',
       next: 'walk_riverbank'
+    }), createChoice({
+      text: '照片背后夹着一段关于秀姑年轻时的记述',
+      next: 'xiugu_youth',
+      hidden: true
+    }), createChoice({
+      text: '母亲旧信里提到她年轻时的选择',
+      next: 'mother_youth',
+      hidden: true
     })]
   })
 };

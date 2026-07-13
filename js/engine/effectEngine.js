@@ -5,8 +5,25 @@
 
 import { Huimen } from './namespace.js';
 import { emit } from './eventBus.js';
-import { adjustNumber, pushToArray, removeFromArray, setGlobalFlag, clearGlobalFlag } from './state.js';
+import { adjustNumber, pushToArray, removeFromArray, setFlag, clearFlag, setGlobalFlag, clearGlobalFlag } from './state.js';
 import { updateStatus, updateInventory } from './renderer.js';
+
+// 这些 flag 是跨卷叙事线索，其余 flag 默认只属于当前故事。
+const CROSS_STORY_FLAGS = new Set([
+    'restored_xiulan_name', 'xiulanMercy', 'knowsTruth', 'heard_paper_whisper',
+    'hujia_to_zhou', 'ganshi_to_qingshi', 'hujia_to_qingshi',
+    'yunxiuRemembered', 'yunxiuLinkedToPaper', 'knowsRitual'
+]);
+
+function setStoryFlag(flag, value = true) {
+    if (CROSS_STORY_FLAGS.has(flag)) setGlobalFlag(flag, value);
+    else setFlag(flag, value);
+}
+
+function clearStoryFlag(flag) {
+    if (CROSS_STORY_FLAGS.has(flag)) clearGlobalFlag(flag);
+    else clearFlag(flag);
+}
 
 export const SHICHEN = [
     { name: '戌时', start: 1140, end: 1260 },
@@ -35,7 +52,7 @@ export function getShichen(time) {
 /**
  * 检查单个条件
  */
-export function checkCondition(condition, stateOverride) {
+function legacyCheckCondition(condition, stateOverride) {
     const state = stateOverride || Huimen.GameState;
 
     if (!condition || Object.keys(condition).length === 0) return true;
@@ -85,6 +102,34 @@ export function checkCondition(condition, stateOverride) {
     return false;
 }
 
+export function checkCondition(condition, stateOverride) {
+    const state = stateOverride || Huimen.GameState;
+    if (!condition || (typeof condition === 'object' && Object.keys(condition).length === 0)) return true;
+    if (typeof condition === 'function') return Boolean(condition(state));
+
+    const has = (key) => Object.prototype.hasOwnProperty.call(condition, key);
+    const checks = [];
+    if (has('hasItem')) checks.push(state.inventory.includes(condition.hasItem));
+    if (has('lacksItem')) checks.push(!state.inventory.includes(condition.lacksItem));
+    if (has('flag')) checks.push(state.flags[condition.flag] === true);
+    if (has('noFlag')) checks.push(!state.flags[condition.noFlag]);
+    if (has('flagValue')) checks.push(state.flags[condition.flagValue.key] === condition.flagValue.value);
+    if (has('sanityBelow')) checks.push(state.sanity < condition.sanityBelow);
+    if (has('sanityAbove')) checks.push(state.sanity > condition.sanityAbove);
+    if (has('yinAbove')) checks.push(state.yin > condition.yinAbove);
+    if (has('yinBelow')) checks.push(state.yin < condition.yinBelow);
+    if (has('timeAfter')) checks.push(state.time >= condition.timeAfter);
+    if (has('timeBefore')) checks.push(state.time < condition.timeBefore);
+    if (has('hasVisited')) checks.push(state.history.includes(condition.hasVisited));
+    if (has('hasNotVisited')) checks.push(!state.history.includes(condition.hasNotVisited));
+    if (has('custom') && typeof condition.custom === 'function') checks.push(Boolean(condition.custom(state)));
+    if (checks.length === 0) {
+        console.warn('unknown condition type:', condition);
+        return false;
+    }
+    return checks.every(Boolean);
+}
+
 /**
  * 应用一组效果
  */
@@ -113,12 +158,25 @@ export function applyEffects(effects) {
     if (effects.setFlag) {
         const flags = Array.isArray(effects.setFlag) ? effects.setFlag : [effects.setFlag];
         for (const flag of flags) {
-            setGlobalFlag(flag, true);
+            if (typeof flag === 'string') setStoryFlag(flag, true);
+            else if (flag && flag.key) setStoryFlag(flag.key, flag.value ?? true);
             emit('flagSet', { flag });
         }
     }
     if (effects.clearFlag) {
-        clearGlobalFlag(effects.clearFlag);
+        const flags = Array.isArray(effects.clearFlag) ? effects.clearFlag : [effects.clearFlag];
+        flags.forEach(flag => clearStoryFlag(flag));
+    }
+    if (effects.setGlobalFlag) {
+        const flags = Array.isArray(effects.setGlobalFlag) ? effects.setGlobalFlag : [effects.setGlobalFlag];
+        flags.forEach(flag => {
+            if (typeof flag === 'string') setGlobalFlag(flag, true);
+            else if (flag && flag.key) setGlobalFlag(flag.key, flag.value ?? true);
+        });
+    }
+    if (effects.clearGlobalFlag) {
+        const flags = Array.isArray(effects.clearGlobalFlag) ? effects.clearGlobalFlag : [effects.clearGlobalFlag];
+        flags.forEach(flag => clearGlobalFlag(flag));
     }
     if (effects.visual) {
         triggerEffect(effects.visual, effects.visualDuration);
@@ -126,6 +184,30 @@ export function applyEffects(effects) {
 
     updateStatus();
     updateInventory();
+}
+
+export function applyChoiceEffects(choice) {
+    if (!choice) return;
+    if (choice.effects) applyEffects(choice.effects);
+    if (choice.effect) {
+        if (typeof choice.effect === 'function') choice.effect(Huimen.GameState);
+        else applyEffects(choice.effect);
+    }
+    if (choice.consume) removeFromArray('inventory', choice.consume);
+    if (choice.setFlag) {
+        const flags = Array.isArray(choice.setFlag) ? choice.setFlag : [choice.setFlag];
+        flags.forEach(flag => {
+            if (typeof flag === 'string') setStoryFlag(flag, true);
+            else if (flag && flag.key) setStoryFlag(flag.key, flag.value ?? true);
+        });
+    }
+    if (choice.setGlobalFlag) {
+        const flags = Array.isArray(choice.setGlobalFlag) ? choice.setGlobalFlag : [choice.setGlobalFlag];
+        flags.forEach(flag => {
+            if (typeof flag === 'string') setGlobalFlag(flag, true);
+            else if (flag && flag.key) setGlobalFlag(flag.key, flag.value ?? true);
+        });
+    }
 }
 
 /**

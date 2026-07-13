@@ -5,19 +5,7 @@
 import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 
 export const scenes = {
-    huimen_exp_village_loop_entry: createScene('huimen_exp_village_loop_entry', {title:'山村夜路',text:`你踏出那一步，身后的堂屋忽然变得很远，像是隔了一层水。
-
-村子不是你记忆中的样子。街巷曲折，屋檐低垂，压得人喘不过气。每一扇门都紧闭着，门缝里却透出幽幽的白光，像有人在门后提着灯。纸钱不是从天上飘下来的，是从墙缝里、从石板缝里、从每一道门缝里渗出来的，沙沙地响。
-
-[whisper]"又来一个……"[/whisper]
-
-你回头，来时的路已经不见了，只剩一堵斑驳的土墙，墙上贴着一张褪色的喜字，金粉剥落。
-
-[red]你似乎走进了村子的另一面。[/red]
-
-这里没有时间。月亮永远停在东山之上，雾气里偶尔传来唢呐声，忽远忽近，凄厉得很。你知道这不是真实的世界，而是秀兰三十年怨念织出的网。
-
-但你没有立刻死去。这说明她还在等你做选择。`,effects:{"sanity":-5,"yin":2,"visual":"flicker","visualDuration":2000,"setFlag":"huimen_exp_village_loop_entry_visited"},choices:[createChoice({"text":"沿着村街往前走","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"贴着墙根，试图找到出路","next":"huimen_exp_village_map","effects":{"sanity":-3,"yin":2}}),createChoice({"text":"试图寻找来时的路","next":"huimen_exp_village_loop_entry","effects":{"yin":1}})]}),
+    huimen_exp_village_loop_entry: createScene('huimen_exp_village_loop_entry', {title:'山村夜路',text:`你踏出那一步，身后的景物忽然变得很远，像是隔了一层水。`,textVariants:[{condition:{custom:(state)=>state.history.slice(-2).includes('open_red_coffin')},text:`你是从红棺底部那道透着村街灯火的缝隙里挤出来的。棺木和井水在身后迅速远去，像被一层水幕隔开。`},{condition:{custom:(state)=>state.history.slice(-2).includes('mirror_well')},text:`你沿着铜镜碎片映出的月光迈出井边，脚下的青石忽然变成一条没有尽头的村街。`},{condition:{custom:(state)=>state.history.slice(-2).includes('huimen_truth_revelation')},text:`你从无字碑后的窄路走进去，身后的坟地和无字碑被雾吞没，只剩村街尽头的白灯笼为你引路。`},{condition:{custom:(state)=>state.history.slice(-2).includes('huimen_exp_village_loop_entry')},text:`你沿着雾里的路走回原处，墙上的喜字和脚下的纸钱都像刚才见过，却又换了一个位置。`},{condition:{custom:(state)=>!['open_red_coffin','mirror_well','huimen_truth_revelation','huimen_exp_village_loop_entry'].some(id=>state.history.slice(-2).includes(id))},text:`身后的堂屋忽然变得很远，像是隔了一层水。你知道自己离开了老宅，踏进了秀兰怨念织成的另一面。`}],effects:{"sanity":-5,"yin":2,"visual":"flicker","visualDuration":2000,"setFlag":"huimen_exp_village_loop_entry_visited"},choices:[createChoice({"text":"沿着村街往前走","next":"huimen_exp_village_street","effects":{"yin":1}}),createChoice({"text":"贴着墙根，试图找到出路","next":"huimen_exp_village_map","effects":{"sanity":-3,"yin":2}}),createChoice({"text":"试图寻找来时的路","next":"huimen_exp_village_loop_entry","effects":{"yin":1}})]}),
     huimen_exp_village_map: createScene('huimen_exp_village_map', {title:'村图',text:`你贴着墙根走，手指触到一块松动的墙砖，砖缝里渗着凉风。
 
 你抠出那块墙砖，后面藏着一个暗格，格子里卷着一张发黄的纸。你展开一看——纸上画着村子的地图。可那地图不是平面的，而是像人的脏腑一样盘绕着，弯弯绕绕。心脏位置标着一口井，胃的位置画着一栋纸扎铺，肝的位置是一座庙，肺的位置是周家祖祠。

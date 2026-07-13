@@ -28,7 +28,7 @@ export const scenes = {
 
 [red]原来连她的坟，都是不完整的。她被分了尸，连死后都不得团圆。[/red]
 
-你把纸翻过来，背面还有一行小字，是另一种笔迹："埋于此，让她永世不得超生。"`,effects:{"sanity":-8,"yin":3,"addItem":"秀兰坟前的桂花"},choices:[createChoice({"text":"把桂花献给井里的秀兰","next":"huimen_exp2_riverbank","condition":{"hasItem":"秀兰坟前的桂花"},"effects":{"sanity":5,"yin":-5,"removeItem":"秀兰坟前的桂花"}}),createChoice({"text":"在坟前磕头","next":"huimen_exp2_graveyard_bow","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"继续寻找其他骨头","next":"huimen_exp2_graveyard_dig","effects":{"yin":2}})]}),
+你把纸翻过来，背面还有一行小字，是另一种笔迹："埋于此，让她永世不得超生。"`,effects:{"sanity":-8,"yin":3,"addItem":"秀兰坟前的桂花"},choices:[createChoice({"text":"把桂花带到河边献给秀兰","next":"huimen_exp2_riverbank","condition":{"hasItem":"秀兰坟前的桂花"},"effects":{"sanity":5,"yin":-5,"removeItem":"秀兰坟前的桂花"}}),createChoice({"text":"在坟前磕头","next":"huimen_exp2_graveyard_bow","effects":{"sanity":5,"yin":-5}}),createChoice({"text":"继续寻找其他骨头","next":"huimen_exp2_graveyard_dig","effects":{"yin":2}})]}),
     huimen_exp2_graveyard_bow: createScene('huimen_exp2_graveyard_bow', {title:'坟前祭拜',text:`你在秀兰的坟前跪下，膝盖磕在湿冷的泥地上，陷下去半寸。
 
 "秀兰，" 你说，"我来看你了。不是作为周家的后人，而是作为一个人。"

@@ -8,7 +8,7 @@ import { emit } from './eventBus.js';
 import { overlayElements } from './dom.js';
 import { escapeHtml, formatGameTime } from './utils.js';
 import { skipTyping, renderScene, isTyping } from './renderer.js';
-import { applyEffects, checkGameOver, getShichen } from './effectEngine.js';
+import { applyChoiceEffects, checkGameOver, getShichen } from './effectEngine.js';
 import * as SaveManager from './saveManager.js';
 import { saveStoryState, pushToArray, patchGameState, updateState } from './state.js';
 import { showEnding } from './endingManager.js';
@@ -34,9 +34,7 @@ export function makeChoice(choice, choiceIndex) {
             time: Huimen.GameState.time
         };
 
-        if (choice.effects) {
-            applyEffects(choice.effects);
-        }
+        applyChoiceEffects(choice);
 
         // 记录本次选择
         pushToArray('choiceLog', {
@@ -74,6 +72,8 @@ export function makeChoice(choice, choiceIndex) {
             renderScene(choice.next);
         } else if (choice.ending) {
             showEnding(choice.ending);
+        } else if (choice.exit) {
+            renderScene(sceneId, { applyEntryEffects: false, recordHistory: false });
         }
     }, 200);
 }
@@ -135,7 +135,7 @@ export function reviveAtCheckpoint(storyId) {
     if (typeof Huimen.showScreen === 'function') {
         Huimen.showScreen('game');
     }
-    renderScene(checkpoint.currentScene);
+    renderScene(checkpoint.currentScene, { applyEntryEffects: false, recordHistory: false });
 
     if (Huimen.ToastManager) {
         Huimen.ToastManager.show({

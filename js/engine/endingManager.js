@@ -8,6 +8,7 @@ import { Huimen } from './namespace.js';
 import { emit, on } from './eventBus.js';
 import * as SaveManager from './saveManager.js';
 import { ui } from './dom.js';
+import { getForcedEnding } from './forcedEndings.js';
 
 // 离开结局页时清除死亡氛围 class
 on('screenChange', (e) => {
@@ -21,7 +22,7 @@ on('screenChange', (e) => {
  * 显示结局画面并触发成就检查
  */
 export function showEnding(endingId) {
-    const ending = Huimen.Endings[endingId];
+    const ending = Huimen.Endings[endingId] || getForcedEnding(endingId);
     if (!ending) {
         console.error('结局不存在:', endingId);
         return;

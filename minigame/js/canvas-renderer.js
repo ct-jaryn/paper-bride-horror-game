@@ -8,7 +8,8 @@
 import { Huimen } from '../../js/engine/namespace.js';
 import * as SaveManager from '../../js/engine/saveManager.js';
 import { resetState, loadStoryState, patchGameState, pushToArray, saveStoryState } from '../../js/engine/state.js';
-import { applyEffects, checkGameOver, getShichen, checkCondition } from '../../js/engine/effectEngine.js';
+import { applyEffects, applyChoiceEffects, checkGameOver, getShichen, checkCondition } from '../../js/engine/effectEngine.js';
+import { getForcedEnding } from '../../js/engine/forcedEndings.js';
 import { applyEasterEggs } from '../../js/engine/storyExtensions.js';
 import { StoryManifest } from '../../stories/manifest.js';
 import { Platform } from '../../js/engine/platform.js';
@@ -90,6 +91,8 @@ export class CanvasRenderer {
 
         this.currentScene = null;
         this.currentChoices = [];
+        this.dialogue = null;
+        this.dialogueChoices = [];
         this.currentStory = null;
         this.storyBundles = null;
         this.audio = null;
@@ -446,6 +449,10 @@ export class CanvasRenderer {
 
     // ---- 游戏主界面 ----
     _renderGame() {
+        if (this.dialogue) {
+            this._renderNPCDialogue();
+            return;
+        }
         const pad = 16;
         const topH = 56;
         const bottomH = 140;
@@ -863,6 +870,7 @@ export class CanvasRenderer {
         Huimen.CurrentStory = story;
         Huimen.StoryData = bundle.StoryData;
         Huimen.Endings = bundle.Endings;
+        Huimen.NPCs = bundle.NPCs || {};
         this.currentStory = story;
         applyEasterEggs();
 
@@ -890,6 +898,17 @@ export class CanvasRenderer {
 
         applyEffects(scene.effects);
 
+        const forcedEnding = checkGameOver();
+        if (forcedEnding) {
+            this.showEnding(forcedEnding);
+            return;
+        }
+
+        if (scene.ending) {
+            this.showEnding(scene.ending);
+            return;
+        }
+
         let text = scene.text;
         if (typeof text === 'function') text = text(Huimen.GameState);
         if (Huimen.GameState.sanity < 40 && scene.hallucination) {
@@ -897,8 +916,9 @@ export class CanvasRenderer {
         }
 
         this.currentChoices = (scene.choices || []).filter(c => {
-            if (!c.condition) return true;
-            return checkCondition(c.condition, Huimen.GameState);
+            if (c.condition && !checkCondition(c.condition, Huimen.GameState)) return false;
+            if (c.hideIf && (typeof c.hideIf === 'function' ? c.hideIf(Huimen.GameState) : checkCondition(c.hideIf, Huimen.GameState))) return false;
+            return true;
         });
 
         this.typedText = '';
@@ -965,7 +985,7 @@ export class CanvasRenderer {
             time: Huimen.GameState.time
         };
 
-        if (choice.effects) applyEffects(choice.effects);
+        applyChoiceEffects(choice);
 
         pushToArray('choiceLog', {
             sceneId: Huimen.GameState.currentScene,
@@ -985,12 +1005,115 @@ export class CanvasRenderer {
             return;
         }
 
+        if (choice.npc) {
+            this.startNPCDialogue(choice.npc, choice.npcNode || 'start');
+            return;
+        }
+
         if (choice.next) this.renderScene(choice.next);
         else if (choice.ending) this.showEnding(choice.ending);
+        else if (choice.exit) this.renderScene(Huimen.GameState.currentScene);
+    }
+
+    startNPCDialogue(npcId, nodeId = 'start') {
+        const npc = Huimen.NPCs?.[npcId];
+        if (!npc || !npc.dialogue?.[nodeId]) {
+            this.showToast({ title: '对话暂不可用', description: `找不到人物对话：${npcId}`, duration: 1800 });
+            return;
+        }
+        const storyId = this.currentStory?.id || 'global';
+        const allState = Huimen.GameState.npcState || {};
+        const storyState = allState[storyId] || {};
+        const npcState = { affinity: 0, met: false, talked: 0, ...(storyState[npcId] || {}) };
+        npcState.met = true;
+        npcState.talked += 1;
+        Huimen.GameState.npcState = { ...allState, [storyId]: { ...storyState, [npcId]: npcState } };
+        this.dialogue = { npcId, nodeId };
+        this._enterNPCNode();
+        this.render();
+    }
+
+    _enterNPCNode() {
+        const npc = Huimen.NPCs?.[this.dialogue?.npcId];
+        const node = npc?.dialogue?.[this.dialogue?.nodeId];
+        if (!node) {
+            this.dialogue = null;
+            return;
+        }
+        if (node.effects) applyEffects(node.effects);
+        let text = typeof node.text === 'function'
+            ? node.text(Huimen.GameState, this._getNPCState())
+            : node.text;
+        this.typedText = stripTags(text || '');
+        this.dialogueChoices = (node.choices || []).filter(choice => {
+            if (choice.condition && !checkCondition(choice.condition, Huimen.GameState)) return false;
+            if (choice.hideIf && (typeof choice.hideIf === 'function' ? choice.hideIf(Huimen.GameState) : checkCondition(choice.hideIf, Huimen.GameState))) return false;
+            return true;
+        });
+        if (this.currentStory) saveStoryState(this.currentStory.id);
+    }
+
+    _getNPCState() {
+        const storyId = this.currentStory?.id || 'global';
+        return Huimen.GameState.npcState?.[storyId]?.[this.dialogue?.npcId] || { affinity: 0, met: false, talked: 0 };
+    }
+
+    _renderNPCDialogue() {
+        const pad = 16;
+        const ctx = this.ctx;
+        const npc = Huimen.NPCs?.[this.dialogue.npcId] || {};
+        this._renderStatusBar(56);
+        ctx.fillStyle = COLORS.paper;
+        ctx.roundRect(pad, 72, this.width - pad * 2, this.height - 230, 8);
+        ctx.fill();
+        ctx.fillStyle = COLORS.gold;
+        ctx.font = FONTS.subtitle;
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'top';
+        ctx.fillText(`${npc.name || this.dialogue.npcId}  ${npc.title || ''}`, pad + 14, 86);
+        ctx.fillStyle = COLORS.text;
+        ctx.font = FONTS.body;
+        const lines = this._wrapText(this.typedText, this.width - pad * 2 - 28, FONTS.body);
+        lines.forEach((line, i) => ctx.fillText(line, pad + 14, 122 + i * 24));
+
+        const top = this.height - 140;
+        this.dialogueChoices.forEach((choice, idx) => {
+            const rect = { x: pad, y: top + idx * 48, w: this.width - pad * 2, h: 40 };
+            this._drawButton(rect, choice.text, this.activeRegion?.id === `npc-choice-${idx}`, { font: FONTS.small, border: COLORS.border });
+            this._addRegion(rect.x, rect.y, rect.w, rect.h, () => this._makeNPCChoice(choice), null, `npc-choice-${idx}`);
+        });
+        if (this.dialogueChoices.length === 0) {
+            const rect = { x: pad, y: top, w: this.width - pad * 2, h: 40 };
+            this._drawButton(rect, '离开', false, { font: FONTS.small, border: COLORS.border });
+            this._addRegion(rect.x, rect.y, rect.w, rect.h, () => { this.dialogue = null; this.render(); }, null, 'npc-close');
+        }
+    }
+
+    _makeNPCChoice(choice) {
+        if (choice.effects?.npcAffinity) {
+            const state = this._getNPCState();
+            const next = Math.max(-100, Math.min(100, state.affinity + choice.effects.npcAffinity));
+            const storyId = this.currentStory?.id || 'global';
+            Huimen.GameState.npcState[storyId][this.dialogue.npcId].affinity = next;
+        }
+        applyChoiceEffects(choice);
+        if (choice.exit) {
+            this.dialogue = null;
+        } else if (choice.next) {
+            this.dialogue.nodeId = choice.next;
+            this._enterNPCNode();
+        } else if (choice.scene) {
+            this.dialogue = null;
+            this.renderScene(choice.scene);
+            return;
+        } else {
+            this.dialogue = null;
+        }
+        this.render();
     }
 
     showEnding(endingId) {
-        const ending = Huimen.Endings[endingId];
+        const ending = Huimen.Endings[endingId] || getForcedEnding(endingId);
         if (!ending) return;
 
         this._endingTitle = ending.title || '结局';

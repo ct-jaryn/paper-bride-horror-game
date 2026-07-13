@@ -47,6 +47,7 @@ export const scenes = {
             }),
             createChoice({
                 text: "告辞",
+                next: "enter_with_flashlight",
                 exit: true,
                 effects: {
                     sanity: 5,

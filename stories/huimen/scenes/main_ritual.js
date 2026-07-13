@@ -17,7 +17,7 @@ export const scenes = {
 
 李婆摇摇头，转身消失在雨雾里。她的背影佝偻，但走路没有声音，像飘在地上一样。雨雾很浓，她一走进去就看不见了，只剩那盏白灯笼的光，越来越远，越来越淡。
 
-你握着那张符，手心全是冷汗。`,effects:{"addItem":"护身符","sanity":-5,"yin":2},choices:[createChoice({"text":"把符贴身收好","next":"huimen_paper_doll_warning","effects":{"sanity":5}}),createChoice({"text":"觉得晦气，把符扔了","next":"huimen_paper_doll_warning","effects":{"sanity":-5,"yin":5}})]}),
+你握着那张符，手心全是冷汗。`,effects:{"addItem":"护身符","sanity":-5,"yin":2},choices:[createChoice({"text":"把符贴身收好","next":"huimen_paper_doll_warning","effects":{"sanity":5}}),createChoice({"text":"觉得晦气，把符扔了","next":"huimen_paper_doll_warning","effects":{"sanity":-5,"yin":5,"removeItem":"护身符"}})]}),
     to_old_house: createScene('to_old_house', {title:'周家老宅',text:`月光把青砖照得发白，老宅的门洞开着，像一张黑洞洞的嘴。
 
 门洞很深，深得看不见底，只看见里面一点昏黄的烛光。烛光摇曳，把堂屋里的影子投到门口，影子里有人，人影很长，长得拖到门槛外。
@@ -49,7 +49,7 @@ export const scenes = {
 
 你没有回答。你看见红绳缩回棺材底下，棺材板发出一声闷响，"咚"的一声，像是有什么东西在棺材底下应了一声。
 
-[whisper]"别想逃。"[/whisper] 秀兰的声音从棺材里传出来，"子时还没到。"[/whisper]`,effects:{"sanity":5,"yin":-10,"setFlag":"talisman_used","removeItem":"护身符"},choices:[createChoice({"text":"趁红绳退缩，冲向小门","next":"small_door"}),createChoice({"text":"追问二叔护身符为何有效","next":"ask_talisman_meaning","effects":{"sanity":-5}})]}),
+[whisper]"别想逃。"[/whisper] 秀兰的声音从棺材里传出来，"子时还没到。"[/whisper]`,effects:{"sanity":5,"yin":-10,"setFlag":"talisman_used"},choices:[createChoice({"text":"趁红绳退缩，冲向小门","next":"small_door"}),createChoice({"text":"追问二叔护身符为何有效","next":"ask_talisman_meaning","effects":{"sanity":-5}})]}),
     ask_talisman_meaning: createScene('ask_talisman_meaning', {title:'符从何来',text:`你举着那张已经发黑的符纸，质问二叔："这东西是从哪来的？为什么能镇住红绳？"
 
 二叔盯着符纸，手腕上的红绳还在扭动，血顺着袖口滴到青砖上。他像是没听见你，又像是听见的不是一句话，而是一声雷。
@@ -60,7 +60,7 @@ export const scenes = {
 
 "她只知道，"二叔终于出声，声音沙哑，"欠债的，总得有人还。"
 
-符纸在你手里碎成几片，像烧尽的纸钱。你忽然明白，这护身符从来不是给你的——是给你周家血脉里，那个必须替祖父还债的人。`,effects:{"sanity":-5,"yin":2},choices:[createChoice({"text":"趁他们还在畏惧，冲向小门","next":"small_door"}),createChoice({"text":"退到堂屋中央，再找机会","next":"run_away_coffin"})]}),
+符纸在你手里碎成几片，像烧尽的纸钱。你忽然明白，这护身符从来不是给你的——是给你周家血脉里，那个必须替祖父还债的人。`,effects:{"sanity":-5,"yin":2,"removeItem":"护身符"},choices:[createChoice({"text":"趁他们还在畏惧，冲向小门","next":"small_door"}),createChoice({"text":"退到堂屋中央，再找机会","next":"run_away_coffin"})]}),
     swear_justice: createScene('swear_justice', {title:'坟前誓',text:`你跪在坟前，重重磕了三个头。
 
 膝盖磕在泥里，泥是湿的，凉得你膝盖都麻了。你每磕一个头，额头都磕在石头上，磕得"咚咚"响，响得像在敲钟。
@@ -116,7 +116,22 @@ export const scenes = {
 
 盖头滑落。你先看见下巴，然后是嘴唇——那唇色红得不自然。再往上看，眉眼的轮廓一寸寸熟悉起来，熟悉得让你想后退。最后你看清了整张脸。那脸白得像纸，却和你照镜子时一模一样。
 
-你忽然意识到，红盖头下的不是祖母本人，是周家规矩借她的形，继续守这场亲。`,effects:{"sanity":-50,"yin":20,"visual":"shake"},choices:[createChoice({"text":"把护身符按在面前","next":"break_window","condition":{"custom":(state)=>state.inventory.includes('护身符')||state.flags.talisman_used},"effects":{"sanity":10,"yin":-15,"removeItem":"护身符","setFlag":"talisman_used"}}),createChoice({"text":"举起铜镜碎片照她","next":"run_away_coffin","condition":{"hasItem":"铜镜碎片"},"effects":{"sanity":5,"yin":-10}}),createChoice({"text":"撒一把糯米","next":"run_away_coffin","condition":{"hasItem":"糯米"},"effects":{"yin":-15,"removeItem":"糯米"}}),createChoice({"text":"尖叫着冲出门","next":"run_away_coffin"})]}),
+你忽然意识到，红盖头下的不是祖母本人，是周家规矩借她的形，继续守这场亲。`,effects:{"sanity":-50,"yin":20,"visual":"shake"},choices:[createChoice({"text":"把护身符按在面前","next":"small_door_talisman_escape","condition":{"hasItem":"护身符"},"effects":{"sanity":10,"yin":-15,"removeItem":"护身符","setFlag":"talisman_used"}}),createChoice({"text":"举起铜镜碎片照她","next":"small_door_mirror_escape","condition":{"hasItem":"铜镜碎片"},"effects":{"sanity":5,"yin":-10}}),createChoice({"text":"撒一把糯米","next":"small_door_rice_escape","condition":{"hasItem":"糯米"},"effects":{"yin":-15,"removeItem":"糯米"}}),createChoice({"text":"尖叫着冲出门","next":"run_away_coffin"})]}),
+    small_door_talisman_escape: createScene('small_door_talisman_escape', {title:'符退新娘',text:`你把护身符按在面前。黄纸刚碰到红盖头，便像被火烫到一样卷曲起来，朱砂的字一笔一笔亮起。
+
+新娘猛地后退，盖头下传来一声尖利的嘶鸣。喜房的红烛同时熄灭，门外的灵堂露出一道逃生的缝隙。护身符在你掌心化成灰，只剩一股艾草味。
+
+你趁她退开的瞬间冲向门外。`,effects:{"sanity":5,"yin":-5,"setFlag":"small_door_talisman_escape"},choices:[createChoice({"text":"冲出喜房，奔向大门","next":"run_away_coffin"})]}),
+    small_door_mirror_escape: createScene('small_door_mirror_escape', {title:'照魂退影',text:`你举起铜镜碎片，对准红盖头下那张和你一模一样的脸。
+
+镜片里的新娘没有动，现实中的她却像被一只无形的手扯住，身体向后折去。红盖头下传来两道声音，一道是秀兰的哭声，另一道是纸张撕裂的声响。她身后的红烛逐盏熄灭，门外的灵堂重新露出来。
+
+你没有等她站稳，转身冲出喜房。`,effects:{"sanity":5,"yin":-8,"setFlag":"small_door_mirror_escape"},choices:[createChoice({"text":"冲出喜房，奔向大门","next":"run_away_coffin"})]}),
+    small_door_rice_escape: createScene('small_door_rice_escape', {title:'糯米镇影',text:`你抓起一把糯米撒向新娘的脚边。
+
+糯米落地的瞬间，红盖头下的影子像被钉住一样停止了挣动。她发出一声压抑的呜咽，脚边的红色迅速褪成灰白。门外传来木板松动的声音，逃出去的路终于出现。
+
+你趁她无法追来，冲出喜房。`,effects:{"sanity":5,"yin":-5,"setFlag":"small_door_rice_escape"},choices:[createChoice({"text":"冲出喜房，奔向大门","next":"run_away_coffin"})]}),
     pull_back_hand: createScene('pull_back_hand', {title:'扯黑发',text:`你用力一扯，手从水面上挣脱。
 
 扯的时候很用力，用力得你整个人都往后仰。可你带出来的不是井水，而是一团黑色的长发。长发缠在你的手腕上，越勒越紧，紧得你手腕都开始发紫。那头发是活的，会动，像一条黑色的蛇。

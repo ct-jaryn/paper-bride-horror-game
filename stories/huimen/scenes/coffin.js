@@ -80,7 +80,16 @@ export const scenes = {
 
 然后，她的头缓缓转向你，盖头跟着动，盖头下的阴影里传来一个年轻女子的声音，带着井水的回音：
 
-[whisper]"你终于……来娶我了。"[/whisper]`,effects:{"sanity":-40,"yin":15,"visual":"blood","visualDuration":3000},choices:[createChoice({"text":"盖上棺盖，转身就跑","next":"run_away_coffin","effects":{"sanity":-10}}),createChoice({"text":"双腿发软，动弹不得","next":"paralyzed","ending":"ghostMarriage"}),createChoice({"text":"伸手去掀她的红盖头","next":"huimen_observe_hall"}),createChoice({"text":"查看她手上的金戒指","next":"huimen_observe_hall"})]}),
+[whisper]"你终于……来娶我了。"[/whisper]`,effects:{"sanity":-40,"yin":15,"visual":"blood","visualDuration":3000},choices:[createChoice({"text":"盖上棺盖，转身就跑","next":"run_away_coffin","effects":{"sanity":-10}}),createChoice({"text":"双腿发软，动弹不得","next":"paralyzed","ending":"ghostMarriage"}),createChoice({"text":"伸手去掀她的红盖头","next":"huimen_exp3_xiulan_memory_wedding_face"}),createChoice({"text":"查看她手上的金戒指","next":"approach_coffin_ring"})]}),
+    approach_coffin_ring: createScene('approach_coffin_ring', {title:'祖母的婚戒',text:`你没有碰盖头，先伸手去看她指上的金戒指。
+
+戒指卡在苍白的无名指上，戒面刻着一朵变形的并蒂莲。你用指腹摸到内圈，那里有一道熟悉的磨痕——这是祖母戴了一辈子的婚戒。
+
+可祖母的手腕明明已经僵硬，戒指却出现在秀兰手上。你终于明白，周家不是把祖母请来主持这场婚事，而是把她最后一点身份也拿来替秀兰“补名分”。
+
+秀兰的手指忽然收紧，戒指在皮肉上勒出一道红痕。她隔着盖头问你："你也要把她留下的东西，从我手上拿走吗？"
+
+你立刻收回手。眼前的女尸不是一件供品，戒指也不是证据——这是一个被周家强行塞进婚礼的人。`,effects:{"sanity":-8,"yin":5,"setFlag":"saw_grandmother_ring"},choices:[createChoice({"text":"盖回盖头，趁她分神逃走","next":"run_away_coffin","effects":{"sanity":-5}}),createChoice({"text":"喊出秀兰的名字，告诉她你不是来娶她的","next":"beg_xiulan"})]}),
     run_away_coffin: createScene('run_away_coffin', {title:'无处可逃',text:`你发疯似的冲向大门。
 
 可大门在你眼前"砰"地一声关上了，门闩没人动，自己落下来的。门板上贴满了黄符，符上的朱砂字像虫子一样蠕动，一笔一画地扭着，发出极轻的"沙沙"声。
@@ -168,7 +177,7 @@ export const scenes = {
 [red]你成了新的纸人。[/red]
 
 火灭之后，堂屋的角落里，多了一个穿着新郎服的纸人。它的脸，和你一模一样。`,ending:'paperDoll'}),
-    red_coffin_locked: createScene('red_coffin_locked', {title:'红棺封印',text:`井底的红棺被七根红绳捆着，每根红绳都绷得极紧，勒进棺木里，勒出一道道深痕。每根红绳的绳头都系着一枚铜钱，铜钱发黑，钱孔里塞着朱砂，朱砂已经干成暗红色，像凝固的血。
+    red_coffin_locked: createScene('red_coffin_locked', {title:'红棺封印',text:`井底的红棺被九根红绳捆着，每根红绳都绷得极紧，勒进棺木里，勒出一道道深痕。每根红绳的绳头都系着一枚铜钱，铜钱发黑，钱孔里塞着朱砂，朱砂已经干成暗红色，像凝固的血。
 
 棺盖上刻着一行字，笔画极深，是用刀一笔一笔凿出来的：
 
@@ -176,5 +185,5 @@ export const scenes = {
 
 你摸了摸口袋里的断同心结红绳和云袖银簪——银簪是云袖的遗物，云袖是百年前周家另一个被纸替的女子。可云袖银簪是照魂的吗？你不确定。情丝好懂，是同心结红绳，可照魂……
 
-也许，你还需要找到一面镜子。一面能照出魂魄的镜子。`,effects:{"yin":10},choices:[createChoice({"text":"用红绳和铜镜一起解封","next":"open_red_coffin","condition":{"hasItem":"云袖银簪"},"effects":{"removeItem":"云袖银簪","setFlag":"red_coffin_unlocked"}}),createChoice({"text":"强行扯断红绳","ending":"hidden_redCoffinOpen"}),createChoice({"text":"放弃开棺","next":"huimen_exp_well_night"})]})
+也许，你还需要一件能照见魂魄的遗物。`,effects:{"yin":10},choices:[createChoice({"text":"用照魂银簪解开封印","next":"open_red_coffin","condition":{"hasItem":"云袖银簪"},"effects":{"removeItem":"云袖银簪","setFlag":"red_coffin_unlocked"}}),createChoice({"text":"强行扯断红绳","ending":"hidden_redCoffinOpen"}),createChoice({"text":"放弃开棺","next":"huimen_exp_well_night"})]})
 };

@@ -85,13 +85,13 @@ export const scenes = {
 
 那锯子挂得很高，挂在一根钉子上，钉子都被锈蚀得发红。他踮着脚取下来，取的时候那条断腿一瘸，差点摔倒。
 
-"这把锯子，我藏了很多年。"他说，用袖子擦了擦锯面上的锈，"井边那棵老槐树，是周家用第一个女子的血种下的。那女子叫阿沅，是族长他姐姐，第一个被沉井的人。锯断它，井里的怨气就能散一半。"
+"这把锯子，我藏了很多年。"他说，用袖子擦了擦锯面上的锈，"井边那棵老桑树，是周家用第一个女子的血种下的。那女子叫阿沅，是族长他姐姐，第一个被沉井的人。锯断它，井里的怨气就能散一半。"
 
 锯面上的锈被他擦掉了，露出底下的钢。那钢还亮，亮得能照见人，像是这把锯子一直在等今天。
 
 他把锯子递给你："你走前面，我腿不好，跟在后面。"
 
-[whisper]他的腿虽然瘸，走得却比你快。像是这条路，他已经走了无数遍。[/whisper]`,effects:{"sanity":3,"yin":1,"addItem":"李木匠的锯"},choices:[createChoice({"text":"去老槐树","next":"huimen_exp_mulberry_tree","effects":{"yin":1}}),createChoice({"text":"先去井边","next":"huimen_exp_well_night","effects":{"yin":1}})]}),
+[whisper]他的腿虽然瘸，走得却比你快。像是这条路，他已经走了无数遍。[/whisper]`,effects:{"sanity":3,"yin":1,"addItem":"李木匠的锯"},choices:[createChoice({"text":"去老桑树","next":"huimen_exp_mulberry_tree","effects":{"yin":1}}),createChoice({"text":"先去井边","next":"huimen_exp_well_night","effects":{"yin":1}})]}),
     huimen_exp3_carpenter_li_together: createScene('huimen_exp3_carpenter_li_together', {title:'同往井边',text:`李木匠拄着一根木拐，一瘸一拐地跟你走到井边。
 
 他的脚步很轻，像踩在云上。每走一步，他身上的阴气就淡一分，等到了井边，他已经变得半透明。你回头看，能看见他身后的路，路上一串脚印，左深右浅，是他那条断腿留下的。
@@ -114,7 +114,7 @@ export const scenes = {
 他把手心的刨花吹散，刨花在风里飞，像一场隔了很久的雪。雪落在地上，落在他那条断腿上，落在那口没完工的小棺材上。
 
 "三十年的债，"他说，"该还了。"`,effects:{"sanity":5,"yin":-2,"setFlag":"huimen_exp3_carpenter_promise"},choices:[createChoice({"text":"去井底","next":"huimen_exp3_well_bottom","effects":{"yin":1}})]}),
-    huimen_exp3_carpenter_li_saw_tree: createScene('huimen_exp3_carpenter_li_saw_tree', {title:'锯树',text:`李木匠接过锯子，一下一下锯向老槐树。
+    huimen_exp3_carpenter_li_saw_tree: createScene('huimen_exp3_carpenter_li_saw_tree', {title:'锯树',text:`李木匠接过锯子，一下一下锯向老桑树。
 
 锯齿咬进树皮，发出"咔——咔——"的响，像在锯骨头。树皮裂开，露出底下的木，那木是暗红的，红得像肉。
 
@@ -122,7 +122,7 @@ export const scenes = {
 
 秀兰的身影站在树影里，随着每一锯下去，她的身形就清晰一分。她的红嫁衣在树影里飘，像一面旗。
 
-最后一锯落下，老槐树轰然倒地。树根翻起的土里，滚出无数细小的骨珠，像是谁藏了一辈子的眼泪。
+最后一锯落下，老桑树轰然倒地。树根翻起的土里，滚出无数细小的骨珠，像是谁藏了一辈子的眼泪。
 
 [red]那些骨珠，是井里那些女子三十年的泪。[/red]`,effects:{"sanity":10,"yin":-8,"setFlag":"huimen_exp3_tree_cut"},choices:[createChoice({"text":"扶李木匠坐下","next":"huimen_exp3_ending_carpenter_saw_scene","effects":{"yin":1}})]})
 };

@@ -44,5 +44,5 @@ export const scenes = {
 
 你凑近闻了闻——桂花和檀香缠在一起，甜得发腻。祖母生前说过，给阴人封棺要朱砂画符，意思是棺材里'住'的不止一个。
 
-二叔的手搭在你肩上，手是凉的："别看了。看了，就更要成亲了。"`,effects:{"sanity":-15,"yin":5,"setFlag":"saw_coffin_inscription"},choices:[createChoice({"text":"推开棺盖看个究竟","next":"huimen_enter_coffin_room","effects":{"sanity":-10,"yin":3}}),createChoice({"text":"后退，先问清楚","next":"huimen_enter_coffin_room","effects":{"yin":1}}),createChoice({"text":"质问二叔这是什么意思","next":"ask_coffin_with_inscription","effects":{"sanity":-5,"yin":1}})]})
+二叔的手搭在你肩上，手是凉的："别看了。看了，就更要成亲了。"`,effects:{"sanity":-15,"yin":5,"setFlag":"saw_coffin_inscription"},choices:[createChoice({"text":"推开棺盖看个究竟","next":"approach_coffin","effects":{"sanity":-10,"yin":3}}),createChoice({"text":"后退，先问清楚","next":"ask_coffin_with_inscription","effects":{"yin":1}}),createChoice({"text":"质问二叔这是什么意思","next":"ask_coffin_with_inscription","effects":{"sanity":-5,"yin":1}})]})
 };

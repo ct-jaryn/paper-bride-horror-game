@@ -235,7 +235,7 @@ Huimen.skipTyping = skipTyping;
 /**
  * 渲染场景
  */
-export function renderScene(sceneId) {
+export function renderScene(sceneId, { applyEntryEffects = true, recordHistory = true } = {}) {
     const scene = Huimen.StoryData[sceneId];
     if (!scene) {
         console.error('场景不存在:', sceneId);
@@ -243,17 +243,24 @@ export function renderScene(sceneId) {
     }
 
     patchGameState('currentScene', sceneId);
-    pushToArray('history', sceneId);
-    if (Huimen.GameState.history.length > 200) {
+    if (recordHistory) pushToArray('history', sceneId);
+    if (recordHistory && Huimen.GameState.history.length > 200) {
         patchGameState('history', Huimen.GameState.history.slice(-100));
     }
 
-    applyEffects(scene.effects);
+    if (applyEntryEffects) applyEffects(scene.effects);
 
     // 场景效果可能导致死亡，需检查
     const forcedEnding = checkGameOver();
     if (forcedEnding) {
+        if (Huimen.CurrentStory) saveStoryState(Huimen.CurrentStory.id);
         showEnding(forcedEnding);
+        return;
+    }
+
+    if (scene.ending) {
+        if (Huimen.CurrentStory) saveStoryState(Huimen.CurrentStory.id);
+        showEnding(scene.ending);
         return;
     }
 
@@ -397,6 +404,7 @@ export function renderChoices(choices) {
 
     const visibleChoices = choices.filter((choice) => {
         if (choice.condition && !checkCondition(choice.condition)) return false;
+        if (choice.hideIf && (typeof choice.hideIf === 'function' ? choice.hideIf(Huimen.GameState) : checkCondition(choice.hideIf))) return false;
         return isChoiceReachable(choice);
     });
 
@@ -471,6 +479,7 @@ export function renderStorySelect() {
     const endingsReached = achievementData.endingsReached || {};
 
     Huimen.StoryManifest.forEach((story, index) => {
+        const imageUrl = story.image ? new URL(story.image, document.baseURI).href : '';
         const hasSave = SaveManager.loadStorySave(story.id);
         const reached = endingsReached[story.id] || [];
         const progressText = reached.length > 0 ? `已达成 ${reached.length} 结局` : (hasSave ? '有存档' : '未开始');
@@ -480,7 +489,7 @@ export function renderStorySelect() {
         card.style.setProperty('--order', String(index));
         card.innerHTML = `
             <div class="story-card-image">
-                <img src="/${escapeHtml(story.image || '')}" alt="${escapeHtml(story.title)}" loading="lazy">
+                <img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(story.title)}" loading="lazy">
             </div>
             <div class="story-card-header">
                 <div class="story-card-title-wrap">

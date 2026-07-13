@@ -178,7 +178,7 @@ export function loadStoryState(storyId, storyData, globalFlags) {
     }
 
     const clean = {};
-    const allowed = ['sanity', 'yin', 'time', 'inventory', 'flags', 'currentScene', 'history', 'choiceLog', 'lastSaveAt', 'npcState'];
+    const allowed = ['sanity', 'yin', 'time', 'inventory', 'flags', 'currentScene', 'history', 'choiceLog', 'lastSaveAt', 'reviveCheckpoints', 'npcState'];
     allowed.forEach(key => {
         if (key in data) clean[key] = clone(data[key]);
     });
@@ -194,6 +194,7 @@ export function loadStoryState(storyId, storyData, globalFlags) {
     }
     if (!Array.isArray(clean.history)) clean.history = [];
     if (!Array.isArray(clean.choiceLog)) clean.choiceLog = [];
+    if (!Array.isArray(clean.reviveCheckpoints)) clean.reviveCheckpoints = [];
 
     Object.keys(Huimen.GameState).forEach(key => delete Huimen.GameState[key]);
     Object.assign(Huimen.GameState, cloneState(), clean);

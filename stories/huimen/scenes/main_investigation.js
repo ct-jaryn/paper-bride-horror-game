@@ -17,7 +17,7 @@ export const scenes = {
 
 [faded]"我对不起秀兰。她怀的是周家的孩子，可爹说周家不能有这种丑事。我被锁在东厢房里，从门缝看见她被拖过院子，手指抠着门板的缝隙，却推不开那扇门。一个字也没敢说。"[/faded]
 
-你的手指开始发抖。`,effects:{"sanity":-10,"yin":5,"addItem":"祖父日记残页","setFlag":["knows_xiulan_truth","knowsTruth"]},choices:[createChoice({"text":"把日记收好，继续调查","next":"investigate_items_hub"}),createChoice({"text":"直接去灵堂","next":"huimen_old_house_gate"})]}),
+你的手指开始发抖。`,effects:{"sanity":-10,"yin":5,"addItem":"祖父日记残页","setFlag":["knows_xiulan_truth","knowsTruth"]},choices:[createChoice({"text":"把日记收好，继续调查","next":"investigate_items_hub"}),createChoice({"text":"直接去灵堂","next":"huimen_observe_hall"})]}),
     investigate_paper_dolls: createScene('investigate_paper_dolls', {title:'纸人调查',text:`你蹲下身，仔细查看那两个纸扎人。
 
 雨打湿了它们的纸衣，纸衣贴在骨架上，显出底下的竹篾。男纸人的骨架是用竹篾扎的，很普通，竹篾都是白的，扎得也很粗。但女纸人的骨架里，却混着一缕真正的头发——黑色的、柔软的、属于活人的头发。那头发编在竹篾里，像一根黑色的藤缠在白竹上。
