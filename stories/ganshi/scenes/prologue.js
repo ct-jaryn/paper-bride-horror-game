@@ -7,6 +7,7 @@ import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 export const scenes = {
     prologue: createScene('prologue', {
         title: '赶尸',
+        cg: 'assets/images/cg/ganshi/prologue.webp',
         text: `湘西的雨，从来不是从天上落下来的，是从山里渗出来的。
 
 你走在辰州府往北的官道上，雨丝细得像针，斜斜地插进蓑衣领子里。火把早被淋湿了，只剩一截焦黑的芯子冒青烟。你舍不得扔，举在手里，权当个伴。

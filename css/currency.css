@@ -163,6 +163,23 @@
     opacity: 1;
 }
 
+.shop-item-image {
+    width: calc(100% + 3rem);
+    margin: -1.5rem -1.5rem 0.35rem;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+    border-bottom: 1px solid rgba(163, 22, 33, 0.45);
+    background: #0d0b0a;
+    filter: saturate(0.82) contrast(1.06);
+    transition: filter 0.3s ease, transform 0.45s ease;
+}
+
+.shop-item:hover .shop-item-image {
+    filter: saturate(1) contrast(1.1);
+    transform: scale(1.025);
+}
+
 .shop-item-name {
     font-size: 1.3rem;
     color: var(--bright-red);
@@ -322,6 +339,12 @@
 
     .shop-item {
         padding: 1rem;
+    }
+
+    .shop-item-image {
+        width: calc(100% + 2rem);
+        margin: -1rem -1rem 0.25rem;
+        aspect-ratio: 16 / 9;
     }
 
     .shop-recharge-row {

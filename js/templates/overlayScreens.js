@@ -36,30 +36,35 @@ export const overlayScreensTemplate = `<div class="cg-overlay hidden" id="cg-ove
 </div>
 <div class="shop-grid">
 <div class="shop-item">
+<img class="shop-item-image" src="assets/images/shop/spirit-talisman.webp" alt="通灵符" loading="lazy" decoding="async"/>
 <div class="shop-item-name">通灵符</div>
 <div class="shop-item-desc">购买一张通灵符，下次求签不扣阴钱。</div>
 <div class="shop-item-price"><span id="shop-hint-cost">10</span> 阴钱</div>
 <button class="horror-btn" id="shop-buy-hint">购买</button>
 </div>
 <div class="shop-item">
+<img class="shop-item-image" src="assets/images/shop/dream-scroll.webp" alt="窥梦图卷" loading="lazy" decoding="async"/>
 <div class="shop-item-name">窥梦图</div>
 <div class="shop-item-desc">解锁一张珍藏插图，收入残卷图鉴。</div>
 <div class="shop-item-price"><span id="shop-cg-cost">50</span> 阴钱</div>
 <button class="horror-btn" data-cg-id="dream_1" id="shop-buy-cg">购买</button>
 </div>
 <div class="shop-item">
+<img class="shop-item-image" src="assets/images/shop/life-incense.webp" alt="续命香" loading="lazy" decoding="async"/>
 <div class="shop-item-name">续命香</div>
 <div class="shop-item-desc">购买一柱续命香，死亡结局时可借命还阳一次。</div>
 <div class="shop-item-price"><span id="shop-revive-cost">50</span> 阴钱</div>
 <button class="horror-btn" id="shop-buy-revive">购买</button>
 </div>
 <div class="shop-item">
+<img class="shop-item-image" src="assets/images/shop/calming-tea.webp" alt="定神茶" loading="lazy" decoding="async"/>
 <div class="shop-item-name">定神茶</div>
 <div class="shop-item-desc">饮下一杯定神茶，恢复 15 点理智。仅在故事中有效。</div>
 <div class="shop-item-price"><span id="shop-sanity-cost">80</span> 阴钱</div>
 <button class="horror-btn" id="shop-buy-sanity">购买</button>
 </div>
 <div class="shop-item">
+<img class="shop-item-image" src="assets/images/shop/exorcism-bell.webp" alt="驱邪铃" loading="lazy" decoding="async"/>
 <div class="shop-item-name">驱邪铃</div>
 <div class="shop-item-desc">摇响驱邪铃，降低 15 点阴气。仅在故事中有效。</div>
 <div class="shop-item-price"><span id="shop-yin-cost">80</span> 阴钱</div>

@@ -6,6 +6,7 @@ import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 export const scenes = {
   prologue: createScene('prologue', {
     title: '替身',
+    cg: 'assets/images/cg/tishen/prologue.webp',
     text: `你已经有五年没回过老家。
 
 这次回来，是因为母亲打电话说父亲病重。电话那头她的声音又轻又哑，像隔着一层旧棉絮，只说了句"你爸怕是不行了"，就挂了。你请了假，坐了六个小时高铁，又转了两趟大巴，最后还搭了一段三轮摩托。一路上窗外的景色从高楼变成平房，从平房变成土墙，最后连路都变成了碎石子路。傍晚时分，你终于站在了老屋门前。

@@ -7,6 +7,7 @@ import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 export const scenes = {
     marry_fox: createScene('marry_fox', {
         title: "迎娶狐女",
+        cg: 'assets/images/cg/hujia/marry-fox.webp',
         text: `你与狐女在洞府正厅拜了堂。
 
 没有喜烛，没有喜字，连媒人都没有。狐狸们围成一圈，举着狐火当灯笼，幽蓝的火苗在石壁上投下摇摇晃晃的影子。一只老狐狸念着含糊的祝词，那腔调不像人间礼数，倒像在背一段古老的咒。

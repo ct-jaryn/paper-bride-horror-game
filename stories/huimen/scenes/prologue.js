@@ -45,3 +45,5 @@ export const scenes = {
 
     你远远望见老宅的大门紧闭，门缝里渗出一丝暗红的光，像是有什么东西在里面把守着。`,effects:{"sanity":-5,"yin":5,"visual":"flicker","visualDuration":2000},textVariants:[{condition:{sanityBelow:50},text:`[whisper]你的头一阵阵发沉。老槐树的影子在扭曲，像是无数只手在向你招摇。[/whisper]`},{condition:{yinAbove:30},text:`阴气重得像湿布裹在身上。纸扎人的嘴角似乎又咧开了一分。`}],choices:[createChoice({"text":"问她秀兰是谁","next":"ask_xiulan"}),createChoice({"text":"不理她，径直往老宅走","next":"huimen_village_gate"}),createChoice({"text":"仔细观察那两个纸人","next":"inspect_paper_dolls","effects":{"sanity":-8,"yin":2}}),createChoice({"text":"侧耳倾听，纸人似乎在低语","next":"paper_whisper","condition":{"yinAbove":15},"hidden":true,"effects":{"sanity":-5,"yin":5}}),createChoice({"text":"感觉时辰已晚，先在村口整理思绪","next":"shichen_hai_entry","condition":{"timeAfter":1320},"hidden":true,"effects":{"time":30}}),createChoice({"text":"老宅大门似乎被什么东西封住了","next":"old_house_door_locked"})],hallucination:'[whisper]你低头看自己的手，发现手腕上已经系了一根红绳。红绳的另一端，消失在夜色里。[/whisper]'})
 };
+
+scenes.prologue.cg = 'assets/images/cg/huimen/prologue.webp';

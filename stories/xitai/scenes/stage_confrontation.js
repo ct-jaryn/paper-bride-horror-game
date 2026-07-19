@@ -7,6 +7,7 @@ import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 export const scenes = {
   xitai_stage_confrontation: createScene('xitai_stage_confrontation', {
     title: '台前对峙',
+    cg: 'assets/images/cg/xitai/stage-confrontation.webp',
     text: `你带着所有证据回到台前。
 
 戏台比刚才更暗了。台角的四盏红灯笼变成了一盏，一盏，又一盏，像是有人从远处提着灯笼走来，又像是有人从近处提着灯笼走远。风里带着桐油和河水的气味，吹得台板上的纸灰打着旋儿。你脚下的木板发出空洞的呻吟，每一步都像踩在某种巨大的乐器上。你低头看，发现自己的影子被拉得很长，长得超出了它本该有的范围。影子的尽头一直延伸到台中央，和那块焦痕重叠在一起。你动了动脚，影子却没有跟着动——它像是被什么东西钉在了焦痕上，成了一个独立的形状。你忽然意识到，你的影子已经不再是你的了，它成了戏台的一部分，成了这出戏里一个观众的位置。你不敢再看它，把目光投向台中央。 

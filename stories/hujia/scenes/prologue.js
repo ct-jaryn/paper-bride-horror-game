@@ -7,6 +7,7 @@ import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 export const scenes = {
     prologue: createScene('prologue', {
         title: "狐嫁",
+        cg: 'assets/images/cg/hujia/prologue.webp',
         text: `你叫周远，是山脚下的猎户之子。
 
 父亲死的那年你十五，今年你二十五。十年了，你独自住在老屋里，靠打猎为生。村里人都不太喜欢你，说你命硬，克死了父亲——你出生那天，你娘难产死了；你十五岁那年，你爹进山打猎，被一头没见过的白兽惊了马，摔下悬崖。村里人背后叫你"丧门星"，当面不敢说，只在你经过时把自家小孩往后拽。

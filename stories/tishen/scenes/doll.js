@@ -6,6 +6,7 @@ import { createScene } from '../../../js/engine/sceneFactory.js';
 export const scenes = {
   doll_takeover_plan: createScene('doll_takeover_plan', {
     title: '纸人夺身',
+    cg: 'assets/images/cg/tishen/doll-takeover.webp',
     text: `"我的意思是，" 纸人说，往前迈了一步。那一步踩在地上，没有脚印，可你能感觉到地皮震了一下，"你既然不愿意救你爸，那你的命留着也没用。不如给我。"
 
 它的话音刚落，你就感到一阵眩晕。那眩晕不是头昏，是整个人往下坠的感觉，像脚底下的土突然变成了棉花。你低头看自己的手，发现皮肤正在变皱、变黄、变薄——指节处先是起了一层细密的纸纹，像年久干裂的旧墙，然后那纹路一道道加深，把整张皮都变成了纸。

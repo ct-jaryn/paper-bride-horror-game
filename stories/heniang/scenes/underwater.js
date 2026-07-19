@@ -6,6 +6,7 @@ import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 export const scenes = {
   underwater_chorus: createScene('underwater_chorus', {
     title: '水下合唱',
+    cg: 'assets/images/cg/heniang/underwater-chorus.webp',
     text: `你屏住呼吸，跪在湿泥地上，把耳朵贴近水面。
 
 河水冰凉，贴着耳廓时你打了个寒颤。水底下传来极细的歌声，不是一个人在唱，而是很多个声音叠在一起，一层压一层，像是从很深很深的水底冒上来的。她们唱的不是河娘引诱人的那首——那首是甜的，软的；这一首更古老，更凄凉，调子拖得长长的，像是有人在哭：

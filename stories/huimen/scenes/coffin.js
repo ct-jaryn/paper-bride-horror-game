@@ -187,3 +187,5 @@ export const scenes = {
 
 也许，你还需要一件能照见魂魄的遗物。`,effects:{"yin":10},choices:[createChoice({"text":"用照魂银簪解开封印","next":"open_red_coffin","condition":{"hasItem":"云袖银簪"},"effects":{"removeItem":"云袖银簪","setFlag":"red_coffin_unlocked"}}),createChoice({"text":"强行扯断红绳","ending":"hidden_redCoffinOpen"}),createChoice({"text":"放弃开棺","next":"huimen_exp_well_night"})]})
 };
+
+scenes.approach_coffin.cg = 'assets/images/cg/huimen/approach-coffin.webp';

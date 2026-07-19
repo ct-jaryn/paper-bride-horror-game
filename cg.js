@@ -96,6 +96,17 @@ function onSceneRender(data) {
  */
 const CGManager = {
     /**
+     * 将外部系统提供的插图写入图鉴。
+     */
+    unlock(id, url, title, storyId) {
+        const normalizedId = id || url;
+        const wasUnlocked = this.isUnlocked(normalizedId);
+        unlockCG(normalizedId, url, title, storyId);
+        updateGalleryCount();
+        return !wasUnlocked;
+    },
+
+    /**
      * 展示一张 CG
      * @param {string} imageUrl - 图片路径或占位标识
      * @param {string} [title] - CG 标题

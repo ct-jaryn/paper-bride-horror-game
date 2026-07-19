@@ -6,6 +6,7 @@ import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 export const scenes = {
   prologue: createScene('prologue', {
     title: '河娘',
+    cg: 'assets/images/cg/heniang/prologue.webp',
     text: `你母亲的葬礼在雨天举行。
 
 雨不大，却是连绵的那种，下了一整天，把村口的土路泡成了稀泥。送葬的人打着黑伞，脚底下吧唧吧唧地响。没人哭得太厉害——你母亲是"自己走进河里的"，村里人觉得这事不干净，来了就是尽了人情，匆匆鞠个躬就走，连灵棚都不肯多待。

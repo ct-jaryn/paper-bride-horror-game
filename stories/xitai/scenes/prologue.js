@@ -6,6 +6,7 @@ import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 export const scenes = {
   prologue: createScene('prologue', {
     title: '青石戏台',
+    cg: 'assets/images/cg/xitai/prologue.webp',
     text: `青石镇往东三里，有一座老戏台。
 
 镇上的人叫它"鬼台"。没人肯带你去，你只能沿着长满青苔的石板路自己走。路上遇见一个挑担的货郎，他看你背着相机，远远地就绕开了，嘴里嘟囔着什么"拍不得"。

@@ -7,6 +7,7 @@ import { createScene, createChoice } from '../../../js/engine/sceneFactory.js';
 export const scenes = {
     corpse_conversation: createScene('corpse_conversation', {
         title: "尸语",
+        cg: 'assets/images/cg/ganshi/corpse-conversation.webp',
         text: `你屏住呼吸，雨水顺着鼻梁往下淌，你连擦都不敢擦。你侧着耳朵，把雨声、风声、铜铃的余响一点点从耳朵里剔出去，只剩那一丝极细极幽的东西。
 
 那不是风声，也不是雨声。

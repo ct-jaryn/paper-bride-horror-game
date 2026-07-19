@@ -21,6 +21,12 @@ const CurrencyManager = (function () {
 
     const HINT_COST = 10;
     const CG_COST = 50;
+    const DREAM_CG = {
+        id: 'dream_1',
+        url: 'assets/images/cg/dreams/dream-one.webp',
+        title: '窥梦 · 七卷同源',
+        storyId: 'dreams'
+    };
     const REVIVE_COST = 50;
     const SANITY_COST = 80;
     const YIN_COST = 80;
@@ -204,9 +210,18 @@ const CurrencyManager = (function () {
         }
     }
 
+    function registerDreamCG(showAfterUnlock = false) {
+        if (!Huimen.CGManager || typeof Huimen.CGManager.unlock !== 'function') return;
+        Huimen.CGManager.unlock(DREAM_CG.id, DREAM_CG.url, DREAM_CG.title, DREAM_CG.storyId);
+        if (showAfterUnlock && typeof Huimen.CGManager.show === 'function') {
+            Huimen.CGManager.show(DREAM_CG.url, DREAM_CG.title);
+        }
+    }
+
     function unlockCG(cgId) {
         cgId = cgId || 'dream_1';
         if (cgUnlocked.has(cgId)) {
+            if (cgId === DREAM_CG.id) registerDreamCG();
             showToast('此图已在囊中');
             return true;
         }
@@ -217,6 +232,7 @@ const CurrencyManager = (function () {
         if (spend(CG_COST, '解锁插图')) {
             cgUnlocked.add(cgId);
             save();
+            if (cgId === DREAM_CG.id) registerDreamCG(true);
             showToast('窥梦图已解锁');
             return true;
         }
@@ -367,6 +383,13 @@ const CurrencyManager = (function () {
         if (Platform.isMinigame()) return;
         const balanceEl = document.getElementById('shop-balance');
         if (balanceEl) balanceEl.textContent = balance;
+
+        const buyCgBtn = document.getElementById('shop-buy-cg');
+        if (buyCgBtn) {
+            const isOwned = cgUnlocked.has(buyCgBtn.dataset.cgId || DREAM_CG.id);
+            buyCgBtn.disabled = isOwned;
+            buyCgBtn.textContent = isOwned ? '已收藏' : '购买';
+        }
 
         const reviveCostEl = document.getElementById('shop-revive-cost');
         if (reviveCostEl) {
@@ -557,6 +580,7 @@ const CurrencyManager = (function () {
 
     function init() {
         load();
+        if (cgUnlocked.has(DREAM_CG.id)) registerDreamCG();
         createGameUI();
         bindShopButtons();
 
