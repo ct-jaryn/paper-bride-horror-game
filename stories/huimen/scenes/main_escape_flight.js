@@ -86,5 +86,5 @@ export const scenes = {
 
 [red]它还在。她还在。[/red]
 
-你忽然明白，烧掉一座柴房、跑出村口，并不能烧断三十年前结下的那根绳。那绳子系在你的血脉里，不管你跑到哪里，它都会跟到哪里。`,effects:{"sanity":-10,"yin":10},choices:[createChoice({"text":"硬闯村口","next":"charge_exit","ending":"sacrificed"})]})
+你忽然明白，烧掉一座柴房、跑出村口，并不能烧断三十年前结下的那根绳。那绳子系在你的血脉里，不管你跑到哪里，它都会跟到哪里。`,effects:{"sanity":-10,"yin":10},choices:[createChoice({"text":"咬牙冲出村口，头也不回","next":"charge_exit"}),createChoice({"text":"停下脚步，任那根红绳把你拖回那顶等你的红轿","ending":"sacrificed"})]})
 };

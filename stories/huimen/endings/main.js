@@ -14,7 +14,7 @@ ghostMarriage: createEnding('ghostMarriage', {
     }),
 paperDoll: createEnding('paperDoll', {
         title: "死亡结局 · 纸人替命",
-        text: "你成了老宅角落里 newest 的纸人。\n\n你的脸被画得很像，眉眼唇红，嘴角上扬。每年祭祀时，村民都会给你换上新的红绸花。\n\n有时候，李婆会指着你对孩子们说：\n\n\"看，这就是那个不听话的新郎官。\"\n\n孩子们会笑。你也跟着笑。\n\n毕竟，纸人是不会哭的。"
+        text: "你成了老宅角落里最新的那个纸人。\n\n你的脸被画得很像，眉眼唇红，嘴角上扬。每年祭祀时，村民都会给你换上新的红绸花。\n\n有时候，李婆会指着你对孩子们说：\n\n\"看，这就是那个不听话的新郎官。\"\n\n孩子们会笑。你也跟着笑。\n\n毕竟，纸人是不会哭的。"
     }),
 possessed: createEnding('possessed', {
         title: "死亡结局 · 借尸还魂",

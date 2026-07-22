@@ -78,7 +78,11 @@ function updateGalleryCount() {
  */
 function onSceneRender(data) {
     const scene = data && data.scene;
-    if (!scene || !scene.cg) return;
+    if (!scene || !scene.cg) {
+        // 进入无 CG 的场景时，收起可能残留的上一张 CG，避免它盖在后续内容上
+        CGManager.hide();
+        return;
+    }
 
     const url = scene.cg;
     const title = scene.cgTitle || scene.title || '';
@@ -255,6 +259,10 @@ function init() {
     // 注册事件监听
     if (typeof Huimen.GameEvents !== 'undefined') {
         Huimen.GameEvents.on('sceneRender', onSceneRender);
+        // 离开游戏画面（进入结局/标题/选卷等）时收起 CG，避免残留插画盖在结局等界面上
+        Huimen.GameEvents.on('screenChange', (e) => {
+            if (e && e.screen && e.screen !== 'game') CGManager.hide();
+        });
     }
 
     // CG 展示层关闭

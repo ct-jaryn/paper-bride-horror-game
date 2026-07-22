@@ -69,7 +69,7 @@ export const scenes = {
 
 每一具纸人，都对应着一个被周家害死的女子。她们的一部分被填进纸人里，替周家挡灾、还债、守墓。
 
-你在账册最后一页，发现了一张夹在里面的契约——周家与纸扎铺的百年契约。契约纸已经发脆，一碰就掉渣。`,effects:{"sanity":-10,"yin":8,"addItem":["族谱碎片二","周家纸人契约"],"setFlag":"paper_shop_investigated"},choices:[createChoice({"text":"烧了这张契约","ending":"hidden_paperDollBurned"}),createChoice({"text":"带契约去祠堂对质","next":"huimen_exp_ancestral_hall"})]}),
+你在账册最后一页，发现了一张夹在里面的契约——周家与纸扎铺的百年契约。契约纸已经发脆，一碰就掉渣。`,effects:{"sanity":-10,"yin":8,"addItem":["族谱碎片二","周家纸人契约"],"setFlag":["paper_shop_investigated","huimen_exp_read_paper_shop_ledger"]},choices:[createChoice({"text":"烧了这张契约","ending":"hidden_paperDollBurned"}),createChoice({"text":"带契约去祠堂对质","next":"huimen_exp_ancestral_hall"})]}),
     investigate_mulberry_tree: createScene('investigate_mulberry_tree', {title:'桑树调查',text:`你围着老桑树转了几圈，发现树干上有一道细长的裂缝。
 
 桑树很老，老得树皮都裂成一块一块的，像老人的皮。裂缝很细，细得你不仔细看就看不见。裂缝里塞着一团东西，你小心翼翼抠出来——是一缕用红绳扎着的头发，头发已经干枯发白，但还能看出曾经乌黑过。那红绳扎得很紧，紧得像是要把头发和树绑在一起。
