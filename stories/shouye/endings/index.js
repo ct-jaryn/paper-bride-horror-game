@@ -4,12 +4,16 @@
 
 import { Endings as hidden_trueEndings } from './hidden_true.js';
 import { Endings as hidden_publicEndings } from './hidden_public.js';
+import { Endings as hidden_actsEndings } from './hidden_acts.js';
+import { Endings as hidden_peopleEndings } from './hidden_people.js';
 import { Endings as deathEndings } from '././death.js';
 import { Endings as normalEndings } from '././normal.js';
 
 const ALL_ENDINGS = {
     ...hidden_trueEndings,
     ...hidden_publicEndings,
+    ...hidden_actsEndings,
+    ...hidden_peopleEndings,
     ...deathEndings,
     ...normalEndings
 };
@@ -19,7 +23,23 @@ const REMOVED_ENDINGS = new Set([
     'hidden_allSoulsRelease',
     'death_riverBottom',
     'death_arsonCurse',
-    'normal_simpleWatch'
+    'normal_simpleWatch',
+    // 以下彩蛋结局仅由已下线的“巡夜结局选择器”(patrol_corridor)引用，主线场景未引用；
+    // 保留定义以兼容旧存档，但不计入可收集结局。
+    'hidden_tearBlessing',
+    'hidden_silverHairpinReturn',
+    'hidden_stageRecord',
+    'hidden_riversideStage',
+    'hidden_paperWhisperDuet',
+    'hidden_yunxiuNamePlaque',
+    'hidden_lastAudience',
+    'hidden_burningCurtain',
+    'hidden_morgueLullaby',
+    'hidden_farewellSong',
+    'hidden_callerPeace',
+    'hidden_apprenticeFamily',
+    'hidden_zhouShengRebornHint',
+    'hidden_gravekeeperLife'
 ]);
 
 export const Endings = Object.fromEntries(

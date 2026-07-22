@@ -70,9 +70,6 @@ export const scenes = {
             createChoice({
                 text: "回七号厅告诉云袖这个消息",
                 next: "opera_to_yunxiu",
-                condition: {
-                    flag: "knowsName",
-                },
             }),
         ],
     }),

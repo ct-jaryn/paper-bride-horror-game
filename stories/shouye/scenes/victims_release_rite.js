@@ -76,6 +76,13 @@ export const scenes = {
                     time: 60,
                 },
             }),
+            createChoice({
+                text: "她的戏台棺还未备好——先下地下室，寻那口为她做的柚木棺",
+                next: "basement_descent",
+                condition: {
+                    noFlag: "foundCoffin",
+                },
+            }),
         ],
     })
 };
